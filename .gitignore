@@ -1,3 +1,4 @@
 __pycache__/
 *.pyc
 wo_data/
+wo_data_backup.*
