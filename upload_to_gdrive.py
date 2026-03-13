@@ -116,6 +116,23 @@ def upload_file(tokens, filepath, parent_id, retries=3):
     size_mb = filesize / (1024 * 1024)
     print(f"  Uploading {filename} ({size_mb:.1f} MB)...", end=' ', flush=True)
 
+    try:
+        return _do_upload(tokens, filepath, parent_id, retries)
+    except (requests.exceptions.ConnectionError, requests.exceptions.SSLError) as e:
+        if retries > 0:
+            print(f"CONN_ERR, retrying ({retries} left)...", end=' ', flush=True)
+            session.close()
+            session.verify = False
+            tokens = refresh_access_token(tokens)
+            time.sleep(3)
+            return upload_file(tokens, filepath, parent_id, retries - 1)
+        print(f"FAILED (connection: {e})")
+        return tokens, False
+
+
+def _do_upload(tokens, filepath, parent_id, retries):
+    filename = os.path.basename(filepath)
+    filesize = os.path.getsize(filepath)
     headers = get_headers(tokens)
 
     if filesize > 5 * 1024 * 1024:  # >5MB: use resumable upload
@@ -188,8 +205,13 @@ def upload_file(tokens, filepath, parent_id, retries=3):
             return tokens, False
 
 
+BATCH_SIZE = 10  # Re-auth every N file uploads to prevent timeouts
+_upload_counter = 0
+
+
 def upload_directory(tokens, local_dir, parent_id):
     """Recursively upload a directory to Google Drive, skipping existing files."""
+    global _upload_counter
     ok_count = 0
     fail_count = 0
     skip_count = 0
@@ -210,6 +232,15 @@ def upload_directory(tokens, local_dir, parent_id):
             if item in existing:
                 skip_count += 1
                 continue
+            # Re-auth every BATCH_SIZE uploads to keep connection fresh
+            _upload_counter += 1
+            if _upload_counter % BATCH_SIZE == 0:
+                print(f"  [Refreshing token after {_upload_counter} uploads...]")
+                tokens = refresh_access_token(tokens)
+                # Reset the requests session to get a fresh connection
+                session.close()
+                session.verify = False
+                time.sleep(1)
             tokens, success = upload_file(tokens, item_path, parent_id)
             if success:
                 ok_count += 1
