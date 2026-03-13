@@ -1,0 +1,215 @@
+
+
+<HTML>
+<HEAD>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title></title>
+
+<!-- Suggested JS libraries -->
+<script src="/rts/app/asp/js/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+<!-- DataTable JS libraries -->
+<script src="/rts/app/asp/js/jquery/jquery-1.12.4.js" type="text/javascript"></script>
+<script src="/rts/app/asp/js/DataTables/jquery.dataTables-1.10.15.min.js" type="text/javascript"></script>
+<script src="/rts/app/asp/js/DataTables/nightly.datatables.min.js" type="text/javascript"></script>
+<script src="/rts/app/asp/js/DataTables/dataTables-1.3.1.buttons.min.js" type="text/javascript"></script>
+<script src="/rts/app/asp/js/DataTables/dataTables-1.2.2.select.min.js" type="text/javascript"></script>
+<script src="/rts/app/components/Editor-1.6.3/js/dataTables.editor.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap JS libraries -->
+<script src="/rts/app/asp/js/bootstrap-3.3.7.min.js" type="text/javascript"></script>
+
+<!-- Local Global JS libraries -->
+<script src="/rts/app/asp/js/global.js?v=be731a6" type="text/javascript"></script>
+<script src="/rts/app/asp/js/escreen.js?v=be731a6" type="text/javascript"></script>
+<script src="/rts/app/asp/js/marketingtools.js?v=be731a6" type="text/javascript"></script>
+<script src="EditContingencyCol.js?v=be731a6" type="text/javascript"></script>
+
+<!-- DataTable CSS libraries -->
+<link href="/rts/app/asp/css/DataTables/jquery.dataTables-1.10.15.min.css" rel="stylesheet" type="text/css" />
+<link href="/rts/app/asp/css/DataTables/keyTable.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="/rts/app/asp/css/DataTables/buttons.dataTables-1.3.1.min.css" rel="stylesheet" type="text/css" />
+<link href="/rts/app/asp/css/DataTables/select.dataTables-1.2.2.min.css" rel="stylesheet" type="text/css" />
+<link href="/rts/app/components/Editor-1.6.3/css/editor.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Latest compiled and minified CSS -->
+<link href="/rts/app/asp/css/fontcss.css?v=be731a6" rel="stylesheet" type="text/css" />
+<link href="/rts/app/asp/css/rtsicons.css?v=be731a6" rel="stylesheet" type="text/css">
+<link href="/rts/app/asp/css/bootstrap-3.3.7.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="/rts/app/asp/aspcoexistencetheme/default.css?v=be731a6" rel="stylesheet" type="text/css">
+<link href="/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css" /> 
+<link href="/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css" rel="stylesheet" type="text/css" /> 
+
+<!-- Local Global CSS libraries -->
+<link href="/rts/app/asp/css/estilos.css?v=be731a6" type="text/css" rel="stylesheet">
+<link href="EditContingencyCol.css?v=be731a6" type="text/css" rel="stylesheet">
+
+</HEAD>
+
+<script type="text/javascript">
+    var WorkorderID = "1940046"
+    var WorkorderMod = "00"
+    var WorkorderStatus = "InProgress"
+    var CustomerFacilityID = "00221"
+    var ProjectCostCodeID = ""
+    var SelectedPCCat = ""
+    var metadataHistory = "<svg xmlns='http://www.w3.org/2000/svg' class='metadataHistory' width='24' height='24' viewBox='0 0 24 24'><g id='history' transform='translate(1280 -282)'><path id='Path_824' data-name='Path 824' d='M0,0H24V24H0Z' transform='translate(-1280 282)' fill='none'/><path id='Path_825' data-name='Path 825' d='M0,0H24V24H0Z' transform='translate(-1280 282)' fill='none'/><path id='history-2' data-name='history' d='M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3' transform='translate(-1279 282)'/></g></svg>"
+</script>
+
+<BODY id="bodyform" topmargin="0" leftmargin="0" onLoad="initialize();" onclick="hideMenu();" onscroll="hideMenu();">
+
+<script language="JavaScript" type="text/javascript" charset="utf-8">
+    LoadingMessagePage("on");
+</script>
+
+<div id="content" style="display:none" onclick="hideMenu();">
+
+
+<div id="staticmenu" style="position:relative; background-color:#ffffff">
+
+
+
+<table border="0" width="100%" height="52px" cellpadding=0 cellspacing=0 id="page-heading">
+<tr>
+    <td class="HomeActionsHeader">
+        <h1 class="pLeftZero">
+            <div class="dropdown btn-group">
+                <span class="btn btn-inactive manageBtn">
+                    <i class="zmdi zmdi-menu fontBtn"></i>
+                </span>
+            </div>
+            Mass Update Contingency
+        </h1>
+    </td>
+    <td  class="HomeActionsHeader buttonssection">
+        <div  style="float:right;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td style="padding:0px;">
+                    <input type="button" onclick="window.location.href='Budget_SPEED.asp?woid=1940046&womod=00&wostatus=InProgress&wostatusoriginal=&facilityID=00221&v=?be731a6'" class="btn btn-primary" style="height:40px;" value="Close">
+                    <span class="spaceButtoms"></span>
+
+                    
+                    <div class="dropdown btn-group">
+                    <a class="btn btn-default btnCustomPadding" id="linkMenuAdd" data-toggle="dropdown"><i class="zmdi zmdi-plus fontBtn"></i></a>
+                    <ul class="dropdown-menu"  aria-labelledby="linkMenuAdd">
+                    <li><a onclick="javascript:addDefaultAssembliesLightbox('Budget_SPEED');">Add Cost Code</a></li>
+                    </ul>
+                    </div>
+                    
+                    <div class="dropdown btn-group">
+                    <a class="btn btn-default dropdown-toggle btnCustomPadding" id="linkMenuView" data-toggle="dropdown"><i class="zmdi zmdi-desktop-windows fontBtn" ></i></a>
+                    <ul class="dropdown-menu"  aria-labelledby="linkMenuView">
+
+                    
+                    <li><a onclick="javascript:window.open('ViewBudget_SPEED.asp?sortBy=CostCode&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221&client=remnantconstruction');hideMenu();">Budget</a></li>
+	                
+                    <li><a onclick="javascript:window.open('ViewProjectSum_L_SPEED.asp?WorkorderID=1940046&WorkorderMod=00&CustomerFacilityID=00221&WorkorderStatus=InProgress&client=remnantconstruction&ActiveUser=1');hideMenu();">Financial Overview</a></li>
+                    
+                    <li><a onclick="javascript:window.open('../buyout_/views/ViewCommitmentsAudit.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress');hideMenu();">Open Commitments</a></li>
+	                
+	            
+                    </ul>
+                    </div>
+                    
+
+                    <a class="btn btn-default btnCustomPadding" disabled><i class="zmdi zmdi-filter-list fontBtn"></i></a>
+
+                    <a class="btn btn-default btnCustomPadding" disabled><i class="zmdi zmdi-more-horiz fontBtn" ></i></a>
+                    
+                    <a class="btn btn-default btnCustomPadding" href="javascript:openLigthBox('369');" ><i class="zmdi zmdi-help-outline fontBtn" ></i></a>
+
+                    <button type="button" class="btn btn-default btn-etoolbar" onclick="toggleEclipseScreen({ autoIcon: this })">
+                        <i class="rtsicon-enlarge"></i>
+                    </button>
+
+                </td>
+            </tr>
+            </table>
+        </div>
+    </td>
+</tr>
+</table>
+
+</div>
+
+<div class="alert alert-warning messagevalidations" id="tableMessage" role="alert" style="display:none; ">
+    <div><span id="tdMessage"></span></div>
+</div>
+
+<div  id ="alertWarning" style="position: relative;background-color:#f3f4f6; padding-bottom:5px; padding-top:17px;">
+    <div class="alert alert-warning alert-div-warning" role="alert">
+        <button type="button" class="close closeAditionalAlert" onclick="javascript:hidealert()">
+            <i class="zmdi zmdi-close"></i>
+        </button>
+        <div><span><strong>Warning!</strong> Click the Contingency line item to type in the field and press Enter to save or Esc to cancel.</span></div>
+    </div>
+</div>
+
+<TABLE id="DT_AdjustBudget" class="mdl-data-table">
+<thead>
+    <tr>
+        <th class="no_wrap left"></th>
+        <th class="no_wrap left">AssemblyNumber</th>
+        <th class="no_wrap left">CategoryName</th>
+        <th class="no_wrap left">Cost Code</th>
+        <th class="no_wrap center">Scope</th>
+        <th class="no_wrap left">CategoryName</th>
+        <th class="no_wrap left">Category</th>
+        <th class="right">&nbsp;</th>
+        <th class="left">Description</th>
+        <th class="no_wrap right">Estimate ($)</th>
+        <th class="no_wrap right">Budget ($)</th>
+        <th class="no_wrap right">Actuals ($)</th>
+        <th class="no_wrap right">Open ($)</th>
+        <th class="no_wrap right">At Risk ($)</th>
+        <th class="no_wrap right">Contingency ($)</th>
+        <th class="no_wrap right">Complete ($)</th>
+        <th class="no_wrap right">(Over)Under ($)</th>
+        <th class="no_wrap center">Notes</th>
+        <th class="no_wrap center">AdjustID</th>
+        <th class="no_wrap center">Log</th>
+    </tr>
+</thead>
+</TABLE>
+
+<table style="display:none;">
+<tr>
+    <td>
+        <input type="text" id="nItems" name="nItems" value="" />
+        <input type="text" id="ScopeListAux" name="ScopeListAux" value="" />
+        <button id="ButtonReload" onclick="javascript:document.location.reload();"></button>
+    </td>
+</tr>
+</table>
+
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+    <FORM id="FrmDefaultAss" name="FrmDefaultAss" action="../atrisk_/ManageAtRisk_actions.asp?woid=1940046&womod=00&wostatus=InProgress&facilityID=00221&action=saveassemblies&from=Budget_SPEED" method="post" target="_self">
+    <TR bgcolor="#FFFFFF">
+        <TD>
+	        <input type="hidden" id="AssCounter" name="AssCounter" value="1">
+	        <input type="hidden" id="AssSelected" name="AssSelected" value="0">
+	    </TD>
+    </TR>
+    <TR>
+        <TD width="100%" height="200px" colspan="5">
+            <input type="hidden" id="txtDefaultAssList" name="txtDefaultAssList" value="" />
+            <DIV id="divDefaultAssemblies" style="border:#cccccc 1px solid; height:100%; overflow-y:scroll; background-color:White"></DIV>
+        </TD>
+    </TR>
+    </FORM>
+</TABLE>
+
+
+
+</div>
+
+</Body>
+</HTML>
+<script type="text/javascript">
+    $(window).on("load", function (e) { setEclipseScreenIcon(); })
+</script>

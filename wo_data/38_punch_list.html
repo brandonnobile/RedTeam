@@ -1,0 +1,1121 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'> 
+  <link href="https://flex.redteam.com/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+<link href="https://flex.redteam.com/rts/app/asp/css/estilos.css" type="text/css" rel="stylesheet" />
+<link href="https://flex.redteam.com/rts/app/asp/css/skin/theme.css" type="text/css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://flex.redteam.com/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="https://flex.redteam.com/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+ 
+<link href="https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+<link rel='stylesheet' type='text/css' href='https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' /> 
+<script src="https://flex.redteam.com/rts/app/asp/js/calendar.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/calendar-en.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/global.js" type="text/javascript"></script>
+<script language="JavaScript" src="https://flex.redteam.com/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+ 
+<script src="https://flex.redteam.com/rts/app/asp/js/tbsort.js" type="text/javascript"></script>  
+<script language="JavaScript" src="https://flex.redteam.com/rts/app/asp/js/pickList.js?v=be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="https://flex.redteam.com/rts/app/asp/js/moment-with-locales.js?v=be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="punchList.js?v=be731a6" type="text/javascript"></script> <!-- requiere momentj for validate dates -->
+
+<!-- blueimp Gallery styles -->
+<link rel="stylesheet" href="/rts/app/components/Uploads/blueimp/blueimp-gallery.min.css">
+<link rel="stylesheet" href="/rts/app/components/uploads/css/jquery.fileupload.css">
+<link rel="stylesheet" href="/rts/app/components/uploads/css/dropzonestyle.css" >
+<link rel="stylesheet" href="/rts/app/components/uploads/css/dropzonrectangleestyle.css">
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<script type="text/javascript">
+window.onscroll = hideMenu;
+function Lookahead() {
+    document.location.href = '../progress_/schedule/currentSchedule.asp?p=c3B0PVRlYW1TZXJ2aWNlJndvPTE5NDAwNDYwMCZ1c3I9MSZjbGk9cmVtbmFudGNvbnN0cnVjdGlvbg';
+}
+
+function showScheduleDates() {
+    location.href = "schedule.asp?mng=dates";
+}
+
+function showSchedules(woid,womod,wostatus) {
+    location.href = "../schedulesupdate_/ManageSchedule.asp?WorkorderID="+woid+"&WorkorderMod="+womod+ "&WorkorderStatus="+wostatus +"&bandTab=";
+}
+
+function ventana(page, type) {
+    if (type == 'PerfOvw') {
+        window.open(page, "ventanaimg", "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,copyhistory=no,scrollbars=no,width=480,height=500,top=150,left=400");
+    }
+        else {
+        if (type == 'managetmsheets') {
+            document.location.href = page;
+        }
+        else {
+            window.open(page, "ventana", "toolbar=no,location=no,directories=no,status=yes,menubar=no,resizable=no,copyhistory=no,width=870,height=600,top=50,left=220");
+        }
+    }
+}
+
+function loadEmployee() {
+    var oItem = document.getElementById("cbAuthor");
+    if (oItem.value == "0") return;
+    if (oItem.value == "*") {
+        ShowLightBoxASP('/rts/app/employees/addEmployee.asp?band=blank&from=meeting&lightbox=true', '', '650px');
+        }
+}
+
+function loadLocation() {
+    var oItem = document.getElementById("cbLocation");
+    if (oItem.value == "0") return;
+    if (oItem.value == "*") {
+        ShowLightBoxASP('app/workorders/punchlist_/addLocation.asp?from=ManagePunchList&value_default=', '400px', '400px');
+    }
+} 
+    
+function charge_new_location(LocationID) {        
+    $.ajaxSetup({ cache: false });
+    $("#cbLocation").empty()
+    var oItem1 = document.getElementById("WorkorderID").value;
+    $.post("/rts/app/asp/jsonloaddropdownlist.asp?flag=LOCATION_PUNCHLIST&idItem=" + oItem1, function (data) {
+        var idented = "", i, position, position1, position2;
+        var list = "";
+        list = list + "<option value='0' Selected>Select one...</option> <option class='SelectBoxAddNew' value='*''>+ Add new</option>"
+        $.each(data['datos'], function (index, value) {
+            position = data['datos'][index]['WBS'];
+            var arrayPosition = position.split(".");
+            idented = "";
+            for (i = 0; i < arrayPosition.length - 1; i++) {
+                idented = idented + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+
+            if (data['datos'][index]['WorkorderAreaID'] != "0" || (data['datos'][index]['WorkorderAreaID'] == "0" && data['datos'][index]['LocationName'] == "Select one...")) {
+                if (data['datos'][index]['WorkorderAreaID'] == LocationID) {
+                    list = list + '<option value="' + data['datos'][index]['WorkorderAreaID'] + '" selected >' + idented + data['datos'][index]['LocationName'] + '</option>'
+                }
+                else {
+                    list = list + '<option value="' + data['datos'][index]['WorkorderAreaID'] + '" >' + idented + data['datos'][index]['LocationName'] + '</option>'
+                }
+            }
+        });
+
+        $("#cbLocation").append(list)
+
+        list = "";
+    });
+}
+
+/* function usada desde picklist.js*/
+function getSelections(item) {
+    var objLstLocation = document.getElementById("Lst_Location");
+    var lstLocationOptions = objLstLocation.options;
+
+    for (var x = 0; x < lstLocationOptions.length; x++) {
+        if (lstLocationOptions[x].value==item) {
+            if(lstLocationOptions[x].selected) {
+                optlislength= $("#Lst_Location" ).find("."+lstLocationOptions[x].value).length;
+                var optchild;
+                var obj;
+                for( var i=0; i<optlislength;i++) {
+                    $("#Lst_Location" ).find("."+lstLocationOptions[x].value)[i].selected=true;
+                    obj=$("#Lst_Location" ).find("."+lstLocationOptions[x].value)[i];
+                    optchild=$("#Lst_Location" ).find("."+lstLocationOptions[x].value)[i].value;
+                    verifychild($(obj).attr("label"),optchild);
+                }
+            } else {
+                optlislength= $("#Lst_Location" ).find("."+lstLocationOptions[x].value).length;
+                var optchild;
+                var obj;
+                for(var i=0; i<optlislength;i++) {
+                    $("#Lst_Location" ).find("."+lstLocationOptions[x].value)[i].selected=false;
+                        optchild=$("#Lst_Location" ).find("."+lstLocationOptions[x].value)[i].value;
+                        obj=$("#Lst_Location" ).find("."+lstLocationOptions[x].value)[i];
+                        verifychildunchk($(obj).attr("label"),optchild);
+                }
+            }
+        }
+    }
+    Lst_Location.requery();
+}
+
+function verifychild(itemlist,item) {
+    var objLst = document.getElementById("Lst_Location");
+    var lstOptions = objLst.options;
+
+    for (var xy = 0; xy < lstOptions.length; xy++) {
+        if (lstOptions[xy].value==item) {
+            if(lstOptions[xy].selected){
+                var optchild;
+                var obj;
+                for( var iy=0; iy<itemlist;iy++) {
+                    $("#Lst_Location" ).find("."+lstOptions[xy].value)[iy].selected=true;
+                    obj=$("#Lst_Location" ).find("."+lstOptions[xy].value)[iy];
+                    optchild=$("#Lst_Location" ).find("."+lstOptions[xy].value)[iy].value;
+                    verifychild($(obj).attr("label"),optchild);
+                }
+            }
+        }
+    }
+}
+
+function verifychildunchk(itemlist,item) {
+    var objLst = document.getElementById("Lst_Location");
+    var lstOptions = objLst.options;
+
+    for (var xy = 0; xy < lstOptions.length; xy++) {
+        if (lstOptions[xy].value==item) {
+            if(!lstOptions[xy].selected) {
+                var optchild;
+                var obj;
+                for( var iy=0; iy<itemlist;iy++) {
+                    $("#Lst_Location" ).find("."+lstOptions[xy].value)[iy].selected=false;
+                    obj=$("#Lst_Location" ).find("."+lstOptions[xy].value)[iy];
+                    optchild=$("#Lst_Location" ).find("."+lstOptions[xy].value)[iy].value;
+                    verifychildunchk($(obj).attr("label"),optchild);
+                }
+            }
+        }
+    }
+}
+    
+function reloadComb(parameter) {
+    $.ajaxSetup({ cache: false });
+    $("#cbAuthor").empty()
+    var oItem1 = document.getElementById("WorkorderID").value;
+    var oItem2 = document.getElementById("WorkorderMod").value;
+    $.post("/rts/app/asp/jsonloaddropdownlist.asp?flag=RESPONSIBLE&idItem=" + oItem1 + "&idmod=" + oItem2, function (data) {
+            var list = "";
+            list = list + "<option value='0' Selected>Select one...</option> <option class='SelectBoxAddNew' value='*''>+ Add new</option>"
+            $.each(data['datos'], function (index, value) {
+            if (data['datos'][index]['UserID'] != "0" || (data['datos'][index]['UserID'] == "0" && data['datos'][index]['Author'] == "Select one...")) {
+                if (data['datos'][index]['UserID'] == parameter) {
+                    list = list + '<option value="' + data['datos'][index]['UserID'] + '" selected >' + data['datos'][index]['Author'] + '</option>'
+                }
+                else {
+                    list = list + '<option value="' + data['datos'][index]['UserID'] + '" >' + data['datos'][index]['Author'] + '</option>'
+                }
+            }
+        });
+
+        $("#cbAuthor").append(list)
+
+        list = "";
+    });
+}
+
+function OpenTooltip(TID) {
+    ShowLightBoxASP('app/asp/EditTooltip.asp?band=edit&CodeToolTip=' + TID + '', '', '300')
+}
+    
+var NumberIssuePlangrid = 0;
+var NumberIssueAutodesk = 0;
+
+function waitWhileProcessing(woid, womod) {
+    var flag = "COUNT_PROCESSING_ISSUE_PLANGRID";
+
+    $.ajax({
+        url: '../../asp/jsonGetData.asp',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        data: 'flag=' + flag + '&woid=' + woid,
+        success: function (a) {
+            if (a.datos[0].n != NumberIssuePlangrid) {                                          
+                window.location.reload();
+            }                 
+        },
+        error: function (jqXHR, textStatus, error) {                 
+            //console.log("error: " + jqXHR.responseText);
+        }
+    });
+} 
+
+function waitWhileProcessing_autodesk() {
+    var autodesk_uid = "";
+    var data = { 
+        "CompanyBDname": "remnantconstruction",
+        "ServerUpload": "IO",
+        "project_uid": autodesk_uid,
+        "workorderid": "1940046", 
+        "EnteredBy": 1 
+    };
+
+    if(autodesk_uid !== ""){
+        $.ajax({
+            type: "POST",
+            url: "https://autodesk.redteamsoftware.com/issues.asmx/GetIssues",
+            data: data,
+            dataType: "xml",
+            success: function (data) {
+                var xml = data;
+                var readedText = $(xml).find("string").text();
+                var data_content = JSON.parse(readedText);
+                if(data_content.check_last){
+                    if (data_content.total != NumberIssueAutodesk) {                                          
+                            window.location.reload();
+                    }
+                } 
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    }
+} 
+
+var bandCommitOpen = 0;
+function SaveChangesVerify(Url, cont, status, filename,DateFormat) {
+    var PunchTypeID = $("#cbPunchType"+cont).val();
+    var LocationID = $("#cbLocationName"+cont).val();
+
+    if (Url.indexOf("committed=true") >= 0 && ($("#_menuTools"+cont).is(":visible") && document.getElementById("spanCommit"+cont).style.display != "none")) {
+        if (!confirm("You are about to Commit this record.\r\nOnce Committed, it cannot be changed. Do you want to continue?"))
+            return;
+    }
+
+    if (document.getElementById("statushidden" + cont).value == "Draft" && document.getElementById("status" + cont).value == "Committed" && Url.indexOf("update=true") >= 0) {
+        if (!confirm("You are about to Commit this record.\r\nOnce Committed, it cannot be changed. Do you want to continue?"))
+            return;
+    }
+    console.log("mleon " + document.getElementById("statushidden" + cont).value)
+    if(LocationID == 0 || LocationID == '*'){
+        showMessageBar("Location is required.");  
+        return;  
+    }
+
+    var txtDescription_ = document.getElementById("txtDescription" + cont)
+
+    if (txtDescription_.value != '') {
+        var CountBR = txtDescription_.value.split("\n").length - 1;
+        if (txtDescription_.value.length + CountBR > 500) {
+            txtDescription_.value = txtDescription_.value.substring(0, 500 - CountBR);
+            showMessageBar('<b>Warning!</b> 500 characters permitted');
+            document.getElementById("tdMessage").focus();
+            return;
+        }
+    }
+
+    $.get("/rts/app/configuration/Configuration/DefaultPunchList_/PunchType.asp?ValidatedisableType=True&PunchTypeID=" + PunchTypeID, function (data) {
+        if (data == 'off') {
+            showMessageBar("Punch List type is invalid");                    
+        }
+        else {
+            var flag = "VALIDATE_PUNCHTYPE";
+
+            $.ajax({
+                url: '../../asp/jsonGetData.asp',
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                data: 'flag=' + flag + '&PunchTypeID=' + PunchTypeID,
+                success: function (a) {
+                    
+                    if (a.datos[0].n == 0) {                                                         
+                        showMessageBar("This type selected was removed!");
+                    }else if(a.datos[0].n > 0) {
+
+                        let noteHtml = $("#imgNotesy" + cont)
+                        if(noteHtml && $('#txtNotes' + cont).val() === '') {
+                                noteHtml.css('color','#4697ce')
+                                $("#test" + cont).text('- Empty Note -')
+                        } else {
+                                noteHtml.css('color','#ffc107')
+                        }
+                        SaveChanges(Url, cont, status, filename,DateFormat, '1940046','00','InProgress')
+                    }                 
+                },
+                error: function (jqXHR, textStatus, error) {                                
+                    //console.log("error: " + jqXHR.responseText);
+                }
+            });
+        } 
+    }); 
+}
+     
+     
+       
+        setInterval("waitWhileProcessing('1940046','00')", 15000);         
+    
+
+var typeObject = 'tProjPunchList' //component upload
+var client = 'remnantconstruction' //component upload
+
+// RED-6102: S3 Direct Upload Configuration
+var USE_S3_UPLOAD = true;
+var S3_DIRECTORY = 'punchlist';
+var S3_SOURCE = 'WorkorderPunch';
+var S3_REQUIRES_WORKORDER = true;
+var S3_USE_TEMP_WORKFLOW = true;
+</script>
+<style type="text/css">
+.KeywordLabelTab > span {
+    vertical-align: -3px !important;
+}
+
+.Prueba {
+    pointer-events : none !important;
+    color: gray !important;
+}
+  
+.flecha-left{
+    width:0px;
+    height:0px;
+    border-bottom:10px solid transparent;  /* izquierda flecha */
+    border-top:10px solid transparent; /* derecha flecha */
+    border-right:10px solid #000000; /* base flecha y color*/
+    font-size:0px;
+    line-height:0px;
+}   
+
+.flecha-up {
+    width:0px;
+    height:0px;
+    border-left:10px solid transparent; /* izquierda flecha */
+    border-right:10px solid transparent; /* derecha flecha */
+    border-bottom:10px solid #0A0A0A; /* base flecha y color*/
+    font-size:0px;
+    line-height:0px;
+} 
+
+.imgattach {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.imgdata {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+</style>
+</head> 
+<body onload="initialize();focus('')" style="overflow:scroll;" onscroll="hideMenu();" onclick="hideMenu();">
+<script>  LoadingMessagePage("on"); </script>
+<iframe id="_fraGetDataTempFiles" name="_fraGetDataTempFiles" width="0" height="0" style="display:none"></iframe>
+<iframe id="_fraGetDataAux" name="_fraGetDataAux" width="0" height="0" style="display:none"></iframe>
+<iframe id="_fraGetDataAux2" name="_fraGetDataAux2" width="0" height="0" style="display:none"></iframe>
+<div id="content" style="top:0;left:0;display:none;">
+<div id="DivOverflow" >
+    <div id="staticmenu" style="position:relative;display:none;background-color:#F3F4F6; z-index:2000;"> 
+    
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+    <script type="text/javascript">
+        document.getElementById('staticmenu1').style.visibility = "hidden";
+    </script>
+    <form id="frmmenu" name="frmmenu" method="post" style="display:inline" target="_self" action="ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=&v=be731a6"> 
+        <div style="min-width:890px">
+        <table id="page-heading" border="0" width="100%"   cellpadding=0 cellspacing=0 >
+            <tr>
+                 
+               <select id="Lst_ResponsibleView" name="Lst_ResponsibleView" style="width:135px;display:none;" >              
+                
+                </select>                  
+                <td class="HomeActionsHeader buttonssection" id="tabhidden2" nowrap>                      
+                          
+                    <div style="float:right;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr class="trbold" >
+                                <td>
+                                        <input type="hidden" id="searchCriteria" name="searchCriteria"  maxlength="40"  class="form-control inputSearch"  value="Search" onfocus="if(this.value==this.defaultValue) this.value=''" style="display: inline;float: left;min-width: 50%;width:70%;margin-left:16px !important"/>
+                                        
+                                    </td>
+                            </tr>
+                            </table>                                
+                    </div>                                   
+                </td> 
+                <td colspan="1" class="HomeActionsHeader" style="padding-left:0px !important;padding-top:5px;padding-right:0px !important;" width="0" align="right" nowrap>
+                        &nbsp; 
+                        
+
+                 </tr>
+                 </table>
+        </div>               
+              </form>  
+
+               </div>                   
+     
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage ","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"},{"Name":"Locations","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"},{"Name":"Milestones","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"},{"Name":"Schedule Updates","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"},{"Name":"T&M Sheets","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"},{"Name":"Punch List","Id":"trItemMenuPunch1","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=1&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Quality","Id":"trItemMenuPunch4","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=4&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Safety","Id":"trItemMenuPunch3","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=3&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Warranty","Id":"trItemMenuPunch2","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=2&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManagePunchList"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add a Punch List","Id":"","Onclick":"Error","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"},{"Name":"Add Default Checklist Items","Id":"","Onclick":"Error","IconName":"","Enabled":"disabled","Manage":"ManagePunchList"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManagePunchList"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('387');","IconName":"","Enabled":true,"Manage":"ManagePunchList"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManagePunchList"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Commit","Id":"MassCommitted","Onclick":"javascript:massCommitted();","IconName":"","Enabled":"true","Manage":"btn btn_primary"},{"Name":"Uncommit","Id":"MassUnCommitted","Onclick":"javascript:massUnCommitted();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Update","Id":"MassUpdate","Onclick":"javascript:MassUpdate_('1940046','00','InProgress','');","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script> 
+<div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none; ">
+        <div><span id="tdMessage"></span></div>
+</div>
+
+ 
+
+<div id="divAddbox" class="pright" style="display:none;height:970px;overflow-y:hidden;padding:16px 0px 0px 0px;position:static;">
+    <FORM id="FrmAddPunchList" name="FrmAddPunchList" method="post" style="display:inline;" target="_fraGetDataAux"> 
+        <table cellspacing="0" cellpadding="0" style=" width:100% !important" border="0" class="table tableform">
+            <tr>
+                <td colspan="3">
+                      <div class="modal-header title-form">
+                             
+                          <h3 class="modal-title"><strong>Add Punch List Item</strong></h3>
+                          
+                     </div>
+                 </td>
+                 <td width="100%" nowrap="nowrap">&nbsp;</td>
+                 </tr>
+                 <tr>
+                    <td width="180px" nowrap="nowrap"><label class="control-label-right">Type:</label></td>
+                    <td width="350px" style="padding-left:3px;">                                            
+                        <select id="cbPunchType" name="cbPunchType" size="1" class="form-control" style="width:290;display:inline">
+                         <option value="">Select one...</option>
+                        <OPTION   value='1' >Punch List</OPTION><OPTION   value='4' >Quality</OPTION><OPTION   value='3' >Safety</OPTION><OPTION   value='2' >Warranty</OPTION>
+                        </select>
+                        <span style="color:Orange;">*</span>
+                        <i id="Project_PunchListType_Popover" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: inline; vertical-align: middle; color:#ff9900;" ></i>
+                        
+                        </td> 
+                    <td colspan="2" width="100%" nowrap>&nbsp;</td> 
+                </tr> 
+
+                <tr>
+                    <td width="180px" nowrap="nowrap"><label class="control-label-right">Scope:</label></td>
+                    <td width="350px" style="padding-left:3px;">                                            
+                        <select id="cbPunchScope" name="cbPunchScope" size="1" class="form-control" style="width:290;display:inline">
+                         <option value="">Select one...</option>
+                        <OPTION  value='00' selected>Original - Fire Station 20 Build - New Construction (InProgress)</OPTION><OPTION  value='01'>C0 01 - OCO #1 Changes due to EDC Civil Revisions, 07/09/24 (Authorized)</OPTION><OPTION  value='02'>C0 02 - OCO #2 Civil Changes to EDC Plans due to PSL Reviews (Authorized)</OPTION><OPTION  value='03'>C0 03 - OCO#3 Upsize Generator and Electric for Additional FPL Transformer. (Authorized)</OPTION><OPTION  value='04'>C0 04 - OCO#4 Add access control to doors 105B, 106B and 108. Delete 106A door and Frame. (Authorized)</OPTION><OPTION  value='05'>C0 05 - OCO#5 Remaining credit on Flashing Beacons that have been deleted from the project. (Authorized)</OPTION><OPTION  value='06'>C0 06 - OCO #6 Owner-Requested Changes (Authorized)</OPTION><OPTION  value='07'>C0 07 - OCO #7 Added J Fixtures (Authorized)</OPTION><OPTION  value='08'>C0 08 - OCO #8 Change Locker Size and Add 3 Lockers (Authorized)</OPTION><OPTION  value='10'>C0 10 - OCO #10 - Paint Overhead Doors Red (Authorized)</OPTION><OPTION  value='11'>C0 11 - OCO #11 - Cyclovac Change; for the Owner supplied Equipment. CENTRAL VAC. (Authorized)</OPTION><OPTION  value='12'>C0 12 - OCO #12 - Roof Ladders (Authorized)</OPTION><OPTION  value='13'>C0 13 - OCO #13 - Hardware Changes, per Architect (Authorized)</OPTION><OPTION  value='14'>C0 14 - OCO #14 - Add Structural Steel Supports (Authorized)</OPTION><OPTION  value='16'>C0 16 - OCO #15 - Modify Island Cabinetry (Authorized)</OPTION><OPTION  value='17'>C0 17 - OCO #16 - Added Concrete Paving (Authorized)</OPTION><OPTION  value='18'>C0 18 - OCO #17 - Revision 7: Big Ass Fan (Authorized)</OPTION><OPTION  value='19'>C0 19 - OCO #18 - Revision 7: Misc. Electrical Additions (Authorized)</OPTION><OPTION  value='20'>C0 20 - OCO #19 - Circuitry for Sink Disposals (Authorized)</OPTION><OPTION  value='21'>C0 21 - OCO #20 - Plumbing Additions (Authorized)</OPTION><OPTION  value='22'>C0 22 - OCO #21 - Thimble for Generator Exhaust Change Out Side Wall (Authorized)</OPTION><OPTION  value='23'>C0 23 - OCO #22 - Added Drive Thru Turn Lane (Authorized)</OPTION><OPTION  value='24'>C0 24 - OCO #23 - Kitchen Cabinet Changes/Additions (Authorized)</OPTION><OPTION  value='25'>C0 25 - OCO #24 - Core Drilling for Added IT Lines Across Apparatus Bay (Authorized)</OPTION><OPTION  value='26'>C0 26 - OCO #25 - Added Underground Piping for Condensate Drains (Authorized)</OPTION><OPTION  value='27'>C0 27 - OCO #26 - Cabinet Additions (Authorized)</OPTION><OPTION  value='28'>C0 28 - OCO #27 - Added Gate Lights & Traffic Signal Lights (Authorized)</OPTION><OPTION  value='29'>C0 29 - OCO #28 - Replace Interior Window (Authorized)</OPTION><OPTION  value='30'>C0 30 - OCO #29 - Install Roof Drains (Authorized)</OPTION><OPTION  value='31'>C0 31 - OCO #30 - Install ACT in Kitchen & Dining Area (Authorized)</OPTION><OPTION  value='32'>C0 32 - OCO #31 - Casework (Authorized)</OPTION><OPTION  value='33'>C0 33 - OCO #32 - Change Colors of Ceiling & Fixture Trim to Black (Authorized)</OPTION><OPTION  value='34'>C0 34 - OCO #33 - Power Supplies for Access Control (Authorized)</OPTION><OPTION  value='36'>C0 36 - OCO #35 - Reframe Exterior Access Panel (Authorized)</OPTION><OPTION  value='37'>C0 37 - OCO #36 - Add Yard Drain & Bubbler (Authorized)</OPTION><OPTION  value='38'>C0 38 - OCO #37 - Changes Per IT Walkthrough (Authorized)</OPTION><OPTION  value='39'>C0 39 - OCO #38 - Added Epoxy (Authorized)</OPTION><OPTION  value='40'>C0 40 - OCO #39 - Hardware Change for 2 Pocket Doors (Authorized)</OPTION><OPTION  value='42'>C0 42 - OCO #40 - install 4 Pipe Flashing (Authorized)</OPTION><OPTION  value='43'>C0 43 - OCO #41 - Westnet Antenna (Authorized)</OPTION><OPTION  value='44'>C0 44 - OCO #42 - Big Ass Fan Addition (Authorized)</OPTION><OPTION  value='45'>C0 45 - OCO #43 - Add 11 Boxes for Smoke/CO Detectors (Authorized)</OPTION><OPTION  value='46'>C0 46 - OCO #44 - Electrical Changes for AHU 3-AS (Authorized)</OPTION><OPTION  value='47'>C0 47 - OCO #45 - Additional Fire Extinguisher & Cabinet (Authorized)</OPTION><OPTION  value='49'>C0 49 - OCO #46 - Install Cowling, Exhaust & Insulation at Generator (Authorized)</OPTION><OPTION  value='50'>C0 50 - OCO #47 - Install Water Dam for Overflow Drains (Authorized)</OPTION><OPTION  value='51'>C0 51 - OCO #48 - Fire Alarm Additions (Authorized)</OPTION><OPTION  value='52'>C0 52 - OCO #49 - Lower Irrigation Lines (Authorized)</OPTION><OPTION  value='53'>C0 53 - OCO #50 - Additional Concrete (Authorized)</OPTION><OPTION  value='54'>C0 54 - OCO #51 - Added Plant Quantities (Authorized)</OPTION><OPTION  value='56'>C0 56 - OCO #52 - Bollards for Apparatus Bay (Authorized)</OPTION><OPTION  value='57'>C0 57 - OCO #53 - Additional Conduit (Authorized)</OPTION><OPTION  value='58'>C0 58 - OCO #54 -  Simpson Stopper Upgrade (Authorized)</OPTION><OPTION  value='59'>C0 59 - OCO #55 - Additional Work For Overhead Doors (Authorized)</OPTION><OPTION  value='60'>C0 60 - OCO #56 - Install 3 Ceiling Boxes & 15 Camera Backboxes (Authorized)</OPTION><OPTION  value='61'>C0 61 - OCO #57 -  Final Clean & Lamp (Authorized)</OPTION><OPTION  value='62'>C0 62 - OCO #58 - Install Power/Circuitry for MUA Condenser (Authorized)</OPTION><OPTION  value='63'>C0 63 - OCO #59 - Additional Bath Accessories (Authorized)</OPTION><OPTION  value='64'>C0 64 - OCO #60 - Change for New Screened Enclosure (Authorized)</OPTION><OPTION  value='65'>C0 65 - OCO #61 - Install OS&Y Tamper Switches & PIV Tamper (Authorized)</OPTION><OPTION  value='66'>C0 66 - OCO #62 - Additional Planting & Irrigation (Authorized)</OPTION><OPTION  value='67'>C0 67 - OCO #63 - Additional Sitework (Authorized)</OPTION><OPTION  value='68'>C0 68 - OCO #64 - Change for Gas Piping (Authorized)</OPTION><OPTION  value='69'>C0 69 - OCO #65 -  Additional Sod & Grading (Authorized)</OPTION><OPTION  value='70'>C0 70 - OCO #66 - Pressure Washing Driveway (Authorized)</OPTION><OPTION  value='71'>C0 71 - OCO #67 - Additional Doors & Hardware (Authorized)</OPTION><OPTION  value='72'>C0 72 - OCO #68 - Supply Power to Refueling Station (Authorized)</OPTION><OPTION  value='73'>C0 73 - OCO #69 - Provide Power & Control for Generator (Authorized)</OPTION><OPTION  value='74'>C0 74 - OCO #70 - Cost for Impellers (Authorized)</OPTION><OPTION  value='75'>C0 75 - OCO #71 - Additional Casework (Authorized)</OPTION><OPTION  value='76'>C0 76 - OCO #72 - Install Grease Trap Vents (Authorized)</OPTION><OPTION  value='77'>C0 77 - OCO #73 - Additional Landscaping (Authorized)</OPTION><OPTION  value='78'>C0 78 - OCO #74 -  Install Mirror Wall (Authorized)</OPTION><OPTION  value='79'>C0 79 - OCO #75 - Repair Irrigation System (Authorized)</OPTION><OPTION  value='80'>C0 80 - OCO #76 - Regrade by Rollup Door (Authorized)</OPTION><OPTION  value='81'>C0 81 - OCO #77 - Cost for Fire Alarm Work (Authorized)</OPTION><OPTION  value='82'>C0 82 - OCO #78 - Modify Exterior Gas Service (Authorized)</OPTION><OPTION  value='83'>C0 83 - OCO #79 - Supply & Install Fencing (Authorized)</OPTION><OPTION  value='84'>C0 84 - OCO #80 - Replace Cam Locks (Authorized)</OPTION><OPTION  value='85'>C0 85 - OCO #81 - Fee for Multiple Trips for Start Up (Authorized)</OPTION><OPTION  value='86'>C0 86 - OCO #82 - Connected Low Voltage to Open Terminals & Diagnosed Electrical Problem (Authorized)</OPTION><OPTION  value='87'>C0 87 - OCO #83 - Install Provided Lights for Helipad Area (Authorized)</OPTION><OPTION  value='88'>C0 88 - OCO #84 - Added CO Detectors & PIV Valve & Deduct Work by Fire Equipment Services (Authorized)</OPTION><OPTION  value='89'>C0 89 - OCO #85 - Install 6 3-Button Stations & 2 Missing Antennas (Authorized)</OPTION><OPTION  value='90'>C0 90 - Additional As-Built Surveys to Close out project (Authorized)</OPTION><OPTION  value='91'>C0 91 - OCO #86 - Additional Landscaping (Authorized)</OPTION><OPTION  value='92'>C0 92 - OCO #87 - Additional Caulking (Authorized)</OPTION><OPTION  value='93'>C0 93 - OCO #88 - Painting (Authorized)</OPTION><OPTION  value='94'>C0 94 - OCO #89 - Supply UPS for Hood Gas Solenoid (Authorized)</OPTION><OPTION  value='95'>C0 95 - OCO #90 - Sod & Grading for PW Final (Authorized)</OPTION><OPTION  value='96'>C0 96 - OCO #91 - Miscellaneous Drywall Patching (Authorized)</OPTION><OPTION  value='97'>C0 97 - OCO #92 - Costs for Paint at Helicopter Pad (Authorized)</OPTION><OPTION  value='98'>C0 98 - OCO #93 ODP Closeout (Authorized)</OPTION><OPTION  value='99'>C0 99 - OCO #94 - Costs for 2 Week Fluke Metering Report (Authorized)</OPTION>
+                        </select>
+                        <span style="color:Orange;">*</span>
+                        <i id="Project_PunchListScope_Popover" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: inline; vertical-align: middle; color:#ff9900;" ></i>
+                        
+                        </td> 
+                    <td colspan="2" width="100%" nowrap>&nbsp;</td> 
+                </tr>
+
+                 <tr>
+                    <td width="180px">
+                        <label class="control-label-right">Location:</label>
+                    </td>    
+                    <td width="350" nowrap>             
+                        <select id="cbLocation" name="cbLocation" size=1 class="form-control" style="width:290;display:inline" onchange="loadLocation();">
+                            <option  value="">Select one ...</option>
+                            <option class="SelectBoxAddNew" value="*">+ Add new</option>
+                            <OPTION   value='1819' >Default</OPTION>
+                        </select>
+                    <span style="color:Orange;">*</span>
+                    <i id="Project_PunchListLocation_Popover" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: inline; vertical-align: middle; color:#ff9900;" ></i>
+                    
+                    </td>  
+                    
+                    <td width="100%" nowrap="nowrap">&nbsp;</td>
+                </tr>  
+                <tr>
+                    <td width="180px" nowrap="nowrap" align="right" style="padding-right:5px;">Description:</td>
+                    <td width="350" style="padding-left:3px;">
+                        <textarea maxlength="500" id="txtDescription" name="txtDescription" rows="3"  class="form-control" style="width:290;max-height: 90px;" onkeypress="checkLengthTextArea(this,500);"></textarea>
+                    </td> 
+                    <td width="100%" nowrap="nowrap" colspan="2">&nbsp;</td>
+                </tr>    
+                                    <tr>
+                                        <td width="180px" nowrap="nowrap"><label class="control-label-right">Author:</label></td>
+                                        <td width="350px" style="padding-left:3px;">                                            
+                                            <select id="cbAuthor" name="cbAuthor" size="1" class="form-control" onchange="loadEmployee();" style="width:290;display:inline">
+                                            <option  value="">Select one ...</option>
+                                             <OPTION   value='2719' >ACutAbove-Eneyda Eneyda</OPTION><OPTION   value='4465' >Beckley En-General Inbox</OPTION><OPTION   value='4913' >Carter Ass-Sybil Wilkerson</OPTION><OPTION   value='3898' >DH Pace-Brandon Fields</OPTION><OPTION   value='2699' >DH Pace-Steve Haering</OPTION><OPTION   value='1140' >Farmer & I-Susan Calvaruso</OPTION><OPTION   value='4364' >Farmer & I-Toby Charles</OPTION><OPTION   value='4257' >FE&T-Brian Buxton</OPTION><OPTION   value='4348' >Haley Ward-Jayson Harrison</OPTION><OPTION   value='4349' >Haley Ward-Steven Frink</OPTION><OPTION   value='4736' >Haley Ward-Tanner Retherford</OPTION><OPTION   value='1218' >Haley Ward-Tony Canton</OPTION><OPTION   value='4456' >Oceanside-Mike Thomas</OPTION><OPTION   value='4320' >OCI Assoc-James Buchard</OPTION><OPTION   value='4776' >Remnant-Arthur Norton</OPTION><OPTION   value='4908' >Remnant-Bernie Zukauskas</OPTION><OPTION   value='4695' >Remnant-Brandon Hooper</OPTION><OPTION   value='1' >Remnant-Brandon Nobile</OPTION><OPTION   value='7' >Remnant-Brian Garcia</OPTION><OPTION   value='4963' >Remnant-Christopher Martinez</OPTION><OPTION   value='66' >Remnant-Cleveland Williams</OPTION><OPTION   value='4634' >Remnant-Craig Gum</OPTION><OPTION   value='4958' >Remnant-Cris Taylor</OPTION><OPTION   value='4847' >Remnant-Devin Caraballo</OPTION><OPTION   value='4752' >Remnant-Donald French</OPTION><OPTION   value='1606' >Remnant-Erin O'Brien</OPTION><OPTION   value='5' >Remnant-Implementation </OPTION><OPTION   value='4810' >Remnant-Jacob Fischer</OPTION><OPTION   value='1650' >Remnant-Jennifer Knowles</OPTION><OPTION   value='5232' >Remnant-Jeremy Goff</OPTION><OPTION   value='4570' >Remnant-Jerome de Groot</OPTION><OPTION   value='5192' >Remnant-John Mayr</OPTION><OPTION   value='3936' >Remnant-Joseph Mayhew</OPTION><OPTION   value='4977' >Remnant-Joshua Lopez</OPTION><OPTION   value='1201' >Remnant-Linda S. French</OPTION><OPTION   value='4290' >Remnant-Louis Caciopoli</OPTION><OPTION   value='10' >Remnant-Mark Bock</OPTION><OPTION   value='1507' >Remnant-Maxwell Rudd</OPTION><OPTION   value='5364' >Remnant-Mike King</OPTION><OPTION   value='9' >Remnant-Mike Stubblefield</OPTION><OPTION   value='1222' >Remnant-Patrick Garcia</OPTION><OPTION   value='4160' >Remnant-Randy Shurr</OPTION><OPTION   value='2' >Remnant-RedTeam Support</OPTION><OPTION   value='5302' >Remnant-Shannon Worley</OPTION><OPTION   value='4318' >Remnant-Stuart Frisby</OPTION><OPTION   value='4397' >Remnant-Terry Lynch</OPTION><OPTION   value='4541' >Remnant-Thomas Kinsella</OPTION><OPTION   value='4215' >SLCFD-Joey Casson</OPTION><OPTION   value='4561' >SLCFD-John Wallace</OPTION><OPTION   value='3981' >SLCFD-Paul Langel</OPTION><OPTION   value='4322' >UniversalE-Antonio Torres</OPTION><OPTION   value='4128' >UniversalE-Karla Gabay</OPTION><OPTION   value='1551' >Velcon Eng-Darren Guettler</OPTION><OPTION   value='1627' >Velcon Eng-Greg Santoimma</OPTION><OPTION   value='4669' >Velcon Eng-Heath Stocton</OPTION><OPTION   value='4517' >Wannemache-A.J. Vanhooser</OPTION><OPTION   value='4319' >Wannemache-Jeff McDowell</OPTION>
+                                            </select>
+                                         <span style="color:Orange;">*</span>
+                                         <i id="Project_PunchListAuthor_Popover" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: inline; vertical-align: middle; color:#ff9900;" ></i>
+                                         </td> 
+                                       <td colspan="2" width="100%" nowrap>&nbsp;</td> 
+                                    </tr>  
+                                    <tr>
+                                        <td width="180px" nowrap="nowrap"><label class="control-label-right">Responsible:</label></td>
+                                        <td width="350px" style="padding-left:3px;">                                            
+                                            <select id="cbResponsible" name="cbResponsible" size="1" class="form-control" style="width:290;display: inline">
+                                            <option  value="">Select one ...</option>
+                                            <OPTION   value='131' >A-1 Construction Co.</OPTION><OPTION   value='4286' >Action Fencing, Inc.</OPTION><OPTION   value='4079' >Advanced Hood Systems</OPTION><OPTION   value='173' >Agler Kitchen, Bath & Floors</OPTION><OPTION   value='4557' >All Specialty Sales</OPTION><OPTION   value='4146' >Alliance Group Contracting Corporation</OPTION><OPTION   value='4314' >Beckley Engineering Consultants [third-party]</OPTION><OPTION   value='351' >Brothers Fire Protection, Inc.</OPTION><OPTION   value='4501' >Carter Associates, Inc.</OPTION><OPTION   value='4228' >Coastal Vacuum</OPTION><OPTION   value='4421' >Communication Access Services, Inc.</OPTION><OPTION   value='4223' >Complete Cooling & Heating Services, Inc.</OPTION><OPTION   value='4133' >Complete Electric, Inc.</OPTION><OPTION   value='4250' >Cook Shell Contractors, LLC</OPTION><OPTION   value='2426' >D & D Garage Doors of the Treasure Coast, Inc. DBA Overhead Door Co of the Treasure Coast</OPTION><OPTION   value='1398' >Energy and Impact Solutions, LLC DBA Vero Glass & Mirror</OPTION><OPTION   value='4241' >European Custom Casework, Inc.</OPTION><OPTION   value='4401' >Festina Lente, LLC DBA AA Sign Lines</OPTION><OPTION   value='40' >Fire Equipment Systems of Florida, Inc.</OPTION><OPTION   value='4039' >G & R Concrete Designs, LLC</OPTION><OPTION   value='4412' >GearGrid Corporation</OPTION><OPTION   value='4480' >Gras Lawn, LLC</OPTION><OPTION   value='2497' >Haley Ward, Inc. [third-party]</OPTION><OPTION   value='4382' >HD Flagpoles</OPTION><OPTION   value='4375' >Interior Specialties, Inc.</OPTION><OPTION   value='4402' >Kelsie's Blinds, Inc.</OPTION><OPTION   value='4231' >Key Mart, Inc.</OPTION><OPTION   value='4577' >Kuebler Mechanical, LLC</OPTION><OPTION   value='1409' >MER Enterprises, LLC DBA Leed Insulation</OPTION><OPTION   value='4210' >Midstate Caulking & Construction Services, LLC</OPTION><OPTION   value='928' >Nature's Keeper Inc.</OPTION><OPTION   value='4217' >OCI Associates, Inc. [third-party]</OPTION><OPTION   value='1007' >Perini Interiors, LLC</OPTION><OPTION   value='115' >POD, LLC DBA Tubito Painting</OPTION><OPTION   value='3' >Remnant Construction, LLC</OPTION><OPTION   value='1086' >RF Concrete Construction, Inc.</OPTION><OPTION   value='4566' >Rodeo Roofing</OPTION><OPTION   value='4692' >Safe Clean Experts of South Florida, LLC</OPTION><OPTION   value='4004' >Security Builders Supply Co.</OPTION><OPTION   value='116' >Snyder Plumbing of the Treasure Coast, Inc.</OPTION><OPTION   value='4005' >St. Lucie County Fire District [customer]</OPTION><OPTION   value='111' >Suncor, Inc.</OPTION><OPTION   value='1242' >Sunline Civil Construction, Inc.</OPTION><OPTION   value='4454' >Tennessee Building Components</OPTION><OPTION   value='2647' >The Porch Factory</OPTION><OPTION   value='1335' >Universal Engineering Sciences</OPTION><OPTION   value='2802' >V.M. Iron Work and Structural Steel Corp.</OPTION><OPTION   value='2719' >Velcon Engineering & Surveying, LLC</OPTION><OPTION   value='4214' >Wannemacher Jensen Architects, Inc. [third-party]</OPTION><OPTION   value='4237' >Westnet, LLC</OPTION>
+                                            </select>
+                                            <i id="Project_PunchListResponsible_Popover" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: inline; vertical-align: middle; color:#ff9900;" ></i>
+                                        </td>  
+                                        <td width="100%" nowrap="nowrap" colspan="2">&nbsp;</td>
+                                    </tr>               
+                                    <tr>
+                                        <td width="180px" nowrap="nowrap"><label class="control-label-right">Required Date:</label></td>
+
+                                         <td width="350" nowrap="nowrap">
+                                           <input class="form-control" type="text" name="DateRequiredAdd" size="8" id="DateRequiredAdd" maxlength="10" style="width:95px;display:inline" /><a><i  style="vertical-align:-5px;padding-left:5px" class="zmdi zmdi-calendar fontBtn"  id="CalendarFromAdd"     onclick="return showCalendar('DateRequiredAdd','%m/%d/%Y')"></i></a>
+                                        </td>
+
+ 
+                                        <td width="100%" nowrap="nowrap" colspan="2">&nbsp;</td>
+                                    </tr> 
+                                                
+                                    <tr>
+                                        <td width="180px" nowrap="nowrap" style="vertical-align:top;line-height:2;"><label class="control-label-right">Attachment:</label></td>
+                                        <td width="100%" colspan="3">
+
+                                            <input type="hidden" name="AttachmentAnt" id="AttachmentAnt" value="">                                                               
+                                            <input type="hidden" name="Attachment1" id="Attachment1" value="">                 
+                                            <input type="hidden" name="FileSize1" id="FileSize1"  value="">
+                                            <input type="hidden" name="FileExtension1" id="FileExtension1" value="">
+                                            <input type="hidden" name="FileType1" id="FileType1" value="">
+                                            <input type="hidden" name="TempUpload1" id="TempUpload1" value="https://files.flex.redteam.com" />
+                                            <input type="hidden" name="FileUpload1" id="FileUpload1" value="https://uploads.flex.redteam.com" />
+                                            <input type="hidden" name="tempFiles" id="tempFiles" value=""/>
+                                            <!-- RED-6102: S3 upload hidden fields -->
+                                            <input type="hidden" name="S3FileName1" id="S3FileName1" value="" />
+                                            <input type="hidden" name="S3Directory1" id="S3Directory1" value="" />
+                                                                                        
+                                               <div id="dropzone" class="fade" style="margin-left: 0px;padding-top: 43px; height:271px; padding-left:0px !important; padding-right: 0px !important;border-color:#BCBFC6 !important;border-bottom:2px dashed #BCBFC6;">
+                                                         <span style="color:#656b79; font-size: 14px !important;">Drag and Drop your file here</span> 
+                                                            <p style="margin-top:11px!important; margin-bottom:11px!important;">
+                                                                <span style="color:#656b79; font-size:14px; font-weight:bold;">OR</span>
+                                                            </p>  
+                                                            <span class="btn btn-success fileinput-button">
+                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                                <span>ADD FILE...</span>
+                                                            <!-- The file input field used as target for the file upload widget -->
+                                                             <input id="fileupload" type="file" name="files[]">
+                                                           </span>
+                                                         <div style="height:88px;width: 100%;padding-top:0px !important; margin-top:43px !important; word-wrap: break-word;font-size:13px;text-align:left;background-color:#f3f4f6;border-bottom:2px dashed #BCBFC6;">                                      
+                                                            <div style="padding-top:5px;padding-bottom:0px; padding-left:10px !important; padding-right:28px !important">
+                                                                <div style="font-size:13px; width:100%; color:#656b79;">Allowed file types:</div>
+                                                                    <span style="color:DarkOrange; font-size:13px !important;line-height:14pt;padding-left:0px;">
+                                                                    *.docx,*.dwf,*.dwg,*.gif,*.jpeg,*.jpg,*.mp3,*.mp4,*.mpp,*.pdf,*.png,*.tif,*.tiff,*.txt,*.wmv,*.xlsx,*.xps</span> 
+                                                                <div style="padding-top:2px;padding-bottom:10px"><span style="padding-left:0px; width: 100%; font-size:13px; color:#656b79;">The file size cannot exceed 
+                                                                <span style="font-weight:bold; color:#656b79; font-size:13px !important;">25MB.</span></span> </div>
+                                                             </div>
+                                                          </div>
+                                                   </div>
+
+                                                                      
+                                                 <!-- The container for the uploaded files -->
+                                            <div id="files" class="files" style="display: flex !important;margin-bottom: 5px!important;margin-top: 5px!important;">
+                                                <div class="imgattach">
+                                                     <img id="FilePreview1" name="FilePreview1" style="display:none;"  height="60" src="" /><!--ipreviewBW-->
+                                                </div>  
+                                                <div class="imgdata">   
+                                                    <span id="AttachmentLink1" style="padding-left: 10px !important;max-width: 239px;word-wrap: break-word;word-break: break-all;white-space: normal;overflow-wrap: break-word;"></span>
+                                                </div> 
+                                            </div>
+                                                    <!-- The global progress bar -->
+                                                    <div id="progress" class="progress hidden" style="width: 361px;">
+                                                        <div class="progress-bar progress-bar-success"></div>
+                                                    </div>           
+                                        </td>  
+                                    </tr>
+                                    <tr>
+                                        <td width="180px" nowrap="nowrap"><label class="control-label-right">Company Confidential:</label></td>
+                                        <td width="300">
+                                            <input type="checkbox" class="chkbox-co-existence" id="ChkIsConfidential" name="ChkIsConfidential"/>
+                                        </td> 
+                                       <td width="100%" nowrap="nowrap" colspan="2">&nbsp;</td>
+                                    </tr>  
+                                    <tr> 
+                                        <td colspan="3">
+                                            <div class="modal-footer footer-form" >
+                                                <input type="button" class="btn btn-primary" onclick="javascript:Verify('mm/dd/yyyy','1940046','00','InProgress');" value="Save" style="width:72px;">
+                                                   
+                                                <input type="button" class="btn btn-default"  onclick="javascript:slideBoxActivation();"  value="Cancel" style="width:72px;">
+                                            </div>  
+                                        </td> 
+                                        <td width="100%" nowrap="nowrap">&nbsp;</td> 
+                                    </tr>                                   
+                                </table>
+                            </td> 
+                        </tr> 
+                    </table>
+                </td>
+            </tr>            
+            <tr>
+                <td height="1px;" bgcolor="#404040"></td>
+            </tr>
+        </table>
+    </FORM>
+</div> 
+<div id="trFiltersbox" style="display:none;height:300;width:100%;overflow-y:hidden;padding:0px 0px 0px 0px;background-color:#FFFFFF;position:static;">
+<FORM METHOD="POST"  name="Form1" ID="Form1" onsubmit="return false" style="display:inline;">
+    
+    <input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber" /> 
+    <input type="hidden" id="ClientSession" name="ClientSession" value="remnantconstruction" />
+    <input type="hidden" id="hdnActionCommand" name="hdnActionCommand" /> 
+    <input type="hidden" name="hdnCurrentUrlParams" value="?punchType=&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress" /> 
+    <input type="hidden" id="hdnParameters" name="hdnParameters" value="" />
+    <input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="required,desc" />    
+
+      <div class="panel panel-midnightblue customFilterBox" >
+              <div class="panel-heading">
+                  <h4>Filters</h4>
+              </div>
+              <div  class="panel-body collapse in" style="height:260px;">
+                <div class="col-md-12">
+                  
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Location</label> 
+                        <div  class="col-sm-3-separator">     
+                             <select id="Lst_Location" name="Lst_Location" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                           <OPTION  class='0' label='0' value='1819' selected>Default</OPTION>
+                        </select>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">Author</label> 
+                        <div  class="col-sm-3-separator">  
+                            <select id="Lst_Author" name="Lst_Author" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                        <OPTION   value='999999' selected>[Unassigned]</OPTION>
+                    </select>
+                    </div>
+                    </div>
+                </div>  
+                <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">Responsible</label> 
+                        <div  class="col-sm-3-separator">  
+                            <select id="Lst_Responsible" name="Lst_Responsible" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                    <OPTION   value='0' selected>No Responsible</OPTION>
+                    </select>
+                </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">Approved by</label> 
+                        <div  class="col-sm-3-separator"> 
+                            <select id="Lst_Approved" name="Lst_Approved" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                    <OPTION   value='0' selected>Not Approved</OPTION>
+                    </select>
+                        </div>
+                    </div>
+                </div>
+                
+              </div>
+
+          <div class="col-md-12">
+          
+            <div class="col-md-3">
+              <div class="form-group">               
+                <label class="control-label">Date</label>            
+                <div  class="col-sm-3-separator">
+                            <select class="form-control"  name="Lst_TypeDate" size="1" id="Lst_TypeDate" style="width:110" onchange="varifyDates()">
+                    
+                        <option value="0" selected="selected">All</option>
+                        <option value="Required">Required</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Approved">Approved</option>
+                    
+                </select>
+                </div>
+                    </div>
+                </div>  
+                <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">From</label> 
+                        <div  class="col-sm-3-separator">  
+                            <input type="text" name="FromDate" class="form-control" size="8" ID="FromDate" maxlength="10" value="" style="width:95px;display:inline"><a><i style="vertical-align:-5px;padding-left:5px" class="zmdi zmdi-calendar fontBtn"  id="CalendarFrom"    onclick="return showCalendar('FromDate','%m/%d/%Y');"></i></a> 
+                         </div>
+                    </div>
+                </div>  
+                <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">To</label> 
+                        <div  class="col-sm-3-separator"> 
+                            <input type="text" name="ToDate" class="form-control"  ID="ToDate" maxlength="10" value="" style="width:95px;display:inline"><a><i  style="vertical-align:-5px;padding-left:5px;" class="zmdi zmdi-calendar fontBtn"  id="CalendarTo"    onclick="return showCalendar('ToDate','%m/%d/%Y');"></i></a>
+                         </div>
+                    </div>
+                </div>  
+                <div class="col-md-3">
+              <div class="form-group">               
+                <label class="control-label">Status</label>            
+                <div  class="col-sm-3-separator">
+                    <select id="Lst_Status" name="Lst_Status" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                    <option value="Cancelled" >Cancelled</option><option value="Closed" >Closed</option><option value="Committed" selected>Committed</option><option value="Draft" selected>Draft</option>
+                    </select>
+                     </div>
+                    </div>
+                </div>  
+              </div>
+
+          <div class="col-md-12">
+            
+                <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">Workflow</label> 
+                        <div  class="col-sm-3-separator"> 
+                            <select id="Lst_Workflow" name="Lst_Workflow" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                    <option value="1" selected>Just Created</option><option value="2" selected>Pending</option><option value="3" selected>Completed</option><option value="4" selected>Approved</option><option value="5" selected>Cancelled</option>
+                    </select>
+                     </div>
+              </div>
+            </div>           
+                
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Scope</label> 
+                    <div  class="col-sm-3-separator"> 
+                        <select id="Lst_Scope" name="Lst_Scope" style="padding-left:25;width:90px;display:none;" multiple="multiple" size=1>
+                        
+                        </select>
+                    </div>
+                </div>
+            </div>           
+                     
+             <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">&nbsp;</label> 
+                <div  class="col-sm-3-separator">  
+                   <input onclick="javascript:SendFilters('ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=&filterblock=true&filter=true&by=&direction=&v=be731a6','mm/dd/yyyy');" type="submit" class="btn btn-primary" value="Filter"/> 
+                  <input id="lnkSendFilters" onclick="javascript:SendFilters('ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=&filter=true&by=&direction=&v=be731a6','mm/dd/yyyy');" type="submit" class="btn btn-primary-alt btnBgGray" value="Filter & Hide"/> 
+                </div>
+              </div>  
+            </div> 
+          </div>  
+    </div>
+  </div>
+  </form>
+</div>    
+    <div id="staticCols" style="position: static; background-color:#F3f4f6;">       
+        <table  border="0" bgcolor="#FFFFFF" width="100%" cellpadding="0" cellspacing="0"  style="top:0;left:0">
+            <tr class="Workarea_Header"  height="19" bgcolor="#F3f4f6"><td colspan="18" class="customTableHeaderContainer"><table id="tblHeading"  class="Workarea_Header"  border="0" cellpadding="0" cellspacing="0"  style="table-layout:fixed;border-collapse: separate;" ><thead><tr valign="middle" height="19"><th   style="text-align:center;" width="35px" nowrap="nowrap"><input type=checkbox class=chkbox-co-existence id="chkAll" name="chkAll" onclick="javascript:checkAll();Displayicons()" style="display:block;"></th><th    style="text-align:center;"  width="35px" nowrap="nowrap"><span></span></th><th    style="text-align:center;"  width="35px" nowrap="nowrap"><span></span></th><th    style="text-align:center;"  width="54px" nowrap="nowrap"><span>Tools</span></th><th    style="text-align:left;padding-left:14px"  width="120px" nowrap="nowrap"><a onclick="javascript:sortReport('type')"  style="cursor:hand;"><u>Type</u></a><i id="Project_PunchListType_Popover1" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="vertical-align: sub; color:#656b79; font-size:18px !important; padding-left : 5px !important; display: none;" ></i> </th><th width="40px" nowrap="nowrap"    style="text-align:center;" ><a onclick="javascript:sortReport('id')"  style="cursor:hand;"><u>Id</u></a></th><th   style="text-align:center;"  width="110px" nowrap="nowrap">Scope</th> <th   style="text-align:left;"   width="120px" nowrap="nowrap"><a onclick="javascript:sortReport('location')"  style="cursor:hand;"><u>Location</u></a><i id="Project_PunchListLocation_Popover1" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: none; vertical-align: sub; color:#656b79; font-size:18px !important; padding-left : 5px !important; " ></i> </th><th   style="text-align:left;"    width="202px" nowrap="nowrap"><a onclick="javascript:sortReport('description')"  style="cursor:hand;"><u>Item Description</u></a></th><th   style="text-align:center;"  width="88px" nowrap="nowrap">Confidential</th> <th   style="text-align:center;"  width="60px" nowrap="nowrap"><span >Before</span></th> <th width="160px" nowrap="nowrap"><a onclick="javascript:sortReport('author')"  style="cursor:hand;"><u>Author</u></a><i id="Project_PunchListAuthor_Popover1" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: none; vertical-align: sub; color:#656b79; font-size:18px !important; padding-left : 5px !important; " ></i> </th><th width="160px" nowrap="nowrap"><a onclick="javascript:sortReport('responsible')"  style="cursor:hand;"><u>Responsible</u></a><i id="Project_PunchListResponsible_Popover1" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: none; vertical-align: sub; color:#656b79; font-size:18px !important; padding-left : 5px !important; " ></i> </th><th width="130px" nowrap="nowrap"><a onclick="javascript:sortReport('required')"  style="cursor:hand;"><u>Required</u><img src="../../asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;" /></a></th> <th width="70px" nowrap="nowrap"><span >After</span></th> <th width="125px" nowrap="nowrap"><a onclick="javascript:sortReport('completed')"  style="cursor:hand;"><u>Completed</u></a></th> <th width="180px" nowrap="nowrap"><a onclick="javascript:sortReport('approved')"  style="cursor:hand;"><u>Approved/Rejected</u></a></th> <th width="110px" nowrap="nowrap"><a onclick="javascript:sortReport('remarks')"  style="cursor:hand;"><u>Remarks</u></a></th> <th width="110px" nowrap="nowrap"><a onclick="javascript:sortReport('status')"  style="cursor:hand;"><u>Status</u></a><i id="Project_PunchListStatus_Popover1" data-placement="right" data-toggle="popover" data-html=true  class="zmdi zmdi-help fontBtn hand"  style="display: none; vertical-align: sub; color:#656b79; font-size:18px !important; padding-left : 5px !important; " ></i> </th><th    style="text-align:left;" width="70px" nowrap="nowrap"><span >Notes</span></th> <th  style="text-align:left;"  width="60px" nowrap="nowrap"><span >Log</span></th> </tr></thead></table></td></tr>
+        </table>
+    </div>
+    
+    
+     <form method="post" name="FrmDetail" id="FrmDetail" style="display:inline" target="_fraGetDataAux">     
+
+     <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF"  align="center" class="Workarea_Header customTableDetail" > 
+    <TR bgcolor="#FFFFFF">
+	    <TD colspan="4" align="left" valign="top" style="padding:0px !important">
+	    <TABLE id="tblDetail" width="100%" border="0"  cellspacing="0" cellpadding="0" style="table-layout:fixed;" >
+           <tr style="display:none">
+               <td>
+                   <input type="hidden" id="tdDraftCount" name="tdDraftCount" value="0" />               
+                   <input type="hidden" id="tdNoDraftCount" name="tdNoDraftCount" value="0" />
+                   <input type="hidden" id="tdCommittCount" name="tdCommittCount" value="0" />
+                   <input type="hidden" id="tdNoCommittCount" name="tdNoCommittCount" value="0" />
+                   <input type="hidden" id="tdDraftCommitCount" name="tdDraftCommitCount" value="0" /> 
+               </td>
+           </tr>
+              
+            <tr bgcolor="#FFFFFF">
+                <td style="padding-left:4px;" height="18" width="300px" ><span class="Orange">There are no items on file!</span></td>
+            </tr>        
+        
+    </table>  
+    </TD>
+    </TR>
+</TABLE>  
+    </form>
+ 
+    <table >  
+    <tr>
+        <td colspan="11" align="right">
+            &nbsp;<input type="hidden" name="count" id="count" value=""/>
+            <input type="hidden" id="WorkorderID" value="1940046" /> 
+            <input type="hidden" id="WorkorderMod" value="00" /> 
+            <input type="hidden" id="WorkorderStatus" value="InProgress" /> 
+            <input type="hidden" id="TextToSearchWidth" name="TextToSearchWidth" value="212" >
+        </td>
+    </tr>
+    </table>
+     </div> 
+</div>
+<FORM METHOD="POST" name="FrmFilterPunchList" ID="FrmFilterPunchList" style="display:none;" action="ViewPunchListLog.asp">
+    <textarea name="formFilters"  style="display:none;" >JldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAw</textarea>
+</FORM>
+</body>
+</html>
+
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="/rts/app/components/Uploads/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="/rts/app/components/Uploads/js/jquery.iframe-transport.js"></script>
+<script src="/rts/app/components/Uploads/js/cors/jquery.postmessage-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/rts/app/components/Uploads/js/jquery.fileupload-ui.js"></script>
+<script src="/rts/app/components/Uploads/js/main_fileupload_s3.js?v=be731a6"></script>
+<script type="text/javascript">
+
+$('#Project_PunchListType_Popover, #Project_LocationNestLocationUnder_Popover, #Project_PunchListLocation_Popover, #Project_PunchListAuthor_Popover, #Project_PunchListScope_Popover,' +
+    ' #Project_PunchListResponsible_Popover, #Project_PunchListStatus_Popover, #Project_PunchListType_Popover1, #Project_PunchListLocation_Popover1,' +
+    ' #Project_PunchListAuthor_Popover1, #Project_PunchListResponsible_Popover1, #Project_PunchListStatus_Popover1').popover({
+    content: GetContent,
+    trigger: 'hover'
+}) 
+
+//Filter multiple select
+if (document.getElementById("trFiltersbox")) {
+
+    var Lst_Location = new pickList();
+    Lst_Location.init("Lst_Location", 220, 200);
+
+    var Lst_Author = new pickList();
+    Lst_Author.init("Lst_Author", 270, 200);
+
+    var Lst_Responsible = new pickList();
+    Lst_Responsible.init("Lst_Responsible", 210, 200);
+
+    var Lst_Approved = new pickList();
+    Lst_Approved.init("Lst_Approved", 210, 200);
+
+    var Lst_Status = new pickList();
+    Lst_Status.init("Lst_Status", 100, 140);
+
+    var Lst_Workflow = new pickList();
+    Lst_Workflow.init("Lst_Workflow", 120, 160);
+
+    var Lst_Scope = new pickList();
+    Lst_Scope.init("Lst_Scope", 120, 160);        
+}
+
+document.getElementById("menuoptions").style.maxHeight = "450px";
+document.getElementById("menuoptions").style.maxWidth = "400px";
+document.getElementById("menuoptions").style.overflowY = "auto";
+document.getElementById("menuoptions").style.overflowX = "hidden";
+document.getElementById("MassCommitted").style.display = "none";
+document.getElementById("MassUnCommitted").style.display = "none";
+document.getElementById("MassUpdate").style.display = "none";
+
+$("#TextToSearch").on('keypress', function (e) {
+    if (e.which == 13) {
+        document.getElementById("searchCriteria").value = document.getElementById("TextToSearch").value;
+        $("#frmmenu").submit();
+    }
+});
+
+var txtSearch = document.getElementById("searchCriteria").value;
+if (txtSearch != '' && txtSearch != 'Search') {
+    document.getElementById("TextToSearch").value = txtSearch;
+    $("#TextToSearch").removeClass("HideTextToSearch").addClass("ShowTextToSearch");
+    $("#textSearch").css("display", "none");
+}
+
+$(document).ready(function() {
+    setTimeout(() => {
+        VerifyTitleManage();        
+    }, "500") 
+});
+
+$("body").click(function () {
+    var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+    if (!is_firefox) {
+        hideMenu();
+    }
+});
+
+$(window).load(function () {
+    setEclipseScreenIcon();
+});
+
+function reloadCombLocation(parameter, order) {
+    $.ajaxSetup({ cache: false });
+    $("#cbLocationName" + order).empty()
+    var oItem1 = document.getElementById("WorkorderID").value;
+    $.post("/rts/app/asp/jsonloaddropdownlist.asp?flag=LOCATION_PUNCHLIST&idItem=" + oItem1, function (data) {
+        var idented = "", i, position, position1, position2;
+        var list = "";
+        list = list + "<option value='0' Selected>Select one...</option> <option class='SelectBoxAddNew' value='*''>+ Add new</option>"
+        $.each(data['datos'], function (index, value) {
+            position = data['datos'][index]['WBS'];
+            var arrayPosition = position.split(".");
+            idented = "";
+            for (i = 0; i < arrayPosition.length - 1; i++) {
+                idented = idented + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+
+            if (data['datos'][index]['WorkorderAreaID'] != "0" || (data['datos'][index]['WorkorderAreaID'] == "0" && data['datos'][index]['LocationName'] == "Select one...")) {
+                if (data['datos'][index]['WorkorderAreaID'] == parameter) {
+                    list = list + '<option value="' + data['datos'][index]['WorkorderAreaID'] + '" selected >' + idented + data['datos'][index]['LocationName'] + '</option>'
+                }
+                else {
+                    list = list + '<option value="' + data['datos'][index]['WorkorderAreaID'] + '" >' + idented + data['datos'][index]['LocationName'] + '</option>'
+                }
+            }
+        });
+
+        $("#cbLocationName" + order).append(list)
+
+        list = "";
+        getLocationName(order);
+    });
+}
+</script>
+

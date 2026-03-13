@@ -1,0 +1,975 @@
+[
+  {
+    "index": 1,
+    "upload_id": "62353",
+    "size": "56197",
+    "name": "001 - 09 65 36 - Static-Control Resilient Flooring",
+    "ext": "pdf"
+  },
+  {
+    "index": 2,
+    "upload_id": "62352",
+    "size": "55269",
+    "name": "001 - 10 75 00 - Flagpoles",
+    "ext": "pdf"
+  },
+  {
+    "index": 3,
+    "upload_id": "61287",
+    "size": "46258",
+    "name": "001 - Specifications (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 4,
+    "upload_id": "71533",
+    "size": "316185",
+    "name": "A-001 - SITE PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 5,
+    "upload_id": "71534",
+    "size": "292886",
+    "name": "A-002 - SITE DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 6,
+    "upload_id": "71535",
+    "size": "442994",
+    "name": "A-101 - FLOOR PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 7,
+    "upload_id": "71536",
+    "size": "314186",
+    "name": "A-102 - ROOF PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 8,
+    "upload_id": "71537",
+    "size": "177983",
+    "name": "A-110 - EOS PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 9,
+    "upload_id": "71538",
+    "size": "191506",
+    "name": "A-120 - PARTITION TYPES PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 10,
+    "upload_id": "71539",
+    "size": "250589",
+    "name": "A-130 - DIMENSION FLOOR PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 11,
+    "upload_id": "71540",
+    "size": "525017",
+    "name": "A-201 - REFLECTED CEILING PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 12,
+    "upload_id": "71541",
+    "size": "395761",
+    "name": "A-301 - EXTERIOR ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 13,
+    "upload_id": "71542",
+    "size": "291402",
+    "name": "A-302 - EXTERIOR ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 14,
+    "upload_id": "71543",
+    "size": "576749",
+    "name": "A-310 - BUILDING SECTIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 15,
+    "upload_id": "71544",
+    "size": "458596",
+    "name": "A-401 - ENLARGED WATER CLOSET PLANS AND ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 16,
+    "upload_id": "71545",
+    "size": "420339",
+    "name": "A-410 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 17,
+    "upload_id": "61311",
+    "size": "384778",
+    "name": "A-410 ELEVATIONS - ENLARGED FLOOR PLANS AND INTERIOR (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 18,
+    "upload_id": "71546",
+    "size": "276583",
+    "name": "A-411 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 19,
+    "upload_id": "71547",
+    "size": "189258",
+    "name": "A-420 - MILLWORK SECTIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 20,
+    "upload_id": "71548",
+    "size": "408451",
+    "name": "A-501 - APPARATUS BAY INTERIOR ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 21,
+    "upload_id": "71549",
+    "size": "277457",
+    "name": "A-701 - WALL SECTIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 22,
+    "upload_id": "71550",
+    "size": "250927",
+    "name": "A-702 - WALL SECTIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 23,
+    "upload_id": "71551",
+    "size": "261084",
+    "name": "A-720 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 24,
+    "upload_id": "71552",
+    "size": "257825",
+    "name": "A-721 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 25,
+    "upload_id": "71553",
+    "size": "281057",
+    "name": "A-722 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 26,
+    "upload_id": "71554",
+    "size": "240797",
+    "name": "A-723 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 27,
+    "upload_id": "71555",
+    "size": "249460",
+    "name": "A-730 - CEILING DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 28,
+    "upload_id": "71556",
+    "size": "219717",
+    "name": "A-801 - PARTITION TYPES - METAL FRAMED WALLS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 29,
+    "upload_id": "71557",
+    "size": "267510",
+    "name": "A-802 - PARTITION TYPES - CMU WALLS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 30,
+    "upload_id": "71558",
+    "size": "239724",
+    "name": "A-803 - PARTITION TYPES - CMU WALLS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 31,
+    "upload_id": "71559",
+    "size": "288118",
+    "name": "A-804 - PARTITION DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 32,
+    "upload_id": "71560",
+    "size": "161637",
+    "name": "A-810 - DOOR SCHEDULE (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 33,
+    "upload_id": "71561",
+    "size": "328085",
+    "name": "A-811 - DOOR DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 34,
+    "upload_id": "71562",
+    "size": "218323",
+    "name": "A-812 - DOOR DETAILS - SPECIALTY (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 35,
+    "upload_id": "71563",
+    "size": "202760",
+    "name": "A-820 - STOREFRONT  LOUVER ELEVATIONS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 36,
+    "upload_id": "71564",
+    "size": "267658",
+    "name": "A-821 - STOREFRONT DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 37,
+    "upload_id": "71532",
+    "size": "478707",
+    "name": "B-101 - LIFE SAFETY PLAN (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 38,
+    "upload_id": "67016",
+    "size": "1265263",
+    "name": "Civil Drawings and Specifications - Full Set (Permit)",
+    "ext": "pdf"
+  },
+  {
+    "index": 39,
+    "upload_id": "71525",
+    "size": "12609957",
+    "name": "Cover Sheet (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 40,
+    "upload_id": "71618",
+    "size": "231213",
+    "name": "E-001 - SYMBOLS LEGEND - GENERAL NOTES - ELECTRICAL (2) - Addm 12 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 41,
+    "upload_id": "71619",
+    "size": "170484",
+    "name": "E-002 - FIXTURE SCHEDULE - ELECTRICAL (2) - Addm 12 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 42,
+    "upload_id": "71620",
+    "size": "455708",
+    "name": "E-010 - SITE PLAN - ELECTRICAL (2) - Addm 12",
+    "ext": "pdf"
+  },
+  {
+    "index": 43,
+    "upload_id": "61394",
+    "size": "398974",
+    "name": "E-010 - SITE PLAN - ELECTRICAL (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 44,
+    "upload_id": "71621",
+    "size": "357782",
+    "name": "E-011 - SITE PHOTOMETRIC PLAN - ELECTRICAL (2) - Addm 12 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 45,
+    "upload_id": "71622",
+    "size": "484771",
+    "name": "E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING (2) - Addm 12",
+    "ext": "pdf"
+  },
+  {
+    "index": 46,
+    "upload_id": "61396",
+    "size": "421224",
+    "name": "E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 47,
+    "upload_id": "71623",
+    "size": "441398",
+    "name": "E-201 - LEVEL 1 - FLOOR PLAN - POWER (2) - Addm 12",
+    "ext": "pdf"
+  },
+  {
+    "index": 48,
+    "upload_id": "61397",
+    "size": "374329",
+    "name": "E-201 - LEVEL 1 - FLOOR PLAN - POWER (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 49,
+    "upload_id": "71624",
+    "size": "400787",
+    "name": "E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM (2) - Addm 12",
+    "ext": "pdf"
+  },
+  {
+    "index": 50,
+    "upload_id": "61398",
+    "size": "335616",
+    "name": "E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 51,
+    "upload_id": "71625",
+    "size": "233201",
+    "name": "E-401 - ROOF PLAN - ELECTRICAL (2) - Addm 12 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 52,
+    "upload_id": "71626",
+    "size": "229740",
+    "name": "E-501 - DETAILS - ELECTRICAL (2) - Addm 12",
+    "ext": "pdf"
+  },
+  {
+    "index": 53,
+    "upload_id": "61400",
+    "size": "146586",
+    "name": "E-501 - DETAILS - ELECTRICAL (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 54,
+    "upload_id": "71627",
+    "size": "240045",
+    "name": "E-502 - DETAILS - ELECTRICAL (2) - Addm 12",
+    "ext": "pdf"
+  },
+  {
+    "index": 55,
+    "upload_id": "61401",
+    "size": "165614",
+    "name": "E-502 - DETAILS - ELECTRICAL (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 56,
+    "upload_id": "71628",
+    "size": "201250",
+    "name": "E-601 - ONE-LINE DIAGRAMS - ELECTRICAL (2) - Addm 12 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 57,
+    "upload_id": "71629",
+    "size": "510431",
+    "name": "E-701 - PANEL SCHEDULES (2) - Addm 12 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 58,
+    "upload_id": "61404",
+    "size": "196607",
+    "name": "F-001 - GENERAL NOTES  DESIGN CRITERIA -FIRE PROTECTION (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 59,
+    "upload_id": "61405",
+    "size": "1257221",
+    "name": "F-101 - LEVEL 1 - FLOOR PLAN - FIRE PROTECTION (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 60,
+    "upload_id": "61406",
+    "size": "198288",
+    "name": "F-501 - DETAILS - FIRE PROTECTION (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 61,
+    "upload_id": "61407",
+    "size": "180673",
+    "name": "F-502 - DETAILS - FIRE PROTECTION (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 62,
+    "upload_id": "61408",
+    "size": "442380",
+    "name": "F-503 - DETAILS - FIRE PROTECTION (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 63,
+    "upload_id": "71526",
+    "size": "690065",
+    "name": "G-101 - DRAWING LEGEND AND BUILDING DATA (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 64,
+    "upload_id": "71527",
+    "size": "79832",
+    "name": "G-102 - SHEET INDEX (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 65,
+    "upload_id": "71528",
+    "size": "103012",
+    "name": "G-103 - CODE ANALYSIS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 66,
+    "upload_id": "71529",
+    "size": "227636",
+    "name": "G-104 - MOUNTING HEIGHTS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 67,
+    "upload_id": "71530",
+    "size": "2674437",
+    "name": "G-105 - UL LISTINGS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 68,
+    "upload_id": "71531",
+    "size": "939824",
+    "name": "G-106 - UL LISTINGS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 69,
+    "upload_id": "71565",
+    "size": "430601",
+    "name": "ID-101 - FINISH PLAN AND SCHEDULE (02) - Addm 09",
+    "ext": "pdf"
+  },
+  {
+    "index": 70,
+    "upload_id": "61331",
+    "size": "366558",
+    "name": "ID-101 - FINISH PLAN AND SCHEDULE (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 71,
+    "upload_id": "71566",
+    "size": "261844",
+    "name": "ID-301 - EQUIPMENT PLAN AND SCHEDULE (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 72,
+    "upload_id": "71567",
+    "size": "262601",
+    "name": "ID-401 - INTERIOR DETAILS (02) - Addm 09 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 73,
+    "upload_id": "61298",
+    "size": "1464488",
+    "name": "LS-1 - SCALE 1  30 15 30 60 (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 74,
+    "upload_id": "71595",
+    "size": "197364",
+    "name": "M-001 - LEGEND, ABREVIATIONS, AND NOTES - HVAC (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 75,
+    "upload_id": "71596",
+    "size": "494243",
+    "name": "M-101 - LEVEL 1 - FLOOR PLAN - HVAC (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 76,
+    "upload_id": "71597",
+    "size": "239915",
+    "name": "M-106 - ROOF PLAN - HVAC (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 77,
+    "upload_id": "71598",
+    "size": "255055",
+    "name": "M-201 - ENLARGED GENERATOR ROOM PLANS - HVAC (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 78,
+    "upload_id": "71599",
+    "size": "209751",
+    "name": "M-501 - DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 79,
+    "upload_id": "71600",
+    "size": "213370",
+    "name": "M-502 - DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 80,
+    "upload_id": "71601",
+    "size": "837404",
+    "name": "M-601 - SCHEDULES - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 81,
+    "upload_id": "71602",
+    "size": "759544",
+    "name": "M-701 - CONTROLS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 82,
+    "upload_id": "71603",
+    "size": "514517",
+    "name": "M-801 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 83,
+    "upload_id": "71604",
+    "size": "339079",
+    "name": "M-802 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 84,
+    "upload_id": "71605",
+    "size": "308791",
+    "name": "M-803 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 85,
+    "upload_id": "71606",
+    "size": "342244",
+    "name": "M-804 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 86,
+    "upload_id": "71607",
+    "size": "453844",
+    "name": "M-805 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 87,
+    "upload_id": "71608",
+    "size": "344603",
+    "name": "M-806 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 88,
+    "upload_id": "71609",
+    "size": "383903",
+    "name": "M-807 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 89,
+    "upload_id": "71610",
+    "size": "285162",
+    "name": "M-808 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 90,
+    "upload_id": "71611",
+    "size": "421544",
+    "name": "M-809 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 91,
+    "upload_id": "71612",
+    "size": "354558",
+    "name": "M-810 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 92,
+    "upload_id": "71613",
+    "size": "406415",
+    "name": "M-811 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 93,
+    "upload_id": "71614",
+    "size": "323219",
+    "name": "M-812 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 94,
+    "upload_id": "71615",
+    "size": "347487",
+    "name": "M-813 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 95,
+    "upload_id": "71616",
+    "size": "340688",
+    "name": "M-814 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 96,
+    "upload_id": "71617",
+    "size": "249383",
+    "name": "M-815 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 97,
+    "upload_id": "71630",
+    "size": "194870",
+    "name": "P-001 - GENERAL NOTES AND LEGEND - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 98,
+    "upload_id": "71631",
+    "size": "702396",
+    "name": "P-100 - FOUNDATION PLAN - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 99,
+    "upload_id": "71632",
+    "size": "484859",
+    "name": "P-101 - LEVEL 1 - FLOOR PLAN - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 100,
+    "upload_id": "71633",
+    "size": "213000",
+    "name": "P-106 - ROOF PLAN - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 101,
+    "upload_id": "71634",
+    "size": "439576",
+    "name": "P-201 - ENLARGED PLANS - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 102,
+    "upload_id": "71635",
+    "size": "349294",
+    "name": "P-301 - WASTE RISERS - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 103,
+    "upload_id": "71636",
+    "size": "309611",
+    "name": "P-302 - WATER RISERS - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 104,
+    "upload_id": "71637",
+    "size": "219816",
+    "name": "P-501 - DETAILS - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 105,
+    "upload_id": "71638",
+    "size": "311064",
+    "name": "P-502 - DETAILS - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 106,
+    "upload_id": "71639",
+    "size": "194227",
+    "name": "P-601 - SCHEDULES - PLUMBING (3) - Addm 13 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 107,
+    "upload_id": "61389",
+    "size": "903115",
+    "name": "PG-001 - GENERAL NOTES, LEGEND. SCHEDULES AND TABLES - GAS (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 108,
+    "upload_id": "71691",
+    "size": "721166",
+    "name": "PG001 - Generator Specifications",
+    "ext": "pdf"
+  },
+  {
+    "index": 109,
+    "upload_id": "61390",
+    "size": "311263",
+    "name": "PG-100 - FOUNDATIONS PLAN - GAS (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 110,
+    "upload_id": "61391",
+    "size": "278381",
+    "name": "PG-101 - LEVEL 1 - FLOOR PLAN - GAS (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 111,
+    "upload_id": "61417",
+    "size": "147190",
+    "name": "PG-201 - OVERALL GAS RISER - GAS (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 112,
+    "upload_id": "71568",
+    "size": "354681",
+    "name": "S-101 - GENERAL STRUCTURAL NOTES (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 113,
+    "upload_id": "71569",
+    "size": "822033",
+    "name": "S-201 - FOUNDATION PLAN (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 114,
+    "upload_id": "71570",
+    "size": "528946",
+    "name": "S-202 - SLAB ON GRADE PLAN (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 115,
+    "upload_id": "71571",
+    "size": "454396",
+    "name": "S-203 - LOW ROOF FRAMING PLAN (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 116,
+    "upload_id": "71572",
+    "size": "393277",
+    "name": "S-204 - HIGH ROOF FRAMING PLAN (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 117,
+    "upload_id": "71573",
+    "size": "870395",
+    "name": "S-301 - TYPICAL DETAILS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 118,
+    "upload_id": "71574",
+    "size": "548509",
+    "name": "S-302 - TYPICAL DETAILS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 119,
+    "upload_id": "71575",
+    "size": "387702",
+    "name": "S-303 - TYPICAL DETAILS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 120,
+    "upload_id": "71576",
+    "size": "450831",
+    "name": "S-401 - WALL SECTIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 121,
+    "upload_id": "71577",
+    "size": "459917",
+    "name": "S-402 - WALL SECTIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 122,
+    "upload_id": "71578",
+    "size": "551565",
+    "name": "S-403 - WALL SECTIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 123,
+    "upload_id": "71579",
+    "size": "572320",
+    "name": "S-404 - WALL SECTIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 124,
+    "upload_id": "71580",
+    "size": "434621",
+    "name": "S-405 - WALL SECTIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 125,
+    "upload_id": "71581",
+    "size": "656442",
+    "name": "S-501 - WALL ELEVATIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 126,
+    "upload_id": "71582",
+    "size": "757553",
+    "name": "S-502 - WALL ELEVATIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 127,
+    "upload_id": "71583",
+    "size": "600581",
+    "name": "S-503 - WALL ELEVATIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 128,
+    "upload_id": "71584",
+    "size": "406059",
+    "name": "S-504 - WALL ELEVATIONS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 129,
+    "upload_id": "71585",
+    "size": "1825061",
+    "name": "S-601 - ISOMETRIC VIEWS (2) - Addm 10 [superseded]",
+    "ext": "pdf"
+  },
+  {
+    "index": 130,
+    "upload_id": "61296",
+    "size": "1661469",
+    "name": "SP-1 - Site Plan (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 131,
+    "upload_id": "61297",
+    "size": "585501",
+    "name": "SP-2 - Site Plan (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 132,
+    "upload_id": "61409",
+    "size": "135556",
+    "name": "T-001 TECHNOLOGY - GENERAL NOTES  SYMBOLS LEGEND- (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 133,
+    "upload_id": "61410",
+    "size": "226659",
+    "name": "T-010 - SITE PLAN - TECHNOLOGY (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 134,
+    "upload_id": "61411",
+    "size": "325312",
+    "name": "T-101 - LEVEL 1 - FLOOR PLAN - TECHNOLOGY (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 135,
+    "upload_id": "61413",
+    "size": "325764",
+    "name": "T-201 - LEVEL 1 - FLOOR PLAN - ALERTING SYSTEM (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 136,
+    "upload_id": "61414",
+    "size": "169872",
+    "name": "T-501 - DETAILS - TECHNOLOGY (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 137,
+    "upload_id": "61415",
+    "size": "145542",
+    "name": "T-502 - DETAILS - TECHNOLOGY (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 138,
+    "upload_id": "61416",
+    "size": "268995",
+    "name": "T-503 - DETAILS - TECHNOLOGY (Permit Set)",
+    "ext": "pdf"
+  },
+  {
+    "index": 139,
+    "upload_id": "61418",
+    "size": "111126",
+    "name": "T-601 - RISER DIAGRAM - TECHNOLOGY (Permit Set)",
+    "ext": "pdf"
+  }
+]

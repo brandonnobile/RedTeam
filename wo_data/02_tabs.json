@@ -1,0 +1,58 @@
+{
+  "aaData": [
+    {
+      "TabLabel": "DASHBOARD",
+      "url": "app/workorders/activities/overview.html",
+      "DisplayOrder": 1,
+      "IsDefault": "true"
+    },
+    {
+      "TabLabel": "CONTRACT",
+      "url": "app/workorders/proposal/contract.html",
+      "DisplayOrder": 4,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "BUDGET",
+      "url": "app/workorders/budget_/budget.html",
+      "DisplayOrder": 5,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "BUYOUT",
+      "url": "app/workorders/buyout/buyout.html",
+      "DisplayOrder": 6,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "BILLING",
+      "url": "app/workorders/billing_/billing.html",
+      "DisplayOrder": 7,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "DIALOG",
+      "url": "app/workorders/dialog_/dialog.html",
+      "DisplayOrder": 8,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "PROGRESS",
+      "url": "app/workorders/progress_/progress.html",
+      "DisplayOrder": 9,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "SCHEDULE",
+      "url": "app/workorders/progress_/Schedule/schedule.html",
+      "DisplayOrder": 10,
+      "IsDefault": "false"
+    },
+    {
+      "TabLabel": "SUBMITTALS",
+      "url": "app/workorders/deliverablesworkflow_/workflow.html",
+      "DisplayOrder": 11,
+      "IsDefault": "false"
+    }
+  ]
+}

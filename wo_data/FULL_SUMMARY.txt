@@ -1,0 +1,918 @@
+================================================================================
+WORK ORDER 1940046 - COMPLETE DATA EXPORT
+================================================================================
+
+=== GENERAL INFORMATION ===
+Project Number: 1940046
+Title: Fire Station 20 Build - New Construction
+Status: InProgress - Contract/PO Received
+Customer: St. Lucie County Fire District (ID: 194)
+Facility: Station 20 (ID: 00221)
+Address: 12440 SW Village Pkwy.  Port St. Lucie FL, 34987
+Project Manager: Stuart Frisby (ID: 4318)
+Customer Contact: Paul Langel (ID: 3981)
+Region: Remnant Construction
+Type: None Selected
+
+=== DATES ===
+Draft Date: 2024-01-09T14:16:31.323Z
+Bid Date: 02/15/2024
+Contract Date: 03/25/2024
+Start Date: 02/27/2024
+Original Start Date: 02/27/2024
+Contract Finish: 02/04/2025
+Planned Duration: 341 days
+Total Modified Contract Duration: 344 days
+
+=== FINANCIAL SUMMARY ===
+Proposed Amount: $5,999,685.28
+Contract Amount: $5,035,368.88
+Markup Rate: 6.5%
+Total Committed Cost: $4,789,680.27
+Total Cost: $5,569,085.86
+Total Billed: $5,065,504.31
+Total Received: $5,065,504.31
+Balance Amount: $-30,135.43
+
+=== COUNTERS ===
+Open Action Items: 99
+Issues: 4
+Open RFIs: 20
+Open RFQs: 144
+Open Bids: 0
+Not Requested: 2
+Requested: 4
+Transmitted: 8
+Not Transmitted: 0
+Answered: 0
+Last Billed: 6 weeks ago
+Last Progress: 5 months ago
+
+
+=== FINANCIAL OVERVIEW (DETAILED) ===
+History: 	Current 1/16/2026 4:01:28 PM by Jennifer Knowles 1/14/2026 1:45:23 PM by Jennifer Knowles 11/17/2025 4:22:05 PM by Jennifer Knowles 10/20/2025 11:37:42 AM by Jennifer Knowles 9/17/2025 3:51:02 PM by Jennifer Knowles 8/5/2025 4:33:52 PM by Jennifer Knowles 7/17/2025 2:36:54 PM by Jennifer Knowles 5/5/2025 1:38:23 PM by Jennifer Knowles 4/15/2025 8:22:45 AM by Jennifer Knowles 3/5/2025 10:37:09 AM by Jennifer Knowles 3/4/2025 10:33:44 AM by Jennifer Knowles 2/6/2025 4:38:29 PM by Jennifer Knowles 12/27/2024 2:35:29 PM by Jennifer Knowles 11/27/2024 3:24:57 PM by Jennifer Knowles 	Include Budget Details by Cost Code 
+ Include Budget Details by Scope 
+ Include Budget Details by Phase 	[Snapshot] [Export] [Print] [Close] 
+ 	For best results print this report on Landscape and use More Settings to set Scale to 85 
+
+ Your request is being processed... please wait. 
+
+ 	Remnant Construction, LLC 
+ 	FINANCIAL OVERVIEW 
+
+ 	Today's Date: 3/12/2026 
+
+ 	Project Details 
+ 	Company Division: Remnant Construction 
+ 	Project: 1940046 - Fire Station 20 Build - New Construction 
+ 	Customer: St. Lucie County Fire District 
+ 	Facility: Station 20 
+ 	Contact: Paul Langel 
+ 	Manager: Stuart Frisby 
+ 	Status: 
+ In Progress / Contract/PO Received 
+
+ 	Contract Details 	Days 	Amount ($) 
+
+ 	Original Contract dated 
+	03/25/2024 	341 	5,999,685.28 
+ 	89 Authorized Change Orders 	3 	-964,316.40 
+ 	Total Modified Contract 	344 	5,035,368.88 
+ 	Contract Balance to Finish 	0 	-30,135.43 
+ 	No Potential Scope Changes 	0 	0.00 
+ 	Contract Start Date: 	02/27/2024 
+ 	Contract Completion Date: 	02/04/2025 
+ 	Anticipated Completion Date: 	TBD 
+
+ 	Estimate At Complete 	Budget ($) 	Actuals ($) 	Open ($) 	ETC ($) 	Complete ($) 	Variance ($) 
+
+ 	Contract Revenue 	5,035,368.88 	5,026,881.64 	5,035,368.88 	0.00 
+
+ 	Direct Labor 	91,964.89 	91,932.97 	0.00 	0.00 	91,932.97 	(31.92) 
+ 	Material 	218,528.93 	164,118.85 	0.00 	5,798.92 	169,917.77 	(48,611.16) 
+ 	Subcontract 	4,420,494.35 	4,531,344.47 	2,283.98 	0.00 	4,533,628.45 	113,134.10 
+ 	Equipment 	-16,500.00 	0.00 	0.00 	0.00 	0.00 	16,500.00 
+ 	Other 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 
+
+ 	Total Cost 	4,714,488.17 	4,787,396.29 	2,283.98 	5,798.92 	4,795,479.19 	80,991.02 
+ 	Percent Complete 	99.83% 	0.05% 	0.12% 	100.00% 	Profit (Loss) 	320,880.71 	239,485.35 	239,889.69 	(80,991.02) 
+ 	Profit Margin 	6.37% 	4.76% 	4.76% 	(1.61)% 
+
+ Note - Commitments related to Potential Changes are included. 
+
+ 	Working Capital 
+
+ 	Total Revenue 	5,026,881.64 	Received to Date 	5,065,504.31 	Accounts Payable 	2,119.27 
+ 	Less Total Billed 	5,065,504.31 	Less Paid to Date 	4,785,277.02 	Less Uncollected Revenue 	(38,622.67) 
+
+ 	Over (Under) Billed 	38,622.67 	Net Cash Flow 	280,227.29 	Net Working Capital 	40,741.94 
+
+ 	Remnant Construction, LLC 
+ 	FINANCIAL OVERVIEW 
+
+ 	1940046 - Fire Station 20 Build - New Construction 	Today's Date: 3/12/2026 
+
+ 	Customer Changes 	Days 	Priced ($) 
+ 	Authorized : 
+
+ 	CO# 
+ 01 	Change 01 - 08/19/2024 
+ 	3 	187,896.43 
+ 	CO# 
+ 02 	Change 02 - 11/13/2024 
+ 	0 	50,675.81 
+ 	CO# 
+ 03 	Change 03 - 11/13/2024 
+ 	0 	11,766.02 
+ 	CO# 
+ 04 	Change 04 - 11/13/2024 
+ 	0 	1,289.69 
+ 	CO# 
+ 05 	Change 05 - 11/14/2024 
+ 	0 	-16,997.00 
+ 	CO# 
+ 06 	Change 06 - 01/27/2025 
+ 	0 	-13,098.66 
+ 	CO# 
+ 07 	Change 07 - 01/27/2025 
+ 	0 	5,932.68 
+ 	CO# 
+ 12 	Change 12 - 03/03/2025 
+ 	0 	7,533.00 
+ 	CO# 
+ 13 	Change 13 - 03/13/2025 
+ 	0 	3,028.62 
+ 	CO# 
+ OCO 	Change OCO - 
+ 	0 	20,151.41 
+ 	CO# 
+ 17 	Change 17 - 04/07/2025 
+ 	0 	28,869.90 
+ 	CO# 
+ 18 	Change 18 - 04/15/2025 
+ 	0 	18,121.42 
+ 	CO# 
+ 19 	Change 19 - 05/09/2025 
+ 	0 	7,405.81 
+ 	CO# 
+ 20 	Change 20 - 05/08/2025 
+ 	0 	1,438.61 
+ 	CO# 
+ 21 	Change 21 - 05/08/2025 
+ 	0 	16,236.91 
+ 	CO# 
+ 22 	Change 22 - 05/08/2025 
+ 	0 	2,710.05 
+ 	CO# 
+ 23 	Change 23 - 05/12/2025 
+ 	0 	82,298.22 
+ 	CO# 
+ 24 	Change 24 - 05/09/2025 
+ 	0 	6,140.72 
+ 	CO# 
+ 25 	Change 25 - 06/28/2025 
+ 	0 	725.78 
+ 	CO# 
+ 26 	Change 26 - 05/19/2025 
+ 	0 	4,481.65 
+ 	CO# 
+ 27 	Change 27 - 05/27/2025 
+ 	0 	2,806.70 
+ 	CO# 
+ 28 	Change 28 - 05/27/2025 
+ 	0 	9,159.83 
+ 	CO# 
+ 29 	Change 29 - 06/02/2025 
+ 	0 	2,438.14 
+ 	CO# 
+ 30 	Change 30 - 06/28/2025 
+ 	0 	4,701.65 
+ 	CO# 
+ 31 	Change 31 - 06/28/2025 
+ 	0 	3,288.66 
+ 	CO# 
+ 32 	Change 32 - 06/28/2025 
+ 	0 	40,443.71 
+ 	CO# 
+ 33 	Change 33 - 06/29/2025 
+ 	0 	820.88 
+ 	CO# 
+ 34 	Change 34 - 07/22/2025 
+ 	0 	1,621.69 
+ 	CO# 
+ 36 	Change 36 - 07/09/2025 
+ 	0 	1,093.19 
+ 	CO# 
+ 37 	Change 37 - 07/22/2025 
+ 	0 	2,253.30 
+ 	CO# 
+ 38 	Change 38 - 07/22/2025 
+ 	0 	3,472.83 
+ 	CO# 
+ 39 	Change 39 - 07/22/2025 
+ 	0 	35,636.15 
+ 	CO# 
+ 40 	Change 40 - 07/22/2025 
+ 	0 	2,032.17 
+ 	CO# 
+ 42 	Change 42 - 07/22/2025 
+ 	0 	3,547.28 
+ 	CO# 
+ 43 	Change 43 - 07/17/2025 
+ 	0 	1,591.58 
+ 	CO# 
+ 44 	Change 44 - 07/31/2025 
+ 	0 	1,375.86 
+ 	CO# 
+ 45 	Change 45 - 07/31/2025 
+ 	0 	546.27 
+ 	CO# 
+ 46 	Change 46 - 08/01/2025 
+ 	0 	1,491.12 
+ 	CO# 
+ 47 	Change 47 - 08/06/2025 
+ 	0 	917.73 
+ 	CO# 
+ 49 	Change 49 - 08/07/2025 
+ 	0 	20,049.48 
+ 	CO# 
+ 50 	Change 50 - 08/18/2025 
+ 	0 	106.03 
+ 	CO# 
+ 51 	Change 51 - 08/18/2025 
+ 	0 	11,697.42 
+ 	CO# 
+ 52 	Change 52 - 08/18/2025 
+ 	0 	790.98 
+ 	CO# 
+ 53 	Change 53 - 08/18/2025 
+ 	0 	3,742.27 
+ 	CO# 
+ 54 	Change 54 - 08/19/2025 
+ 	0 	9,602.82 
+ 	CO# 
+ 56 	Change 56 - 08/19/2025 
+ 	0 	1,374.44 
+ 	CO# 
+ 57 	Change 57 - 08/19/2025 
+ 	0 	1,163.62 
+ 	CO# 
+ 58 	Change 58 - 08/27/2025 
+ 	0 	2,585.64 
+ 	CO# 
+ 59 	Change 59 - 08/27/2025 
+ 	0 	2,322.82 
+ 	CO# 
+ 60 	Change 60 - 08/27/2025 
+ 	0 	672.53 
+ 	CO# 
+ 61 	Change 61 - 09/05/2025 
+ 	0 	8,294.22 
+ 	CO# 
+ 62 	Change 62 - 09/05/2025 
+ 	0 	1,275.47 
+ 	CO# 
+ 63 	Change 63 - 09/05/2025 
+ 	0 	793.82 
+ 	CO# 
+ 64 	Change 64 - 09/05/2025 
+ 	0 	15,377.32 
+ 	CO# 
+ 65 	Change 65 - 09/05/2025 
+ 	0 	1,181.40 
+ 	CO# 
+ 66 	Change 66 - 09/12/2025 
+ 	0 	6,662.37 
+ 	CO# 
+ 67 	Change 67 - 09/12/2025 
+ 	0 	37,193.21 
+ 	CO# 
+ 68 	Change 68 - 09/19/2025 
+ 	0 	2,622.99 
+ 	CO# 
+ 69 	Change 69 - 09/19/2025 
+ 	0 	3,430.41 
+ 	CO# 
+ 70 	Change 70 - 09/19/2025 
+ 	0 	2,608.24 
+ 	CO# 
+ 71 	Change 71 - 10/02/2025 
+ 	0 	311.86 
+ 	CO# 
+ 72 	Change 72 - 10/02/2025 
+ 	0 	2,461.38 
+ 	CO# 
+ 73 	Change 73 - 10/02/2025 
+ 	0 	1,376.55 
+ 	CO# 
+ 74 	Change 74 - 10/02/2025 
+ 	0 	9,574.54 
+ 	CO# 
+ 75 	Change 75 - 10/02/2025 
+ 	0 	2,948.45 
+ 	CO# 
+ 76 	Change 76 - 10/06/2025 
+ 	0 	2,846.39 
+ 	CO# 
+ 77 	Change 77 - 10/06/2025 
+ 	0 	20,327.32 
+ 	CO# 
+ 78 	Change 78 - 10/07/2025 
+ 	0 	4,847.94 
+ 	CO# 
+ 79 	Change 79 - 10/08/2025 
+ 	0 	14,156.20 
+ 	CO# 
+ 80 	Change 80 - 10/08/2025 
+ 	0 	3,969.07 
+ 	CO# 
+ 81 	Change 81 - 10/27/2025 
+ 	0 	8,585.67 
+ 	CO# 
+ 82 	Change 82 - 10/27/2025 
+ 	0 	513.71 
+ 	CO# 
+ 83 	Change 83 - 10/27/2025 
+ 	0 	2,268.04 
+ 	CO# 
+ 84 	Change 84 - 10/27/2025 
+ 	0 	1,247.42 
+ 	CO# 
+ 85 	Change 85 - 10/27/2025 
+ 	0 	2,268.04 
+ 	CO# 
+ 86 	Change 86 - 10/30/2025 
+ 	0 	339.07 
+ 	CO# 
+ 87 	Change 87 - 11/10/2025 
+ 	0 	3,829.05 
+ 	CO# 
+ 88 	Change 88 - 11/06/2025 
+ 	0 	5,234.64 
+ 	CO# 
+ 89 	Change 89 - 11/10/2025 
+ 	0 	1,758.55 
+ 	CO# 
+ 90 	Change 90 - 11/24/2025 
+ 	0 	3,652.42 
+ 	CO# 
+ 91 	Change 91 - 11/18/2025 
+ 	0 	5,078.14 
+ 	CO# 
+ 92 	Change 92 - 11/19/2025 
+ 	0 	2,262.37 
+ 	CO# 
+ 93 	Change 93 - 11/20/2025 
+ 	0 	5,670.10 
+ 	CO# 
+ 94 	Change 94 - 12/01/2025 
+ 	0 	381.27 
+ 	CO# 
+ 95 	Change 95 - 12/16/2025 
+ 	0 	1,963.80 
+ 	CO# 
+ 96 	Change 96 - 12/16/2025 
+ 	0 	629.38 
+ 	CO# 
+ 97 	Change 97 - 01/05/2026 
+ 	0 	1,134.02 
+ 	CO# 
+ OCO93 	Change OCO93 - 01/14/2026 
+ 	0 	-1,753,770.36 
+ 	CO# 
+ 99 	Change 99 - 01/22/2026 
+ 	0 	425.26 
+ 	3 	-964,316.40 	Potential : 
+
+ 	- None 
+
+ 	Internal Changes 	Days 	Cost ($) 
+ 	Authorized : 
+
+ 	- None 
+ 	Potential : 
+
+ 	- None
+
+
+=== CHANGES OVERVIEW ===
+
+Company Division: Remnant Construction
+Project: 1940046 - Fire Station 20 Build - New Construction
+Customer:St. Lucie County Fire District
+Facility: Station 20
+Contact: Paul Langel
+Manager: Stuart Frisby
+Start Date: 2/27/2024
+Original Contract dated 03/25/2024	5,999,685.28	4,473,058.54	313,860.10	5,798.92	0.00	1,520,827.82
+89 Authorized Change Orders	(964,316.40)	52.00	2,300.00	0.00	0.00	(964,368.40)
+Total Modified Contract	5,035,368.88	4,473,110.54	316,160.10	5,798.92	0.00	556,459.42
+No Potential Scope Changes	0.00	0.00	0.00	TBD	0.00	TBD
+PCO# 01	Change 01: 08/19/2024	187,896.43	
+	Scope Change 01: OCO #1 Changes due to EDC Civil Revisions, 07/09/24 - 08/19/2024	187,896.43	
+	EA 1940046-175 - Stuart Frisby. (Closed)	52.00	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+187,844.43
+PCO# 02	Change 02: 11/13/2024	50,675.81	
+	Scope Change 02: OCO #2 Civil Changes to EDC Plans due to PSL Reviews - 11/18/2024	50,675.81	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+50,675.81
+PCO# 03	Change 03: 11/13/2024	11,766.02	
+	Scope Change 03: OCO#3 Upsize Generator and Electric for Additional FPL Transformer. - 11/18/2024	11,766.02	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+11,766.02
+PCO# 04	Change 04: 11/13/2024	1,289.69	
+	Scope Change 04: OCO#4 Add access control to doors 105B, 106B and 108. Delete 106A door and Frame. - 11/18/2024	1,289.69	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+1,289.69
+PCO# 05	Change 05: 11/14/2024	(16,997.00)	
+	Scope Change 05: OCO#5 Remaining credit on Flashing Beacons that have been deleted from the project. - 11/18/2024	(16,997.00)	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+(16,997.00)
+PCO# 06	Change 06: 01/27/2025	(13,098.66)	
+	Scope Change 06: OCO #6 Owner-Requested Changes - 01/27/2025	(13,098.66)	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+(13,098.66)
+PCO# 07	Change 07: 01/27/2025	5,932.68	
+	Scope Change 07: OCO #7 Added J Fixtures - 01/27/2025	5,932.68	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+5,932.68
+	Scope Change 09: OCO #9 Concrete Price Escalation -	5,672.37	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+5,672.37
+# 
+                                            OCO #15	Change OCO #15 -	0.00	
+	Scope Change 15: OCO #15 - Add Plastic Strip Curtain -	0.00	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+0.00
+# 
+                                            TBD	Change  - 07/09/2025	260.83	
+	Scope Change 35: OCO #34 - Change Kitchen Faucets -	260.83	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+260.83
+# 
+                                            TBD	Change  - 07/14/2025	3,547.28	
+	Scope Change 41: OCO #40 - install 4 Pipe Flashing -	3,547.28	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+3,547.28
+# 
+                                            TBD	Change  -	0.00	
+	Scope Change 48: OCO #46 = Additions to Generator -	0.00	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+0.00
+# 
+                                            TBD	Change  - 08/19/2025	0.00	
+	Scope Change 55: OCO #52 - Bollards for Apparatus Bay -	0.00	
+		0.00	
+	At Risk	0.00	
+	Contingency	0.00	
+	Indirect Costs	0.00	
+0.00
+
+
+=== RFI SUMMARY ===
+[Exclude Confidential]
+            [Include Confidential]
+            [Print] 
+            [Close]
+
+Project:	1940046 - Fire Station 20 Build - New Construction
+Date:	3/12/2026
+
+Type	Id	From	Subject	To	Dated	Required	Returned	Workflow
+Request:	Answer:
+Please confirm if adding a new embed plate using epoxy-set Red Head anchors is acceptable to correct the embed plate location, or if you prefer an alternate repair method.
+https://redteam.link/3bomnnu	See attached RFI response for the Fire Station 19 project. Thank youhttps://redteam.link/taibjnehttps://redteam.link/taibjne
+Request:	Answer:
+A.J. Per our convesation we need a concrete foundation design to hold the below garde sleeve for the flgpole. This is noted on the submittal page I have attached .
+
+ 
+
+NOTE: Foundation Design not included. Foundation dimensions should be determined by a qualified Engineer familiar with the site soil conditions.
+https://redteam.link/9nr1q0fhttps://redteam.link/9nr1q0f	See attached sketch SK002 from Beckley Engineering Consultants. Thank youhttps://redteam.link/63lxj41https://redteam.link/oio34l8https://redteam.link/63lxj41https://redteam.link/oio34l8
+Request:	Answer:
+The exhaust fan in the generator room penetrates the 2 hour shaft rated assembly. During the install of the fan and duct assembley it was noticed that the fan assembly and duct has no fire rating.	CMTA Response:
+Shift fan elevation up to clear ceiling, provide ductwork extension to match the inlet dimensions on the bottom of the exhaust fan, and connect ductwork extension to the radiation damper grille at the fire rated ceiling.https://redteam.link/z5r55b3https://redteam.link/z5r55b3
+Request:	Answer:
+What is the DLC? This is shown near the mud room 105. DLC is not shown in the Master Elkectrcal Symbols Legend on plan page E-001. Please advise.
+https://redteam.link/fst4dfnhttps://redteam.link/fst4dfn	See attached RFI response with screenshot.
+
+Per CMTA, the DLC Controller is shown on drawing M-101.
+
+Thank youhttps://redteam.link/6lr4jf3https://redteam.link/6lr4jf3
+Request:	Answer:
+Please see attached document to view RFI #016.
+https://redteam.link/11vv82uhttps://redteam.link/11vv82u	-
+Request:	Answer:
+A.J.
+
+ 
+
+Per our conversation yesterday, on the north side of the building the plans conflict as the the foamed in place insulation is shown to be installed on the top cord of the trusses, or bottom of sheathing and is shown going all the way down the top cord, to the back side of the fascia and to competley cover the soffit vent that is shown. Per our c.onversation we are moving forward with the insulation and it will cover the soffit vent on the north side soffit	The soffit on that side of the building is not intended to be vented per detail 6 / A-721. Provide foamed-in-place insulation in soffit and along top chord of trusses per sections 1 and 2 on drawing A-701. If vents are installed, cover over the vents inside the soffit as necessary to prevent foamed-in-place insulation from leaking through the vents.https://redteam.link/y0qxv0uhttps://redteam.link/y0qxv0u
+Request:	Answer:
+Is it acceptable to run 1/2" P.E. in leu of galvanized vpiping for the exterior BBQ Grill?  The Chief Plumbing Inspector, who  performed the gas inspection today and also did the plan review for thw job, recommends 1/2" P.E. as there are no joints.	OCI Response:
+1/2" P.E. in lieu of galvanized steal is acceptable for underground no joint gas piping.https://redteam.link/ojl90q6https://redteam.link/ojl90q6
+Request:	Answer:
+On Structural plan page S-203 it shows no structural supports for KEF-1 and EF-7 shown on the mechnical roof plan S-203. What structural supports are needed for these 2 fans?	-
+Request:	Answer:
+A.J. Per your site visit today we are having issues dealing with the camber of the bar joist at the apparatus bay. The last bar joist to the west which sets about 4" from the beam is above the height of the concrete beam and will not allow us to bring the metal deck in at the designed elevation. Please advise.	See attached RFI response by Beckley Engineering. Refer to sketch on second page for additional information. Thank youhttps://redteam.link/zj9uawxhttps://redteam.link/zj9uawx
+Request:	Answer:
+Generator manufacturer has a question on the main breaker going in the generator, below…Can you get a response from OCI possible for us to pass along please on if they want a 100% rated 400A breaker in the unit or if the 80% rated 600AMP is acceptable. Max output you will ever get is 347AMPs on a 125KVA.
+
+ 
+
+ 
+
+Change gen breaker to 100%
+
+ 
+
+There are two issues that I need your help to clarify:
+
+ 
+
+One-line shows breaker size to be 600A
+
+At 208V, max gen output for the 125KVA Unit is 347A
+
+We can change to an adjustable 125A-400A 100% rated breaker – is this acceptable?
+
+We only have an 80% rated 200A-600A breaker now and do not offer a 600A 100% rated breaker for this unit.
+
+The 100% breaker tops out at 400A from the factory for this generator.
+
+ 
+
+One-line shows ATS to be 4-pole
+
+No issues with changing to 3-pole per submittal comments but want to note the deviation	-
+Request:	Answer:
+Regarding PSLUD's comment about a separate hole for the light, it is not recommended by the manufacturer to punch additional holes on a NEMA 4X enclosure. Please see attached drawing for what is recommended as a solution for concerns about water intrusion.
+https://redteam.link/g115z09https://redteam.link/g115z09	-
+Request:	Answer:
+THe documents call for a lift station with a pump that requires 480v 3 Phase which is being fed from the Main Distribution Panel (MDP). The MDP is being fed from a 280v 3 Phase transformer which will not be enough to adequately power the lift station.
+
+ 
+
+Will the lift station need to be fed from its own separate transformer?	-
+Request:	Answer:
+RFI is an attachment from SuncorInc regarding Structural Loading.
+https://redteam.link/ydw6e5ghttps://redteam.link/ydw6e5g	See attached RFI response by Beckley Engineering Consultants. Thank youhttps://redteam.link/t8kmi6dhttps://redteam.link/t8kmi6d
+Request:	Answer:
+Some of the Landscape Specification VS Container Size on St. Lucie County Fire Station #20 SW Village Parkway are not in sync with current Market availability. As I am sure you have heard the Market inventory is running very low in spec due to high demand. ( Selling faster than then they grow). The quote provided shows where these discrepancies are . I have made the notation in the Spec as to what is currently available in the container size and listed FG Field grown when available to meet the spec. Should the Landscape Architect have a source/ Nursery to locate to spec, I would gladly reprice from that source.
+
+If contracted and given ample time, we might be able to meet spec with grow time. The specs listed are todays Specs.
+https://redteam.link/lkvr951https://redteam.link/lkvr951	-
+Request:	Answer:
+Q1. There is a discrepancy in Grid dimensions b/w Structural and Architectural drawings. In Structural drawing S.203 shows Grid 2 to 3 dimension as 12'-7 7/8". But it is differing in Architectural drawing A.103. Please confirm that the followed Grid dimensions as per Structural drawing is acceptable, else advise. 
+
+(Please see attachment for reference.)
+
+ 
+
+ 
+
+Q2. Please provide the missing base plate Schedule. 
+https://redteam.link/q6267rthttps://redteam.link/q6267rt	See attached RFI response. Thank youhttps://redteam.link/4bykgw4https://redteam.link/4bykgw4
+Request:	Answer:
+Please see below from Sunline Civil Construction, Inc.:
+
+ 
+
+ 
+
+"Let it be known that all grease traps per a revised building code need to have a vent line."
+
+ 
+
+For context, Sunline has completed several recent jobs in Port St. Lucie where vent lines were not included on the original plans for the grease traps, however, they were required by the city to be installed.
+
+ 
+
+ 
+
+Do we need vent lines for the two 750 gallon grease traps?	See attached RFI response by OCI. Thank youhttps://redteam.link/l7swzp1https://redteam.link/l7swzp1
+Request:	Answer:
+There are 2 completely diffirent designs options between the civils and the plumbing site plan in regards to the OSI, SI and the GI.	See attached RFI response. Thank youhttps://redteam.link/epakk34https://redteam.link/epakk34
+Request:	Answer:
+Station 20 Storm Drain RFI
+
+ 
+
+Plumbing plan page P-100 calls for Hub Drains in Mechanical Room 110 and Storage Room 130 for the condensate drains from AHU’s 1,2,and 3. These Hub Drains reference note 6 which states 3" STORM BELOW GRADE. REFER TO CIVIL UTILTY SITE PLAN FOR CONTINUATION. The Civil drawings do not currently show any connection points to the storm system for these Hub Drains once they exit the building. Please provide.
+https://redteam.link/lmp9e0yhttps://redteam.link/lmp9e0y	-
+Request:	Answer:
+On page A-411 of the plans, the finish schedule does not specify the make or manufacturer of any of the wall tile or flooring materials other than the painted or epoxy floor.  That would be for the painter.  How can we get the spec on the wall tile, gym, floor, IT room floor and any other flooring ( ceramic, LVP, etc) that may be in the building?	-
+Request:	Answer:
+Per addendum# 1, and Plan Page LS-1, General Landscape Notes #3 states "All Landscape and Sod areas to be irrigated by and an automated system that provides 100% coverage and 100% overlap with a minimum  d.u. of.70".
+
+ 
+
+As far as irrigation water source we see that Tradition has its own 6" re-use irrigation main that runs along the Utilities Easement at the front of the proporty per LS-1. Are we to tap into this line for the site irrigation source or install a well and pump onsite? Please advise.	-
+
+
+=== PUNCH LIST ===
+Add Punch List Item	
+Type:	Select one...
+                        Punch ListQualitySafetyWarranty
+                        
+                        *	
+Scope:	Select one...
+                        Original - Fire Station 20 Build - New Construction (InProgress)C0 01 - OCO #1 Changes due to EDC Civil Revisions, 07/09/24 (Authorized)C0 02 - OCO #2 Civil Changes to EDC Plans due to PSL Reviews (Authorized)C0 03 - OCO#3 Upsize Generator and Electric for Additional FPL Transformer. (Authorized)C0 04 - OCO#4 Add access control to doors 105B, 106B and 108. Delete 106A door and Frame. (Authorized)C0 05 - OCO#5 Remaining credit on Flashing Beacons that have been deleted from the project. (Authorized)C0 06 - OCO #6 Owner-Requested Changes (Authorized)C0 07 - OCO #7 Added J Fixtures (Authorized)C0 08 - OCO #8 Change Locker Size and Add 3 Lockers (Authorized)C0 10 - OCO #10 - Paint Overhead Doors Red (Authorized)C0 11 - OCO #11 - Cyclovac Change; for the Owner supplied Equipment. CENTRAL VAC. (Authorized)C0 12 - OCO #12 - Roof Ladders (Authorized)C0 13 - OCO #13 - Hardware Changes, per Architect (Authorized)C0 14 - OCO #14 - Add Structural Steel Supports (Authorized)C0 16 - OCO #15 - Modify Island Cabinetry (Authorized)C0 17 - OCO #16 - Added Concrete Paving (Authorized)C0 18 - OCO #17 - Revision 7: Big Ass Fan (Authorized)C0 19 - OCO #18 - Revision 7: Misc. Electrical Additions (Authorized)C0 20 - OCO #19 - Circuitry for Sink Disposals (Authorized)C0 21 - OCO #20 - Plumbing Additions (Authorized)C0 22 - OCO #21 - Thimble for Generator Exhaust Change Out Side Wall (Authorized)C0 23 - OCO #22 - Added Drive Thru Turn Lane (Authorized)C0 24 - OCO #23 - Kitchen Cabinet Changes/Additions (Authorized)C0 25 - OCO #24 - Core Drilling for Added IT Lines Across Apparatus Bay (Authorized)C0 26 - OCO #25 - Added Underground Piping for Condensate Drains (Authorized)C0 27 - OCO #26 - Cabinet Additions (Authorized)C0 28 - OCO #27 - Added Gate Lights & Traffic Signal Lights (Authorized)C0 29 - OCO #28 - Replace Interior Window (Authorized)C0 30 - OCO #29 - Install Roof Drains (Authorized)C0 31 - OCO #30 - Install ACT in Kitchen & Dining Area (Authorized)C0 32 - OCO #31 - Casework (Authorized)C0 33 - OCO #32 - Change Colors of Ceiling & Fixture Trim to Black (Authorized)C0 34 - OCO #33 - Power Supplies for Access Control (Authorized)C0 36 - OCO #35 - Reframe Exterior Access Panel (Authorized)C0 37 - OCO #36 - Add Yard Drain & Bubbler (Authorized)C0 38 - OCO #37 - Changes Per IT Walkthrough (Authorized)C0 39 - OCO #38 - Added Epoxy (Authorized)C0 40 - OCO #39 - Hardware Change for 2 Pocket Doors (Authorized)C0 42 - OCO #40 - install 4 Pipe Flashing (Authorized)C0 43 - OCO #41 - Westnet Antenna (Authorized)C0 44 - OCO #42 - Big Ass Fan Addition (Authorized)C0 45 - OCO #43 - Add 11 Boxes for Smoke/CO Detectors (Authorized)C0 46 - OCO #44 - Electrical Changes for AHU 3-AS (Authorized)C0 47 - OCO #45 - Additional Fire Extinguisher & Cabinet (Authorized)C0 49 - OCO #46 - Install Cowling, Exhaust & Insulation at Generator (Authorized)C0 50 - OCO #47 - Install Water Dam for Overflow Drains (Authorized)C0 51 - OCO #48 - Fire Alarm Additions (Authorized)C0 52 - OCO #49 - Lower Irrigation Lines (Authorized)C0 53 - OCO #50 - Additional Concrete (Authorized)C0 54 - OCO #51 - Added Plant Quantities (Authorized)C0 56 - OCO #52 - Bollards for Apparatus Bay (Authorized)C0 57 - OCO #53 - Additional Conduit (Authorized)C0 58 - OCO #54 -  Simpson Stopper Upgrade (Authorized)C0 59 - OCO #55 - Additional Work For Overhead Doors (Authorized)C0 60 - OCO #56 - Install 3 Ceiling Boxes & 15 Camera Backboxes (Authorized)C0 61 - OCO #57 -  Final Clean & Lamp (Authorized)C0 62 - OCO #58 - Install Power/Circuitry for MUA Condenser (Authorized)C0 63 - OCO #59 - Additional Bath Accessories (Authorized)C0 64 - OCO #60 - Change for New Screened Enclosure (Authorized)C0 65 - OCO #61 - Install OS&Y Tamper Switches & PIV Tamper (Authorized)C0 66 - OCO #62 - Additional Planting & Irrigation (Authorized)C0 67 - OCO #63 - Additional Sitework (Authorized)C0 68 - OCO #64 - Change for Gas Piping (Authorized)C0 69 - OCO #65 -  Additional Sod & Grading (Authorized)C0 70 - OCO #66 - Pressure Washing Driveway (Authorized)C0 71 - OCO #67 - Additional Doors & Hardware (Authorized)C0 72 - OCO #68 - Supply Power to Refueling Station (Authorized)C0 73 - OCO #69 - Provide Power & Control for Generator (Authorized)C0 74 - OCO #70 - Cost for Impellers (Authorized)C0 75 - OCO #71 - Additional Casework (Authorized)C0 76 - OCO #72 - Install Grease Trap Vents (Authorized)C0 77 - OCO #73 - Additional Landscaping (Authorized)C0 78 - OCO #74 -  Install Mirror Wall (Authorized)C0 79 - OCO #75 - Repair Irrigation System (Authorized)C0 80 - OCO #76 - Regrade by Rollup Door (Authorized)C0 81 - OCO #77 - Cost for Fire Alarm Work (Authorized)C0 82 - OCO #78 - Modify Exterior Gas Service (Authorized)C0 83 - OCO #79 - Supply & Install Fencing (Authorized)C0 84 - OCO #80 - Replace Cam Locks (Authorized)C0 85 - OCO #81 - Fee for Multiple Trips for Start Up (Authorized)C0 86 - OCO #82 - Connected Low Voltage to Open Terminals & Diagnosed Electrical Problem (Authorized)C0 87 - OCO #83 - Install Provided Lights for Helipad Area (Authorized)C0 88 - OCO #84 - Added CO Detectors & PIV Valve & Deduct Work by Fire Equipment Services (Authorized)C0 89 - OCO #85 - Install 6 3-Button Stations & 2 Missing Antennas (Authorized)C0 90 - Additional As-Built Surveys to Close out project (Authorized)C0 91 - OCO #86 - Additional Landscaping (Authorized)C0 92 - OCO #87 - Additional Caulking (Authorized)C0 93 - OCO #88 - Painting (Authorized)C0 94 - OCO #89 - Supply UPS for Hood Gas Solenoid (Authorized)C0 95 - OCO #90 - Sod & Grading for PW Final (Authorized)C0 96 - OCO #91 - Miscellaneous Drywall Patching (Authorized)C0 97 - OCO #92 - Costs for Paint at Helicopter Pad (Authorized)C0 98 - OCO #93 ODP Closeout (Authorized)C0 99 - OCO #94 - Costs for 2 Week Fluke Metering Report (Authorized)
+                        
+                        *	
+Location:	Select one ...
+                            + Add new
+                            Default
+                        
+                    *	
+Description:		
+Author:	Select one ...
+                                             ACutAbove-Eneyda EneydaBeckley En-General InboxCarter Ass-Sybil WilkersonDH Pace-Brandon FieldsDH Pace-Steve HaeringFarmer & I-Susan CalvarusoFarmer & I-Toby CharlesFE&T-Brian BuxtonHaley Ward-Jayson HarrisonHaley Ward-Steven FrinkHaley Ward-Tanner RetherfordHaley Ward-Tony CantonOceanside-Mike ThomasOCI Assoc-James BuchardRemnant-Arthur NortonRemnant-Bernie ZukauskasRemnant-Brandon HooperRemnant-Brandon NobileRemnant-Brian GarciaRemnant-Christopher MartinezRemnant-Cleveland WilliamsRemnant-Craig GumRemnant-Cris TaylorRemnant-Devin CaraballoRemnant-Donald FrenchRemnant-Erin O'BrienRemnant-Implementation Remnant-Jacob FischerRemnant-Jennifer KnowlesRemnant-Jeremy GoffRemnant-Jerome de GrootRemnant-John MayrRemnant-Joseph MayhewRemnant-Joshua LopezRemnant-Linda S. FrenchRemnant-Louis CaciopoliRemnant-Mark BockRemnant-Maxwell RuddRemnant-Mike KingRemnant-Mike StubblefieldRemnant-Patrick GarciaRemnant-Randy ShurrRemnant-RedTeam SupportRemnant-Shannon WorleyRemnant-Stuart FrisbyRemnant-Terry LynchRemnant-Thomas KinsellaSLCFD-Joey CassonSLCFD-John WallaceSLCFD-Paul LangelUniversalE-Antonio TorresUniversalE-Karla GabayVelcon Eng-Darren GuettlerVelcon Eng-Greg SantoimmaVelcon Eng-Heath StoctonWannemache-A.J. VanhooserWannemache-Jeff McDowell
+                                            
+                                         *	
+Responsible:	Select one ...
+                                            A-1 Construction Co.Action Fencing, Inc.Advanced Hood SystemsAgler Kitchen, Bath & FloorsAll Specialty SalesAlliance Group Contracting CorporationBeckley Engineering Consultants [third-party]Brothers Fire Protection, Inc.Carter Associates, Inc.Coastal VacuumCommunication Access Services, Inc.Complete Cooling & Heating Services, Inc.Complete Electric, Inc.Cook Shell Contractors, LLCD & D Garage Doors of the Treasure Coast, Inc. DBA Overhead Door Co of the Treasure CoastEnergy and Impact Solutions, LLC DBA Vero Glass & MirrorEuropean Custom Casework, Inc.Festina Lente, LLC DBA AA Sign LinesFire Equipment Systems of Florida, Inc.G & R Concrete Designs, LLCGearGrid CorporationGras Lawn, LLCHaley Ward, Inc. [third-party]HD FlagpolesInterior Specialties, Inc.Kelsie's Blinds, Inc.Key Mart, Inc.Kuebler Mechanical, LLCMER Enterprises, LLC DBA Leed InsulationMidstate Caulking & Construction Services, LLCNature's Keeper Inc.OCI Associates, Inc. [third-party]Perini Interiors, LLCPOD, LLC DBA Tubito PaintingRemnant Construction, LLCRF Concrete Construction, Inc.Rodeo RoofingSafe Clean Experts of South Florida, LLCSecurity Builders Supply Co.Snyder Plumbing of the Treasure Coast, Inc.St. Lucie County Fire District [customer]Suncor, Inc.Sunline Civil Construction, Inc.Tennessee Building ComponentsThe Porch FactoryUniversal Engineering SciencesV.M. Iron Work and Structural Steel Corp.Velcon Engineering & Surveying, LLCWannemacher Jensen Architects, Inc. [third-party]Westnet, LLC	
+Required Date:		
+Attachment:	Drag and Drop your file here 
+                                                            
+                                                                OR
+                                                              
+                                                            
+                                                                
+                                                                ADD FILE...
+                                                            
+                                                             
+                                                           
+                                                                                               
+                                                            
+                                                                Allowed file types:
+                                                                    
+                                                                    *.docx,*.dwf,*.dwg,*.gif,*.jpeg,*.jpg,*.mp3,*.mp4,*.mpp,*.pdf,*.png,*.tif,*.tiff,*.txt,*.wmv,*.xlsx,*.xps 
+                                                                The file size cannot exceed 
+                                                                25MB.
+Company Confidential:		
+	
+
+There are no items on file!
+
+
+=== ACTION ITEMS ===
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ 	Page 	1 	of 1 	{"Title":"Manage Action Items","Manage":"ManageActionItems","Menu":{"Options":[{"Name":"News Feed","Id":"trItemMenuShow1","Onclick":"javascript:window.location = 'woNews.asp';","IconName":"","Enabled":true,"Manage":"ActionItems"},{"Name":"Photos","Id":"trItemMenuShow2","Onclick":"javascript:openPhotos();","IconName":"","Enabled":true,"Manage":"ActionItems"},{"Name":"Members","Id":"trItemMenuShow3","Onclick":"javascript:window.location = '../members_/woTeam.asp';","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"","Id":"","Onclick":"ShowLightBoxASP('app/asp/addActionItem.asp?type=&step=1&uniqueID=&assemblyID=&type=individual&band=new&window=team&reloadParent=true&isconfirmation=false','console', '650px');","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"","Onclick":"javascript:viewActionItemsTwo('viewAlertsList.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmQ29tcGFueUlEPSZGX1N0YXR1cz1Db21taXR0ZWQmRl9Gcm9tPSZGX1RvPSZJbnB1dFRleHRUb1NlYXJjaD0mc29ydENyaXRlcmlhbD1BY3Rpb25JdGVtRHVlRGF0ZSBkZXNjLEFjdGlvbkl0ZW1TdGF0dXMgYXNjLE1lbWJlck5hbWUgYXNj');","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[{"Name":"Filter","Id":"","Onclick":"javascript:filterBoxActivation('Filter')","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('89');","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"linkMenuMore5","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ActionItems"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Close Items","Id":"_lnkContinue","Onclick":"javascript:MassCloseActionItem();","IconName":"","Enabled":true,"Manage":"btn btn_primary"},{"Name":"Cancel","Id":"btnHideCheckbox","Onclick":"javascript:hideMassCloseBtn(1);","IconName":"","Enabled":true,"Manage":"btn btn_default_alt"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Status: 
+
+ From: 
+
+ To: 
+
+ 	Files 	Created Date 	Task 	From: 
+
+ 	To: 
+
+ 	Due Date 	Closed Date 	Status 	Confidential 	10/14/2025 	Review answer to RFI # 020 	Devin Caraballo 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Devin Caraballo 	Devin Caraballo 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Devin Caraballo 	10/14/2025 	Committed 	yes 	10/14/2025 	Review answer to RFI # 020 	Devin Caraballo 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Devin Caraballo 	Devin Caraballo 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Devin Caraballo 	10/14/2025 	Committed 	yes 	08/07/2025 	Review answer to RFI # 019 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	08/07/2025 	Committed 	yes 	07/16/2025 	Review answer to Submittal Item : Monument Sign Wall Cap Drawing - Shop Drawings 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	07/16/2025 	Committed 	yes 	06/16/2025 	Review answer to RFI # 018 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	06/16/2025 	Committed 	yes 	06/10/2025 	Review answer to Submittal Item : Stainless Steel Corner Guards - Product Data 	Jacob Fischer 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Jacob Fischer 	Jacob Fischer 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Jacob Fischer 	06/10/2025 	Committed 	yes 	06/10/2025 	Review answer to Submittal Item : Flag Poles - Product Data 	Jacob Fischer 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Jacob Fischer 	Jacob Fischer 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Jacob Fischer 	06/10/2025 	Committed 	yes 	05/05/2025 	Review answer to Submittal Item : Big Ass Fan Product Data - Product Data 	Jacob Fischer 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Jacob Fischer 	Jacob Fischer 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Jacob Fischer 	05/05/2025 	Committed 	yes 	04/15/2025 	Review answer to RFI # 017 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	04/15/2025 	Committed 	yes 	03/21/2025 	Review answer to RFI # 015 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	03/21/2025 	Committed 	yes 	03/12/2025 	Review answer to RFI # 014 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	Stuart Frisby 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Stuart Frisby 	03/12/2025 	Committed 	yes 	03/07/2025 	Review answer to Submittal Item : Fire Protection Submittal Package (Revision) (Revision) (Revision) - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	03/07/2025 	Committed 	yes 	03/07/2025 	Review answer to Submittal Item : Fire Protection Submittal Package (Revision) (Revision) - Shop Drawings 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	03/07/2025 	Committed 	yes 	03/07/2025 	Review answer to Submittal Item : Communications Product Data - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	03/07/2025 	Committed 	yes 	03/07/2025 	Review answer to Submittal Item : Public Address System Submittal Package - Data sheets 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	03/07/2025 	Committed 	yes 	02/24/2025 	Review answer to Submittal Item : Lockers Submittal Package (Revision) - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/24/2025 	Committed 	yes 	02/12/2025 	Review answer to Submittal Item : Fire Protection Specialties Product Data - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/12/2025 	Committed 	yes 	02/12/2025 	Review answer to Submittal Item : Toilet Accessories Product Data - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/12/2025 	Committed 	yes 	02/11/2025 	Review answer to Submittal Item : GFS Fan Product Data - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/11/2025 	Committed 	yes 	02/04/2025 	Review answer to Submittal Item : 45 Minute Fire Rated Window Product Data - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/04/2025 	Committed 	yes 	02/04/2025 	Review answer to Submittal Item : Fire Protection Submittal Package (Revision) (Revision) - Data sheets 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/04/2025 	Committed 	yes 	02/04/2025 	Review answer to Submittal Item : Fire Protection Submittal Package (Revision) (Revision) - Product Data 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/04/2025 	Committed 	yes 	02/04/2025 	Review answer to Submittal Item : Fire Protection Submittal Package (Revision) - Shop Drawings 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	Kayla Diefendorf 
+ Remnant Construction, LLC 	Remnant Construction, LLC 
+ Kayla Diefendorf 	02/04/2025 	Committed 	yes 	02/04/2025 	Review answer to Submittal Item : Signage Shop Draw
+
+
+=== AVAILABLE TABS ===
+  1. DASHBOARD
+  4. CONTRACT
+  5. BUDGET
+  6. BUYOUT
+  7. BILLING
+  8. DIALOG
+  9. PROGRESS
+  10. SCHEDULE
+  11. SUBMITTALS
+
+=== HOME MENU SECTIONS ===
+
+  [ActionItem]
+    ✓ Action Items
+
+  [Change Management]
+    ✓ + Create Potential Change
+    ✗ + Create Change Order
+    ✓ Manage Changes
+    ✓ Vendor Directives
+    ✓ Vendor Change Orders
+
+  [Contracting]
+    ✓ Customer Contracts
+    ✓ Vendor Commitments
+    ✓ + Labor Authorization
+    ✓ + Expense Authorization
+    ✓ Lien Law Claims
+
+  [Financial Management]
+    ✓ Unit Prices
+    ✓ Schedule of Values
+    ✓ Stored Materials
+    ✓ Customer Billing
+    ✓ T&M Sheets
+    ✓ Vendor Invoices
+    ✓ Invoice Approvals
+    ✓ Budget
+    ✓ Contingency
+
+  [Jobsite Management]
+    ✓ Progress Reports
+    ✓ Checklists
+    ✓ Punch List
+    ✓ Photos
+
+  [OnlinePlanroom]
+    ✓ Online Planroom
+
+  [Performance Management]
+    ✓ Gantt Schedule
+    ✓ Requests for Information
+    ✓ Correspondence
+    ✓ Meeting Minutes & Agendas
+    ✓ Milestones
+    ✓ Schedule Updates
+    ✓ Spreadsheets
+
+  [Preconstruction]
+    ✓ Plans & Specifications
+    ✓ Addendums
+    ✓ Estimate
+    ✓ Vendor Quotes
+    ✓ Prepare & Submit Proposal
+
+  [ProjectDocuments]
+    ✗ Project Documents
+
+  [Reports]
+    ✓ Performance Overview
+    ✓ Financial Overview
+    ✓ Changes Overview
+    ✓ RFI Summary
+
+  [Submittal Management]
+    ✓ Project Submittals
+    ✓ Submittal Requests
+    ✓ Requests for Approval
+    ✓ Submittal Acceptance
+
+  [TeamMember]
+    ✓ Team Members

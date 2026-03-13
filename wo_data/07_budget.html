@@ -1,0 +1,263 @@
+
+<HTML>
+<HEAD>
+<TITLE>Budget report, grouped by CostCode</TITLE> 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<link href='../../../../rts/app/asp/css/fontcss.css' rel='stylesheet' type='text/css' />
+<link href="../../../../rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css" />
+<link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet" />
+<link href="../../../../rts/app/asp/css/bootstrap-3.3.5.min.css" rel="stylesheet" />
+<link href='../../asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' rel='stylesheet' type='text/css' />
+<link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' rel='stylesheet' type='text/css' />
+<link href="/rts/app/css/GlobalManage.css?v=?be731a6" rel="stylesheet" /> 
+<link href="budget.css?v=?be731a6" type="text/css" rel="stylesheet"> 
+<script src="../../../../rts/app/asp/js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="../../../../rts/app/asp/js/bootstrap-3.3.5.min.js" type="text/javascript"></script> 
+<script src="../../asp/js/global.js" type="text/javascript"></script>
+<script src="../../asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/marketingtools.js" type="text/javascript"></script>
+<script src="/rts/app/js/ManageJson.js?v=?be731a6" type="text/javascript"></script>
+<script src="/rts/app/asp/js/search/search.js?be731a6" type="text/javascript" ></script>
+<script src="budget_SPEED.js?v=be731a6" type="text/javascript"></script> 
+<script src="js/Budget_Load.js?v=be731a6" type="text/javascript"></script>
+
+<script src="/rts/app/asp/js/jquery/jquery-1.11.2-ui.js"></script>
+<link rel="stylesheet" href="../members_/woteam-dist.css"> 
+<link href="/rts/app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<style>
+    .accordion_list .active_info_block .title_info_block_principal{background-color:#2b3d51;color:#939da9}
+    .accordion_list .active_info_block .arrow:before{border:2px solid #939da9;border-left-width:0;border-bottom-width:0;top:16px}    
+    .ClassOverFlow{padding-top: 92px !important;}
+    .ClassOverFlow1{padding-top: 144px !important;}
+</style>
+</HEAD>
+<div class="ParametersPage hide" style="display:none">   
+    
+    <input type="text" id="P_LoadType" name="P_LoadType" value="CostCode" > 
+    <input type="text" id="P_WorkorderID" name="P_WorkorderID" value="1940046" >
+    <input type="text" id="P_WorkorderMod" name="P_WorkorderMod" value="00" >
+    <input type="text" id="P_WorkorderStatus" name="P_WorkorderStatus" value="InProgress" > 
+    <input type="text" id="P_CustomerFacilityID" name="P_CustomerFacilityID" value="00221" > 
+    <input type="text" id="P_ScopeNum" name="P_ScopeNum" value="00" >  
+    
+    <input type="text" id="P_DateFormat" name="P_DateFormat" value="mm/dd/yyyy" >
+    <input type="text" id="P_LocaleLCID" name="P_LocaleLCID" value="1033" >    
+    <input type="text" id="P_Locale" name="P_Locale" value="en-us" > 
+    <input type="text" id="P_WorkorderStatusOriginal" name="P_WorkorderStatusOriginal" value="InProgress" >  
+    <input type="text" id="P_BuyoutAtRiskItems" name="P_BuyoutAtRiskItems" value="no" > 
+    <input type="text" id="Perm_UpdateBudget" name="Perm_UpdateBudget" value="False" > 
+    <input type="text" id="Perm_DrillDownActualCost" name="Perm_DrillDownActualCost" value="False" >
+    <input type="text" id="P_isWorkorderModOriginal" name="P_isWorkorderModOriginal" value="True" > 
+
+    <input type="text" id="Perm_AdjustBudgetAtRisk" name="Perm_AdjustBudgetAtRisk" value="False" > 
+    <input type="text" id="Perm_UpdateContingency" name="Perm_UpdateContingency" value="False" > 
+    <input type="text" id="Perm_UpdateNotes" name="Perm_UpdateNotes" value="False" > 
+       
+    <input type="text" id="CompanyBDname" name="CompanyBDname" value="remnantconstruction" />  
+    <textarea id="Icon_metadataHistory" name="Icon_metadataHistory" ></textarea>     
+    <input type="hidden" id="signCurrency" value="$" >
+    <input type="hidden" name="defaultitemsPerPage" id="defaultitemsPerPage" value="0" />
+    <input type="hidden" name="Client" id="Client" value="remnantconstruction" />
+    <input type="hidden" name="ActiveUser" id="ActiveUser" value="1" />
+    <input type="hidden" id="sortCriterial" value="" > 
+    <input type="hidden" id="LocalLoadRecords" value="true" > 
+    
+</div>
+
+<template id="RecordTemplate">  
+    <div  class="TableCont RecordItem SearchTextParent counteritem="%counter%" id="Record_%counter%"> 
+        <div class="TableCell Cell_0" nowrap >
+            <INPUT type="checkbox" id="chk%counter%" style="display:none;"><span class="SearchTextChild">%AssemblyDisplay%</span>
+        </div>
+        <div class="TableCell Cell_1" nowrap><span class="SearchTextChild">%CategoryName%</span></div>  
+        <div  class="TableCell Cell_2" nowrap>            
+                <p id="jsTdDescription%counter%"  style="vertical-align:middle; margin-bottom:0px;">%Desc%</p>
+        </div>
+         
+        <div class="TableCell Cell_4 va-middle-ta-right" nowrap id="%openid%">%budgetdisplay%</div>   
+        <div class="TableCell Cell_5 va-middle-ta-right" nowrap>%actualsdisplay%</div> 
+        <div class="TableCell Cell_6 va-middle-ta-right" nowrap>%opendisplay%</div>
+        <div class="TableCell Cell_7 va-middle-ta-right" nowrap>%atriskdisplay%</div>
+        <div class="TableCell Cell_8 va-middle-ta-right" nowrap>%contingencydisplay%</div>
+        <div class="TableCell Cell_9 va-middle-ta-right" nowrap>%completedisplay%</div>
+        <div class="TableCell Cell_10 va-middle-ta-right" nowrap>%overunderdisplay%</div>
+        <div class="TableCell Cell_11" nowrap>
+            <a>
+                <i class="zmdi zmdi-comment-outline fontBtn %cssnotes%"   border="0" align="absmiddle" 
+                onmouseover="mostrartextonotasBudget('%counter%');" 
+                onmouseout="ocultartextonota('%counter%');"
+                onclick="%fnclick%('%parameters_notes%');GetReloadDiv('%openid%')"
+                
+                ></i>
+            </a>
+            <div class="TextoNotas" id="tn%counter%" style="left:0">
+                <b>Notes:</b><br>
+                 <font color="#3E4D62">%NotesDesc%</font>
+            </div> 
+        </div> 
+
+    </div>  
+</template>
+
+<template id="TotalsTemplate" >
+    <div  class="TableCont RecordItem " id="TotalCalcs" style="pbottom20"> 
+        <div class="TableCell Cell_0 " nowrap></div>
+        <div class="TableCell Cell_1" nowrap></div>
+        <div  class="TableCell Cell_2" nowrap><b>%ItemName%</b></div>
+         
+        <div class="TableCell Cell_4 va-middle-ta-right  %fbold%" nowrap>%budgetdisplay%</div>   
+        <div class="TableCell Cell_5 va-middle-ta-right  %fbold%" nowrap>%actualsdisplay%</div> 
+        <div class="TableCell Cell_6 va-middle-ta-right  %fbold%" nowrap>%opendisplay%</div>
+        <div class="TableCell Cell_7 va-middle-ta-right  %fbold%" nowrap>%atriskdisplay%</div>
+        <div class="TableCell Cell_8 va-middle-ta-right  %fbold%" nowrap>%contingencydisplay%</div>
+        <div class="TableCell Cell_9 va-middle-ta-right  %fbold%" nowrap>%completedisplay%</div> 
+        <div class="TableCell Cell_10 va-middle-ta-right %fbold%" nowrap>%overunderdisplay%</div>
+        <div class="TableCell Cell_11 " nowrap></div> 
+    </div> 
+</template> 
+
+<template id="TotalsButtonReload">
+    <input style="display: none" id="ButtonReloadTotal" type="button" 
+            onclick="ReloadTotals('%cid%','%woid%','%womod%','%sortby%','%userrole%','%wostatus%','%counter%')" >   
+</template>
+
+<template id="SubTotalsTemplate" >
+    <div  class="TableCont RecordItem SearchTextParent" id="SubTotalCalcs%idgroup%" style="pbottom20"> 
+        <div class="TableCell Cell_0" nowrap></div>
+        <div class="TableCell Cell_1" nowrap></div>
+        <div  class="TableCell Cell_2 va-middle-ta-right " nowrap><b>%ItemName%</b></div>
+         
+        <div class="TableCell Cell_4 va-middle-ta-right  fbold" nowrap>%budgetdisplay%</div>   
+        <div class="TableCell Cell_5 va-middle-ta-right  fbold" nowrap>%actualsdisplay%</div> 
+        <div class="TableCell Cell_6 va-middle-ta-right  fbold" nowrap>%opendisplay%</div>
+        <div class="TableCell Cell_7 va-middle-ta-right  fbold" nowrap>%atriskdisplay%</div>
+        <div class="TableCell Cell_8 va-middle-ta-right  fbold" nowrap>%contingencydisplay%</div>
+        <div class="TableCell Cell_9 va-middle-ta-right  fbold" nowrap>%completedisplay%</div> 
+        <div class="TableCell Cell_10 va-middle-ta-right fbold" nowrap>%overunderdisplay%</div>
+        <div class="TableCell Cell_11" nowrap></div> 
+        
+        <input style="display:none " id="ButtonReloadSubTotal%idgroup%" type="button" 
+                onclick="ReloadSubTotals('%cid%','%woid%','%womod%','%sortby%','%userrole%','%woriginal%','%idgroup%','%divid%')">
+    </div>  
+</template> 
+
+
+<template id="HeaderTeamplate">
+    <a href="javascript:OrderItems('%HeaderID%')" ><u>%HeaderText%</u>
+        <img id="%HeaderID%_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;%orderdefault1%">
+        <img id="%HeaderID%_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;%orderdefault2%">
+    </a>
+</template>
+
+<template id="AccordionGeneralTemplate">  
+        <section class="TableCont   accordion_list_item active_info_block">
+            <h4 class="title_info_block arrow" id="%sectionid%" style="%sectionbg%" >%SectionName%</h4>     
+        </section> 
+</template>
+
+<template id="AccordionTemplate">  
+        <section class="accordion_list_item active_info_block">
+            <h4 class="title_info_block arrow %showtitle%" id="%sectionid%" style="%sectionbg%" >%SectionName%</h4>    
+             <div id="Group_%ngroup%" class="TableCont info Group_%ngroup%" style="display:block">
+                 <div class="TableCont   items_%ngroup%"></div> 
+                 <div class="TableCont   subt_%ngroup%"></div> 
+            </div>    
+                                  
+        </section> 
+</template>
+
+<template id="DivGroupTemplate">
+    <div counteritem="%counter%" id="DivCC_%itemid%" class="GG_%counter%" attrreloadid="%btnid%"> 
+    </div> 
+    <div >
+        <input style="display:none " id="ButtonReload_%btnid%" type="button" 
+            onclick="ReloadDiv('%womodencode%','%phase%','%pccid%','%cid%','%woid%','%womod%','%sortby%','%userrole%','%wostatus%','%counter%', '%wostatusoriginal%','%divid%', '%asnumber%')" >
+    </div>
+</template>
+
+
+ <div class="LoadingBody"  style="display:none"><svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">  
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg>
+<div class='Icon_RTLoadingText'>Loading...</div></div>
+
+
+<body  id="BodyGeneral" topmargin="0" leftmargin="0" onLoad="initialize();" onclick="hideMenu();" scroll="yes" onscroll="hideMenu();OnScrollDiv(this);">
+<input type="hidden" id="IDReloadSection" value="" >
+<form id="frmFootToProject" action=""></form>
+<div id="content" style="display:none;">
+ 
+
+
+
+    </form>
+
+
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+    <FORM id="FrmDefaultAss" name="FrmDefaultAss" action="../atrisk_/ManageAtRisk_actions.asp?woid=1940046&womod=00&wostatus=InProgress&facilityID=00221&action=saveassemblies&from=Budget_SPEED" method="post" target="_self">
+    <TR bgcolor="#FFFFFF">
+        <TD>
+	        <input type="hidden" id="AssCounter" name="AssCounter" value="1">
+	        <input type="hidden" id="AssSelected" name="AssSelected" value="0">
+	    </TD>
+    </TR>
+    <TR>
+        <TD width="100%" height="200px" colspan="5">
+            <input type="hidden" id="txtDefaultAssList" name="txtDefaultAssList" value="" />
+            <input type="hidden" id="PhaseSelected" name="PhaseSelected" value="0">
+            <DIV id="divDefaultAssemblies" style="border:#cccccc 1px solid; height:100%; overflow-y:scroll; background-color:White"></DIV>
+        </TD>
+    </TR>
+    </FORM>
+</TABLE>
+
+
+</div>
+
+</div>
+
+</Body>
+</HTML>
+
+<script type="text/javascript">
+    $(window).load(function () {
+        setEclipseScreenIcon();
+        document.getElementById("idButtons").style.display = "none";
+        document.getElementById("idButtons").style.marginRight = "0px";
+        document.getElementById("idButtons").style.paddingRight = "0px";
+
+        document.getElementById("menuoptions").style.maxHeight = "450px";
+        document.getElementById("menuoptions").style.maxWidth = "400px";
+        document.getElementById("menuoptions").style.overflowY = "auto";
+        document.getElementById("menuoptions").style.overflowX = "hidden"
+    });
+    //LoadHeaderSorts("","")
+
+</script>
+
+<script type="text/javascript">
+
+jQuery("#TextToSearch").jcOnPageFilter({ animateHideNShow: true,
+    focusOnLoad: true,
+    highlightColor: '#fff70080',
+    textColorForHighlights: '#212121',
+    caseSensitive: false,
+    hideNegatives: true,
+    parentLookupClass: 'SearchTextParent',
+    childBlockClass: 'SearchTextChild'
+ }); 
+
+ window.addEventListener("resize", divOverflowChangePaddingTop);
+ 
+</script>	

@@ -1,0 +1,1042 @@
+
+<html>
+<head>
+<title>RedTeam Meeting Minutes</title>
+<base target="_self"></base>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link href="/rts/app/asp/css/fontcss.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+<link href="/rts/app/asp/css/estilos.css?v=?be731a6" type="text/css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="/rts/app/asp/aspcoexistencetheme/default.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+
+<script type="text/javascript" src="/rts/app/asp/js/global.js?v=?be731a6"></script>
+<script type="text/javascript" src="/rts/app/asp/js/escreen.js?v=?be731a6"></script>
+<script type="text/javascript" src="/rts/app/asp/js/tbsort2.js" ></script>
+<script type="text/javascript" src="/rts/app/asp/js/pickList.js" language="JavaScript"></script>
+
+<script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" /> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselectRtsExtras.css?v=?be731a6" rel="stylesheet" /> 
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<style>
+ .col-md-3-iPad
+  {
+      width:25%;
+      float:left;
+  }
+  .SumoSelect > .CaptionCont 
+    {
+        height: 34px !important;
+    }
+
+    .SumoSelect > .CaptionCont > span {        
+        height: 16px;
+    }
+    
+    .SumoSelect > .CaptionCont > span.placeholder {        
+        font-style: normal;
+        color: #656b79;
+	}
+       
+    .NewKeywordDivBorderRadius {
+        height: 0px;
+    }
+    .customTableHeaderContainer {
+        padding: 9px 4px 0px 16px !important;
+    }
+</style>
+<script type="text/javascript" >
+    window.onscroll = hideMenu;
+
+    function sanitizeSearchCriteria() {
+        var sanitizedSearchCriteria = sanitizeString(frmmenu.searchCriteria.value);
+
+        frmmenu.searchCriteria.value = sanitizedSearchCriteria;
+
+        frmmenu.submit();
+    }
+
+    function ValidateExists (id,from,action) {
+        $.get( "ManageMeeting.asp?band=ValidateExists&UniqueMeetingID="+id, function( data ) {
+          if (data == "exists") {
+            switch(from) {
+            case "optionsmenu":
+                showoptions(id);
+                break;
+            case "editAM":
+                parent.top.loadLightBox_Fullscreen(action);
+                break;
+            case "viewminute":
+                window.open(action);
+            case "commitAgenda":
+                var ActionSplit = action.split("||||")
+                commit(ActionSplit[0],ActionSplit[1]);
+                break;
+            case "UN-CommitAM":
+                window.location.href = action;
+                break;
+            case "deleteAM":
+                deleteln(action);
+                break;
+            case "viewAttendance":
+                openPage(action);
+                break;
+            case "createminute":
+                parent.top.loadLightBox_Fullscreen(action);
+                break;
+            case "sendinvitations":
+                var ActionSplit = action.split("||||")
+                sendinvitations(ActionSplit[0],ActionSplit[1]);
+                break;
+            }
+
+          } else {
+             var dataObject = JSON.parse(data);
+             var username = dataObject["data"][0]["UserName"]
+             var rolename = dataObject["data"][0]["RoleName"]
+             var Dmessage = 'The transaction you are editing has been deleted by'
+             createBlockBody(Dmessage,'meetingminutes',username,rolename,'manage');
+          }
+        });
+    }    
+
+    function showoptions(item)
+    { 
+        document.getElementById("showtools"+item).style.display = 'none';
+        document.getElementById("hidetools"+item).style.display = '';
+        document.getElementById("Option2"+item).focus();
+        showMenu('_menuTools'+item, 'Option'+item);  
+    }
+    
+    function hideoptions(i) {
+  	    document.getElementById("showtools"+i).style.display = '';
+	    document.getElementById("hidetools"+i).style.display = "none";
+	    hideMenu();
+    }
+
+    function showMenu(id, refpos)
+    {
+       hideMenu();
+    if (document.getElementById(id).style.visibility != "visibility") 
+
+    {
+        var elementoRef = document.getElementById(refpos);
+        var elemento = document.getElementById(id);
+        var pos = getAbsoluteElementPosition(elementoRef);
+
+        document.getElementById(id).style.visibility = "visible";        
+    }
+    
+    try {
+        event.cancelBubble=true;
+    }
+    catch (error) {
+        
+    }
+}
+    
+    
+    function hideToolIcon()
+    {
+        var nParents = parseInt(document.getElementById("count").value);
+        
+        for (var i = 1; i<=nParents; i++)
+        {
+        if(document.getElementById("hidetools"+i)) 
+            document.getElementById("hidetools"+i).style.display = "none";
+        if(document.getElementById("showtools"+i))
+            document.getElementById("showtools"+i).style.display = "block";	
+	     }
+    }
+    
+    function ventananew(Url,stage)
+    {   
+       var page = Url
+
+       if(stage=="Agenda")
+       {         
+          window.location.href = page;
+        }
+        else
+        {
+          window.location.href = page;         
+        }    
+    
+    }
+    
+    function ventanaedit(Url,stage)
+    {	
+        var page
+        if (stage == "Meeting")
+        {
+            Url = "AddMeetingMinute.asp?p=" + escape(Url);
+             window.location.href = Url;
+           
+        } 
+        else
+        {
+            Url = "AddMeetingAgenda.asp?p=" + escape(Url);
+            window.location.href = Url;
+           
+        }
+
+    }
+
+    function deleteln(Url)
+    {	
+        var x=window.confirm("The Meeting Minutes will be deleted. Are you sure ?")
+        if (x)
+        {
+            Form1.action = "ManageMeeting.asp?p=" + escape(Url);
+            Form1.submit();
+        }
+        else
+            window.alert("The Meeting Minutes was not deleted.")
+    }
+    
+    function initialize()
+    {
+          document.getElementById("content").style.display = "";
+          LoadingMessagePage("off"); 
+              
+          if(document.getElementById("staticmenu"))
+          {
+              if (document.all)
+              {
+                  combowidth=document.getElementById("staticmenu").offsetWidth;
+                  comboheight=combowidth=document.getElementById("staticmenu").offsetHeight;
+                  setInterval("staticit_ie()",50)
+              }
+              else
+              {
+                var wS = screen.width;
+                if (wS <= 768) {
+                    document.getElementById("DivOverflow").style.height = "590";
+                    document.getElementById("DivOverflow").style.overflow = "auto";
+                    document.getElementById("DivOverflow").style.position = "absolute";
+                }
+                else {
+                    document.getElementById("DivOverflow").style.width = "100%";
+                    combowidth=document.getElementById("staticmenu").offsetWidth;
+                    comboheight=combowidth=document.getElementById("staticmenu").offsetHeight;
+                    setInterval("staticit_ns()",50)
+                }  
+              } 
+          }
+    }
+
+    function staticit_ie()
+    {
+        if(document.getElementById("staticmenu"))
+        {
+	        staticmenu.style.width = document.body.clientWidth;
+            staticmenu.style.top = document.body.scrollTop;
+            staticmenu.style.left = document.body.scrollLeft;
+	    }
+    	
+	    if(document.getElementById("staticCols"))
+        {
+            staticCols.style.top = document.body.scrollTop;
+        }
+        
+	    if(document.getElementById("filterBox"))
+        {
+            filterBox.style.top = document.body.scrollTop;
+            filterBox.style.left = document.body.scrollLeft;
+        }
+	    
+	    if(document.getElementById("trFiltersbox"))
+        {
+            trFiltersbox.style.top = document.body.scrollTop;
+            trFiltersbox.style.left = document.body.scrollLeft;
+        }
+	    
+    }
+    
+    function staticit_ns()
+    {
+        if(document.getElementById("staticmenu"))
+        {
+	        staticmenu.style.width = document.body.clientWidth;
+            staticmenu.style.top = document.body.scrollTop;
+            staticmenu.style.left = document.body.scrollLeft;
+	    }
+    	
+	    if(document.getElementById("staticCols"))
+        {
+            staticCols.style.top = document.body.scrollTop;
+        }
+        
+	    if(document.getElementById("filterBox"))
+        {
+            filterBox.style.top = document.body.scrollTop;
+            filterBox.style.left = document.body.scrollLeft;
+        }
+	    
+	    if(document.getElementById("trFiltersbox"))
+        {
+            trFiltersbox.style.top = document.body.scrollTop;
+            trFiltersbox.style.left = document.body.scrollLeft;
+        }
+    }
+
+    function ViewMMLog()
+    {	
+        document.getElementById("editMeetingMinutesLog").style.display="none";
+        document.getElementById("toolMeetingMinutesLog").style.display="none";
+        document.getElementById("toolMeetingMinutesLogText").style.paddingRight ="5px";
+        var tdViewLogElem = document.getElementById("tdViewLog");
+        if (tdViewLogElem) {
+            tdViewLogElem.style.width = '500px';
+        }    
+        
+        var nParents = parseInt(document.getElementById("count").value);
+        for (var i = 1; i<=nParents; i++)
+        {  if(document.getElementById("ViewEmailLogText"+i) && document.getElementById("itl"+i) )
+            {
+                document.getElementById("ViewEmailLogText"+i).style.display="";
+                document.getElementById("itl"+i).style.display="none";
+            }
+            if (document.getElementById("TypeNameLink"+i) && document.getElementById("TypeName"+i) ) {
+                document.getElementById("TypeName"+i).style.display="";
+                document.getElementById("TypeNameLink"+i).style.display="none";
+            }
+        }
+                  
+        tbReport.printLandScapeMessage = false;
+        tbReport.printHeader = true;
+        tbReport.centerDocument= false;
+        tbReport.printWidth = "100%";
+        tbReport.printRegionLogo = 'https://flex.redteam.com/TS/CompaniesTS/remnantconstruction/logoregion1_234201816923_0.jpg';
+        tbReport.printRegionLegalName = 'Remnant Construction, LLC';
+        tbReport.printTabTitle = "Meeting Minutes";
+        tbReport.printTitle = "MEETING MINUTES LOG";
+        tbReport.printSubTitle = '';
+        tbReport.printViewBy = '';
+        tbReport.printHideCols = [0,1,2];
+        tbReport.printRecordId = "";
+        tbReport.printToolRecordId = "MnuOptions";
+        tbReport.printShowRecordDetail = false;
+        tbReport.printCssPath = "../../asp/";
+        tbReport.printPreview();               
+
+        document.getElementById("editMeetingMinutesLog").style.display="" ;
+        document.getElementById("toolMeetingMinutesLog").style.display="";
+        document.getElementById("toolMeetingMinutesLogText").style.paddingRight ="15px";
+        if (tdViewLogElem) {
+            tdViewLogElem.style.width = '40px';
+        }
+        for (var i = 1; i<=nParents; i++)
+        {  if(document.getElementById("ViewEmailLogText"+i) && document.getElementById("itl"+i) )
+            {
+                document.getElementById("ViewEmailLogText"+i).style.display="none";
+                document.getElementById("itl"+i).style.display="";
+            }
+            if(document.getElementById("TypeNameLink"+i) && document.getElementById("TypeName"+i) )
+            {
+                var ManageProjMeetingType = 'True';
+                if (ManageProjMeetingType =="True") {
+                    document.getElementById("TypeNameLink"+i).style.display="";
+                    document.getElementById("TypeName"+i).style.display="none";
+                }
+                else {
+                    document.getElementById("TypeNameLink"+i).style.display="none";
+                    document.getElementById("TypeName"+i).style.display="";
+                }
+            }
+        }              
+    }
+    
+    function commit(page,buttonListId)
+    {
+        document.frmCommit.action = page;
+        var oContainer = document.getElementById("frameConfirmation");
+        var posContainer = getAbsoluteElementPosition(buttonListId);
+        
+        oContainer.style.position = 'absolute';
+        oContainer.style.left = posContainer.left;
+        if (document.getElementById(buttonListId)) {
+        oContainer.style.top = posContainer.top + document.getElementById(buttonListId).offsetHeight;
+        }
+        oContainer.style.display = "";
+        oContainer.focus();
+    }
+
+    function sendinvitations(page,buttonListId)
+    {
+        document.frmCommit.action = page;
+        var oContainer = document.getElementById("frameConfirmation");
+        var posContainer = getAbsoluteElementPosition(buttonListId);
+        
+        oContainer.style.position = 'absolute';
+        oContainer.style.left = posContainer.left;
+        oContainer.style.top = posContainer.top + document.getElementById(buttonListId).offsetHeight;
+        oContainer.style.display = "";
+        oContainer.focus();
+    }
+    
+    function confirmButtonsAction(action) 
+    {
+        switch (action) {
+        case "yes":
+            document.frmCommit.action = document.frmCommit.action + '&sendConf=true';
+            document.frmCommit.submit();
+            break;
+        case "no":
+            document.frmCommit.action = document.frmCommit.action + '&sendConf=false';
+            document.frmCommit.submit();
+            break;
+        case "cancel":
+            document.getElementById("frameConfirmation").style.display = "none";
+            break;
+        }
+    }
+  
+  function hightlight(rowID,action)
+  {
+  
+    if(action == 'on'){
+        if(document.getElementById(rowID))
+            document.getElementById(rowID).style.backgroundColor = "#D6ECFF";
+    }  
+    else{
+        if(action == 'off'){
+            if(document.getElementById("chk"+rowID)){
+                if(document.getElementById("chk"+rowID).checked == false){
+	                document.getElementById(rowID).style.backgroundColor = "#ffffff";
+                }
+	            else{
+	                document.getElementById(rowID).style.backgroundColor = "#add8e6";
+                }
+            }
+        }
+    }
+  }
+  
+    function checkrow(rowID)
+    {
+        if(document.getElementById("chk"+rowID))
+	    {
+            if(document.getElementById("chk"+rowID).checked == false)
+	        {
+                document.getElementById(rowID).style.backgroundColor = "#add8e6";
+		        document.getElementById("chk"+rowID).checked = true;
+	        }
+	        else
+	            if(document.getElementById("chk"+rowID).checked == true)
+	            {
+	                document.getElementById(rowID).style.backgroundColor = "#ffffff";
+		            document.getElementById("chk"+rowID).checked = false;
+	            }
+        }
+    }
+    
+    function filterBoxActivation()
+    {
+        var filterBox = document.getElementById("trFiltersbox");
+        activateBox("trFiltersbox", !(trFiltersbox.style.display != "none"), parseInt(trFiltersbox.style.height.replace("px",""),10));
+    }
+    
+    function SendFilters(page,form)
+    {
+        if (form == "frmFilter")
+        {
+            document.getElementById("frmFilter").action = page;
+            document.getElementById("frmFilter").submit();
+        }
+        else
+        {
+            document.frmAux.action = page;
+            document.frmAux.submit();
+        }
+    }
+    
+    function showContractCorrespondence()
+    {
+        location.href="../dialog_/Documents.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=";
+    }
+    
+    function showIssues()
+    {
+        location.href="../issues_/ManageIssues.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=";
+    }
+    
+    function showSpreadsheets()
+    {
+        location.href="../spreadsheet_/manageSpreadsheets.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=";
+    }
+
+    function openPage(page,target)
+    {
+        window.open(page);
+       
+    }
+    function RefreshTab(openconsole)
+    {
+        var page;
+
+        if(openconsole){
+            page="../workorders/meeting_/manageMeeting.asp?editreturn=true&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=";
+        }
+        else{
+            page="manageMeeting.asp?editreturn=true&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=";
+        }
+        document.location.href=page;
+    }
+
+
+    function RefreshAgenda()
+    {
+        var page="../workorders/meeting_/manageMeeting.asp?editreturn=true&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=";
+        document.location.href=page;
+    }
+
+    function ventanaTransmission(ID, Source) {
+        var page = "../../asp/view_TransmissionLog.asp?WorkorderID=1940046&FacilityID=&SourceID=" + ID + "&Source=" + Source;
+        window.open(page, "", "toolbar=no,location=no,directories=no,status=yes,menubar=no,resizable=no,copyhistory=no,width=750,height=650,top=40,left=180");
+    }
+
+    function gotoFormsConsole(pValue, count) {
+        var wS = screen.width;
+        var cacheBust = Date.now().toString();
+        pValue += (pValue.indexOf("?") === -1 ? "?" : "&");
+        pValue += "v=" + cacheBust;
+        parent.top.loadLightBox_Fullscreen(pValue);
+    }
+
+    function LoadManageMeetingType(WorkorderID) {
+        ShowLightBoxASP('app/workorders/meeting_/ManageProjectMeetingType.asp?WorkorderID='+WorkorderID,'620px','calc(100vh - 100px)');
+    }
+       
+</script>  
+</head>
+<body  leftmargin=0 rightmargin=0 topmargin=0  onclick="hideToolIcon();" onload="initialize();" onscroll="hideMenu();">
+<script>
+    LoadingMessagePage("on");
+</script>
+<div id="content" style="top:0; left:0; display:none;">
+    
+    <div id="staticmenu" style="position:relative;display:block;">
+    
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+        <form id="frmmenu" name="frmmenu" method="post" style="display:inline" target="_self" action="ManageMeeting.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=">
+            
+            <div class="brSearch"></div>
+                <div class="NewKeywordDivBorderRadius"  >
+                    <div style="float:left;">
+                        <input type="hidden" id="searchCriteria" name="searchCriteria"  maxlength="40" class="form-control inputSearch" value="Search" onfocus="if(this.value==this.defaultValue) this.value=''"  placeholder="Search">
+                    </div>
+                </div>                            
+            
+        </form>	   
+          
+     </div> 
+    
+    <textarea id="JsonHeader" style="display:none">{"Title":"Manage Meeting Minutes","Manage":"Dialog","Menu":{"Options":[{"Name":"Correspondence","Id":"trItemMenuShow1","Onclick":"javascript:showContractCorrespondence();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"},{"Name":"Issues","Id":"trItemMenuShow2","Onclick":"javascript:showIssues();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Meeting Agenda","Id":"","Onclick":"javascript:parent.top.loadLightBox_Fullscreen('app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWFkZGFnZW5kYSZ3b2lkPTE5NDAwNDYmd29tb2Q9MDAmYmFuZD1hZGQmd2lraVRyYW5zYWN0aW9uSUQ9NTA5JnBhcmFtUGFnZT1wfFltRnVaRDFPWlhjbVYyOXlhMjl5WkdWeVNVUTlNVGswTURBME5pWlhiM0pyYjNKa1pYSk5iMlE5TURBbVYyOXlhMjl5WkdWeVUzUmhkSFZ6UFVsdVVISnZaM0psYzNNbVJtRmphV3hwZEhsSlJEMA');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"},{"Name":"Meeting Minutes","Id":"","Onclick":"javascript:parent.top.loadLightBox_Fullscreen('app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWFkZG1pbnV0ZSZ3b2lkPTE5NDAwNDYmd29tb2Q9MDAmYmFuZD1hZGQmd2lraVRyYW5zYWN0aW9uSUQ9NTE3JnBhcmFtUGFnZT1wfFltRnVaRDFPWlhjbVYyOXlhMjl5WkdWeVNVUTlNVGswTURBME5pWlhiM0pyYjNKa1pYSk5iMlE5TURBbVYyOXlhMjl5WkdWeVUzUmhkSFZ6UFVsdVVISnZaM0psYzNNbVJtRmphV3hwZEhsSlJEMA');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"Meeting Minutes Log","Id":"","Onclick":"javascript:ViewMMLog();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('53');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>
+    <div id="trFiltersbox" style="display:none;height:160;position:relative; top: 0px;left: 0px;">
+    <div class="panel panel-midnightblue customFilterBox" style="padding-left: 0px !important;margin-left: 16px !important;">
+        <div class="panel-heading">
+                <h4>Filters</h4>
+        </div>
+
+    <div  class="panel-body collapse in">   
+    <FORM METHOD="POST" name="frmFilter" ID="frmFilter" style="display:inline;">
+
+
+    <div class="col-md-12">
+            <div class="col-md-3-iPad">
+              <div class="form-group">
+                      <label class="control-label">Stage:</label> 
+                      <div  class="col-sm-3-separator">    
+                         <SELECT  id="F_Stage" name="F_Stage" style="font-size:14px;display:inline-block;" multiple size=1>
+           <option value="Meeting" selected>Meeting</option><option value="Agenda" selected>Agenda</option>
+            </SELECT> 
+          </div>
+        </div>
+    </div>
+    <div class="col-md-3-iPad">
+          <div class="form-group">
+                  <label class="control-label">Type:</label> 
+                  <div  class="col-sm-3-separator">                             
+
+                   
+	               <select  id="F_Type" name="F_Type" style="font-size:14px;display:inline-block;" multiple size=1>
+                   <option value="25" selected>Owner and Contractor</option><option value="24" selected>Team Meeting</option>
+                    </select>                
+	        </div>
+            </div>
+            </div>
+             <div class="col-md-3-iPad">
+              <div class="form-group">
+                <label class="control-label">Status:</label> 
+
+                 <div class="col-sm-3-separator">                             
+                    <select id="LstStatus" name="LstStatus" style="font-size:14px;display:inline-block;" multiple size=1>				
+			        <option value="Committed" selected>Committed</option><option value="Draft" selected>Draft</option>
+    		        </select>
+             </div>
+            </div>
+            </div>
+              <div class="col-md-3-iPad">
+              <div class="form-group">
+                <label class="control-label">&nbsp;</label> 
+                <div  class="col-sm-3-separator">  
+                  <input onclick="javascript:SendFilters('ManageMeeting.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=&filter=true&filterblock=true&SortByField=&dir=','frmFilter');" type="button" class="btn btn-primary" value="Filter"/> 
+                  <input onclick="javascript:SendFilters('ManageMeeting.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=&filter=true&SortByField=&dir=','frmFilter');"  type="button" class="btn btn-default"  style="height:34px;" value="Filter & Hide"/>       
+                </div>
+              </div>  
+            </div>  
+            
+	    </div>
+    </FORM>
+    </div>
+    </div>
+    </div>    
+    
+    <div id="staticCols" style="position:relative;z-index: 1;background-color:#f3f4f6;">
+        <table   width="100%" cellpadding=0 cellspacing=0 style="background-color:#f3f4f6;">
+            
+            <tr>
+                
+                <td class="CustomTableHeaderContainer">
+                    <table  id="tblHeading" width="100%" border="0"  cellspacing="0" cellpadding="0" class="Workarea_Header" >
+                        <thead>
+                            <tr>
+                                <th style="width:34px !important;" nowrap="" id="editMeetingMinutesLog" name="editMeetingMinutesLog"></th>
+                                <th style="width:34px !important;" nowrap="" id="toolMeetingMinutesLog" name="toolMeetingMinutesLog"></th>
+                                <th style="padding-right:15px; width:55px !important" nowrap id="toolMeetingMinutesLogText" name="toolMeetingMinutesLogText">Tools</th>
+                                <th width="220"  nowrap>Type</th>
+                                <th style=" text-align:center; width:50px !important;" nowrap>ID</th>
+                                <th style=" text-align:center; width:100px !important;" nowrap>Stage</th>
+                                <th width="100" style=" text-align:center;" nowrap>Date</th>
+                                <th width="250"  nowrap>Purpose</th>
+                                <th width="100" style=" text-align:center;" nowrap>Status</th>
+                                <th width="40" style=" text-align:right;"  nowrap>Log</th>
+                                <th width="100%" nowrap></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="DivOverflow" >
+    <table id="tblDetail"   cellspacing="0" cellpadding="0" border="0"  class="Workarea_Header customTableDetail" style="table-layout:fixed;"   >   
+    <tbody>
+    
+    	<tr class="drafttext" id="137" onmouseover="hightlight('137','on');" onmouseout="hightlight('137','off');" onclick="checkrow('137');">
+            <td width="34px" align="middle" style="padding: 0px !important;" nowrap>
+           	<a onclick=javascript:ValidateExists('137','viewminute','../../asp/tpl.projectconsoleintern.asp?p=Y29udGVudHZpZXdsbms9Li4vd29ya29yZGVycy9tZWV0aW5nXy9NZWV0aW5nQWdlbmRhUmVwb3J0LmFzcCZDb250YWN0SUQ9MSZ3b2lkPTE5NDAwNDYmbW9kPTAwJndvc3RhPSZDbGllbnQ9cmVtbmFudGNvbnN0cnVjdGlvbiZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZVbmlxdWVNZWV0aW5nSUQ9MTM3JnNwbG9nbz01Mjk2MjAxNTgyNTU2LnBuZyZ2PTAuNzA1NTQ3NQ') class='linkazul1'><i class="ui-tooltip zmdi zmdi-file" title="View this record" style="padding-top: 1px !important; font-size: 20px !important; color:#4697ce !important;text-decoration:none !important;"></i></a>                
+            </td>
+            <td width="34px" align="middle" style="padding: 0px !important;" nowrap>
+            <a onclick=javascript:ValidateExists('137','editAM','app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWVkaXRhZ2VuZGEmd29pZD0xOTQwMDQ2JndvbW9kPTAwJmJhbmQ9YWRkJndpa2lUcmFuc2FjdGlvbklEPTUwOSZwYXJhbVBhZ2U9cHxWVzVwY1hWbFRXVmxkR2x1WjBsRVBURXpOeVppWVc1a1BXVmthWFFtVjI5eWEyOXlaR1Z5U1VROU1UazBNREEwTmlaWGIzSnJiM0prWlhKTmIyUTlNREFtVjI5eWEyOXlaR1Z5VTNSaGRIVnpQVWx1VUhKdlozSmxjM01tUm1GamFXeHBkSGxKUkQw') class='linkazul1'><i class="zmdi zmdi-edit fontBtn" title="Edit this record" style="padding-top: 1px !important; font-size: 20px !important; color:#4697ce !important;text-decoration:none !important;"></i></a>                     
+            </td>
+            <td width="55px" align="center" style="padding: 0px !important;" nowrap>
+		        <input type="checkbox" id="chk137" name="chk137" style="display:none;">
+			    <span onclick="javascript:ValidateExists('137','optionsmenu');" id="Option137" class="tool-options">
+                <i class="zmdi zmdi-apps fontBtn hand" id="showtools137" name="showtools137"></i></span>
+		        <span onclick="javascript:hideoptions('137');" id="Option2137"  class="tool-options">
+		        <i class="zmdi zmdi-apps fontBtn hand"  id="hidetools137" name="hidetools137" style="display:none" ></i></span>
+                
+			    </td>
+                <td width="220px" style="white-space: normal;overflow-wrap: break-word;word-break: break-word;-ms-word-break: break-all;" nowrap>
+                    
+                    <a id="TypeNameLink1" href="javascript:LoadManageMeetingType('1940046')">Team Meeting</a> 
+                    <div id="TypeName1" name="TypeName1" style="display:none">Team Meeting</div> 
+                    
+                </td>
+                <td width="50px" nowrap>001</td>
+                <td width="100px" align="center" nowrap>Agenda</td>
+		        <td width="100px" nowrap>09/04/2024</td>
+		        <td width="250px" style="white-space: normal;overflow-wrap: break-word;word-break: break-word;-ms-word-break: break-all;" nowrap>
+		        OAC Meeting
+		        </td>
+		        <td width="100px" align="center" nowrap>Draft</td>
+                <td align="left" width="40px" id="tdViewLog" nowrap>
+                
+                    <div id="ViewEmailLogText1" name="ViewEmailLogText1" style="display:none;">-Stuart Frisby created on 09/30/2024 10:31:28(Google Chrome 128.0.0.0 from 73.179.100.169)<br></div>
+                    <a id="itl1"  onclick="javascript:ventanaTransmission('137','MeetingMinutes');" onmouseover="mostrartextolog('1');" onmouseout="ocultartextolog('1');"><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></a>
+			    
+                    <div class="textoayuda" id="tl1"><b>Transmission Log:</b><br>-Stuart Frisby created on 09/30/2024 10:31:28(Google Chrome 128.0.0.0 from 73.179.100.169)<br></div>  		
+            </td>
+            <td width="100%" nowrap></td>
+		</tr>
+		<tr id="mnuOptions137" name="mnuOptions137" style="display:block;height:0px;padding:0px;"> 
+        <td width="25"  nowrap style="background-color:#f3f4f6; height:0px;padding:0px 0px 0px 0px;border-bottom:0px"></td>
+		<td colspan="7"  style="height:0px;padding:0px 0px 0px 0px;border-bottom:0px">
+            <div id="_menuTools137" class="menuFrameContext" >
+			    <table cellspacing="0" cellpadding="1" border=0 >
+                    <tbody>
+    		        <tr>
+				        
+         		        <td width="130" nowrap>
+         		            <a onclick=javascript:ValidateExists('137','viewminute','../../asp/tpl.projectconsoleintern.asp?p=Y29udGVudHZpZXdsbms9Li4vd29ya29yZGVycy9tZWV0aW5nXy9NZWV0aW5nQWdlbmRhUmVwb3J0LmFzcCZDb250YWN0SUQ9MSZ3b2lkPTE5NDAwNDYmbW9kPTAwJndvc3RhPSZDbGllbnQ9cmVtbmFudGNvbnN0cnVjdGlvbiZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZVbmlxdWVNZWV0aW5nSUQ9MTM3JnNwbG9nbz01Mjk2MjAxNTgyNTU2LnBuZyZ2PTAuNzA1NTQ3NQ') class='linkazul1'><img src=../../asp/images/view-record.gif border=0 alt='View this record' align="absmiddle">View Agenda</a>
+         		        </td>
+				        
+    			        <td width="120" nowrap>
+    			            <a onclick=javascript:ValidateExists('137','editAM','app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWVkaXRhZ2VuZGEmd29pZD0xOTQwMDQ2JndvbW9kPTAwJmJhbmQ9YWRkJndpa2lUcmFuc2FjdGlvbklEPTUwOSZwYXJhbVBhZ2U9cHxWVzVwY1hWbFRXVmxkR2x1WjBsRVBURXpOeVppWVc1a1BXVmthWFFtVjI5eWEyOXlaR1Z5U1VROU1UazBNREEwTmlaWGIzSnJiM0prWlhKTmIyUTlNREFtVjI5eWEyOXlaR1Z5VTNSaGRIVnpQVWx1VUhKdlozSmxjM01tUm1GamFXeHBkSGxKUkQw') class='linkazul1'><img src=../../asp/images/edit-record.gif border=0 alt='Edit this record' align="absmiddle">Edit Agenda</a>
+    			        </td>
+    			        
+				        <td width="110" nowrap>
+    			            <a id='lnkCommitAgenda1' onclick=javascript:ValidateExists('137','commitAgenda','ManageMeeting.asp?p=VW5pcXVlTWVldGluZ0lEPTEzNyZiYW5kPWNvbW1pdCZ0eXBlPWFnZW5kYSZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZXb3Jrb3JkZXJTdGF0dXM9SW5Qcm9ncmVzcyZGYWNpbGl0eUlEPQ||||lnkCommitAgenda1') class='linkazul1'><img src=../../asp/images/commit-record.gif border=0 alt='Commit this record' align="absmiddle">Commit</a>
+    			        </td>
+				        
+    			                <td width="120" nowrap>
+    			                <a onclick=javascript:ValidateExists('137','deleteAM','YmFuZD1kZWxldGUmVW5pcXVlTWVldGluZ0lEPTEzNyZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZXb3Jrb3JkZXJTdGF0dXM9SW5Qcm9ncmVzcyZGYWNpbGl0eUlEPQ') class='linkazul1'><img src=../../asp/images/delete-record.gif border=0 alt='Delete this record' align="absmiddle">Delete</a>
+    			        </td>
+    			        
+				    </tr>
+                    </tbody>
+				</table>
+			</div>
+        </td>
+	    </tr>
+		
+    	<tr class="committedtext" id="138" onmouseover="hightlight('138','on');" onmouseout="hightlight('138','off');" onclick="checkrow('138');">
+            <td width="34px" align="middle" style="padding: 0px !important;" nowrap>
+           	<a onclick=javascript:ValidateExists('138','viewminute','../../asp/tpl.projectconsoleintern.asp?p=Y29udGVudHZpZXdsbms9Li4vd29ya29yZGVycy9tZWV0aW5nXy9NZWV0aW5nTWludXRlUmVwb3J0LmFzcCZDb250YWN0SUQ9MSZ3b2lkPTE5NDAwNDYmbW9kPTAwJndvc3RhPSZDbGllbnQ9cmVtbmFudGNvbnN0cnVjdGlvbiZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZVbmlxdWVNZWV0aW5nSUQ9MTM4JnNwbG9nbz01Mjk2MjAxNTgyNTU2LnBuZyZ2PTAuNTMzNDI0') class='linkazul1'><i class="ui-tooltip zmdi zmdi-file" title="View this record" style="padding-top: 1px !important; font-size: 20px !important; color:#4697ce !important;text-decoration:none !important;"></i></a>                
+            </td>
+            <td width="34px" align="middle" style="padding: 0px !important;" nowrap>
+            <a onclick=javascript:ValidateExists('138','editAM','app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWVkaXRtaW51dGUmd29pZD0xOTQwMDQ2JndvbW9kPTAwJmJhbmQ9YWRkJndpa2lUcmFuc2FjdGlvbklEPTUxNyZwYXJhbVBhZ2U9cHxWVzVwY1hWbFRXVmxkR2x1WjBsRVBURXpPQ1ppWVc1a1BXVmthWFFtVjI5eWEyOXlaR1Z5U1VROU1UazBNREEwTmlaWGIzSnJiM0prWlhKTmIyUTlNREFtVjI5eWEyOXlaR1Z5VTNSaGRIVnpQVWx1VUhKdlozSmxjM01tUm1GamFXeHBkSGxKUkQw') class='linkazul1'><i class="zmdi zmdi-edit fontBtn" title="Edit this record" style="padding-top: 1px !important; font-size: 20px !important; color:#4697ce !important;text-decoration:none !important;"></i></a>                     
+            </td>
+            <td width="55px" align="center" style="padding: 0px !important;" nowrap>
+		        <input type="checkbox" id="chk138" name="chk138" style="display:none;">
+			    <span onclick="javascript:ValidateExists('138','optionsmenu');" id="Option138" class="tool-options">
+                <i class="zmdi zmdi-apps fontBtn hand" id="showtools138" name="showtools138"></i></span>
+		        <span onclick="javascript:hideoptions('138');" id="Option2138"  class="tool-options">
+		        <i class="zmdi zmdi-apps fontBtn hand"  id="hidetools138" name="hidetools138" style="display:none" ></i></span>
+                
+			    </td>
+                <td width="220px" style="white-space: normal;overflow-wrap: break-word;word-break: break-word;-ms-word-break: break-all;" nowrap>
+                    
+                    <a id="TypeNameLink2" href="javascript:LoadManageMeetingType('1940046')">Owner and Contractor</a> 
+                    <div id="TypeName2" name="TypeName2" style="display:none">Owner and Contractor</div> 
+                    
+                </td>
+                <td width="50px" nowrap>003</td>
+                <td width="100px" align="center" nowrap>Meeting</td>
+		        <td width="100px" nowrap>11/06/2024</td>
+		        <td width="250px" style="white-space: normal;overflow-wrap: break-word;word-break: break-word;-ms-word-break: break-all;" nowrap>
+		        OAC Meeting (Monthly)
+		        </td>
+		        <td width="100px" align="center" nowrap>Committed</td>
+                <td align="left" width="40px" id="tdViewLog" nowrap>
+                
+                    <div id="ViewEmailLogText2" name="ViewEmailLogText2" style="display:none;">-Kayla Diefendorf #emailed CC#  Jacob Fischer (jfischer@remnantconstruction.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234)&nbsp;<b>(committed)</b><br><br>-Kayla Diefendorf #emailed TO#  Tanner Retherford (tannerretherford@edc-inc.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); Louis Caciopoli (lcaciopoli@remnantconstruction.com); Stuart Frisby (sfrisby@remnantconstruction.com); Paul Langel (plangel@slcfd.org); A.J. Vanhooser (AJ.Vanhooser@wjarc.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234)&nbsp;<b>(committed)</b><br><br>-Kayla Diefendorf <b>committed </b> on 12/03/2024 13:32:34(Google Chrome 131.0.0.0 from 73.138.186.234)<br></div>
+                    <a id="itl2"  onclick="javascript:ventanaTransmission('138','MeetingMinutes');" onmouseover="mostrartextolog('2');" onmouseout="ocultartextolog('2');"><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></a>
+			    
+                    <div class="textoayuda" id="tl2"><b>Transmission Log:</b><br>-Kayla Diefendorf #emailed CC#  Jacob Fischer (jfischer@remnantconstruction.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234)&nbsp;<b>(committed)</b><br><br>-Kayla Diefendorf #emailed TO#  Tanner Retherford (tannerretherford@edc-inc.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); Louis Caciopoli (lcaciopoli@remnantconstruction.com); Stuart Frisby (sfrisby@remnantconstruction.com); Paul Langel (plangel@slcfd.org); A.J. Vanhooser (AJ.Vanhooser@wjarc.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234)&nbsp;<b>(committed)</b><br><br>-Kayla Diefendorf <b>committed </b> on 12/03/2024 13:32:34(Google Chrome 131.0.0.0 from 73.138.186.234)<br></div>  		
+            </td>
+            <td width="100%" nowrap></td>
+		</tr>
+		<tr id="mnuOptions138" name="mnuOptions138" style="display:block;height:0px;padding:0px;"> 
+        <td width="25"  nowrap style="background-color:#f3f4f6; height:0px;padding:0px 0px 0px 0px;border-bottom:0px"></td>
+		<td colspan="7"  style="height:0px;padding:0px 0px 0px 0px;border-bottom:0px">
+            <div id="_menuTools138" class="menuFrameContext" >
+			    <table cellspacing="0" cellpadding="1" border=0 >
+                    <tbody>
+    		        <tr>
+				        
+         		        <td width="130" nowrap>
+         		            <a onclick=javascript:ValidateExists('138','viewminute','../../asp/tpl.projectconsoleintern.asp?p=Y29udGVudHZpZXdsbms9Li4vd29ya29yZGVycy9tZWV0aW5nXy9NZWV0aW5nTWludXRlUmVwb3J0LmFzcCZDb250YWN0SUQ9MSZ3b2lkPTE5NDAwNDYmbW9kPTAwJndvc3RhPSZDbGllbnQ9cmVtbmFudGNvbnN0cnVjdGlvbiZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZVbmlxdWVNZWV0aW5nSUQ9MTM4JnNwbG9nbz01Mjk2MjAxNTgyNTU2LnBuZyZ2PTAuNTMzNDI0') class='linkazul1'><img src=../../asp/images/view-record.gif border=0 alt='View this record' align="absmiddle">View Minutes</a>
+         		        </td>
+				        
+    			        <td width="120" nowrap>
+    			            <a onclick=javascript:ValidateExists('138','editAM','app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWVkaXRtaW51dGUmd29pZD0xOTQwMDQ2JndvbW9kPTAwJmJhbmQ9YWRkJndpa2lUcmFuc2FjdGlvbklEPTUxNyZwYXJhbVBhZ2U9cHxWVzVwY1hWbFRXVmxkR2x1WjBsRVBURXpPQ1ppWVc1a1BXVmthWFFtVjI5eWEyOXlaR1Z5U1VROU1UazBNREEwTmlaWGIzSnJiM0prWlhKTmIyUTlNREFtVjI5eWEyOXlaR1Z5VTNSaGRIVnpQVWx1VUhKdlozSmxjM01tUm1GamFXeHBkSGxKUkQw') class='linkazul1'><img src=../../asp/images/edit-record.gif border=0 alt='Edit this record' align="absmiddle">Edit Minutes</a>
+    			        </td>
+    			        
+				        <td width="120" nowrap>
+    			            <a onclick=javascript:ValidateExists('138','UN-CommitAM','ManageMeeting.asp?p=VW5pcXVlTWVldGluZ0lEPTEzOCZiYW5kPXVuY29tbWl0JnR5cGU9bWludXRlJldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9') class='linkazul1'><img src=../../asp/images/draft-record.gif border=0 alt='UnCommit this record' align="absmiddle">UnCommit</a>
+    			        </td>
+				        
+				    </tr>
+                    </tbody>
+				</table>
+			</div>
+        </td>
+	    </tr>
+		
+    </tbody> 
+  	</table>
+ <input type=hidden name="count" id="count" value="2">
+<FORM METHOD="POST" name="Form1" ID="Form1">
+</FORM>
+</div>
+
+<div id="frameConfirmation" name="frameConfirmation" style="display:none">
+    <table width="300" style="border: solid 1px #868686; background-color:#ffffff; height:180px" cellspacing="0" >
+    <form id="frmCommit" name="frmCommit" method="post" action="">
+        <tr>
+            <td>
+                <div class="modal-header title-form">
+		                <h3 class="modal-title"><strong>Send Invitations?</strong>
+                        </h3>
+                </div>
+            </td>
+        </tr>
+        <tr height="30px" valign="middle">
+            <td align="center" style="font-size: 14px;font-family: Roboto, sans-serif !important;">
+                Would you like to send invitations to guests?
+            </td>
+        </tr>
+        <tr  valign="middle">
+            <td>
+                <div class="modal-footer footer-form">
+                <input type="button" value="Send" onclick="confirmButtonsAction('yes')"   class="btn btn-primary" style="height:34px;"/>
+                <input type="button" value="Don't send" onclick="confirmButtonsAction('no')"   class="btn btn-primary" style="height:34px;"/>
+                <input type="button" value="Cancel" onclick="confirmButtonsAction('cancel')" class="btn btn-alt" style="height:34px;"/>
+                </div>
+            </td>
+        </tr>
+    </form>
+    </table>
+</div>
+</div> 
+</body>
+</html>
+<script type="text/javascript">    
+    var tbReport = new tbSort("tblHeading","tblDetail","complex","Workarea_Header",
+                        [new sortCriterial("4d,8d,5a"), 
+                        new sortCriterial("5a,4d,8d"), 
+                        new sortCriterial("6a,4d,8d"), 
+                        new sortCriterial("7a,4d,8d"), 
+                        new sortCriterial("8a,4d,5a")],
+                        4, "d", false, false, true);
+       
+    $("body").click(function () { 
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        if (!is_firefox) {
+            hideMenu();
+            hideToolIcon();
+        }
+    });              
+
+    $('#F_Stage,#F_Type,#LstStatus').SumoSelect({
+		search: true,
+		searchText: 'Search...',
+		selectAll: true,
+		csvDispCount: 1,
+		setEventClickSelAll: false,		
+		nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+		captionFormatAllSelected: '{0} selected',
+		placeholder: '0 selected'
+	});
+
+    /*
+    var lstStage = new pickList();
+    lstStage.init("F_Stage", 110, 160);
+    var lstType = new pickList();
+    lstType.init("F_Type", 200, 300);
+    var LstStatus = new pickList();
+    LstStatus.init("LstStatus", 130, 170);
+    */
+
+    $("#TextToSearch").on('keypress', function (e) {
+        if (e.which == 13) {
+            document.getElementById("searchCriteria").value = document.getElementById("TextToSearch").value;
+            $("#frmmenu").submit();
+        }
+    });
+
+    var txtSearch = document.getElementById("searchCriteria").value
+    if (txtSearch != '' && txtSearch != 'Search') {
+        document.getElementById("TextToSearch").value = txtSearch;
+        $("#TextToSearch").removeClass("HideTextToSearch").addClass("ShowTextToSearch");
+        $("#textSearch").css("display", "none");
+    }
+
+   
+
+   $(function() { setEclipseScreenIcon() })
+    
+</script>
+

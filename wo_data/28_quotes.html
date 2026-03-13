@@ -1,0 +1,1175 @@
+
+<HTML>
+<HEAD>
+<TITLE>RedTeam Manage Vendor Quotes - Sort by Cost Code</TITLE>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<link href="/rts/app/asp/css/estilos.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link href="/rts/app/asp/css/fontcss.css?v=?be731a6" rel="stylesheet" type="text/css">
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+<!-- Latest compiled and minified CSS -->
+<link href="/rts/app/asp/css/bootstrap-3.3.5.min.css" rel="stylesheet" type="text/css" />
+<link href='../../asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css?v=?be731a6' rel='stylesheet' type='text/css' /> 
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="../../asp/aspcoexistencetheme/default.css?v=?be731a6" rel="stylesheet" type="text/css">
+<link href="../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css?v=?be731a6" rel="stylesheet" type="text/css" /> 
+
+<!-- Suggested JS libraries -->
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js?v=?be731a6" type="text/javascript"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../../assets/libs/bower_components/jquery.knob/js/jquery.knob.js?v=?be731a6"></script>
+
+<script src="../../asp/js/global.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+<script src="VendorQuotes_ByCostCode.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/pickList.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/tbsort.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/moment-with-locales.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/js/ManageJson.js?v=?be731a6" type="text/javascript"></script>
+<script src="js/Quotes_Load.js?v=be731a6" type="text/javascript"></script> 
+<script src="/rts/app/asp/js/search/search.js?v=?be731a6" type="text/javascript" ></script>
+
+<!--SUMOSELECT-->
+<script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script>
+<link href="/rts/app/asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" />
+<link href="/rts/app/asp/css/MultipleSelect/sumoselectRtsExtras.css?v=?be731a6" rel="stylesheet" /> 
+
+<link href="/rts/app/css/GlobalManage.css?v=?be731a6" rel="stylesheet" /> 
+<link href="css/Quotes.css?v=?be731a6" rel="stylesheet" /> 
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet"> 
+
+<style>
+
+    .RecordItemVendor , .NoRecordsContain{
+        background-color: #ffffff;
+        border-bottom: 1px solid #eeeeee;
+        line-height: 15px;
+        height: 40px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .RecordItemVendor div {
+        padding: 5px 9px 5px 8px;    
+        line-height: 15px;
+        vertical-align: top;
+    }
+</style>
+
+</HEAD>
+
+
+<div class="ParametersPage hide" style="display:none">   
+    
+    <input type="text" id="P_CustomerFacilityID" name="P_CustomerFacilityID" value="00221" >
+  
+    <input type="text" id="P_cClient" name="P_cClient" value="remnantconstruction" >
+    <input type="text" id="P_server_name" name="P_server_name" value="IO" >    
+    <input type="text" id="P_DefaultURL" name="P_DefaultURL" value="https://flex.redteam.com/TS" >     
+    <input type="text" id="P_EditRTExplanation" name="P_EditRTExplanation" value="" >  
+    <input type="text" id="P_EditExplanation" name="P_EditExplanation" value="" >    
+    <input type="text" id="P_WorkorderID" name="P_WorkorderID" value="1940046" >
+    <input type="text" id="P_WorkorderMod" name="P_WorkorderMod" value="00" >
+    <input type="text" id="P_WorkorderModQStr" name="P_WorkorderModQStr" value="00" >
+    <input type="text" id="P_WorkorderStatus" name="P_WorkorderStatus" value="InProgress" >   
+    <input type="text" id="P_FacilityID" name="P_FacilityID" value="00221" >  
+    <input type="text" id="P_PagSession" name="P_PagSession" value="VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl" >  
+    <input type="text" id="P_IsType" name="P_IsType" value="takeoff" >   
+    <input type="text" id="P_readonly" name="P_readonly" value="false" >   
+    <input type="text" id="P_Console" name="P_Console" value="" >   
+    <input type="text" id="P_sortby" name="P_sortby" value="" >  
+    <input type="text" id="P_dir" name="P_dir" value="" >   
+    <input type="text" id="P_arrPermissions" name="P_arrPermissions" value="view|False||edit|False||commit|False||uncommit|False||delete|False||close|False||convert|False||cancel|False||revise|False||notes|False||commitments|False||remove|False||reopenquotes|False||uncancelquote|" > 
+    <input type="text" id="P_ValidationWOStatus" name="P_ValidationWOStatus" value="True" >
+    <input type="text" id="P_DefaultURL_uploads_spec" name="P_DefaultURL_uploads_spec" value="https://node.flex.redteam.com/files/specs.redteamsoftware.com" > 
+    <input type="text" id="P_showLogColumn" name="P_showLogColumn" value="yes" > 
+    <input type="text" id="P_showNotesColumn" name="P_showNotesColumn" value="yes" > 
+    <input type="text" id="P_costcdeQStr" name="P_costcdeQStr" value="" > 
+    <input type="text" id="P_tipoQStr" name="P_tipoQStr" value="" > 
+    <textarea id="P_metadataHistory" name="P_metadataHistory"><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></textarea>   
+    <input type="hidden" id="TextToSearchWidth" name="TextToSearchWidth" value="72" >
+
+    <input type="text" id="P_Filter" name="P_Filter" value="" > 
+    <input type="text" id="P_sortby" name="P_sortby" value="" > 
+    <input type="text" id="P_dir" name="P_dir" value="" > 
+    <input type="text" id="P_newQID" name="P_newQID" value="0" >     
+      
+    <input type="text" id="P_DateFormat" name="P_DateFormat" value="mm/dd/yyyy" >
+    <input type="text" id="P_ActiveUser" name="P_ActiveUser" value="1" > 
+    <input type="text" id="P_LocaleLCID" name="P_LocaleLCID" value="1033" >    
+    <input type="text" id="P_Locale" name="P_Locale" value="en-us" >   
+    <input type="text" id="CompanyBDname" name="CompanyBDname" value="remnantconstruction" />  
+   
+    <input type="text" id="Perm_ViewQuoteRequest" name="Perm_ViewQuoteRequest" value="False" >
+    <input type="text" id="Perm_ViewQuote" name="Perm_ViewQuote" value="" >
+    <input type="text" id="Perm_AddEditQuote" name="Perm_AddEditQuote" value="False" >
+    <input type="text" id="Perm_ReviseQuote" name="Perm_ReviseQuote" value="False" >
+    <input type="text" id="Perm_EditVendorName" name="Perm_EditVendorName" value="" >
+    <input type="text" id="Perm_EditVendor" name="Perm_EditVendor" value="" >
+    <input type="text" id="Perm_AddQuoteNotes" name="Perm_AddQuoteNotes" value="False" > 
+    
+    <input type="hidden" id="signCurrency" value="$" >
+    <input type="hidden" id="defaultitemsPerPage" name="defaultitemsPerPage" value="500" />
+    <input type="hidden" id="sortCriterial" value="ProjNum asc , ScopeNum asc" > 
+    <input type="hidden" id="LocalLoadRecords" value="255" > 
+    <input type="hidden" id="FilterDef" value="0" >  
+    <input type="hidden" id="P_OpenFrom" value="" >  
+    <input type="hidden" id="P_OpenVendor" value="" >    
+   
+
+</div>
+
+<template id="DivGroupTemplate">
+    <div class="TableCont RecordItemVendor" id="Group_%ngroup%">      
+        <div class="TableCell Cell_1" nowrap  >
+            <input type="checkbox" id="chkSelectCC%ngroup%"  onclick="selectCC('%ngroup%','%DefaultCC%');" 
+                    class="chkbox-co-existence">
+        </div> 
+         <div class="TableCell Cell_2" nowrap id="tdExpandIcon%counter%" >
+            <i class="zmdi zmdi-plus-square fontBtn hand" id="imgG1_%ngroup%" 
+                onclick="javascript:showQuotes('%ngroup%');" style="display:none"></i>
+            <i class="zmdi zmdi-minus-square fontBtn hand" id="imgG2_%ngroup%" 
+            onclick="javascript:showQuotes('%ngroup%');"></i>
+		  <input type="hidden" id="CC_%ngroup%" name="CC_%ngroup%" value="%DefaultCC%">
+         </div>
+         <div class="TableCell" style="vertical-align: middle;">
+            <span class="TitleCC">%DisplayTitle%</span>
+         </div> 
+    </div>
+    <div countergg="%ngroup%" class="GG_%ngroup% GeneralGroup"> 
+    </div>  
+     <input type='hidden' id='nQuotes%ngroup%' value='%nitems%' /> 
+</template>
+
+
+<template id="RecordTemplate">  
+       <div id="tblQuotes%nAllGroups%_%nAllQuotes%" class="ParentQuote">
+            <div    class="QuoteItemShow TableCont RecordItemVendor SearchTextParent %StatusColor%"  
+                    counteritem="%counter%"  
+                    quoteid="%idxQuoteID%"
+                    id="Quote_%idxQuoteID%"
+                    nallgroups="%nAllGroups%"
+                    nallquotes="%nAllQuotes%"
+                    >
+                  <input type="hidden" id="counter_%idxQuoteID%"  name="counter_%idxQuoteID%" value="%counter%"  >
+                <div class="TableCell Cell_0" nowrap id="tdChkItem%counter%" >
+                    <INPUT type="checkbox" name="chkItem%counter%" id="chkItem%counter%" 
+                            onclick="countChecked('%counter%');" style="margin-top:4px" class="chkbox-co-existence %showchk%">
+                </div>
+                <div class="TableCell Cell_1" nowrap id="tdExpandIcon%counter%" >                
+                    <i class="zmdi zmdi-plus-square fontBtn tool-options" id="imgQ1_%nAllGroups%_%nAllQuotes%" 
+                        onclick="showItems('%nAllGroups%_%nAllQuotes%','show','%idxQuoteID%','%hasQuoteItems%','%QuoteSource%','%counter%');"></i>
+                    <i class="zmdi zmdi-minus-square fontBtn tool-options" id="imgQ2_%nAllGroups%_%nAllQuotes%" 
+                        onclick="showItems('%nAllGroups%_%nAllQuotes%','hidden',null,null,null,'%counter%');" style="display:none;">
+                    </i>
+                    <INPUT type="checkbox" id="chk'%counter%'" style="display:none;" class="chkbox-co-existence">
+                </div>
+                <div class="TableCell Cell_2" nowrap >
+                    %viewquote%
+                </div>
+                <div class="TableCell Cell_3" nowrap id="tdToolEdit%counter%">%editquote%</div>
+                <div class="TableCell Cell_4" nowrap >
+                    <span id="img_showtools%counter%" onclick="showJsonOptions('%counter%','%jsonParamsAux%','TAKEOFF_TAB_MVQ','show','tblQuotes%nAllGroups%_%nAllQuotes%')">
+                        <i class="zmdi zmdi-apps fontBtn tool-options" id="showtools%counter%" name="showtools%counter%"></i>
+                    </span>
+                    <span onclick="javascript:showJsonOptions('%counter%','','TAKEOFF_TAB_MVQ','hidden','tblQuotes%nAllGroups%_%nAllQuotes%');" 
+                        id="img_hidetools%counter%" style="cursor:hand;"> 
+                        <i class="zmdi zmdi-apps fontBtn tool-options" id="hidetools%counter%" style="display:none;"></i>
+                    </span>
+                </div>
+                <div class="TableCell Cell_5" nowrap id="tdAttach%counter%">%attach%
+                    <input type="hidden" id="encryptedParametersattach%counter%" value="%encryptedParametersattach%" />
+                </div>
+                <div class="TableCell Cell_6" nowrap id="tdMoreDetail%counter%">
+                    %MoreDetail%
+                    <div class="MessageBox Workarea_Header %StatusColor%" style="width:330px;" id="ta%counter%"></div>
+                    <input type="hidden" value="%inputmoredetails%" id="inputMoreDetails%counter%" name="inputMoreDetails%counter%"  />
+                </div>
+                <div class="TableCell Cell_7" nowrap >
+                    <div>%quoteentity%</div>
+                    <div class="ColorSilver Div_Contacts">%contacts%</div>
+                </div>
+                <div class="TableCell Cell_8" style="padding-top: 10px;" nowrap >
+                    <span id="tdType%counter%" class="SearchTextChild">%typequote%</span>
+                    <input type="hidden" id="Type%counter%" name="Type%counter%" value="%idxqStatus%">
+                    <input type="hidden" id="Type_%nAllGroups%_%nAllQuotes%" name="Type_%nAllGroups%_%nAllQuotes%" value="0">
+                    <input type="hidden" id="txtPos%counter%" value="%counter%">							
+                </div>
+                <div class="TableCell Cell_9" style="padding-top: 10px;" nowrap >
+                    <span id="tdDate%counter%" class="SearchTextChild">%datequote%</span>
+                </div>
+                <div class="TableCell Cell_10" style="padding-top: 10px;" nowrap >
+                    <span class="%showAmount_A%">
+                        <a onclick="showEditBidForm('_menuEditBid','lnkEditBid%counter%','txtEditBid%counter%','QuoteID%counter%','%counter%')" 
+                                id="lnkEditBid%counter%" style="cursor:hand;">
+                                    <u><span id="spanBidAmount%counter%" class="SearchTextChild">%FormatidxQuoteAmount%</span></u>
+                        </a>
+                        <input type="hidden" id="txtEditBid%counter%" value="%FormatidxQuoteAmount%">
+                        <input type="hidden" id="txtQuoteFlag%counter%" value="yes">
+                    </span>
+                    <span class="%showAmount_B%">
+                        <span id="spanBidAmount%counter%"  class="SearchTextChild">%FormatidxQuoteAmount%</span>
+                    </span>
+                    <br>
+                    <br>
+                    <i class="zmdi zmdi-triangle-up tdVarianceIcon"></i>
+                    <SPAN id="tdVariance%counter%" class="tdVariance" class="SearchTextChild">%quotevariance%</span>
+                </div>
+                <div class="TableCell Cell_11" nowrap >
+                    <input type="text" 	id="QuoteID%counter%" name="QuoteID%counter%" value="%idxQuoteID%" style="display:none;">
+                    <input type="hidden" id="AssID%counter%" name="AssID%counter%" value="%idxAssID%">
+                    <input type="hidden" id="AssNum%counter%" name="AssNum%counter%" value="%idxDefaultCC%">
+                    <input type="hidden" id="hasQuoteItems%counter%" name="hasQuoteItems%counter%" value="%hasQuoteItems%">
+                    <input type="hidden" id="hasBestVendor%counter%" name="hasBestVendor%counter%" value="%hasBestVendor%" >
+                    <input type="hidden" id="idxWorkflow%counter%" name="idxWorkflow%counter%" value="%idxWorkflow%">								
+                    %checkBest%
+                </div>
+                <div class="TableCell Cell_12" style="padding-top: 10px;" nowrap >
+                    <input type="hidden" id="Status%counter%" name="Status%counter%" value="%quotestatus%">
+                    <input type="hidden"  id="LastStatus%counter%" name="LastStatus%counter%" value="">
+                    <input type="hidden" id="Status_%nAllGroups%_%nAllQuotes%" name="Status_%nAllGroups%_%nAllQuotes%" value="%quotestatus%" />
+                    <input type="hidden" id="nallgroupsandnallquotes%counter%" name="nallgroupsandnallquotes%counter%" value="%nAllGroups%_%nAllQuotes%" />
+                    <span id="tdStatus%counter%" class="SearchTextChild">%quotestatus%</span>
+                </div>
+                <div class="TableCell Cell_13" style="padding-top: 10px;" nowrap >%bidding%</div>
+                <div class="TableCell Cell_14 SearchTextChild" nowrap id="Sent%counter%" onmouseover="ReloadCount('Sent','%idxQuoteID%', '' ,'Sent%counter%')" style="padding-top: 10px;">%nsent%</div>
+                <div class="TableCell Cell_15 SearchTextChild" nowrap id="View%counter%" onmouseover="ReloadCount('View','%idxQuoteID%', '%idxVendorID%' ,'View%counter%')" style="padding-top: 10px;">%nplanroom%</div>
+                <div class="TableCell Cell_16 ColumnNotes %showNotesColumn%" nowrap >%notesAux%
+                    <div class="textoayuda wh-sp-pre-wrap" 
+                        id="tn%counter%" 
+                        style="left: 0px; top: 0px; visibility: hidden;"> 
+                    </div>  
+                </div>
+                <div class="TableCell Cell_17 ColumnLog %showLogColumn%" nowrap >
+                        <a href='#' id="itl%counter%" border="0" align="absmiddle" 
+                            onclick="javascript:ventanaTransmission('%idxQuoteID%','RFQ');return false;" 
+                            onmouseover="mostrartextoNotesAndLogAjax('%counter%','%idxQuoteID%','MVQ_TAKEOFF_LOG','tl%counter%');" 
+                            onmouseout="ocultartextolog('%counter%');">%metadataicon%</a>
+                    <div class="textoayuda " id="tl%counter%"
+                      style="left: 0px; top: 0px; visibility: hidden;" 
+                      ></div>
+                </div>
+                <div class="TableCell Cell_18 SearchTextChild" style="padding-top: 10px;" nowrap >%sourcequote%</div>                
+                
+            </div>
+            <div id="tr_%counter%" class="TableCont RecordItemVendor SearchTextParent"></div>
+        </div>
+</template>
+
+<template id="RecordTemplateVendor">  
+        
+            <div    class="TableCont RecordItem SearchTextParent %StatusColor%"  
+                    counteritem="%counter%"  
+                    quoteid="%idxQuoteID%"
+                    quoteuniqueid="%idxQuoteUniqueID%"
+                    id="Quote_%idxQuoteID%"                  
+                    >
+                  <input type="hidden" id="counter_%idxQuoteID%"  name="counter_%idxQuoteID%" value="%counter%"  >
+                <div class="TableCell CellV_0" nowrap > %viewquote%</div>
+                <div class="TableCell CellV_1" nowrap > %attach%
+                    <input type="hidden" id="encryptedParametersattach%counter%" value="%encryptedParametersattach%" />  
+                </div>
+                <div class="TableCell CellV_2" nowrap >
+                     %MoreDetail%
+                    <div class="MessageBox Workarea_Header %StatusColor%" style="width:330px;" id="ta%counter%"></div>
+                    <input type="hidden" value="%inputmoredetails%" id="inputMoreDetails%counter%" name="inputMoreDetails%counter%"  />
+                </div>
+                <div class="TableCell CellV_3 SearchTextChild" nowrap>%ProjectNum%</div>
+                <div class="TableCell CellV_4 SearchTextChild" nowrap >%ProjectTitle%</div>
+                <div class="TableCell CellV_5 SearchTextChild" nowrap>%CC%</div>
+                <div class="TableCell CellV_6 SearchTextChild" nowrap>%DefaultCat%</div>                
+                <div class="TableCell CellV_7" nowrap >
+                    <span id="tdType%counter%" class="SearchTextChild">%typequote%</span>
+                    <input type="hidden" id="Type%counter%" name="Type%counter%" value="%idxqStatus%">
+                    <input type="hidden" id="Type_%nAllGroups%_%nAllQuotes%" name="Type_%nAllGroups%_%nAllQuotes%" value="0">
+                    <input type="hidden" id="txtPos%counter%" value="%counter%">							
+                </div> 
+                <div class="TableCell CellV_8 SearchTextChild" nowrap >%FormatidxQuoteAmount%</div>
+                 <div class="TableCell CellV_9 SearchTextChild" nowrap >%quotevariance%</div>
+               
+                <div class="TableCell CellV_10" nowrap >
+                    <input type="text" 	id="QuoteID%counter%" name="QuoteID%counter%" value="%idxQuoteID%" style="display:none;">
+                    <input type="hidden" id="AssID%counter%" name="AssID%counter%" value="%idxAssID%">                   							
+                    %checkBest%
+                </div>
+                <div class="TableCell CellV_11 " nowrap ><span class="SearchTextChild">%quotestatus%</span>
+                    <input type="hidden" id="Status%counter%" name="Status%counter%" value="%quotestatus%">                
+                </div>
+                <div class="TableCell CellV_12" nowrap >%bidding%</div>
+                <div class="TableCell CellV_13 ColumnNotes %showNotesColumn%" nowrap >%notesAux%
+                    <div class="textoayuda wh-sp-pre-wrap" 
+                        id="tn%counter%" 
+                        style="left: 0px; top: 0px; visibility: hidden;"> 
+                    </div>  
+                </div>
+                <div class="TableCell CellV_14 ColumnLog %showLogColumn%" nowrap >
+                        <a href='#' id="itl%counter%" border="0" align="absmiddle" 
+                            onclick="javascript:ventanaTransmission('%idxQuoteID%','RFQ');return false;" 
+                            onmouseover="mostrartextoNotesAndLogAjax('%counter%','%idxQuoteID%','MVQ_TAKEOFF_LOG','tl%counter%');" 
+                            onmouseout="ocultartextolog('%counter%');">%metadataicon%</a>
+                    <div class="textoayuda " id="tl%counter%"
+                      style="left: 0px; top: 0px; visibility: hidden;" 
+                      ></div>
+                </div>
+                <div class="TableCell CellV_15 SearchTextChild" nowrap >%sourcequote%</div>                
+                
+            </div>  
+</template>
+
+
+<template id="HeaderTeamplate">
+    <a href="javascript:OrderItems('%HeaderID%')" ><u>%HeaderText%</u>
+        <img id="%HeaderID%_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;%orderdefault1%">
+        <img id="%HeaderID%_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;%orderdefault2%">
+    </a>
+</template>
+
+<div class="LoadingBody"  style="display:none"><svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">  
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg>
+<div class='Icon_RTLoadingText'>Loading...</div></div>
+
+<body  id="BodyGeneral" bgcolor="#FFFFFF" topmargin="0" leftmargin="0" rightmargin="0" scroll="yes" 
+onload="initialize('False','','InProgress','1940046','00', 1);" 
+onscroll="hideMenu();staticit_ns()" >
+
+<IFRAME id="_fraGetDataAux" name="_fraGetDataAux" width="600" height="100" style="display:none;"></IFRAME>
+<IFRAME id="_ifrmUpdate" name="_ifrmUpdate" width="600" height="100" style="display:none;"></IFRAME>
+
+<form id="frmUpdateData" name="frmUpdateData" method="post" target="_fraGetDataAux" style="display:inline;"></form>
+
+<div id="content" onclick="hideMenu();hideToolIcon();"> 
+<div id="DivOverflow" > 
+<div id="staticmenu" style="position:relative; background-color:#F3F4F6;">
+    
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+        <script type="text/javascript">
+            document.getElementById('staticmenu1').style.visibility = "hidden";
+        </script>
+        
+    <TABLE id="page-heading" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        
+        
+        <td id="defaultBar" class="buttonssection" style="text-align:right;padding-right:16px;" nowrap>
+            <input type="hidden" id="TextToSearch" class="inputSearch form-control HideTextToSearch" name="TextToSearch" maxlength="40"  placeholder="Search..." onfocus="if(this.value==this.defaultValue) this.value=''"  onblur="VerifySearchEmpty()" 	 value="" >
+            <script>
+                setEclipseScreenIcon()
+            </script>
+        </td>
+
+        <td colspan="1" id="paginationHeader"  class="NewHomeActionsHeader" width="200" align="right" nowrap >	    <table border="0" cellpadding="0" cellspacing="0" align="left">            <tr valign="middle">                <td nowrap>	                <img id="p1Inactive" src="https://flex.redteam.com/rts/app/asp/images/browsePrior_inactive.png" align="absmiddle" />	                    <a id="p1Active" href="javascript:BackPage()" style="display:none"><img src="../../asp/images/browsePrior.png" border="0" align="absmiddle" /></a>                </td>                <td class="KeywordLabelTab" >&nbsp;Page</td>                <td nowrap>                    <span class="wrapper">                        <div class="styled-select" >                            <select id="pageController" onchange="LoadDataPagination()" >                            </select>                        </div>                    </span>                </td>                <td class="KeywordLabelTab"  nowrap>&nbsp;of&nbsp;<span id="totalPagesCount"></span></td>                <td nowrap>                    <img id="p2Inactive"  src="https://flex.redteam.com/rts/app/asp/images/browseNext_inactive.png" align="absmiddle" style="display:none" />                        <a id="p2Active"  href="javascript:NextPage()"><img src="../../asp/images/browseNext.png" border="0" align="absmiddle" /></a>                </td>                <td style="padding-left:5px;" nowrap>                    <span class="wrapper">                        <div class="styled-selectItemsPerPage" >                            <select id="cbitemsPerPage" onchange="ChangeItemsPerPage()" >                            </select>                        </div>                    </span>                </td>            </tr>        </table>    </td> 
+    </tr>
+</TABLE>	
+</div>
+
+<div id="msgLoad" type="warning" class="alert ng-isolate-scope alert-warning alert-dismissable" style="margin-top: 20px !important; margin-left: 20px !important; margin-right: 20px !important; display:none;" role="alert">
+     <div><span>Your request is being processed... please wait.   <i class="zmdi zmdi-rotate-right zmdi-hc-spin fontBtn"></i></span></div>
+ </div>
+
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage Vendor Quotes for Original Scope","Manage":"Estimate","Menu":{"Options":[],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"Planroom","Id":"btnViewPlanroom","Onclick":"window.open('../../asp/PlanroomView.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0wMDIyMSZDbGllbnQ9cmVtbmFudGNvbnN0cnVjdGlvbg')","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[{"Name":"","Id":"btnAnalyticsView","Onclick":"AnalyticsBoxActivation('show', 'WorkorderID=1940046&WorkorderMod=00')","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"More":{"Options":[{"Name":"Compare","Id":"MenuCompare","Onclick":"","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('318');","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Un-Cancel","Id":"btnMassUnCancel","Onclick":"MultipleUnCancel('1940046','00')","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Update","Id":"btnMassUpdate","Onclick":"OpenMassUpdate('00','takeoff','false', '&WorkorderID=1940046&WorkorderStatus=InProgress&FacilityID=00221&console=');","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Email","Id":"btnMassEmail","Onclick":"OpenMassEmail('1940046','00','&WorkorderStatus=InProgress&FacilityID=00221')","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>
+<div id="DivAnalitycs" style="display:none;;height:350;"></div>
+
+<form METHOD="POST" ACTION="VendorQuotes_ByCostCode.asp?istype=takeoff&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" name="Form1" ID="Form1" target="_self" style="display:inline;">
+
+<div id="trFiltersbox" style="display:none;height:300px;overflow:visible;background-color:#FFFFFF;position:relative;">
+
+
+<div class="panel panel-midnightblue customFilterBox" style="margin-bottom: 0px !important;">
+    <div class="panel-heading">
+        <h4>Filters</h4>
+    </div>
+    <div class="panel-body collapse in" style="height:300px;">
+        
+      
+     	<div class="col-md-12">  
+              <div class="col-md-3 hide">
+     	        <div class="form-group">
+     	            <label class="control-label">Project:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstWO" name="LstWO" size="1"   class="form-control lstfilterfize" multiple></select>
+                    </div>
+     	        </div>
+     	    </div>
+              <div class="col-md-3 hide">
+     	        <div class="form-group">
+     	            <label class="control-label">Scope:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstPhase" name="LstPhase" size="1"   class="form-control lstfilterfize" multiple></select>
+                    </div>
+     	        </div>
+     	    </div>        
+             <div class="col-md-3">
+     	        <div class="form-group">
+     	            <label class="control-label">Cost Division:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstCostDiv" name="LstCostDiv" size="1"   class="form-control lstfilterfize"></select>
+                    </div>
+     	        </div>
+     	    </div>
+            
+            <div class="col-md-3">
+     	        <div class="form-group">
+     	            <label class="control-label">Cost Code:</label>
+     	            <div class="col-sm-3-separator">
+                    
+                     <div class="ccWithPhasesList">
+                        <select id="LstCC" name="LstCC" size="1"   class="form-control select-box lstfilterfize"
+                                onclick="LoadProjectCostCode('','1940046','00');" 
+                                onchange="getDefaultCC()">  
+    		            </select>
+                        </div>
+                        <input type="hidden" name="SourcePcc" id="SourcePcc" value="fromFilterQuotes" />
+                        <input type="hidden" id="WorkorderMod" name="WorkorderMod" value="00" />
+                        <input type="hidden" name="validatecostcodecc" id="validatecostcodecc" value="0" />
+                        <input type="hidden" name="txtDefaultPcc" id="txtDefaultPcc" value="" />
+                    </div>
+     	        </div>
+     	    </div>
+            
+            
+            <div class="col-md-3 " >
+     	        <div class="form-group">
+     	            <label class="control-label">Vendor:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstVendor" name="LstVendor" size="1"   class="form-control lstfilterfize"></select>
+                    </div>
+     	        </div>
+     	    </div>    
+            <div class="col-md-3 ">
+     	        <div class="form-group">
+     	            <label class="control-label">Credential:</label>
+     	            <div class="col-sm-3-separator">  
+                       <select size="1" id="F_LstCredentials" name="F_LstCredentials"   class="lstfilterfize" multiple></select>
+    		            
+                    </div>
+     	        </div>
+     	    </div>                   
+            <div class="col-md-3 "">
+     	        <div class="form-group">
+     	            <label class="control-label">Workflow:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstWorkflow" name="LstWorkflow" size="1"  class="form-control lstfilterfize"> 
+                        </select>
+                    </div>
+     	        </div>
+     	    </div>
+            <div class="col-md-3 hide">
+     	        <div class="form-group">
+     	            <label class="control-label">Category:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstCategory" name="LstCategory" size="1"   class="form-control lstfilterfize"></select>
+                    </div>
+     	        </div>
+     	    </div>
+            <div class="col-md-3">
+     	        <div class="form-group">
+     	            <label class="control-label">Status:</label>
+     	            <div class="col-sm-3-separator">  
+                    <select id="LstStatus" name="LstStatus"  multiple size=1   class="lstfilterfize"></select>
+                    </div>
+     	        </div>
+     	    </div>
+            <div class="col-md-3  ">
+     	        <div class="form-group">
+     	            <label class="control-label">Type:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstType" name="LstType" size="1"  class="form-control lstfilterfize"></select>
+                    </div>
+     	        </div>
+     	    </div>
+            
+            <div class="col-md-3 ">
+     	        <div class="form-group">
+     	            <label class="control-label">Email:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <select id="LstEmail" name="LstEmail" size="1"   class="form-control lstfilterfize">
+		                 
+		                </select>
+                    </div>
+     	        </div>
+     	    </div>                         
+            <div class="col-md-3 ">
+     	        <div class="form-group">
+     	            <label class="control-label">Columns:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <SELECT id="LstColumns" name="LstColumns"    class="lstfilterfize" multiple size=1></SELECT>
+                    </div>
+     	        </div>
+     	    </div>
+            <div class="col-md-3">
+     	        <div class="form-group">
+     	            <label class="control-label">Bidding:</label>
+     	            <div class="col-sm-3-separator">                             
+                        <SELECT id="LstBidding" name="LstBidding"    class="lstfilterfize" multiple size=1></SELECT>
+                    </div>
+     	        </div>
+     	    </div>
+            
+
+            <div class="col-md-3">
+     	        <div class="form-group">
+     	            <label class="control-label">&nbsp;</label>
+     	            <div class="col-sm-3-separator">                             
+                        <input type="button" onclick="javascript:FilterValidationManage();Filtercount();"  class="btn btn-default" value="Filter" />
+                        <input  type="button" onclick="javascript:FilterValidationManage();filterBoxActivation('Filter');Filtercount();"  
+                                class="btn btn-primary"  value="Filter & Hide" />
+                    </div>
+     	        </div>
+     	    </div> 
+           
+     	</div>
+    </div>
+</div>
+</div>
+
+<input type="hidden" id="hdnitemsPageNumber" name="hdnitemsPageNumber" value="" /> 
+<input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber"/> 
+<input type="hidden" id="hdnActionCommand" name="hdnActionCommand" /> 
+<input type="hidden" name="hdnCurrentUrlParams" value="" /> 
+<input type="hidden" id="hdnParameters" name="hdnParameters" value="" />
+<input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="" />
+<input type="hidden" id="hdnVendorToSearch" name="hdnVendorToSearch" />
+
+</form>
+    
+
+<div id="staticCols" style="position:relative; background-color:#f3f4f6;">
+
+ 
+    <div id="tblheading" class="TableCont tblheading" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <div class="TableCell Cell_0" style nowrap>
+              <input type="checkbox" id="chkSelectAll" name="chkSelectAll" onclick="selectAll();" class="chkbox-co-existence" />
+        </div>            
+        <div class="TableCell Cell_1" id="iconExpand" nowrap>        
+            <i class="zmdi zmdi-plus-square fontBtn hand" id="imgexpand2" name="imgexpand2" onclick="javascript:expandAll();" style="display: none;"></i>
+  	        <i class="zmdi zmdi-minus-square fontBtn hand" id="imgcontract2" name="imgcontract2" onclick="javascript:contractAll();"></i></div>
+        <div class="TableCell Cell_2" nowrap><b></b></div>
+        <div class="TableCell Cell_3" nowrap><b></b></div>  
+        <div class="TableCell Cell_4" nowrap><b>Tools</b></div>  
+        <div class="TableCell Cell_5" nowrap><b>File</b></div>          
+        <div class="TableCell Cell_6" nowrap><b>More</b></div>   
+        <div class="TableCell Cell_7" nowrap><b>Vendor/Contact</b></div> 
+        <div class="TableCell Cell_8" nowrap><b>Type</b></div>   
+        <div class="TableCell Cell_9" nowrap><b>Date</b></div>  
+        <div class="TableCell Cell_10" nowrap><b>Bid ($)</b></div> 
+        <div class="TableCell Cell_11" nowrap><b>Best</b></div>
+        <div class="TableCell Cell_12" nowrap><b>Status</b></div>           
+        <div class="TableCell Cell_13" nowrap><b>Bidding</b></div>          
+        <div class="TableCell Cell_14" nowrap><b>Sent</b></div>  
+        <div class="TableCell Cell_15" nowrap><b>Planroom</b></div>         
+        <div class="TableCell Cell_16 ColumnNotes" nowrap><b>Notes</b></div>  
+        <div class="TableCell Cell_17 ColumnLog" nowrap><b>Log</b></div>           
+        <div class="TableCell Cell_18" nowrap><b>Source</b></div>    
+    </div>   
+
+</div>
+<div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none; ">
+    <div><span id="tdMessage"></span></div>
+</div>
+
+
+
+<div id="contentTable" class="TableCont"> 
+
+<FORM  method="POST" name="FrmQuotes" id="FrmQuotes" style="display:inline;">
+<div class="BodyContain GeneralContain"></div>
+<div class="TableCont NoRecords GeneralContain" style="display:none;">
+        <div class="NoRecordsContain" style="padding-left:16px !important;">There are no Quotes on File!  
+         
+        </div>
+</div> 
+<div class="TableCont GeneralContain">
+    <div class="RecordItem" id="msgQuotes"></div>
+    <div class="NoteCompare Orange RecordItem" style="display:none"><b>Note</b>: Use Compare to evaluate Quotes, then "Select as Best" to update Estimate.</div>
+</div>
+
+
+<script type="text/javascript">   
+LoadManage()  
+</script> 
+
+
+
+
+
+<div>
+    	<INPUT type="hidden" id="graphData" value="0" />
+        <INPUT type="hidden" id="count" name="count" value="">
+  		<INPUT type="hidden" id="nGroups" name="nGroups" value="">
+		<INPUT type="hidden" id="nParents" name="nParents" value="">
+		<INPUT type="hidden" id="AssID" name="AssID">
+		<INPUT type="hidden" id="countBest" name="countBest" value="">
+		<INPUT type="hidden" id="nSelections" name="nSelections" value="0">
+		<INPUT type="hidden" id="nDraftSelections" name="nDraftSelections" value="0">
+		<INPUT type="hidden" id="nCommittedSelections" name="nCommittedSelections" value="0">
+        <INPUT type="hidden" id="nCancelledSelections" name="nCancelledSelections" value="0">        
+		<INPUT type="hidden" id="nOtherSelections" name="nOtherSelections" value="0">	
+        <INPUT type="hidden" id="nmassdelete" name="nmassdelete" value="0">
+        <INPUT type="hidden" id="ContactsWithNoEmail" name="ContactsWithNoEmail" value="">
+        <INPUT type="hidden" id="newpco" name="newpco" value="">
+        <INPUT type="hidden" id="pagSession" name="pagSession" value="VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl">
+        <INPUT type="hidden" id="modCompare" name="modCompare" value="00">
+        <INPUT type="hidden" id="facilityCompare" name="facilityCompare" value="00221">
+        <INPUT type="hidden" id="statusCompare" name="statusCompare" value="InProgress">
+</div>
+
+
+ 
+
+</FORM>
+</div>
+</div>
+</div>
+
+<div id="_menuEditBid" class="menuFrameContext">
+    <form id="frmEditBid" name="frmEditBid" action="VendorQuotes_ByCostCode.asp?action=updBid" method="post" style="display:inline;">
+    <table cellpadding="0" cellspacing="0" border="0" width="180px;" class="lineagris">
+    <tr>
+        <td style="width:19%; text-align:center; vertical-align:middle;">
+            <a onclick="submitFrmEditBid('');"><i class="zmdi zmdi-floppy fontBtn"></i></a>
+        </td>
+        <td width="2%" nowrap></td>
+        <td style="width:19%; text-align:center; vertical-align:middle;"><a onclick="hideMenu();"><i class="zmdi zmdi-undo fontBtn"></i></a></td>
+        <td width="60%">
+            <input type="text" id="txtEditBid" name="txtEditBid" value="" style="width:100%; text-align:right;" class="form-control" />
+            <input type="hidden" id="txtQuoteID_EditBid" name="txtQuoteID_EditBid" value="" />
+            <input type="hidden" id="txtPos_EditBid" name="txtPos_EditBid" value="" />
+        </td>
+    </tr>
+    </table>
+    </form>
+</div>
+
+<div id="_menuEditBidding" class="menuFrameContext" style="padding-top:5px; padding-bottom:5px; background-color:#ffffff;">
+    <form id="frmEditBidding" name="frmEditBidding" action="VendorQuotes_ByCostCode.asp?action=updBidding" method="post" style="display:inline;">
+    <table cellpadding="0" cellspacing="0" border="0" width="200px;" height="100px;">
+    <tr>
+        <td style="width:34px; text-align:center; vertical-align:top; display: block;" nowrap>
+            <a onclick="submitFrmEditBidding('1940046');hideMenu();"><i class="zmdi zmdi-floppy fontBtn"></i></a>
+        </td>
+        <td width="2px" nowrap></td>
+        <td style="width:34px; text-align:center; vertical-align:top; display: block;" nowrap>
+            <a onclick="hideMenu();"><i class="zmdi zmdi-undo fontBtn"></i></a>
+        </td>
+        <td style="width:100%; text-align:center; vertical-align:top;">
+            <select size="4" id="lstEditBidding" name="lstEditBidding" style="width:100%; height:100%;" class="form-control">
+                <option value="TBD">Select one...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Maybe">Maybe</option>
+            </select>
+            <input type="hidden" id="txtQuoteID_EditBidding" name="txtQuoteID_EditBidding" value="" />
+            <input type="hidden" id="txtPos_EditBidding" name="txtPos_EditBidding" value="" />
+			<input type="hidden" id="txtShow_EditBidding" name="txtShow_EditBidding" value="" />
+        </td>
+    </tr>
+    </table>
+    </form>
+</div>
+
+<div id="_menuReviseQuote" class="menuFrameContext">
+    <form id="frmReviseQuote" name="frmReviseQuote" action="VendorQuotes_ByCostCode.asp?action=reviseQuote&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221&pagSession=VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl" method="post" target="_ifrmUpdate" style="display:inline;">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:110px;" class="lineagris">
+    <tr>
+        <td style="width:15px;"><img src="../../asp/images/save.gif" onclick="submitFrmReviseQuote('');" class="hand" /></td>
+        <td style="width:15px;"><img src="../../asp/images/canceledit.gif" onclick="hideMenu();" class="hand" /></td>
+        <td style="width:80px; height:80px; padding-left:2px; padding-right:2px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:80; height:70px;" class="lineagris">
+            <tr>
+                <td style="padding-left:2px; padding-right:2px; padding-top:2px; padding-bottom:2px; width:inherit; height:inherit;">
+                    <select size="4" id="lstReviseQuote" name="lstReviseQuote" style="width:inherit; height:100%;" onchange="showAddQuoteNote();">
+                        <option value="TBD">Select one...</option>
+                        <option value="Accepted">Accept</option>
+                        <option value="Rejected">Reject</option>
+                    </select>
+                    <input type="hidden" id="txtQuoteID_ReviseQuote" name="txtQuoteID_ReviseQuote" value="" />
+                    <input type="hidden" id="txtPos_ReviseQuote" name="txtPos_ReviseQuote" value="" />
+                </td>
+            </tr>
+            </table>
+        </td>
+        <td id="tdNote_ReviseQuote" style="display:none; width:200px; height:80px; padding-left:2px; padding-right:2px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:200px; height:70px;" class="lineagris">
+            <tr>
+                <td style="padding-left:2px; width:inherit;"><b>Add Quote Note:</b></td>
+            </tr>
+            <tr>
+                <td style="padding-left:2px; padding-right:2px; padding-top:2px; padding-bottom:2px; width:inherit;">
+                    <textarea id="txtNote_ReviseQuote" name="txtNote_ReviseQuote" style="width:100%; height:45px"></textarea>
+                </td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+    </table>
+    <div>
+        <!--hidden button "btnGoPrevious" to run form validation before move to Previous step-->
+        <a id="btnGoPrevious" href="#" style="display: none" onClick="verifyGeneral('Prev');">go to Previuos</a>
+
+        <!--hidden button "btnGoNext" to run form validation before move to Next step-->
+        <a id="btnGoNext" href="#" style="display:none" onClick="verifyGeneral('Next');">go to Next</a>  
+        
+        <!--hidden input to be filled with the "true" value if btnGoNext.onclick function don{t return form validation errors -->
+        <input type="hidden" id="formReturn" name="formReturn" value=""/>
+    </div>
+    </form>
+</div>
+
+<FORM  METHOD="POST" name="FrmAnalizeQuotes" ID="FrmAnalizeQuotes" style="display:inline;"></FORM>
+<FORM  METHOD="POST" name="frmMassUpdate" ID="frmMassUpdate" style="display:inline;"><INPUT type="hidden" id="UpdateRFQselections" name="UpdateRFQselections" value=""></FORM>
+<FORM  METHOD="POST" name="frmMassEmail" ID="frmMassEmail" style="display:inline;">
+    <INPUT type="hidden" id="RFQselections" name="RFQselections" value="">     
+    <INPUT type="hidden" id="RFQselections2" name="RFQselections2" value="">
+</FORM>
+<FORM  METHOD="POST" name="FrmMassCommit" ID="FrmMassCommit" style="display:inline;"><INPUT type="hidden" id="CommitSelections" name="CommitSelections" value=""></FORM>
+<FORM  METHOD="POST" name="FrmMassUnCommit" ID="FrmMassUnCommit" style="display:inline;"><INPUT type="hidden" id="UnCommitSelections" name="UnCommitSelections" value=""></FORM>
+<FORM  METHOD="POST" name="FrmMassCancel" ID="FrmMassCancel" style="display:inline;"><INPUT type="hidden" id="CancelSelections" name="CancelSelections" value=""></FORM>
+<FORM  METHOD="POST" name="FrmMassUnCancel" ID="FrmMassUnCancel" style="display:inline;"><INPUT type="hidden" id="UnCancelSelections" name="UnCancelSelections" value=""></FORM>
+<FORM  METHOD="POST" name="FrmMassDelete" ID="FrmMassDelete" style="display:inline;"><INPUT type="hidden" id="MassDeleteSelections" name="MassDeleteSelections" value=""></FORM>
+<input type="hidden" name="PageSessiontoAnalytics" id="PageSessiontoAnalytics" value="VendorQuotes_ByCostCode.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221&SqlSession=true" />
+<input type="hidden" name="IstypetoAnalytics" id="IstypetoAnalytics" value="takeoff" />
+<input type="hidden" name="readonlytoAnalytics" id="readonlytoAnalytics" value="false" />
+
+<form id="FormViewVendorQuotes" name="FormViewVendorQuotes" method="post" action="VendorQuotes.asp?loadview=true"  target="_blank" style="display:none">
+    <textarea id="idsforview" name="idsforview"></textarea>
+</form>
+</BODY>
+</HTML>
+
+ 
+
+
+
+<script type="text/javascript">
+    var isIosDevice = false
+    function showMenuConfiguration(id, refpos, idDiv) {
+        var elementoRef = document.getElementById(refpos);
+        var elemento = document.getElementById(id);
+        var pos = getAbsoluteElementPosition(elementoRef);
+        var topdiv = document.getElementById(idDiv).scrollTop;
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        if (is_firefox) {
+            var timeOutShow
+            timeOutShow = 0;
+            $("body").attr("onclick", "").unbind("click");
+            $("div").attr("onclick", "").unbind("click");
+            elemento.style.left = pos.left - 25 + "px";
+            elemento.style.top = pos.top - topdiv + "px";
+            jQuery.fx.off = true;
+            setTimeout(function () {
+                $('#' + id).show(function () {
+                    document.body.addEventListener('click', hideMenuBody, false);                
+                });
+            }, timeOutShow);
+        }
+        hideMenu();
+        if (document.getElementById(id).style.visibility != "visible") {
+            elemento.style.visibility = "visible";
+            if (is_firefox) {
+                elemento.style.left = isIosDevice ? pos.left - 85 + "px" :  pos.left - 25 + "px";
+                elemento.style.top = pos.top - topdiv + "px";
+            } else {
+                elemento.style.left = pos.left + "px";
+                elemento.style.top = isIosDevice ?  (pos.top - topdiv - 90) + "px" : pos.top - topdiv + 30 + "px";
+            }
+        }
+        try {
+            event.cancelBubble = true;
+        }
+        catch (error) {
+        }
+    }
+    function showMenu(id, refpos)
+    {
+        hideMenu();
+        if (document.getElementById(id).style.visibility != "visible") 
+        {
+            var elementoRef = document.getElementById(refpos);
+            var elemento = document.getElementById(id);
+            var pos = getAbsoluteElementPosition(elementoRef);
+            elemento.style.visibility = "visible";
+            elemento.style.left = pos.left + "px";
+            elemento.style.top = isIosDevice ? pos.top - 90 + "px"  : pos.top + 22 + "px";        
+            if (id=='_menuAdd')
+            {
+                elemento.style.display="block";
+            }
+        }    
+        try {
+            event.cancelBubble=true;
+        }
+        catch (error) {
+        }
+    }
+    window.onload = function() {
+        isIosDevice = hasIosDevice()
+        if (isIosDevice) {
+            setSizeContainer(getsizeContainer())
+        }
+    }
+    window.addEventListener('resize', function() {
+        if (isIosDevice) {
+            setSizeContainer(getsizeContainer())
+        }
+    });
+    
+    function getsizeContainer(){
+        let tabContentHeight = 0 ,staticsheight = 0 
+        tabContentHeight = parent.document.getElementById("tabContent") ? parent.document.getElementById("tabContent").clientHeight : tabContentHeight;
+        staticsheight = (document.getElementById("staticmenu") && document.getElementById("staticCols") ) ? document.getElementById("staticmenu").clientHeight - document.getElementById("staticCols").clientHeight : 0;
+        return tabContentHeight - staticsheight - 70
+    }
+    function setSizeContainer(size){
+        let node = document.getElementById("contentTable")
+        if(node)
+            node.setAttribute("style","height:" + size  +  "px;overflow-y: auto;position: relative;")
+    }
+    function OpenAdd(param1) {             
+            document.location.href = param1 + "&pagSession=VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl"
+    }
+
+    function OpenMassUpdate(mod, istype, readonly, paramStr) {
+        MassUpdate(mod, istype, readonly, paramStr + "&pagSession=VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl")
+    }
+     function hasIosDevice(){
+            return !!navigator.userAgent.match(/iPhone|iPad|iPod/i)
+    }
+    function OpenMassEmail(wid, wmod, paramStr) {
+
+        var nSelections = document.getElementById("nSelections").value;
+        var maxSelections = 500;
+
+        if (nSelections > maxSelections) {
+            showMessageBar('Email limit reached! Please select up to ' + maxSelections + ' RFQs to be emailed.');
+            return;
+        }
+
+        MassEmail(wid, wmod, paramStr + "&pagSession=VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl")
+    }
+
+    function OpenFilterBoxActivation(filter, filterblock, filterflag, F_LstCostDiv, F_LstCC, F_LstVendor, F_LstWorkflow, F_LstStatus, F_LstType, F_LstBidding, F_LstColumns, F_LstEmail, WorkorderID, WorkorderMod, CustomerFacilityID, console, WorkorderStatus, istype, readonly, sortby, dir, F_LstCredentials, F_Pcc) {                
+        filterBoxActivation(filter, filterblock, filterflag, F_LstCostDiv, F_LstCC, F_LstVendor, F_LstWorkflow, F_LstStatus, F_LstType, F_LstBidding, F_LstColumns, F_LstEmail, WorkorderID, WorkorderMod, CustomerFacilityID, console, WorkorderStatus, istype, readonly, sortby, dir, '&pagSession=VmVuZG9yUXVvdGVzX0J5Q29zdENvZGUuYXNwP1dvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmU3FsU2Vzc2lvbj10cnVl', F_LstCredentials, F_Pcc)
+    }
+
+    function verifyGeneral(action) {
+        document.getElementById("formReturn").value = "true";
+        parent.$("#sectionButtonQuotes").css("display","none");
+        // Next Step
+        url = parent.getUrlNextStep(action);
+        document.location.href = url;
+        return true;
+    }
+
+    function simulateClick(element) { 
+        element = document.getElementById(element);
+        if (!element) return; 
+        var dispatchEvent = function (elt, name) { 
+            var clickEvent = document.createEvent('MouseEvents'); 
+            clickEvent.initEvent(name, true, true); 
+            elt.dispatchEvent(clickEvent); 
+        }; 
+        dispatchEvent(element, 'mouseover'); 
+        dispatchEvent(element, 'mousedown'); 
+        dispatchEvent(element, 'click'); 
+        dispatchEvent(element, 'mouseup'); 
+    }
+
+    function executeButton(id) {    
+        if(document.all)
+            document.getElementById(id).click()
+        else
+            simulateClick(id);
+
+        if (id == "addPlans") {
+            parent.$("#sectionButtonPlansSpecs").css("display","none");
+        }
+    }
+
+    LoadHeaderSorts("Project","asc")
+
+    jQuery("#TextToSearch").jcOnPageFilter({ animateHideNShow: true,
+            focusOnLoad: true,
+            highlightColor: '#fff70080',
+            textColorForHighlights: '#212121',
+            caseSensitive: false,
+            hideNegatives: true,
+            parentLookupClass: 'SearchTextParent',
+            childBlockClass: 'SearchTextChild'
+    }); 
+
+    
+
+    $("#frmEditBid").on("keyup keypress", function(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    var console = '';
+    if (console != 'newpco') 
+    {
+        if (document.getElementById("MenuCompare")) {
+            $('#MenuCompare').addClass('dropdown-submenu open');
+            document.getElementById("MenuCompare").innerHTML = "<a id='linkMenuCompare'>Compare</a><ul id='_menuCompare' class='dropdown-menu'><li><a>...</a></li></ul>";
+            document.getElementById("linkMenuCompare").onmouseover = function(){
+                jsonShowMenu('_menuCompare', 'linkMenuCompare','flag=MVQ_COMPARE&readonly=false&isType=takeoff&woId=1940046&woMod=00&woStatus=InProgress&woFacilityID=00221&ComparingQuotes=','','MVQ_COMPARE');
+            };
+        
+            $(document).ready(function() {
+              var $width = $('#moreoptions').css("width");
+              document.getElementById("_menuCompare").style.minWidth = $width;
+            });
+        }
+
+        $("#dLabel").click(function () {
+            jsonShowMenu('menuoptions', 'dLabel','flag=MVQ_MANAGE&readonly=false&tipo=&action=&isType=takeoff&sWoId=1940046&woId=1940046&sWoMod=00&woMod=00&sCia=&woStatus=InProgress&woFacilityId=00221&ManageAtRisk=&ManageLienLawDocuments=&Payables=&ManageDirectives=','','MVQ_MANAGE');            
+        });
+
+
+        if (document.getElementById("btnMassCommit")) 
+        {
+            document.getElementById("btnMassCommit").style.display = "none";
+        }
+
+        if (document.getElementById("btnMassUnCommit")) 
+        {
+            document.getElementById("btnMassUnCommit").style.display = "none";
+        }
+
+        if (document.getElementById("btnMassCancel")) 
+        {
+            document.getElementById("btnMassCancel").style.display = "none";
+        }
+        
+        if (document.getElementById("btnMassUnCancel")) 
+        {
+            document.getElementById("btnMassUnCancel").style.display = "none";
+        }
+
+        if (document.getElementById("btnMassDelete")) 
+        {
+            document.getElementById("btnMassDelete").style.display = "none";
+        }
+
+        if (document.getElementById("btnMassUpdate")) 
+        {
+            document.getElementById("btnMassUpdate").style.display = "none";
+        }
+
+        if (document.getElementById("btnMassEmail")) 
+        {
+            document.getElementById("btnMassEmail").style.display = "none";
+        }
+        
+        $(document).ready(function() {
+            setTimeout(() => {
+                VerifyTitleManage();        
+            }, "500") 
+        });
+    }
+
+     
+
+    var parentTop = verifyFrameAngular();
+    if (parentTop != "") {
+        document.getElementById("dLabel").style.display = "none";
+        document.getElementById("dMaximize").style.display = "none";
+        document.getElementById("Manage_title_Name").innerHTML = "";
+        parent.top.$(".TOPProjectsBar").hide();
+        parent.top.$("#OpenMaximize").val('no');
+    }
+</script>

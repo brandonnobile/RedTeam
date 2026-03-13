@@ -1,0 +1,1065 @@
+
+<HTML>
+<HEAD>
+<TITLE>Schedule Of Values</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'> 
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css"> 
+<link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet">
+<link href="../../asp/css/forms-style.css" type="text/css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' />  
+
+<script src="../../asp/js/global.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script> 
+<script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" /> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselectRtsExtras.css?v=?be731a6" rel="stylesheet" /> 
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<style>
+   /*personalized size for this form*/
+    .ccWithPhasesList .SumoSelect > .CaptionCont  {
+        width: 245px !important;
+        height: 34px !important;
+    }
+        
+    .ccWithPhasesList .SumoSelect > .optWrapper {
+        width: 447px !important;
+        height: 255px !important;
+    }
+       
+    .sumo_LstType > .optWrapper {
+        width: 265px !important;
+    }
+    
+    .ccWithPhasesList .SumoSelect > .optWrapper > .options {
+        max-height: 218px !important;
+    }
+    
+    .SOV .SumoSelect > .optWrapper > .options {
+        max-height: 253px !important;
+    }
+    
+    .ccWithPhasesList .SumoSelect > .optWrapper > .options li ul li.opt {
+        padding-left: 36px;
+        padding-top: 7px;
+    }
+    
+    .ccWithPhasesList .optContractSOVitem {
+        padding-left: 18px !important;
+        padding-top: 7px !important;
+    }
+    
+    .ccWithPhasesList .optContractSOVitem label {
+        padding-left: 0px !important;
+        font-weight: 400 !important;
+        color: #656b79 !important;
+    }
+    
+    .ShowDeleteToolTip {
+        width: 20px;
+        height: 24px;
+        background-image: url(../images/visual_indicator.png);
+        background-size: contain;
+        display: inline-block;
+    }
+    
+    .ccWithPhasesList .optWithPhase > label {
+        padding-left: 0px;
+    }
+    
+    .search {
+       font-size:14px !important;
+    }
+    .customTableHeaderContainer {
+        padding: 9px 4px 0px 16px !important;
+    }
+}
+
+</style>
+
+<script  type="text/javascript" language="JavaScript">
+    window.onscroll = hideMenu;
+
+  function verify()
+  {
+	
+
+    if (FrmLines.LstType.value == "0")
+	{
+	    showMessageBar('<b>Warning!</b> Type is required');
+	    FrmLines.LstType.focus();
+	    return;
+	}
+	else
+    if (FrmLines.description.value == "")
+	{
+	    showMessageBar('<b>Warning!</b> Description is required');
+	    FrmLines.description.focus();
+	    return;
+	}
+	else
+	if (FrmLines.amount.value == "")
+	{
+	    showMessageBar('<b>Warning!</b> Scheduled Value is required');
+	    FrmLines.amount.focus();youtube.com
+	    return;
+	}
+	else
+	if (!isValidNumber(FrmLines.amount.value) || unformatNumber(FrmLines.amount.value).toString() == "NaN")
+	{
+	    showMessageBar('<b>Warning!</b> Scheduled Value must be a number');
+	    FrmLines.amount.focus();
+	    return;
+	}
+    else {
+        if(document.getElementById("LstSOVitems")) {
+            var LstSOVitems = document.getElementById("LstSOVitems"),
+            selectedOptionIndex = document.getElementById('selected-option-index')
+
+            if (LstSOVitems.value == "NA_0") {
+                showMessageBar("<b>Warning!</b> Please link to a Contract SOV or select the option 'Do Not Link to Contract SOV' to continue.");
+	            FrmLines.description.focus();
+	            return;
+            }
+        }
+    }
+        
+    FrmLines.submit();
+  }
+  
+  
+  function verify2(linnum)
+  {
+	if (document.getElementById("description"+linnum).value == "")
+	{
+	    showMessageBar('<b>Warning!</b> Description is required');
+	    document.getElementById("description"+linnum).focus();
+	    return;
+	}
+	else
+	if (document.getElementById("amount"+linnum).value == "")
+	{
+	    showMessageBar('<b>Warning!</b> Scheduled Value is required');
+	    document.getElementById("amount"+linnum).focus();
+	    return;
+	}
+	else    
+	if (!isValidNumber(document.getElementById("amount"+linnum).value) || unformatNumber(document.getElementById("amount"+linnum).value).toString() == "NaN")
+	{
+	    showMessageBar('<b>Warning!</b> Scheduled Value must be a number');
+	    document.getElementById("amount"+linnum).focus();
+	    return;
+	}
+	
+	FrmEditLine.itemnum.value = document.getElementById("itemnum"+linnum).value;
+	FrmEditLine.description.value = document.getElementById("description"+linnum).value;
+	FrmEditLine.amount.value = document.getElementById("amount"+linnum).value;
+    FrmEditLine.typesov.value = document.getElementById("LstType"+linnum).value;
+	
+	var chkOwner = document.getElementById("chkcontingency"+linnum);
+	if (chkOwner.checked)
+	{
+	    FrmEditLine.contingency.value = "yes";
+	}
+	else
+	{
+	    FrmEditLine.contingency.value = "no";
+    }
+	
+	FrmEditLine.submit();
+}
+
+function verifyEditHeading(linnum,tab,wopen,wopenp,wmod, woid, wostatus, facID, console) {
+    if (document.getElementById("description" + linnum).value == "") {
+        showMessageBar('<b>Warning!</b> Description is required');
+        document.getElementById("description" + linnum).focus();
+        return;
+    }
+
+    FrmEditLine.itemnum.value = document.getElementById("itemnum" + linnum).value;
+    FrmEditLine.description.value = document.getElementById("description" + linnum).value;
+    FrmEditLine.action = 'ScheduleOfValues.asp?tab=' + tab + '&bandAdd=Edit' + '&WOpen=' + wopen + '&WOpenP=' + wopenp  + '&WMod=' + wmod+ '&WorkorderID=' + woid + '&wostatus=' + wostatus+ '&facilityID=' + facID + "&console=" + console;
+    FrmEditLine.submit();
+}
+  
+  function ManageWindow(page)
+  {	
+    window.open(page, "manage", "toolbar=no,location=no,directories=no,status=yes,menubar=no,resizable=no,copyhistory=no,width=540,height=600,top=100,left=300");
+  }
+  
+  function showImportMessage()
+  {
+  	showMessageBar('This option is disabled since there is already a Customer invoice associated to the Schedule Of Values.');
+  } 
+  
+  function deleteline(item,tab,wopen,wopenp,wmod, woid, wostatus, facID, console)
+  {	
+    var link = "ScheduleOfValues.asp?tab=" + tab + "&band=delete&item=" + item + "&WOpen=" + wopen + "&WOpenP=" + wopenp + "&WMod=" + wmod+ '&WorkorderID=' + woid + '&wostatus=' + wostatus+ '&facilityID=' + facID + "&console=" + console;
+    if(!confirm("Warning Message from RedTeam! \r\nOnce deleted, this Schedule of Values Item cannot be recovered. \r\n Do you want to continue ?")) 
+    { 
+    } 
+    else 
+    {
+      location.href = link;
+    } 
+  }
+  
+  function expand(linenum)
+  { 
+    if (document.getElementById("LineEdit"+linenum).style.display == "")
+    {
+      document.getElementById("LineEdit"+linenum).style.display = 'none';
+      document.getElementById("TxtLine"+linenum).style.display = '';
+    }
+    else
+    {
+      document.getElementById("LineEdit"+linenum).style.display = '';
+      document.getElementById("TxtLine"+linenum).style.display = 'none';
+    }
+  }
+      
+  function importOptions(page, console)
+  {
+    if (console == 'newpco') {
+        ShowLightBoxASP('app/workorders/ScheduleOfValues_/'+page,'large','Calc(100vh - 102px)')
+    }
+    else {
+        window.open(page,'_self');
+    }     
+  }
+  
+  function selectedCC() 
+  {
+  
+  }
+  var recargarType = true;
+  function selectedTypeSOV() {
+      if(recargarType){
+         LoadContractSOVitems('1940046', '', '', 'LstSOVitems');
+         document.getElementById("trCC").style.display = 'none';
+         document.getElementById("trTxtCC").style.display = 'none';
+      }
+      recargarType = true;
+  }
+
+  function selectedSOVitems() 
+  {
+    var LstSOVitems = document.getElementById("LstSOVitems"),
+        selectedOptionIndex = document.getElementById('selected-option-index')
+
+    if (LstSOVitems.value == "NA_0") { //Select One 
+       //ocultar LstCC y txtLstCC
+       document.getElementById("trCC").style.display = 'none';
+       document.getElementById("trTxtCC").style.display = 'none';
+    }
+    else
+    if (LstSOVitems.value == "NL_0") { //Do not Lint so a SOV item
+       //ocultar txtLstCC 
+       document.getElementById("trCC").style.display = 'table-row';
+       //mostrar LstCC
+       document.getElementById("trTxtCC").style.display = 'none';
+
+       LoadProjectCostCodes('1940046', '', '', 'LstCC', 'reload', '', '', 'pccUnlinkedSOV');
+    }
+    else { // SOV item
+       //ocultar LstCC
+       document.getElementById("trCC").style.display = 'none';
+       //mostrar txtLstCC
+       document.getElementById("trTxtCC").style.display = 'table-row';
+       var parentID = LstSOVitems.value;
+
+       LoadLinkedSOVitems('1940046', '', parentID, 'LstCC');
+
+        var opcionSeleccionada = LstSOVitems.options[LstSOVitems.selectedIndex];
+        var identificador = opcionSeleccionada.getAttribute("data-id");
+
+        //$('#LstType')[0].sumo.selectItem(0);   
+        var LstTypeSOV = document.getElementById("LstType");
+        for (var i = 0; i < LstTypeSOV.options.length; i++) {
+            if (LstTypeSOV.options[i].value === identificador) {
+                recargarType = false;
+                $('#LstType')[0].sumo.selectItem(i);
+                break;
+            }
+        }
+
+    }
+    
+  }
+
+  function closewin()
+  {
+	window.opener.location.reload();
+	window.close();
+  }
+  
+//congela menu superior
+var combowidth=''
+var comboheight=''
+
+var addsovline = '';
+var addsovhead = '';
+
+function initialize()
+{
+    LoadingMessagePage("off");
+    document.getElementById("content").style.display = "";
+
+    if (document.all)
+    {
+        combowidth=document.getElementById("staticmenu").offsetWidth;
+        comboheight=combowidth=document.getElementById("staticmenu").offsetHeight;
+        setInterval("staticit_ie()",50);
+        document.getElementById("staticmenu").style.display="block";
+    }
+    else
+    {
+        combowidth=document.getElementById("staticmenu").offsetWidth;
+        comboheight=combowidth=document.getElementById("staticmenu").offsetHeight;
+        setInterval("staticit_ns()",50);
+        document.getElementById("staticmenu").style.display="block";
+    }
+    
+    if (document.getElementById("trFiltersbox").style.display == '' || document.getElementById("trFiltersbox").style.display == 'inline') {
+        FrmLines.description.focus();
+    }
+    if (document.getElementById("divAddbox").style.display == '' || document.getElementById("divAddbox").style.display == 'block') {
+        document.getElementById("ScheduleDescAdd").focus();
+    }
+    if (getURLParameter('Assistant') == 'true') {
+        filterBoxActivation('add');
+    }
+    if (addsovline == 'true') {
+        filterBoxActivation('add');
+    }
+    if (addsovhead == 'true') {
+        slideBoxActivation('add');
+    }
+
+    
+}
+
+function filterBoxActivation(band) 
+{
+    var filterBox = document.getElementById("trFiltersbox");
+    activateBox("trFiltersbox", !(trFiltersbox.style.display != "none"), parseInt(trFiltersbox.style.height.replace("px", ""), 10));
+        
+    if (band == 'add') {
+        
+
+        //FrmLines.description.focus();
+        FrmLines.LstType.focus();
+        if (document.getElementById("divAddbox").style.display == '' || document.getElementById("divAddbox").style.display == 'block') {
+            slideBoxActivation('');
+        }
+    }
+    else
+    if (band == 'cancel') {
+        document.getElementById("description").value = "";
+        document.getElementById("amount").value = "";
+        document.getElementById("chkContingency").checked = false;
+        var num = $('.optContractSOVitem').length;
+         for(var i=0; i<num; i++){
+           $("#LstSOVitems")[0].sumo.unSelectItem(i);
+         }
+        $('#LstType')[0].sumo.selectItem(0);       
+        
+    }
+}
+    
+function activateBox(filterBoxID, growMode, originalHeight) {
+    var filterBox = document.getElementById(filterBoxID);
+    var finalHeight = (growMode) ? parseInt(filterBox.style.height.replace("px",""),10) : 0;
+    if (filterBox.style.display == "none") {
+        filterBox.style.height = "1px";
+        filterBox.style.display = "inline";
+        
+        if (document.getElementById("trCC"))
+           document.getElementById("trCC").style.display = 'none';
+        if (document.getElementById("trTxtCC"))
+           document.getElementById("trTxtCC").style.display = 'none';
+        
+    }
+    setTimeout("activateBoxGrow('" + filterBoxID + "'," + finalHeight + "," + growMode + "," + originalHeight + ")", 0);
+}
+
+function staticit_ie()
+{
+staticmenu.style.width = document.body.clientWidth;
+staticmenu.style.top = document.body.scrollTop;
+staticmenu.style.left = document.body.scrollLeft;
+	
+staticCols.style.top = document.body.scrollTop;
+	
+}
+
+function staticit_ns()
+{
+staticmenu.style.width = document.body.clientWidth;
+staticmenu.style.top = document.body.scrollTop;
+staticmenu.style.left = document.body.scrollLeft;
+	
+staticCols.style.top = document.body.scrollTop;
+	
+}
+
+function slideBoxActivation(band) {
+    activateBox("divAddbox", !(divAddbox.style.display != "none"), parseInt(divAddbox.style.height.replace("px", ""), 10));
+    if (band == 'add') {
+        document.getElementById("ScheduleDescAdd").focus();
+        if (document.getElementById("trFiltersbox").style.display == '' || document.getElementById("trFiltersbox").style.display == 'inline') {
+            filterBoxActivation('');
+
+        }
+    }
+}
+
+function VerifyAddHeading(tab,wopen,wopenp,wmod, woid, wostatus, facID, console) {
+    var band = 0;
+    if (document.getElementById("ScheduleDescAdd").value == "") {
+        showMessageBar('You must enter some Schedule of Values Heading value');
+        document.getElementById("ScheduleDescAdd").focus();
+        band = 1;
+    }
+    
+    if (band == 0) {
+        FrmScheduleDesc.action = 'ScheduleOfValues.asp?bandAdd=save&addblock=true&tab=' + tab + '&WOpen=' + wopen + '&WOpenP=' + wopenp  + '&WMod=' + wmod + '&WorkorderID=' + woid + '&wostatus=' + wostatus+ '&facilityID=' + facID + "&console=" + console;
+        FrmScheduleDesc.submit();
+    }
+}
+
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+}
+
+function hidealert() {
+    $("#alertWarning").hide();
+}
+
+function verifyFrameAngular() {
+    var nParent = parent.top.length;
+    var parentTop = '';
+    for (var i = 0; i < nParent; i++) {
+        try {
+            if (parent.top[i].document.getElementsByTagName("app-asp-frame").length > 0) {
+                parentTop = parent.top[i];
+            }
+        } catch (e) {
+            // Skip cross-origin frames that cannot be accessed
+        }
+    }
+    return parentTop;
+}
+
+function checksovf() {
+    var parentTop = verifyFrameAngular();
+    if (parentTop != "") {
+        if (parentTop.document.getElementsByTagName("app-asp-frame")[0].getElementsByTagName("iframe")[0].contentWindow) {
+            var ModalParent = parentTop.document.getElementsByTagName("app-asp-frame")[0].getElementsByTagName("iframe")[0].contentWindow.frames["_fraGetDataAux"];
+            if (ModalParent){
+                if (ModalParent.document.getElementById('chkSOV')) {
+                    ModalParent.document.getElementById('chkSOV').disabled = false;
+                }
+            }
+            else{
+                var ParentLightbox = parentTop.document.getElementsByTagName("app-asp-frame")[0].getElementsByTagName("iframe")[0].contentWindow;
+                if (ParentLightbox.document.getElementById('chkSOV')) ParentLightbox.document.getElementById('chkSOV').disabled = false;
+            }
+        }
+    }
+    else {
+       if(parent.top.$("[class*='modal-content']").find("iframe").prop("contentWindow"))
+       {
+           var ModalParent = parent.top.$("[class*='modal-content']").find("iframe").prop("contentWindow").frames["_fraGetDataAux"];
+           if (ModalParent){
+                if (ModalParent.document.getElementById('chkSOV')) {
+                    ModalParent.document.getElementById('chkSOV').disabled = false;
+                }
+           }
+           else{
+               ParentLightbox.document.getElementById('chkSOV').disabled = false;
+           }
+       }   
+   }
+}
+
+function checksovt() {
+   if(parent.top.$("[class*='modal-content']").find("iframe").prop("contentWindow"))
+   {
+       var ModalParent = parent.top.$("[class*='modal-content']").find("iframe").prop("contentWindow").frames["_fraGetDataAux"];
+       if (ModalParent){
+            if (ModalParent.document.getElementById('chkSOV')) {
+                ModalParent.document.getElementById('chkSOV').disabled = true;
+            }
+       }
+       else{
+        if (ParentLightbox.document.getElementById('chkSOV')) ParentLightbox.document.getElementById('chkSOV').disabled = true;
+       }
+   }
+}
+
+function checksovfl() {
+   parent.top.$("[class*='modal-content']").find("iframe").prop("contentWindow").document.getElementById('chkSOV').disabled = false;
+}
+
+function checksovtl() {
+   parent.top.$("[class*='modal-content']").find("iframe").prop("contentWindow").document.getElementById('chkSOV').disabled = true;
+}
+
+function cancelSOV()
+{
+   parent.top.angular.element(parent.top.document.getElementsByClassName('modal-dialog')).scope().$parent.ok();  
+}
+
+function cancelSOVBox()
+{
+   CloseLightBoxASP();
+}
+
+function addNotes(Url, band) {
+    document.body.scrollTop = 0;
+    document.body.scrollLeft = 0;
+    var direccionNotes = (band) ? "app/asp/addNotes.asp?" + Url : "app/asp/addNotes.asp?p=" + escape(Url);
+    ShowLightBoxASP(direccionNotes, '', '290px')
+}
+
+function ventanaTransmission(ID, Source,Workor) {
+    var page = "../../asp/view_TransmissionLog.asp?SourceID=" + ID + "&Source=" + Source + "&WorkorderMod=" + Workor  ;
+    window.open(page, "Transmission", "toolbar=no,location=no,directories=no,status=yes,menubar=no,resizable=no,copyhistory=no,width=750,height=650,top=40,left=180");
+}
+
+function verifyGeneral(action)
+{   
+    document.getElementById("formReturn").value = "true";
+    parent.$("#sectionButtonSOV").css("display","none");
+    url = parent.getUrlNextStep(action);
+    document.location.href = url;
+    return true;
+}
+
+function simulateClick(element) 
+{ 
+    element = document.getElementById(element);
+    if (!element) return; 
+    var dispatchEvent = function (elt, name) { 
+    var clickEvent = document.createEvent('MouseEvents'); 
+    clickEvent.initEvent(name, true, true); 
+    elt.dispatchEvent(clickEvent); 
+    }; 
+    dispatchEvent(element, 'mouseover'); 
+    dispatchEvent(element, 'mousedown'); 
+    dispatchEvent(element, 'click'); 
+    dispatchEvent(element, 'mouseup'); 
+}
+
+function executeButton(id) {    
+    if(document.all)
+        document.getElementById(id).click();
+    else
+        simulateClick(id);    
+}
+
+checksovt();
+</script>
+
+</HEAD>
+
+<BODY onload="initialize();" onclick="hideMenu();" scroll="yes" onscroll="hideMenu();">
+<script language="JavaScript">
+    LoadingMessagePage("on");
+</script>   
+
+<div id="content" style="display:none;">
+
+<!--div id="staticheader" style="position: absolute; display: block"-->
+<div id="staticmenu" style="width:100%;position:relative;display:block;background-color:#f3f4f6; ">
+
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+   
+ 
+<div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none;">
+        <div><span id="tdMessage"></span></div>
+</div> 
+  
+
+<textarea id="JsonHeader" style="display:none">{"Title":"Schedule of Values","Manage":"Contract","Menu":{"Options":[{"Name":"Contract","Id":"trItemMenuShow1","Onclick":"javascript:document.location.href='../proposal_/contract.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&FacilityID=';","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Project Phases","Id":"trItemMenuShow2","Onclick":"javascript:document.location.href='../projectPhases_/projectPhases.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&tab=contract&FacilityID='","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Project Cost Codes","Id":"trItemMenuShow3","Onclick":"javascript:document.location.href='../projectcostcodes_/ProjectCostCodes.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&FacilityID=&fromTab=Contract'","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Project Cost Categories","Id":"trItemMenuShow4","Onclick":"javascript:document.location.href='../projectCategories_/projectCategories.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&tab=contract&FacilityID=';","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Unit Prices","Id":"trItemMenuShow5","Onclick":"javascript:document.location.href='../workorderPrices_/manageWOPrices.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&tab=contract&FacilityID='","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add Schedule of Values","Id":"btnAddSOV","Onclick":"javascript:filterBoxActivation('add');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Add Schedule of Values","Id":"","Onclick":"javascript:ShowLightBoxASP('/rts/app/workorders/ScheduleOfValues_/EditScheduleOfValues.asp?tab=modeNew&WOpen=&WOpenP= &WorkorderID=1940046&WMod=&WorkorderStatus=&FacilityID=&console=&LinkSOVtoBudget=no',' ','640px')","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Add Schedule of Values Heading","Id":"btnAddHeading","Onclick":"javascript:slideBoxActivation('add');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Import SOV from Estimate","Id":"btnImportFromEstimate","Onclick":"javascript:showImportMessage();","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Import Schedule of Values","Id":"btnImportSOV","Onclick":"javascript:importOptions('GRID_Import_ScheduleOfValues.asp?view=blank&tab=contract&console=&WMod=&wostatus=&WOpen=&LinkSOVtoBudget=no&WorkorderID=1940046&WorkorderMod=','');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"viewSOV","Onclick":"javascript:window.open('tpl.viewSchedOfValues.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9JkZhY2lsaXR5SUQ9JlByaW50PVRydWUmY2xpZW50PXJlbW5hbnRjb25zdHJ1Y3Rpb24mV09wZW49','_blank');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[{"Name":"Arrange","Id":"btnArrange","Onclick":"javascript:ShowLightBoxASP('/rts/app/workorders/ScheduleOfValues_/SortSchedItems.asp?tab=&WOpen=&WOpenP= &WorkorderID=1940046&WMod=&WorkorderStatus=&FacilityID=&console=&LinkSOVtoBudget=no',' ','Calc(100vh - 102px)')","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('191');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?be731a6" type="text/javascript"></script>
+<div id="divAddbox" style="display:none;height:232;overflow-y:hidden;" class="divform">
+  <FORM id="FrmScheduleDesc" name="FrmScheduleDesc"  method="POST" style="display:inline;">
+        <table cellspacing="0" cellpadding="0" style=" width:100% !important" border="0" class="table tableform">
+            <tr>
+               <td colspan="2" width="537px" nowrap>
+                     <div class="modal-header title-form">
+		                 <h3 class="modal-title"><strong> Add Schedule of Values Heading</strong></h3>
+	                 </div>
+                </td>
+                <td width="100%"></td>
+             </tr>
+             <tr>
+                <td  width="250px" nowrap>
+                    <label class="control-label-right">Schedule of Values Heading :</label>
+                </td> 
+                <td width="310px" nowrap> 
+                    <input type="text" id="ScheduleDescAdd" name="ScheduleDescAdd" maxlength="100" class="form-control"  style="width: 265px; display:inline"/><span class="Orange">*</span>
+                </td>
+                <td width="100%"></td>
+            </tr>        
+         <tr>
+            <td colspan="2">       
+                <div class="modal-footer footer-form">
+                    <input  class="btn btn-primary" onclick="javascript:VerifyAddHeading('','','','','1940046','','','');" value="Save" style="width:70px;" type="button">
+                                   
+                    <input class="btn btn-default"  onclick="javascript:slideBoxActivation('cancel');hideMenu();"  value="Cancel" style="width:70px;" type="button">
+                </div>  
+            </td>
+            <td width="100%"></td>
+            </tr>            
+        </table>
+    </FORM>
+</div> 
+
+<!--'''''''''''''''''''''''''''''''''''''''-->
+<div id="trFiltersbox" style="display:none;height:353;overflow-y:hidden;" class="divform">
+    <FORM METHOD="POST" name="FrmLines" id="FrmLines" action="ScheduleOfValues.asp?band=save&addblockFilter=true&tab=&WOpen=&WOpenP=&WMod=&WorkorderID=1940046&wostatus=&FacilityID=&console="  style="display:inline;">	
+        <table cellspacing="0" cellpadding="0" style=" width:100% !important" border="0" class="table tableform">
+            <tr>
+                <td colspan="2" width="537px" nowrap>
+                     <div class="modal-header title-form">
+		                  <h3 class="modal-title"><strong> Add SOV item</strong></h3>
+	                 </div>
+                 </td>
+                 <td width="100%"></td>
+                 </tr>
+                 <tr>
+                    <td width="250px">
+                        <label class="control-label-right">Type:</label>
+                    </td>    
+                    <td width="308px" nowrap>             
+                        <div class="select-wrapper" style="display:inline-block" > 
+                            <select class="form-control SelectBoxCC" size="1" style="width:265px;display:inline-block" name="LstType" id="LstType" onchange="selectedTypeSOV()">
+                                <option value="0" selected>Select one...</option>
+
+                                <option value="Overhead">Overhead</option><option value="Profit">Profit</option><option value="SOV">SOV</option>
+
+                                <!--<option value="Overhead">Overhead</option>
+                                <option value="Profit">Profit</option>"   
+                                <option value="SOV">SOV</option> -->
+                            </select></div><span class="Orange">*</span>
+                    </td>
+                    <td width="100%"></td>
+                 </tr>
+                <tr>
+                    <td width="250px">
+                        <label class="control-label-right">Description of Work:</label>
+                    </td>    
+                    <td nowrap>             
+                        <input type="text" id="description" name="description" maxlength="100"  class="form-control" style="width: 265px; display:inline"/><span class="Orange">*</span>
+                    </td>
+                    <td width="100%"></td>
+                 </tr>
+                 <tr>
+                    <td  width="250px"> 
+                         <label class="control-label-right">Scheduled Value ($):</label>
+                    </td>        
+                    <td nowrap>       
+                         <input type="text" id="amount" name="amount" maxlength="16"  size="10" OnKeypress="OnlyNumbers();"  class="form-control" style="width: 265px; display:inline"/><span class="Orange">*</span>
+                    </td> 
+                    <td width="100%"></td>
+                 </tr>
+                 
+                 <tr>        
+                    <td  width="250px">
+                         <label class="control-label-right"> Owner's Contingency:</label>
+                    </td> 
+                    <td>          
+                         <INPUT TYPE="CHECKBOX" NAME="chkContingency" id="chkContingency" style="vertical-align:top;" class="chkbox-co-existence"/>
+                    </td>
+                    <td width="100%"></td>
+                 </tr>
+                 
+                 <tr>
+                    <td colspan="2">
+                        <div class="modal-footer footer-form" >
+                            <input  class="btn btn-primary" onclick="javascript:verify('');" value="Save" style="width:70px;" type="button">
+                                   
+                            <input class="btn btn-default"  onclick="javascript:filterBoxActivation('cancel');hideMenu();"  value="Cancel" style="width:70px;" type="button">
+                        </div>  
+                    </td>
+                    <td width="100%"></td>
+                 </tr>
+                 <input type="hidden" name="validatecostcodeccdisabled" id="validatecostcodeccdisabled" value="true" />
+              </table>
+        </FORM>
+</div>
+</div>
+
+<div>
+
+<div id="staticCols" style="width:100%;position:relative;background-color:#f3f4f6;">
+<table  width="100%"  cellpadding=0 cellspacing=0 border=0 style="background:#f3f4f6 !important">
+       <tr>   
+       <td class="CustomTableHeaderContainer "> 
+            <table  width="100%"  cellpadding="0" cellspacing="0" border="0"  class="Workarea_Header">  
+            <thead>
+            <tr>  
+               <th width="40px" nowrap>&nbsp;</th>
+               <th width="40px" nowrap>&nbsp;</th>
+               <th width="35px" nowrap>#</th>
+               <th width="160px" nowrap>Description of Work</th>
+               
+               <th style=" text-align:right;padding-right:15px;" width="180px" nowrap >Scheduled Value ($)</th>
+               
+               <th style="text-align:center;" width="160px" nowrap>Period Ending</th>
+               <th style="text-align:right;padding-right:10px;" width="120px" nowrap>% Completed</th>
+               
+               <th style="padding-left:10px;" width="150px" nowrap>Owner's Contingency</th>
+               <th style="padding-left:10px;" width="145px" nowrap>Type</th>
+               
+               <th width="100%" nowrap>&nbsp;</th>
+           </tr> 
+           </thead>
+           </table>
+           </td> 
+       </tr>
+      
+</table>
+</div>
+
+  <div> 
+
+
+
+
+   
+    <TABLE CELLPADDING="0" CELLSPACING="0" border="0"  width="100%" class="Workarea_Header customTableDetail" >
+    
+    
+	<TR>
+	   <TD colspan="15" valign="middle">
+	       <span class="Orange">There are no records on file!</span>
+	   </TD>
+	</TR>
+    
+	</TABLE>	    
+
+<table  width="100%" cellpadding="0" cellspacing="0" border="0"  class="Workarea_Header customTableDetail">
+<TR>
+       
+       <TD width="275px" align="right" nowrap><b>Total</b>:</TD>
+       <TD width="180px" align="right" style="padding-right: 17px;" nowrap >
+		    0.00
+		    <INPUT type="hidden" name="pchttl" value="0" />
+            <INPUT type="hidden" name="count" value=1 id=count />
+       </TD>
+       <TD width="160px" align="center" nowrap="">&nbsp;</TD>
+       
+       <TD width="120px" align="right" nowrap="">0.00%</TD>
+       
+       <TD width="150px" align="center" nowrap="">&nbsp;</TD>
+       <TD width="145px" nowrap="">&nbsp;</TD>
+       
+       <TD width="100%">&nbsp;</TD>
+    </TR>  
+    <TR>
+	    <TD colspan="13" valign="middle"> <span class="Orange">Contract Amount including Change Orders: $0.00</span></TD>
+    </TR>  
+    </table>
+    <div>
+        <!--hidden button "btnGoPrevious" to run form validation before move to Previous step-->
+        <a id="btnGoPrevious" href="#" style="display: none" onClick="verifyGeneral('Prev');">go to Previuos</a>
+
+        <!--hidden button "btnGoNext" to run form validation before move to Next step-->
+        <a id="btnGoNext" href="#" style="display:none" onClick="verifyGeneral('Next');">go to Next</a>  
+        
+        <!--hidden input to be filled with the "true" value if btnGoNext.onclick function don{t return form validation errors -->
+        <input type="hidden" id="formReturn" name="formReturn" value="true"/>    
+    </div>
+<TABLE>
+<!--GA.102 begin-->
+<!--
+<FORM METHOD="POST" Action="ScheduleOfValues.asp?SaveEditLine=true&version=" name="FrmEditLine" id="FrmEditLine">
+-->
+<FORM METHOD="POST" Action="ScheduleOfValues.asp?tab=&SaveEditLine=true&WOpen=&WOpenP=&WMod=&WorkorderID=1940046&wostatus=&facilityID=&console=" name="FrmEditLine" id="FrmEditLine">
+<!--GA.102 begin-->
+
+<TR  style="display: none;">
+		<TD colspan="2" align="center" nowrap></TD>
+		<TD class="LineLeft2">&nbsp;</TD>
+		<TD colspan=1>
+			<INPUT type="text" name="itemnum" maxlength=50 size=10 />
+			<INPUT type="text" name="description" maxlength=100 size=25 />
+		</TD>
+		<TD colspan=1 align="center">
+			<INPUT type="text" name="amount" maxlength=8 size="5" />
+			<INPUT type="text" name="contingency" maxlength=3 size="5" />
+            <INPUT type="text" name="typesov" maxlength=25 size="5" />
+		</TD>
+		<TD></TD>
+</TR>
+</FORM>
+
+</TABLE>
+</div>
+</div>
+</div>
+</BODY>
+</HTML>
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#LstSOVitems').SumoSelect({
+            search: true,
+            searchText: 'Search...',
+            csvDispCount: 3,
+            selectAll: true,
+            outputAsCSV: true,
+            placeholder: '0 selected'
+        })
+
+        setEclipseScreenIcon();
+    }); 
+    
+    $(window).load(function () {
+        $('#LstCC').SumoSelect({
+            search: true,
+            searchText: 'Search...',
+            csvDispCount: 1, 
+            selectAll: true, 
+            outputAsCSV: true, 
+            captionFormatAllSelected: '{0} selected',
+            placeholder: '0 selected'
+        })
+
+        setEclipseScreenIcon();
+    });
+
+    $('#LstType').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+    });
+
+    $('select.SelectBoxCC').each(function (index, element) {
+        $('#LstType' + (index + 1)).SumoSelect({
+            search: true,
+            searchText: 'Search...',
+            captionFormatAllSelected: '{0} selected',
+            placeholder: '0 selected'
+        });
+
+    });
+    
+    $(".ShowDeleteToolTip").popover({
+        content: 'This SOV Item cannot be deleted because progress has been billed against it.',
+        trigger: 'hover'
+    });
+    $(".MessageParent").popover({
+        content: 'The SOV Item cannot be deleted because it is linked to a Scope SOV Item which must first be removed.',
+        trigger: 'hover'
+    });
+    $(".MessageParentBilled").popover({
+        content: 'Parent SOV has been Billed.',
+        trigger: 'hover'
+    });
+
+    if (document.getElementById("btnAddSOV")) document.getElementById("btnAddSOV").style.display = "none";
+
+    var parentTop = verifyFrameAngular();
+    if (parentTop != "") {
+        document.getElementById("dLabel").style.display = "none";
+        document.getElementById("dMaximize").style.display = "none";
+        document.getElementById("Manage_title_Name").innerHTML = "";
+        parent.top.$(".TOPProjectsBar").hide();
+        parent.top.$("#OpenMaximize").val('no');
+    }
+</script>
+
+

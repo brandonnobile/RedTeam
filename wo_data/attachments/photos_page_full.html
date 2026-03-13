@@ -1,0 +1,246 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Activities Log</title>
+    <link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+    <link href="../../asp/css/photogallery.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+    <link rel='stylesheet' type='text/css' href='../../asp/css/materialtheme.css' />
+    <script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+    <script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+    <link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' />
+    <script src="../../asp/js/global.js" type="text/javascript"></script>
+    <script src="woPhotos.js?v=?be731a6" type="text/javascript"></script>
+    <script language="JavaScript" src="../../asp/js/images-grid/images-grid.js?v=?be731a6" type="text/javascript"></script>
+    <script type="text/javascript" src="../../asp/js/lozad/lozad.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='../../asp/js/images-grid/images-grid.css' />
+    <link rel='stylesheet' type='text/css' href='woPhotos.css?v=?be731a6' />
+    <link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+    <style>
+        .rectangle-buttons { padding-right: 0px;}
+        .rectangle1 { padding-left: 8px; }
+        #pagination { padding-left: 8px !important;}
+        .btn { text-transform: none; }
+    </style>
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" link="#ca5425" vlink="#f19d7c" onload="initialize();" onclick="hideMenu();" scroll="yes" onscroll="hideMenu();">
+<input type="hidden" id="P_progressdetails" name="P_progressdetails" value="" />
+<input type="hidden" id="P_datedetails" name="P_datedetails" value="" />
+<input type="hidden" id="ProgReportID" name="ProgReportID" value=""/>
+
+<div id="divLoader" style="display:none;">
+    <div id="loading">
+	    <img src="/rts/app/asp/images/loader-9.gif" style="width:30%;" />
+	    <br />
+	    <span align="center" style="text-align:center;font-size:32px;color:black;font-weight: 300;">Please Wait...</span>
+    </div>
+    <div id="load_screen"></div>
+</div>
+<iframe id="_fraGetDataAux" name="_fraGetDataAux" width="100%" height="200" style="display:none"></iframe>
+<div id="content" style="display:none">
+    <div id="staticmenu" style="position:relative;left:0;top:0;display:block;width:100%;height:72px;z-index:100;">
+        
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabelMenu" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+
+    </div>
+    <textarea id="JsonHeader" style="display:none">{"Title":"Manage Photos","Manage":"Team","Menu":{"Options":[],"Enabled":"false","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"View":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Filter":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('70');","IconName":"","Enabled":true,"Manage":"ManagePhotos"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[],"Enabled":"false","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Close","Id":"btn-cancel-enabled","Onclick":"javascript:closeModalCancelbtn();CloseLightBoxPhotos('');","IconName":"","Enabled":"true","Manage":"btn btn_primary"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?be731a6" type="text/javascript"></script><script type='text/javascript'>LoadPagination ('0','0','no') </script>
+    <div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none; ">
+        <div><span id="tdMessage"></span></div>
+    </div>
+ 	
+            <div class="col-md-12">
+                <div class="pre" style="height:550px; text-align:center; padding-top:250px;">
+                    <input type="hidden" id="hdnActionCommand" name="hdnActionCommand" />
+	                <input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber" />
+	                <input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="date,desc" />
+		            <font color="gray" style="font-size:14px;">Show your latest photos by adding them to your Progress Reports.</font>
+                </div>
+            </div>
+        
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+=== Stored Materials ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less {"Title":"Manage Stored Materials","Manage":"Billing","Menu":{"Options":[{"Name":"Customer Invoices","Id":"itemMng1","Onclick":"javascript:document.location.href='../billing_/billing.asp?p=V29ya29yZGVySUQ9JldvcmtvcmRlck1vZD0mV29ya29yZGVyU3RhdHVzPSZGYWNpbGl0eUlEPSZiYW5kVGFiPWJpbGxpbmcmYmFuZFNjaGVkdWxlT2ZWYWx1ZXM9VHJ1ZSZiYW5kVHlwZU9mQmlkPSZiYW5kQ09UeXBlT2ZCaWQ9';","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"},{"Name":"Schedule Of Values","Id":"itemMng2","Onclick":"javascript:LoadMS('schedvalues' ,'' ,'')","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"","Onclick":"window.open('ViewStoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&FacilityID=')","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('33');","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ 	SOV 	Description of Stored Materials 	Amount $ 	There are no Stored Materials on File!

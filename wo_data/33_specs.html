@@ -1,0 +1,1128 @@
+
+
+<html>
+<head>
+
+
+<title>RedTeam TeamService - Contract Specifications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<cfheader name="X-XSS-Protection" value="0">
+<link href='https://flex.redteam.com/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+<link href="https://flex.redteam.com/rts/app/asp/css/estilos.css" type="text/css" rel="stylesheet">
+<link href="https://flex.redteam.com/rts/app/asp/css/theme.css" type="text/css" rel="stylesheet">
+<link href="https://flex.redteam.com/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://flex.redteam.com/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="https://flex.redteam.com/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/default.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+
+<script src="https://flex.redteam.com/rts/app/asp/js/global.js?v=?be731a6" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/tbsort.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/moment-with-locales.js" type="text/javascript"></script>
+
+<script src="https://flex.redteam.com/rts/app/asp/js/pickList.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/jsdate.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/calendar.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/calendar-setup.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/asp/js/calendar-en.js" type="text/javascript"></script>
+<script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" /> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselectRtsExtras.css?v=?be731a6" rel="stylesheet" /> 
+
+<link href="https://flex.redteam.com/rts/app/workorders/specifications_/css/WO_Specifications.css?v=?be731a6" rel="stylesheet" type="text/css">
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet"> 
+ 
+<style>
+	.SumoSelect > .CaptionCont 
+    {
+        height: 34px !important;
+    }
+
+    .SumoSelect > .CaptionCont > span {        
+        height: 16px;
+    }
+    
+    .SumoSelect > .CaptionCont > span.placeholder {        
+        font-style: normal;
+        color: #656b79;
+	}
+	
+	.ccWithPhasesList > .SumoSelect > .optWrapper {
+        width: 400px !important;
+    }
+    
+    .ccWithPhasesList > .SumoSelect > .optWrapper > .options li ul li.opt {
+        padding-left: 35px !important;
+    }
+    
+    .ccWithPhasesList .optWithPhase > label {
+        padding-left: 0 !important;
+    }
+    
+    .ccWithPhasesList > .sumo_lst_Discipline > .optWrapper > .options > li.noCC {
+        border-bottom: 1px solid #ddd !important;
+        padding: 8px 0 7px 35px;
+	}
+
+	.ccWithPhasesList .SumoSelect > .optWrapper > .options li.GroupDiscipline > label {
+		text-align: left;
+		text-decoration: none;
+		letter-spacing: 0px;
+		color: #212121;
+		top: 758px;
+		left: 483px;
+		height: 34px;
+		font-weight: 500 !important;
+		background: #F3F4F6 0% 0% no-repeat padding-box;
+		opacity: 1;
+		border-bottom: 1px solid #e5e5e5;
+		padding-left: 9px;
+	}
+
+    .ItemMenuTextDisabled {
+    vertical-align: middle;
+    color: #979ba5;
+    height: 48px !important;
+    padding-right: 16px !important;
+    padding-bottom: 20px !important;
+    padding-left: 16px !important;
+    line-height: 3.4em !important;
+    cursor: default;
+    }
+	.btn-fl{
+        display:inline-flex;
+        justify-content: center;
+        align-items:center;
+        background-color: rgb(255, 255, 255);
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        color: rgb(51, 51, 51);
+        font-family: 'Roboto', sans-serif;
+        box-shadow: none !important;
+        border-color: #4697ce;
+        border-width: 1px;
+        border-style: solid;
+        text-decoration: none;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        white-space: nowrap;
+        font-size: 13px;
+        height: 36px;
+    }
+    .btn-fl p{
+        padding: 10px;
+        margin: 0;
+    }
+    .btn-fl img{
+        width: 99px;
+        height: 19px;
+    }
+
+	.rightImageFL {
+		vertical-align: initial;
+		width: auto;
+	}
+
+	.ac-sent {
+        border: 1px solid #ABF5D2;
+        border-radius: 9px;
+        padding: 1px 13px 1px 13px;
+        color: #016644;
+        font-size: 11px;
+        font-weight: 500;
+        height: 18px;
+        margin: 8px 0;
+    }
+	.ac-processing {
+        border: 1px solid #e8db4f;
+        border-radius: 9px;
+        padding: 1px 13px 1px 13px;
+        color: #ca9f1e;
+        font-size: 11px;
+        font-weight: 500;
+        height: 18px;
+        margin: 8px 0;
+    }
+	.ac-failed {
+        border: 1px solid #e75a5a;
+        border-radius: 9px;
+        padding: 1px 13px 1px 13px;
+        color: #bf1c1c;
+        font-size: 11px;
+        font-weight: 500;
+        height: 18px;
+        margin: 8px 0;
+    }   
+
+	.ac-pending {
+        border: 1px solid #ca9f1e;
+        border-radius: 9px;
+        padding: 1px 13px 1px 13px;
+        color: #ca9f1e;
+        font-size: 11px;
+        font-weight: 500;
+        height: 18px;
+        margin: 8px 0;
+		display: none;
+    } 
+
+	.ac-ready {
+        border: 1px solid #4052b3;
+        border-radius: 9px;
+        padding: 1px 13px 1px 13px;
+        color: #4052b3;
+        font-size: 11px;
+        font-weight: 500;
+        height: 18px;
+        margin: 8px 0;
+		display: none;
+    }
+
+	.status-div-container {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin: 17px 0px 0px 16px !important;
+	}
+
+	.close-status-container {
+		height: 24px;
+	}
+
+	#status-container {
+		display: none;
+	}
+
+	#tempFiles-container {
+		display: table;
+		width: 100%;
+	}
+
+	.row-status-file {
+		background-color: #F3F4F6;
+    	display: flex;
+    	height: 40px;
+		margin-bottom: 4px;
+	}
+
+	.cell0-status-file {
+		display: table-cell;
+		color: #656B79;
+		vertical-align: middle;
+		padding-top: 6px;
+		width: 80%;
+	}
+
+	.cell1-status-file {
+		display: table-cell;
+		vertical-align: middle;
+		padding-top: 10px;
+		width: 20%;
+		text-align: right;
+	}
+
+	.cell2-status-file {
+		display: table-cell;
+		vertical-align: middle;
+		padding-top: 6px;
+		width: 100%;
+	}
+</style>
+
+
+<script src="https://flex.redteam.com/rts/app/asp/js/DD_roundies.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/workorders/specifications_/WO_Specifications.js?v=?be731a6" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/js/ManageJson.js?v=?be731a6" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/workorders/specifications_/WO_Specifications_Load.js?v=?be731a6" type="text/javascript"></script>
+<link rel='stylesheet' type='text/css' href='https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' />
+<script src="/rts/app/asp/js/search/search.js?be731a6" type="text/javascript" ></script>
+
+<div class="ParametersPage hide"> 
+	<input type="text" id="Parameter_console" name="Parameter_console" value="" >
+	<input type="text" id="Parameter_PlangridPreferenceValue" name="Parameter_PlangridPreferenceValue" value="Yes" >
+	<input type="text" id="Parameter_TokenPlangrid" name="Parameter_TokenPlangrid" value="" >
+	<input type="text" id="Parameter_autodeskToken" name="Parameter_autodeskToken" value="" >
+	<input type="text" id="Parameter_TokenFiedLens" name="Parameter_TokenFiedLens" value="" >
+	<input type="text" id="Parameter_FiedLensID" name="Parameter_FiedLensID" value="" >
+	<input type="text" id="Parameter_DateFormat" name="Parameter_DateFormat" value="mm/dd/yyyy" >
+	<input type="text" id="Parameter_WorkorderID" name="Parameter_WorkorderID" value="1940046" >
+    <input type="text" id="Parameter_WorkorderMod" name="Parameter_WorkorderMod" value="00" >
+	<input type="text" id="Parameter_urlBackend" name="Parameter_urlBackend" value="https://node.flex.redteam.com/" >
+	<input type="text" id="Parameter_fieldlensAutoSyncPreference" name="Parameter_fieldlensAutoSyncPreference" value="No" >
+	<input type="text" id="nDrawingsReadyToFL" name="nDrawingsReadyToFL" value="0" >
+	<input type="text" id="DrawingsReadyToFL" name="DrawingsReadyToFL" value="False" >
+	<input type="text" id="specsCoNoAuthorized" name="specsCoNoAuthorized" value="0" >
+    <input type="text" id="Parameter_Client" name="Parameter_Client" value="remnantconstruction" >
+	<input type="text" id="Parameter_Company" name="Parameter_Company" value="remnantconstruction" >
+	<input type="text" id="Parameter_wwwBim360App" name="Parameter_wwwBim360App" value="https://autodesk.redteamsoftware.com/OAuth.asmx" >  
+	<input type="text" id="Parameter_wwwPlanGridApp" name="Parameter_wwwPlanGridApp" value="https://plangrid.redteamsoftware.com/OAuth.asmx" >   
+	<input type="text" id="Parameter_QueryStringP" name="Parameter_QueryStringP" value="" >  
+	<input type="text" id="Parameter_wwwRenderApp" name="Parameter_wwwRenderApp" value="https://rendered.redteamsoftware.com/zoomableimage.asmx/" >  
+	
+	<input type="text" id="Parameter_encrypted" name="Parameter_encrypted" value="V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHk9MDAyMjEmY29uc29sZT1uZXdwY28mb3BlbkZyb209" >  
+	    
+	<input type="text" id="Parameter_encryptedTemps" name="Parameter_encryptedTemps" value="YmFuZD1hZGQmZmlsdGVyPSZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZXb3Jrb3JkZXJTdGF0dXM9SW5Qcm9ncmVzcyZGYWNpbGl0eT0wMDIyMSZjb25zb2xlPSZvcGVuRnJvbT0" >  
+	<input type="text" id="Parameter_paramAddHeader" name="Parameter_paramAddHeader" value="" >
+    <input type="text" id="Parameter_defaultitemsPerPage" name="Parameter_defaultitemsPerPage" value="500" >
+    <input type="text" id="Parameter_WorkorderStatus" name="Parameter_WorkorderStatus" value="InProgress" >
+    <input type="text" id="Parameter_Facility" name="Parameter_Facility" value="00221" >
+    <input type="text" id="Parameter_sortBy" name="Parameter_sortBy" value="plans" />
+    <input type="text" id="server_name_spec" name="server_name_spec" value="Themisto" />
+    <input type="text" id="server_name" name="server_name" value="IO" />
+    <input type="text" id="DefaultURL_uploads_spec" name="DefaultURL_uploads_spec" value="https://node.flex.redteam.com/files/specs.redteamsoftware.com" />
+	<input type="text" id="ArrayIds" name="ArrayIds" value="" />
+	<input type="text" id="task" name="task" value="" /> 
+	<input type="text" id="fileToken_ASP" name="fileToken_ASP" value="?be731a6" />
+	<input type="hidden" id="sortCriterial" value="WorkorderMod asc,LineOrder asc" >    
+    <input type="text" id="openFrom" name="openFrom" value="" >
+	<input type="text" id="wwwAppRoot" name="wwwAppRoot" value="https://flex.redteam.com/rts" >
+	<input type="text" id="url_spec_verify" name="url_spec_verify" value="https://apipdf.redteam.com/api/">
+	
+	
+		<input type="hidden" id="projectIntegrateFieldLens" value="FALSE" >  
+	
+
+	<textarea type="text" id="metadataHistory" name="metadataHistory"><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></textarea>    
+	<input type="text" id="PlangridPreferenceValue" name="PlangridPreferenceValue" value="Yes"/>
+	<input type="text" id="AutodeskToken" name="AutodeskToken" value=""/>
+	<input type="text" id="UserSPvalidation" name="UserSPvalidation" value="3"/> 
+    <input type="hidden" id="Per_EditRTExplanation" value="True" >
+    <input type="hidden" id="Per_EditExplanation" value="True" >
+    <input type="hidden" id="Per_VoidSpecification" value="True" >
+    <input type="hidden" id="Per_AddEditSpecification" value="True" >
+	<input type="hidden" id="Per_ImportSpecifications" value="True" >
+	<input type="hidden" id="Per_ViewRequest" value="True" > 
+	
+    <input type="hidden" id="Per_ViewSpecification" value="True" >
+    <input type="hidden" id="Per_CommitSpecification" value="False" >
+    <input type="hidden" id="Per_UnCommitSpecification" value="False" >
+    <input type="hidden" id="Per_ActivateContractAdministration" value="Yes" >
+    <input type="hidden" id="Per_AddSpecsOnRequest" value="True" >
+    <input type="hidden" id="Per_DeleteSpecification" value="False" >
+	<input type="hidden" name="ActivateContractAdministration" id="ActivateContractAdministration" value="Yes" />
+	<input type="hidden" name="defaultitemsPerPage" id="defaultitemsPerPage" value="500" />
+	<input type="hidden" name="ActiveUser" id="ActiveUser" value="1" />
+	<input type="hidden" name="FL_base_url" id="FL_base_url" value="https://prod.fieldlens.com/api" />
+	<input type="hidden" name="FL_url_service" id="FL_url_service" value="https://fieldlens.redteamsoftware.com" />
+	 
+    
+      
+</div> 
+ 
+</head >
+<template id="RecordTemplate">
+    
+    <div bgcolor="#FFFFFF" class="%StatusColor% TableCont RecordItem SearchTextParent" style="%through%" id="tr%counter%" specID="%SpecID%" counteritem="%counter%" >
+       <input type="button" id="buttonreload_%SpecID%" onclick="ReLoadItem('%SpecID%')" style="display:none">
+	   <div id="trOpen%counter%" style="display:none"><div class="ptop3" id="tdOpen%counter%"><a id="mk%SpecID%" name="mk%SpecID%"></a></div></div>
+	   <div class="TableCell Cell_a" align="right" height="29" nowrap="">
+            <input type="checkbox" class="chkbox-co-existence %chkhide%" name="chkItem%counter%" id="chkItem%counter%" onclick="countChecked('%counter%');">  
+                
+            <input type="hidden" name="SpecID%counter%" id="SpecID%counter%" value="%SpecID%">        
+            <input type="hidden" name="AddendumID%counter%" id="AddendumID%counter%" value="0">        
+            <input type="hidden" name="SpecStatusOriginal%counter%" id="SpecStatusOriginal%counter%" value="%SpecStatus%">        
+            <input type="hidden" name="SkipConstruction%counter%" id="SkipConstruction%counter%" value="Yes">        
+            <input type="hidden" name="SpecType%counter%" id="SpecType%counter%" value="%SpecType%">     
+            <input type="hidden" name="downMOD%counter%" id="downMOD%counter%" value="00"> 
+			<input type="hidden" name="UrlSpec%counter%" id="UrlSpec%counter%" value="%fileLink%"> 
+			<input type="hidden" name="UrlS3%counter%" id="UrlS3%counter%" value="%UrlS3%" />
+			<input type="hidden" name="SpecNameAux%counter%" id="SpecNameAux%counter%" value="%SpecNameAux%"> 
+			<input type="hidden" name="SpecNumberAux%counter%" id="SpecNumberAux%counter%" value="%SpecNumberAux%"> 
+			<input type="hidden" name="Attachment%counter%" id="Attachment%counter%" value="%Attachment%"> 
+			<input type="hidden" name="ActiveUserEmail" id="ActiveUserEmail" value="bnobile@remnantconstruction.com" />
+			<input type="hidden" name="ScopeStatus%counter%" id="ScopeStatus%counter%" value="%ScopeStatus%">
+			<input type="hidden" name="ScopeMod%counter%" id="ScopeMod%counter%" value="%ScopeMod%">
+			<input type="hidden" name="updateStatus%counter%" id="updateStatus%counter%" value="%UpdateStatus%">
+       </div>
+       <div class="TableCell  Cell_b" nowrap="">
+            <a %hrefedit% >
+                <i class="zmdi zmdi-edit fontBtn %showEdit%" title="Edit this record"></i>
+            </a>
+        </div>
+       <div class="TableCell Cell_c" nowrap="">
+               
+				<input type="checkbox" class="chkbox-co-existence" id="chk%counter%" name="chk%counter%" style="display:none;">
+				
+                <span  class="tool-options %showToolsMenu%" id="img1_tools%counter%" onclick="javascript:showMnuOptions('%counter%','mnuTools','%SpecID%','%SpecStatus%','%WorkorderID%','%WorkorderMod%','%WorkorderStatus%','%Facility%','%WoAddStatus%','%WoAddendumID%','%IsLink%','%Linked%','%EditRTExplanation%','%EditExplanation%','%VoidSpecification%','%AddEditSpecification%','%ViewSpecification%','%CommitSpecification%','%UnCommitSpecification%','%ActivateContractAdministration%','%AddSpecsOnRequest%','%DeleteSpecification%','%UploadsFolder%','%Attachment%','%console%','%sortBy%','%openFrom%')">
+                    <i class="zmdi zmdi-apps fontBtn hand" border="0" alt="Show options" id="showtools%counter%" name="showtools%counter%" style="display:"></i>
+                </span>
+                <span onclick="javascript:hideoptions('%counter%');" id="img2_tools%counter%" class="tool-options">  
+                    <i class="zmdi zmdi-apps fontBtn hand" border="0" id="hidetools%counter%" name="hidetools%counter%" title="Hide options" style="display:none" alt=""></i>
+                </span>   
+               <input type="hidden" id="tdislink%counter%" name="tdislink%counter%" value="%IsLink2%">  
+
+
+        </div>
+
+       	<div  id="jsName%counter%" class="TableCell wb-bw Cell_d"  nowrap="">   
+            <a href="javascript:%hrefopenpreview%" class="LinkCommitted PreviewSpecs %showpreview%">
+                <span class="SearchTextChild">%SpecName%</span>
+            </a>
+            <font class="SearchTextChild %showonlyname%">%SpecName%</font>
+            %supSpecName%
+        </div>
+
+
+		<div class="TableCell Cell_o" nowrap>
+
+			
+				<a href="javascript:%hrefopenProjectDiscipline%" class="LinkCommitted PreviewSpecs"><span class="SearchTextChild">%DisciplineDescription%</span></a>
+			
+
+		</div>
+
+
+       	<div class="TableCell Cell_e" id="jsDate%counter%" nowrap=""><span class="SearchTextChild %hideWhenisHeading%">%SpecDate%</span></div>
+       	<div class="TableCell Cell_f workbreak" id="jsAuthor%counter%"    nowrap=""><span class=" SearchTextChild %hideWhenisHeading%">%SpecAuthorName%</span></div>
+       	<div class="TableCell Cell_g %showScope% workbreak" id="jsScope%counter%" nowrap=""><span class="SearchTextChild %hideWhenisHeading%">%ModSpec%</span></div>
+       	<div class="TableCell Cell_h" id="jsVersion%counter%"  nowrap=""><span class="SearchTextChild %hideWhenisHeading%">%SpecVersion%</span></div>
+       	<div class="TableCell Cell_i" id="jsAddendum%counter%"  nowrap=""><span class="SearchTextChild %hideWhenisHeading%">%WoAddendumAlias% </span>  
+		<input type="hidden" name="SpecStat%counter%" id="SpecStat%counter%" value="%SpecStatus%">
+		<input type="hidden" name="SpecScope%counter%" id="SpecScope%counter%" value="%ModSpec%">
+       </div>
+       <div class="TableCell Cell_j" id="specStatD%counter%" nowrap=""><span class="SearchTextChild %hideWhenisHeading%">%SpecStatus% %Linked2%</span></div>
+       <div class="TableCell Cell_k pleft-15" align="left"  nowrap=""><div class="%hideWhenisHeading%">
+          <a>
+            <i id="itn%counter%" class="zmdi zmdi-comment-outline fontBtn %noteColor%" border="0" align="absmiddle" onmouseover="mostrartextonotas('%counter%');"
+			 onmouseout="ocultartextonota('%counter%');" onclick="notes('%parameterstonote%');"></i>
+         </a>  
+            <div class="textoayuda" id="tn%counter%" style="left: 0px;">    
+                <b>Notes&raquo;</b>     <br>
+                <font color="#3E4D62" style="white-space: pre-line;">%Notes%   
+                </font>     
+            </div>
+		</div>  
+       </div>
+       <div class="TableCell Cell_l"  id="specIsMarkup%counter%" nowrap="" class="talignc" style="display:none;"><span class="%hideWhenisHeading%"><input type="checkbox" disabled="" %ismarkupcheck%></span></div>
+       
+	   <div class="TableCell Cell_m" id="specIsPlangrid%counter%" nowrap="" class="talignc">
+	   		<span class="%hideWhenisHeading%"> 
+				<input id="chkPlangrid%SpecID%" type="checkbox" disabled="" style="display:none;">
+				<label id="labelPlangrid%SpecID%" style="padding: 5px 9px 5px 8px; margin:0;"  data-toggle="tooltip" data-placement="top" 
+					title="%PlangridTitle%" data-original-title="%PlangridTitle%" class="SearchTextChild %LabelPlangrid%">%PlangridLabel%</label>
+				 
+			</span>
+       </div>
+	   
+       <div class="TableCell Cell_n talignc" id="tdShowLog%counter%" align="left"   nowrap=""  onmouseout="ocultartextolog('%counter%');" >
+          <div class="%hideWhenisHeading%"  >
+			<a id="itl%counter%" border="0" align="absmiddle" onclick="ventanaTransmission('%SpecID%','Specs');return false;" 
+				onmouseover="mostrartextoNotesAndLogAjax('%counter%','%SpecID%','LOG','tl%counter%','Specs');" style="display: inline-block;" >
+				%svgmetadata%
+			</a>
+			<div class="textoayuda" id="tl%counter%" style="left: 0px;"></div>
+		</div>
+       </div>  
+	    
+	   
+    </div>
+	<div bgcolor="#FFFFFF" id="MnuOptions%counter%" class="MnuOptions" height="0" style="display:'';"> 	
+		<div width="10" nowrap="" class="MnuOptions"></td>	<td colspan="8" class="MnuOptions">
+			<div id="_menuTools%counter%" class="menuFrameContext div-tools"></div>        	
+			<div id="_menuAddHeading%counter%" class="menuFrameContext menuFrameContext-p  div-headinng"></div>	
+		</div>
+	</div>
+</template>
+
+<template id="TitleModTemplate">
+	<div class="TableCont panel panel-midnightblue">
+		<div class="panel-heading">
+			<h4><b>%title% Scope Change :&nbsp;%ModSpec%&nbsp;-&nbsp;%ProjectTitle% %CustomerOrderAux%</b>
+			</h4>
+		</div> 
+	</div>
+	<div class="TableCont SelectGroup RecordItem">
+		 <input type="checkbox" class="chkbox-co-existence" name="chkAll%WorkorderMod%" id="chkAll%WorkorderMod%" onclick="checkAll('','%WorkorderMod%');" />
+		 <label style="padding-left:5px; vertical-align:middle">Select</label>
+	 </div>
+</template>
+
+<template id="GroupCounterTemplate">
+	<input type="hidden" id="scopeCounterStart%WorkorderMod%" name="scopeCounterStart%WorkorderMod%" value="">
+	<input type="hidden" id="scopeCounterFinish%WorkorderMod%" name="scopeCounterFinish%WorkorderMod%" value="">
+</Template>
+
+<script type="text/javascript">    LoadManage();</script>
+
+ 
+<body id="BodyGeneral" topmargin="0" leftmargin="0" rightmargin="0" bgcolor="#ffffff" scroll="yes" Onload="initialize('');verifyItems();" onclick="hideMenuAux();hideToolIcon();" onscroll="hideMenuAux();">
+
+<script type="text/javascript">
+    LoadingMessagePage("on");
+    DD_roundies.addRule('.KeywordDivBorderRadius', '10px');
+</script>
+
+<iframe id="ifrmAux" name="ifrmAux" src="" style="width:400; height:200; display:none;"></iframe>
+ <input type="hidden" id="RefreshTab" name="RefreshTab" value="" />
+ <input type="hidden" id="cont" name="cont" value="" />
+<div id="content"  style="display:none">
+
+<form method="post" name="Form1" id="Form1" onsubmit="return false" style="display:inline;">
+<div id="DetailDiv">
+ 
+<div id="staticmenu" style="position:relative;display:none;background-color:#F3F4F6;z-index:4;">
+
+
+
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+ <table id="page-heading" border="0" width="100%" cellpadding="0" cellspacing="0">    	<tr>  <td style="border-left:solid 0px #fff;padding-top:2px;" class="HomeActionsHeader" nowrap></td><td  id="massOptionsBar" class="HomeActionsHeader buttonssection" style="padding-top: 5px !important;padding-right: 8px !important;display:none">	<div id="massOptionBarDiv">        <button id="btnPlangrid" type="button" onclick="javascript:PlangridSelected('WorkorderId=1940046&WorkorderMod=00&woStatus=InProgress&plangrid=true','00');" style="color:#787878;background-color: rgb(255, 255, 255);padding-top: 0px !important;height: 38px;position: relative;top: -1px;display:none;" class="btn btn-midnightblue-alt fontBtnsActions btnPrintConsole services-btn"><span><svg class="servicesIcon" xmlns="http://www.w3.org/2000/svg" width="139" height="17" viewBox="0 0 139 17">
+  <g id="send_to_plangrid" transform="translate(12236 8230)">
+    <rect id="Rectangle_7314" data-name="Rectangle 7314" width="139" height="17" transform="translate(-12236 -8230)" fill="none"/>
+    <g id="Group_16119" data-name="Group 16119" transform="translate(-12246 -8240)">
+      <g id="Group_16092" data-name="Group 16092" transform="translate(-4)">
+        <text id="Send_to" data-name="Send to" transform="translate(38 23)" fill="#373232" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="-23.779" y="0">Send to</tspan></text>
+      </g>
+      <g id="plangrid-seeklogo.com" transform="translate(45.241 -253.7)">
+        <g id="Group_16094" data-name="Group 16094" transform="translate(40.714 265.85)">
+          <path id="Path_1900" data-name="Path 1900" d="M171.617,284.95c1.461,0,2.177-.717,2.177-1.792s-.73-1.792-2.081-1.792h-1.626v3.583ZM167.8,279.3h4.327c2.839,0,4.065,1.654,4.065,3.9,0,2.563-1.709,3.79-4.286,3.79h-1.819V291H167.8V279.3Z" transform="translate(-167.8 -279.3)"/>
+        </g>
+        <rect id="Rectangle_7304" data-name="Rectangle 7304" width="2.15" height="12.127" transform="translate(50.25 265.423)"/>
+        <g id="Group_16095" data-name="Group 16095" transform="translate(20.4 263.7)">
+          <path id="Path_1901" data-name="Path 1901" d="M269.084,308.9a2.055,2.055,0,1,0-4.093,0,2.029,2.029,0,0,0,2.053,2.191,2.049,2.049,0,0,0,2.04-2.191m2.053-4.052v8.034h-2.053v-.978h-.041a2.879,2.879,0,0,1-2.4,1.1,3.816,3.816,0,0,1-3.845-4.134,3.873,3.873,0,0,1,3.79-4.176,3.033,3.033,0,0,1,2.37,1.047h.028v-.91Z" transform="translate(-229.394 -299.05)"/>
+          <path id="Path_1902" data-name="Path 1902" d="M340.755,304.8c1.723,0,2.922.937,2.922,3.4v4.782h-2.164v-4.231c0-1.53-.551-2.012-1.543-2.012-1.089,0-1.819.758-1.819,2.191v4.038H336v-8.034h2.15v1.034h.028A3.385,3.385,0,0,1,340.755,304.8Z" transform="translate(-292.506 -299.136)"/>
+          <path id="Path_1903" data-name="Path 1903" d="M407.967,290.248a5.975,5.975,0,0,1-.1-11.948,6.264,6.264,0,0,1,4.644,2l-1.64,1.392a4.226,4.226,0,0,0-3-1.213c-1.916,0-3.459,1.433-3.459,3.831a3.543,3.543,0,0,0,3.556,3.831,4.437,4.437,0,0,0,2.37-.662v-1.723h-2.632v-1.984h4.865v5.044A7.721,7.721,0,0,1,407.967,290.248Z" transform="translate(-349.411 -276.288)"/>
+          <path id="Path_1904" data-name="Path 1904" d="M497,304.8a.569.569,0,0,1,.165.014v2.357c-.22-.014-.455-.028-.565-.028a1.942,1.942,0,0,0-2.053,2.095v3.735H492.4v-8.034h2.15v1.185h.027A2.95,2.95,0,0,1,497,304.8Z" transform="translate(-427.353 -299.136)"/>
+          <path id="Path_1905" data-name="Path 1905" d="M532.262,282.262h2.15V290.3h-2.15ZM532,279.809a1.337,1.337,0,1,1,1.337,1.323A1.324,1.324,0,0,1,532,279.809" transform="translate(-461.495 -276.46)"/>
+          <path id="Path_1906" data-name="Path 1906" d="M563.545,286.536a2.09,2.09,0,0,0,2.122-2.191,2.118,2.118,0,0,0-2.109-2.246,2.079,2.079,0,0,0-2.067,2.246,2.036,2.036,0,0,0,2.053,2.191ZM567.72,276.2v12.127h-2.053v-.978h-.055a2.987,2.987,0,0,1-2.467,1.116,3.816,3.816,0,0,1-3.845-4.134,3.873,3.873,0,0,1,3.79-4.176,3.128,3.128,0,0,1,2.425,1.047h.041v-4.989Z" transform="translate(-485.033 -274.477)"/>
+          <path id="Path_1907" data-name="Path 1907" d="M105.3,349.262a.661.661,0,1,0,.661-.661.653.653,0,0,0-.661.661" transform="translate(-93.6 -336.9)" fill="#0085de"/>
+          <path id="Path_1908" data-name="Path 1908" d="M50.12,289a4.52,4.52,0,1,0,4.52,4.52A4.523,4.523,0,0,0,50.12,289" transform="translate(-42.127 -285.513)" fill="#0085de"/>
+          <path id="Path_1909" data-name="Path 1909" d="M34.25,276.007a1.541,1.541,0,0,1-1.544,1.544H28.062a5.849,5.849,0,1,1,6.174-6.395v4.851Zm1.1-11.259c-1.047-1.047-2.15-1.047-3.886-1.047H25.334c-1.736,0-2.839.014-3.886,1.047S20.4,266.9,20.4,268.634v6.133c0,1.736,0,2.839,1.047,3.886s2.15,1.047,3.886,1.047h6.133c1.736,0,2.839,0,3.886-1.047s1.047-2.15,1.047-3.886v-6.133c0-1.736-.014-2.839-1.047-3.886" transform="translate(-20.4 -263.7)" fill="#0085de"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+</span></button>        <button id="btnPlangridSync" class="btn btn-midnightblue-alt fontBtnsActions btnPrintConsole services-btn" type="button" onclick="javascript:PlangridSync('WorkorderId=1940046&WorkorderMod=00&woStatus=InProgress&plangridSync=true','00');" style="color:#787878;background-color: rgb(255, 255, 255);padding-top: 0px !important;height: 38px;position: relative;top: -1px;display:none;" ><span><svg class="servicesIcon" xmlns="http://www.w3.org/2000/svg" width="109" height="22" viewBox="0 0 109 22">
+  <g id="plangrid_reload" transform="translate(-11 -7)">
+    <g id="plangrid-seeklogo.com" transform="translate(-9.4 -253.7)">
+      <g id="Group_16094" data-name="Group 16094" transform="translate(40.714 265.85)">
+        <path id="Path_1900" data-name="Path 1900" d="M171.617,284.95c1.461,0,2.177-.717,2.177-1.792s-.73-1.792-2.081-1.792h-1.626v3.583ZM167.8,279.3h4.327c2.839,0,4.065,1.654,4.065,3.9,0,2.563-1.709,3.79-4.286,3.79h-1.819V291H167.8V279.3Z" transform="translate(-167.8 -279.3)"/>
+      </g>
+      <rect id="Rectangle_7304" data-name="Rectangle 7304" width="2.15" height="12.127" transform="translate(50.25 265.423)"/>
+      <g id="Group_16095" data-name="Group 16095" transform="translate(20.4 263.7)">
+        <path id="Path_1901" data-name="Path 1901" d="M269.084,308.9a2.055,2.055,0,1,0-4.093,0,2.029,2.029,0,0,0,2.053,2.191,2.049,2.049,0,0,0,2.04-2.191m2.053-4.052v8.034h-2.053v-.978h-.041a2.879,2.879,0,0,1-2.4,1.1,3.816,3.816,0,0,1-3.845-4.134,3.873,3.873,0,0,1,3.79-4.176,3.033,3.033,0,0,1,2.37,1.047h.028v-.91Z" transform="translate(-229.394 -299.05)"/>
+        <path id="Path_1902" data-name="Path 1902" d="M340.755,304.8c1.723,0,2.922.937,2.922,3.4v4.782h-2.164v-4.231c0-1.53-.551-2.012-1.543-2.012-1.089,0-1.819.758-1.819,2.191v4.038H336v-8.034h2.15v1.034h.028A3.385,3.385,0,0,1,340.755,304.8Z" transform="translate(-292.506 -299.136)"/>
+        <path id="Path_1903" data-name="Path 1903" d="M407.967,290.248a5.975,5.975,0,0,1-.1-11.948,6.264,6.264,0,0,1,4.644,2l-1.64,1.392a4.226,4.226,0,0,0-3-1.213c-1.916,0-3.459,1.433-3.459,3.831a3.543,3.543,0,0,0,3.556,3.831,4.437,4.437,0,0,0,2.37-.662v-1.723h-2.632v-1.984h4.865v5.044A7.721,7.721,0,0,1,407.967,290.248Z" transform="translate(-349.411 -276.288)"/>
+        <path id="Path_1904" data-name="Path 1904" d="M497,304.8a.569.569,0,0,1,.165.014v2.357c-.22-.014-.455-.028-.565-.028a1.942,1.942,0,0,0-2.053,2.095v3.735H492.4v-8.034h2.15v1.185h.027A2.95,2.95,0,0,1,497,304.8Z" transform="translate(-427.353 -299.136)"/>
+        <path id="Path_1905" data-name="Path 1905" d="M532.262,282.262h2.15V290.3h-2.15ZM532,279.809a1.337,1.337,0,1,1,1.337,1.323A1.324,1.324,0,0,1,532,279.809" transform="translate(-461.495 -276.46)"/>
+        <path id="Path_1906" data-name="Path 1906" d="M563.545,286.536a2.09,2.09,0,0,0,2.122-2.191,2.118,2.118,0,0,0-2.109-2.246,2.079,2.079,0,0,0-2.067,2.246,2.036,2.036,0,0,0,2.053,2.191ZM567.72,276.2v12.127h-2.053v-.978h-.055a2.987,2.987,0,0,1-2.467,1.116,3.816,3.816,0,0,1-3.845-4.134,3.873,3.873,0,0,1,3.79-4.176,3.128,3.128,0,0,1,2.425,1.047h.041v-4.989Z" transform="translate(-485.033 -274.477)"/>
+        <path id="Path_1907" data-name="Path 1907" d="M105.3,349.262a.661.661,0,1,0,.661-.661.653.653,0,0,0-.661.661" transform="translate(-93.6 -336.9)" fill="#0085de"/>
+        <path id="Path_1908" data-name="Path 1908" d="M50.12,289a4.52,4.52,0,1,0,4.52,4.52A4.523,4.523,0,0,0,50.12,289" transform="translate(-42.127 -285.513)" fill="#0085de"/>
+        <path id="Path_1909" data-name="Path 1909" d="M34.25,276.007a1.541,1.541,0,0,1-1.544,1.544H28.062a5.849,5.849,0,1,1,6.174-6.395v4.851Zm1.1-11.259c-1.047-1.047-2.15-1.047-3.886-1.047H25.334c-1.736,0-2.839.014-3.886,1.047S20.4,266.9,20.4,268.634v6.133c0,1.736,0,2.839,1.047,3.886s2.15,1.047,3.886,1.047h6.133c1.736,0,2.839,0,3.886-1.047s1.047-2.15,1.047-3.886v-6.133c0-1.736-.014-2.839-1.047-3.886" transform="translate(-20.4 -263.7)" fill="#0085de"/>
+      </g>
+    </g>
+    <g id="autorenew_FILL0_wght300_GRAD0_opsz24" transform="translate(16049 15085)">
+      <rect id="Rectangle_7291" data-name="Rectangle 7291" width="16" height="22" transform="translate(-15945 -15078)" fill="none"/>
+      <path id="autorenew_FILL0_wght300_GRAD0_opsz24-2" data-name="autorenew_FILL0_wght300_GRAD0_opsz24" d="M5.175,15.625a8.188,8.188,0,0,1-.687-1.75A7.109,7.109,0,0,1,4.25,12.05,7.542,7.542,0,0,1,6.513,6.525,7.45,7.45,0,0,1,12,4.25h.775L10.925,2.4l1.05-1.05L15.65,5,11.975,8.65,10.925,7.6l1.85-1.85H12A6.006,6.006,0,0,0,7.575,7.587,6.1,6.1,0,0,0,5.75,12.05a5.606,5.606,0,0,0,.138,1.237A6.1,6.1,0,0,0,6.3,14.5Zm6.85,7.025L8.35,19l3.675-3.65,1.05,1.05-1.85,1.85H12a6.006,6.006,0,0,0,4.425-1.837A6.1,6.1,0,0,0,18.25,11.95a5.659,5.659,0,0,0-.137-1.238A6.154,6.154,0,0,0,17.7,9.5l1.125-1.125a8.227,8.227,0,0,1,.688,1.75,7.138,7.138,0,0,1,.237,1.825,7.544,7.544,0,0,1-2.262,5.525A7.453,7.453,0,0,1,12,19.75h-.775l1.85,1.85Z" transform="translate(-15949 -15079)" fill="#9a9898"/>
+    </g>
+  </g>
+</svg>
+</span></button><td id="defaultBar" class="HomeActionsHeader buttonssection pright" nowrap>	<form id="frmmenu" name="frmmenu" method="post" style="display:inline" target="_self" action="WO_Specifications.asp">		<div style="float:right;">		<input type="hidden" id="TextToSearch" class="inputSearch form-control HideTextToSearch" name="TextToSearch" maxlength="40"  placeholder="Search..." onfocus="if(this.value==this.defaultValue) this.value=''"  onblur="VerifySearchEmpty()" 	 value="" >      </div>    </form>	 </td> <td colspan="1" id="paginationHeader"  class="NewHomeActionsHeader" style="padding-top:7px;" width="200" align="right" nowrap >	    <table border="0" cellpadding="0" cellspacing="0" align="left"><tr valign="middle"><td nowrap>	<img id="p1Inactive" src="https://flex.redteam.com/rts/app/asp/images/browsePrior_inactive.png" align="absmiddle" />	<a id="p1Active" href="javascript:BackPage()" style="display:none"><img src="../../asp/images/browsePrior.png" border="0" align="absmiddle" /></a></td><td class="KeywordLabelTab" >&nbsp;Page</td><td nowrap><span class="wrapper"><div class="styled-select" ><select id="pageController" onchange="LoadDataPagination()" ></select></div></span></td><td class="KeywordLabelTab"  nowrap>&nbsp;of&nbsp;<span id="totalPagesCount"></span></td><td nowrap><img id="p2Inactive"  src="https://flex.redteam.com/rts/app/asp/images/browseNext_inactive.png" align="absmiddle" style="display:none" /><a id="p2Active"  href="javascript:NextPage()"><img src="../../asp/images/browseNext.png" border="0" align="absmiddle" /></a></td><td style="padding-left:5px;" nowrap><span class="wrapper"><div class="styled-selectItemsPerPage" ><select id="cbitemsPerPage" onchange="ChangeItemsPerPage()" ></select></div></span></td></tr>    </table> </td></tr></table><table border="0" width="100%" cellpadding="0" cellspacing="0"><tbody><tr>    <td style="background-color:#f3f4f6;">        <div class="divWarningMessage">            <div class="alert alert-warning alert-div-warning"  id ="tableMessage" name="tableMessage" role="alert" style="display:none;margin-left:16px !important;" >                 <button  type="button" class="close closeAditionalAlert" onclick="javascript:hidealert('tableMessage');"><i class="zmdi zmdi-close"></i></button>                    <div><span id="tdMessage"></span></div>            </div>        </div>    </td>    <td style="background-color:#f3f4f6; vertical-align: top; padding-top: 12px !important;">    </td></tr></tbody></table>
+       
+    <div id="status-container" class="alert alert-warning alert-div-warning status-div-container"  role="alert">
+		<div class="close-status-container">
+			<button type="button" class="close closeAditionalAlert" onclick="javascript:hidealertFiles();">
+                <i class="zmdi zmdi-close"></i>
+            </button>
+		</div>
+	 	<div id="tempFiles-container"></div>
+	</div>
+    <br>
+
+</div>
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage Plans and Specifications","Manage":"Scope","Menu":{"Options":[{"Name":"Initial Requirements","Id":"","Onclick":"javascript:document.location.href='../requirements_/Request.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHk9MDAyMjEmY29uc29sZT1uZXdwY28mb3BlbkZyb209';","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Addendums","Id":"","Onclick":"javascript:document.location.href='../addendums_/WO_AddendumSpecifications.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHk9MDAyMjEmY29uc29sZT1uZXdwY28mb3BlbkZyb209'","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Unit Prices","Id":"","Onclick":"javascript:document.location.href='../workorderPrices_/manageWOPrices.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221';","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[{"Name":"","Id":"btnReaload","Onclick":"LoadManage(true); ReloadCounters();","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Add":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"viewPlans","Onclick":"javascript:viewPrintRequest('V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3M');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[{"Name":"Filter","Id":"btnFilterPlans","Onclick":"javascript:filterBoxActivation('Filter')","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Group by Scope","Id":"sortall_scope","Onclick":"SortAll('Scope');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Current Set","Id":"sortall_current","Onclick":"SortAll('CurrentSet');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[{"Name":"Arrange","Id":"btnArrange","Onclick":"ShowLightBoxASP('app/workorders/specifications_/SortWO_Specifications_v2.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&Facility=00221', 'medium', 'Calc(100vh - 102px)');hideMenu();","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"PlanGrid Log","Id":"btnPlangridLog","Onclick":"window.open('PlangridLog.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmd29TdGF0dXM9SW5Qcm9ncmVzcw')","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('100');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Update","Id":"MassUpdate","Onclick":"javascript:MassUpdateN();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Cancel","Id":"btnVoid","Onclick":"javascript:MultipleVoid('YmFuZD1tdWx0aXBsZXZvaWQmV29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0','00','plans');hideMenu();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Download","Id":"","Onclick":"javascript:DownloadSelected('WorkorderId=1940046&WorkorderMod=00&zipWorkorderMod=00&woStatus=InProgress&zipfiles=true','00');","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Delete","Id":"btnDelete","Onclick":"javascript:MultipleDelete('YmFuZD1tdWx0aXBsZWRlbGV0ZSZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZXb3Jrb3JkZXJTdGF0dXM9SW5Qcm9ncmVzcyZGYWNpbGl0eUlEPQ','00','plans', '');hideMenu();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>
+<div id="trFiltersbox" style="display:none;height:220;overflow-y:hidden;background-color:#FFFFFF;position:relative;width:100% !important;z-index:3;">
+	 <div class="panel panel-midnightblue customFilterBox" style="margin-bottom:0px" >
+              <div class="panel-heading">
+              <h4>Filters</h4>
+		</div>
+		<div  class="panel-body collapse in">
+			  
+            <input type="hidden" id="hdnitemsPageNumber" name="hdnitemsPageNumber" value="" /> 
+			<input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber" /> 
+			<input type="hidden" id="hdnActionCommand" name="hdnActionCommand" /> 
+			<input type="hidden" id="hdnCurrentUrlParams" name="hdnCurrentUrlParams" value="" /> 
+			<input type="hidden" id="hdnParameters" name="hdnParameters" value="" />
+			<input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="" />		
+          	<div class="row">
+            	
+                <div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">Scope</label> 
+	                    <div  class="col-sm-3-separator">                             
+							<select id="lst_Scope" name="lst_Scope" class="form-control" style="width:100%;font-size: 14px;display:inline-block;" >
+							</select>
+	                    </div>
+	              	</div>
+	            </div>
+                
+                <div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">Type</label> 
+	                    <div  class="col-sm-3-separator">                             
+	                       	<select id="lst_Type" name="lst_Type" style="width:100%;font-size: 14px;display:inline-block;"  multiple size="1">
+							</select>
+	                    </div>
+	              	</div>
+	          	</div> 
+                <div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">Status</label> 
+	                    <div  class="col-sm-3-separator">                             
+	                       	<select id="lst_Status" name="lst_Status" style="width:100%;font-size: 14px;display:inline-block;" multiple size="1"> 
+							</select>
+	                    </div>
+	              	</div>
+	          	</div> 
+	          	<div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">From</label> 
+	                    <div  class="col-sm-3-separator">     
+                            <input type="text" name="F_FromDate" ID="F_FromDate" class="form-control" maxlength="10" style="width:95px !important; display:inline;" value="" ><a><i style="vertical-align:-5px; padding-left:5px" class="zmdi zmdi-calendar fontBtn" id="I1"  onclick="return showCalendar('F_FromDate','%m/%d/%Y');"></i></a>	                       		
+	                    </div>
+	              	</div>
+	          	</div> 
+	          	<div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">To</label> 
+	                    <div  class="col-sm-3-separator"> 
+                            <input type="text" name="F_ToDate" ID="F_ToDate" class="form-control" maxlength="10" value="" style="width:95px !important; display:inline;"><a><i style="vertical-align:-5px; padding-left:5px" class="zmdi zmdi-calendar fontBtn" id="I2"  onclick="return showCalendar('F_ToDate','%m/%d/%Y');"></i></a>
+	                    </div>
+	              	</div>
+	          	</div> 
+
+                </div>
+
+				<div class="row">
+				<div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">Version</label> 
+	                    <div  class="col-sm-3-separator">                             
+	                       	<select id="lst_Version" name="lst_Version" class="form-control" style="width:100%;font-size: 14px;display:inline-block;">  
+							</select>
+	                    </div>
+	              	</div>
+	          	</div>
+
+				<div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">Author</label> 
+	                    <div  class="col-sm-3-separator">     
+							<select id="lst_Author" name="lst_Author" class="form-control" style="width:100%;font-size: 14px;display:inline-block;"> 
+							</select>
+	                    </div>
+	              	</div>
+	            </div>                 
+
+	            <div class="col-md-2 col-xs-6 col-sm-4 col-filter" style="display:'';">
+	              	<div class="form-group" >
+	              		<label class="control-label">History</label> 
+	                    <div  class="col-sm-3-separator">                             
+	                       	
+							<select id="lst_CurrentSet" name="lst_CurrentSet" class="form-control" style="width:100%;font-size: 14px;display:inline-block;">
+								<option value="-1">Select one...</option>
+								
+								<option value="0"  >All</option>
+								<option value="9453" >001 - Specifications</option><option value="9665" >001 - 10 75 00 - Flagpoles</option><option value="9666" >001 - 09 65 36 - Static-Control Resilient Flooring</option><option value="9477" >A-410 ELEVATIONS - ENLARGED FLOOR PLANS AND INTERIOR</option><option value="9497" >ID-101 - FINISH PLAN AND SCHEDULE</option><option value="10505" >G-101 - DRAWING LEGEND AND BUILDING DATA</option><option value="10506" >G-102 - SHEET INDEX</option><option value="10507" >G-103 - CODE ANALYSIS</option><option value="10508" >G-104 - MOUNTING HEIGHTS</option><option value="10509" >G-105 - UL LISTINGS</option><option value="10510" >G-106 - UL LISTINGS</option><option value="10511" >B-101 - LIFE SAFETY PLAN</option><option value="10512" >A-001 - SITE PLAN</option><option value="10513" >A-002 - SITE DETAILS</option><option value="10514" >A-101 - FLOOR PLAN</option><option value="10515" >A-102 - ROOF PLAN</option><option value="10516" >A-110 - EOS PLAN</option><option value="10517" >A-120 - PARTITION TYPES PLAN</option><option value="10518" >A-130 - DIMENSION FLOOR PLAN</option><option value="10519" >A-201 - REFLECTED CEILING PLAN</option><option value="10520" >A-301 - EXTERIOR ELEVATIONS</option><option value="10521" >A-302 - EXTERIOR ELEVATIONS</option><option value="10522" >A-310 - BUILDING SECTIONS</option><option value="10523" >A-401 - ENLARGED WATER CLOSET PLANS AND ELEVATIONS</option><option value="10524" >A-410 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS</option><option value="10525" >A-411 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS</option><option value="10526" >A-420 - MILLWORK SECTIONS</option><option value="10527" >A-501 - APPARATUS BAY INTERIOR ELEVATIONS</option><option value="10528" >A-701 - WALL SECTIONS</option><option value="10529" >A-702 - WALL SECTIONS</option><option value="10530" >A-720 - ENCLOSURE DETAILS</option><option value="10531" >A-721 - ENCLOSURE DETAILS</option><option value="10532" >A-722 - ENCLOSURE DETAILS</option><option value="10533" >A-723 - ENCLOSURE DETAILS</option><option value="10534" >A-730 - CEILING DETAILS</option><option value="10535" >A-801 - PARTITION TYPES - METAL FRAMED WALLS</option><option value="10536" >A-802 - PARTITION TYPES - CMU WALLS</option><option value="10537" >A-803 - PARTITION TYPES - CMU WALLS</option><option value="10538" >A-804 - PARTITION DETAILS</option><option value="10539" >A-810 - DOOR SCHEDULE</option><option value="10540" >A-811 - DOOR DETAILS</option><option value="10541" >A-812 - DOOR DETAILS - SPECIALTY</option><option value="10542" >A-820 - STOREFRONT  LOUVER ELEVATIONS</option><option value="10543" >A-821 - STOREFRONT DETAILS</option><option value="10544" >ID-101 - FINISH PLAN AND SCHEDULE</option><option value="10545" >ID-301 - EQUIPMENT PLAN AND SCHEDULE</option><option value="10546" >ID-401 - INTERIOR DETAILS</option><option value="9462" >SP-1 - Site Plan</option><option value="9463" >SP-2 - Site Plan</option><option value="9464" >LS-1 - SCALE 1  30 15 30 60</option><option value="10116" >Civil Drawings and Specifications - Full Set</option><option value="10547" >S-101 - GENERAL STRUCTURAL NOTES</option><option value="10548" >S-201 - FOUNDATION PLAN</option><option value="10549" >S-202 - SLAB ON GRADE PLAN</option><option value="10550" >S-203 - LOW ROOF FRAMING PLAN</option><option value="10551" >S-204 - HIGH ROOF FRAMING PLAN</option><option value="10552" >S-301 - TYPICAL DETAILS</option><option value="10553" >S-302 - TYPICAL DETAILS</option><option value="10554" >S-303 - TYPICAL DETAILS</option><option value="10555" >S-401 - WALL SECTIONS</option><option value="10556" >S-402 - WALL SECTIONS</option><option value="10557" >S-403 - WALL SECTIONS</option><option value="10558" >S-404 - WALL SECTIONS</option><option value="10559" >S-405 - WALL SECTIONS</option><option value="10560" >S-501 - WALL ELEVATIONS</option><option value="10561" >S-502 - WALL ELEVATIONS</option><option value="10562" >S-503 - WALL ELEVATIONS</option><option value="10563" >S-504 - WALL ELEVATIONS</option><option value="10564" >S-601 - ISOMETRIC VIEWS</option><option value="10565" >M-001 - LEGEND, ABREVIATIONS, AND NOTES - HVAC</option><option value="10566" >M-101 - LEVEL 1 - FLOOR PLAN - HVAC</option><option value="10567" >M-106 - ROOF PLAN - HVAC</option><option value="10568" >M-201 - ENLARGED GENERATOR ROOM PLANS - HVAC</option><option value="10569" >M-501 - DETAILS - H.V.A.C.</option><option value="10570" >M-502 - DETAILS - H.V.A.C.</option><option value="10571" >M-601 - SCHEDULES - H.V.A.C.</option><option value="10572" >M-701 - CONTROLS - H.V.A.C.</option><option value="10573" >M-801 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10574" >M-802 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10575" >M-803 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10576" >M-804 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10577" >M-805 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10578" >M-806 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10579" >M-807 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10580" >M-808 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10581" >M-809 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10582" >M-810 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10583" >M-811 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10584" >M-812 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10585" >M-813 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10586" >M-814 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10587" >M-815 - KITCHEN HOOD DETAILS - H.V.A.C.</option><option value="10600" >P-001 - GENERAL NOTES AND LEGEND - PLUMBING</option><option value="10601" >P-100 - FOUNDATION PLAN - PLUMBING</option><option value="10602" >P-101 - LEVEL 1 - FLOOR PLAN - PLUMBING</option><option value="10603" >P-106 - ROOF PLAN - PLUMBING</option><option value="10604" >P-201 - ENLARGED PLANS - PLUMBING</option><option value="10605" >P-301 - WASTE RISERS - PLUMBING</option><option value="10606" >P-302 - WATER RISERS - PLUMBING</option><option value="10607" >P-501 - DETAILS - PLUMBING</option><option value="10608" >P-502 - DETAILS - PLUMBING</option><option value="10609" >P-601 - SCHEDULES - PLUMBING</option><option value="10588" >E-001 - SYMBOLS LEGEND - GENERAL NOTES - ELECTRICAL</option><option value="10589" >E-002 - FIXTURE SCHEDULE - ELECTRICAL</option><option value="9556" >E-010 - SITE PLAN - ELECTRICAL</option><option value="10591" >E-011 - SITE PHOTOMETRIC PLAN - ELECTRICAL</option><option value="9558" >E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING</option><option value="9559" >E-201 - LEVEL 1 - FLOOR PLAN - POWER</option><option value="9560" >E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM</option><option value="10595" >E-401 - ROOF PLAN - ELECTRICAL</option><option value="9562" >E-501 - DETAILS - ELECTRICAL</option><option value="9563" >E-502 - DETAILS - ELECTRICAL</option><option value="10598" >E-601 - ONE-LINE DIAGRAMS - ELECTRICAL</option><option value="10599" >E-701 - PANEL SCHEDULES</option><option value="9566" >F-001 - GENERAL NOTES  DESIGN CRITERIA -FIRE PROTECTION</option><option value="9567" >F-101 - LEVEL 1 - FLOOR PLAN - FIRE PROTECTION</option><option value="9568" >F-501 - DETAILS - FIRE PROTECTION</option><option value="9569" >F-502 - DETAILS - FIRE PROTECTION</option><option value="9570" >F-503 - DETAILS - FIRE PROTECTION</option><option value="10590" >E-010 - SITE PLAN - ELECTRICAL</option><option value="10592" >E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING</option><option value="10593" >E-201 - LEVEL 1 - FLOOR PLAN - POWER</option><option value="10594" >E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM</option><option value="10596" >E-501 - DETAILS - ELECTRICAL</option><option value="10597" >E-502 - DETAILS - ELECTRICAL</option><option value="10610" >PG001 - Generator Specifications</option><option value="9571" >T-001 TECHNOLOGY - GENERAL NOTES  SYMBOLS LEGEND-</option><option value="9572" >T-010 - SITE PLAN - TECHNOLOGY</option><option value="9573" >T-101 - LEVEL 1 - FLOOR PLAN - TECHNOLOGY</option><option value="9574" >T-201 - LEVEL 1 - FLOOR PLAN - ALERTING SYSTEM</option><option value="9575" >T-501 - DETAILS - TECHNOLOGY</option><option value="9576" >T-502 - DETAILS - TECHNOLOGY</option><option value="9577" >T-503 - DETAILS - TECHNOLOGY</option><option value="9579" >T-601 - RISER DIAGRAM - TECHNOLOGY</option><option value="9551" >PG-001 - GENERAL NOTES, LEGEND. SCHEDULES AND TABLES - GAS</option><option value="9552" >PG-100 - FOUNDATIONS PLAN - GAS</option><option value="9553" >PG-101 - LEVEL 1 - FLOOR PLAN - GAS</option><option value="9578" >PG-201 - OVERALL GAS RISER - GAS</option><option value="10504" >Cover Sheet</option>
+							</select>
+	                    </div>
+	              	</div>
+	            </div> 
+
+				<div class="col-md-2 col-xs-6 col-sm-4 col-filter">
+	              	<div class="form-group">
+	              		<label class="control-label">Discipline</label> 
+	                    <div  class="col-sm-3-separator">
+							<div class="ccWithPhasesList">
+							
+							<select id="lst_Discipline" name="lst_Discipline" style="width:100%;font-size: 14px;" multiple>
+							<option class="noCC" value="None" selected>No Discipline</option><optgroup class="GroupDiscipline" label="Planned for this Project"><option value="Architectural" selected>Architectural</option><option value="Civil Engineering" selected>Civil Engineering</option><option value="Cover Sheet" selected>Cover Sheet</option><option value="Electrical" selected>Electrical</option><option value="Fire Protection" selected>Fire Protection</option><option value="Gas" selected>Gas</option><option value="Mechanical" selected>Mechanical</option><option value="Plumbing" selected>Plumbing</option><option value="Structural" selected>Structural</option><option value="Technology" selected>Technology</option></optgroup><optgroup class="GroupDiscipline" label="Other Disciplines"><option value="Equipment" selected>Equipment</option><option value="Fuel Storage" selected>Fuel Storage</option><option value="General" selected>General</option><option value="Geotechnical" selected>Geotechnical</option><option value="Hazardous Materials" selected>Hazardous Materials</option><option value="Interiors" selected>Interiors</option><option value="Landscaping" selected>Landscaping</option><option value="Other Disciplines" selected>Other Disciplines</option><option value="Survey/Mapping" selected>Survey/Mapping</option><option value="Telecommunications" selected>Telecommunications</option></optgroup>
+							</select>
+
+
+							</div>
+	                    </div>
+	              	</div>
+	            </div>  
+                
+				<div id="filterFieldLens" class="col-md-2 col-xs-6 col-sm-4 col-filter hide">
+	              	<div class="form-group">
+	              		<label class="control-label">Fieldlens</label> 
+	                    <div  class="col-sm-3-separator">                             
+							<select id="lst_FieldLens" name="lst_FieldLens" class="form-control" style="width:100%;font-size: 14px;display:inline-block;" >
+							</select>
+	                    </div>
+	              	</div>
+	            </div>
+                
+            	<div class="col-md-2-Console_A">
+              		<div class="form-group">
+                		<label class="control-label">&nbsp;</label> 
+                		<div  class="col-sm-3-separator">               				
+                            <input onclick="javascript:FilterValidationManage()" type="submit" class="btn btn-primary-alt " value="Filter"/> 
+                  			<input onclick="javascript:FilterValidationManage();filterBoxActivation('Filter')" type="submit" class="btn btn-primary" value="Filter & Hide"/>    
+                		</div>
+              		</div>  
+            	</div>  
+	        </div>
+
+	</div>
+		</div>
+</div>
+	
+
+<div id="divAddbox" style="display:none;height:210px;overflow-y:hidden;padding:0px 0px 0px 0px;position:relative;z-index:2" class="divform" >
+	<table  cellspacing="0" cellpadding="0" width="100%" border="0" >
+			<tr>
+				<td style="padding-left:15px;padding-top:1px">
+					<table cellspacing="0" cellpadding="0" width="532px" border="0" >
+						<tr>
+							<td style="width:460px;background-color:#ffffff;" nowrap>
+								<table border="0" cellspacing="0" cellpadding="0" style="padding:2px">
+									<tr>
+										<td style="paddig-top:10px;" colspan="3">
+											<div class="modal-header">
+       	 									<h3 class="modal-title">
+       	 										<strong>Add Specification Heading</strong>
+       	 									</h3>
+       	 									</div>
+       	 								</td>
+       	 							</tr>
+									<tr>
+										<td style="16">&nbsp;
+										</td>
+									</tr>
+    								<tr>
+										<td width="170" nowrap="nowrap" colspan="2" align="right" style="padding-right:5px; font-size:14px">
+											<label class="control-label-right">Specification Heading:</label></td>
+										<td width="260" nowrap="nowrap">
+											<input type="text" id="SpecNameAdd" name="SpecNameAdd" maxlength="100"  style="width:90%; font-size:14" class="form-control" onKeyPress="ValidofTypeCharacter(event, this.value);"/>
+										</td> 
+										<td width="100%" nowrap>&nbsp;</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan="3">&nbsp;</td>
+									</tr>
+									<tr >
+			            				<td width="100%" align="right" colspan="3"  nowrap>
+                                            
+			                    			<div class="modal-footer footer-form">
+			                    			<input type="button" onclick="javascript:Verify('YmFuZEFkZD1zYXZlJmFkZGJsb2NrPXRydWUmc29ydEJ5PXBsYW5zJldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5PTAwMjIx');" style="width:70px;" class="btn btn-primary" value="Save" />
+			                    			<input type="button" onclick="javascript:slideBoxActivation();hideMenu();" style="width:70px;padding-top:8px; padding-bottom:8px;" class="btn btn-alt" value="Cancel" />
+			                    			</div>
+			                			</td>  
+			            			</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>            
+		</table>
+	
+</div> 
+
+
+<div id="staticCols" style="position:relative; background-color:#F3F4F6;z-index:2">
+		<div id="tblheading" class="TableCont tblheading" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<div id="SelectAll" class="TableCell Cell_a" style nowrap> 
+				<input type="checkbox" class="chkbox-co-existence" style="vertical-align:top;position: relative;top: -2px;" name="chkAll00" id="chkAll00" onclick="checkAll('','00');"></>
+			</div>
+			<div id="UnSelectAll" class="TableCell Cell_a" style="display:none;" nowrap>								
+				<input type="checkbox" class="chkbox-co-existence" style="vertical-align:top;position: relative;top: -2px;"  name="UnchkAll" id="UnchkAll"  onclick="UncheckAll('','00');" ></>
+			</div>
+			<div class="TableCell Cell_b" nowrap>&nbsp;</div>
+			<div class="TableCell Cell_c" nowrap><b>Tools</b></div>
+			<div class="TableCell Cell_d" nowrap>
+				<a href="javascript:OrderItems('Name')" ><u>Name</u>
+					<img id="Name_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;display:none">
+					<img id="Name_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;display:none">
+				</a></div>
+			<div class="TableCell Cell_o" nowrap><b>Discipline</b></div>
+			<div class="TableCell Cell_e" nowrap>
+				<a href="javascript:OrderItems('Date')" ><u>Date</u>
+					<img id="Date_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;display:none">
+					<img id="Date_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;display:none">
+				</a>
+			</div>
+			<div class="TableCell Cell_f" nowrap>
+				<a href="javascript:OrderItems('Author')" ><u>Author</u>
+					<img id="Author_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;display:none">
+					<img id="Author_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;display:none">
+				</a>
+			</div>
+			
+				<div id="columnScope" class="TableCell Cell_g" nowrap><u>Scope</u></div>
+			
+			<div class="TableCell Cell_h" nowrap><a href="javascript:OrderItems('Version')" ><u>Version</u>
+					<img id="Version_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;display:none">
+					<img id="Version_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;display:none">
+			</a></div>
+			<div class="TableCell Cell_i" nowrap><a href="javascript:OrderItems('Addendum')" ><u>Addendum</u>
+					<img id="Addendum_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;display:none">
+					<img id="Addendum_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;display:none">
+				</a></div>
+			<div class="TableCell Cell_j" nowrap><a href="javascript:OrderItems('Status')" ><u>Status</u>
+					<img id="Status_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;display:none">
+					<img id="Status_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;display:none">
+			</a></div>
+			<div class="TableCell Cell_k" nowrap class="pleft-15"><b>Notes</b></div>
+			<div class="TableCell Cell_l" style="text-align: center;display:none;" nowrap><b>Rendered</b></div>
+			
+			<div class="TableCell Cell_m" style="text-align: center;" nowrap><b>PlanGrid</b></div>
+			
+			<div class="TableCell Cell_n" nowrap style="text-align: center;"><b>Log</b></div> 
+
+		 
+			  	
+		</div>
+</div>
+
+<div class="BodyContain"></div>
+<div class="TabelCont NoSpecs" style="display:none">
+	<div class="NoSpecsContain"><font class="orange">There are no Plans and Specifications on File!</font></div>
+</div>
+ 
+ <input type="hidden" name="WorkorderStatus" id="WorkorderStatus" value="InProgress" /><input type="hidden" name="nItems" id="nItems" value="" /><input type="hidden" name="nSelections" id="nSelections" value="0" /><input type="hidden" name="nScopeSelections" id="nScopeSelections" value="0" /><input type="hidden" name="nUncommSelections" id="nUncommSelections" value="0" /><input type="hidden" name="nCommSelections" id="nCommSelections" value="0" /><input type="hidden" name="nVoidSelections" id="nVoidSelections" value="0" /><input type="hidden" name="permissionAddEditSpecs" id="permissionAddEditSpecs" value="True" /><input type="hidden" name="newpco" id="newpco" value="" /> </div>		<input type="hidden" name="count" id="count" value="" />        <a id="btnGoPrevious" href="#" style="display: none" onClick="verifyGeneral('Prev');">go to Previuos</a>        <a id="btnGoNext" href="#" style="display:none" onClick="verifyGeneral('Next');">go to Next</a>         <input type="hidden" id="formReturn" name="formReturn" value="true"/></form></div> <form id="FormView" name="FormView" method="post" style="display:none;" target="_blank" >	<textarea style="display:none;" id="viewPrintRequest" name="viewPrintRequest">PlanSpecs_List</textarea>	<textarea style="display:none;" id="viewPrintItems" name="viewPrintItems"  ></textarea>	<input style="display:none;" id="viewPrintRequestMod" name="viewPrintRequestMod" type="text" value="00"  />	<input style="display:none;" id="viewPrintOrderBy" name="viewPrintOrderBy" value="WorkorderMod asc,LineOrder asc" type="text"  />	<input style="display:none;" id="viewPrintStatus" name="viewPrintStatus" value="" type="text"  />	<input style="display:none;" id="viewPrintType" name="viewPrintType" value="" type="text"  />	<input style="display:none;" id="viewCurrentSet" name="viewCurrentSet" value="-1" type="text"  />		<input style="display:none;" id="viewPrintDiscipline" name="viewPrintDiscipline" value="" type="text"  />	</form><form id="FormMassUpdate" name="FormMassUpdate" method="post" style="display:none;" action="MassUpdateSpecs.asp?WorkorderId=1940046&WorkorderMod=00&woStatus=InProgress&Facility=00221&console=&openFrom=">	<textarea style="display:none" id="MassUpdateIDs" name="MassUpdateIDs"></textarea>	<textarea style="display:none" id="listPos" name="listPos"></textarea>   <textarea style="display:none;" id="jsCtoolVoid" name="jsCtoolVoid" rows="5" cols="35" ></textarea>   <textarea style="display:none;" id="jsMCtoolVoid" name="jsMCtoolVoid" rows="5" cols="35" ></textarea>   <textarea style="display:none;" id="jsMCtoolDelete" name="jsMCtoolDelete" rows="5" cols="35" ></textarea>	<input type="hidden" id="filteractive" name="filteractive"  value=""/>	<input type="hidden" id="filterType" name="filterType"  value=""/>	<input type="hidden" id="filterDate" name="filterDate"  value=""/>	<input type="hidden" id="filterToDate" name="filterToDate"  value=""/>	<input type="hidden" id="filterStatus" name="filterStatus"  value=""/>	<input type="hidden" id="filterVersion" name="filterVersion"  value=""/>	<input type="hidden" id="filterAuthor" name="filterAuthor"  value=""/>	<input type="hidden" id="filterCurrenset" name="filterCurrenset"  value="-1"/>	<input type="hidden" id="filterDiscipline" name="filterDiscipline"  value=""/>	<input type="hidden" id="hdnCurrentPageNumberspecs" name="hdnCurrentPageNumberspecs" value=""/> 	<input type="hidden" id="hdnActionCommandSpecs" name="hdnActionCommandSpecs" value=""/> 	<input type="hidden" id="hdnCurrentUrlParamspecs" name="hdnCurrentUrlParamspecs" value="" /> 	<input type="hidden" id="hdnParameterspecs" name="hdnParameterspecs" value="" />	<input type="hidden" id="hdnCurrentSortCriterialspecs" name="hdnCurrentSortCriterialspecs" value="" /></form><form id="frmAddHeadingTool" name="frmAddHeadingTool" method="post" action="" style="display:none"><input type="text" id="SpecHeadingAdd" name="SpecHeadingAdd" maxlength="100" style="width:100%; font-size:14" class="form-control"><input type="text" id="txtSpec_HeadingPosition" name="txtSpec_HeadingPosition" value="" /></form></body><div class="LoadingBody"  style="display:none"><svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">  
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg>
+<div class='Icon_RTLoadingText'>Loading...</div></div></html>
+
+<script language="javascript" type="text/javascript" >
+   
+    $("body").click(function () {
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        if (!is_firefox) {
+            hideMenuAux();
+            hideToolIcon();
+        }
+    });
+
+    function showMessageSpec() {
+        var messageWoSpec = '<span><strong>Warning!</strong> Any change to Plans and Specifications will change committed RFQs, use Addendums as an alternative.</span>';
+        var parentTop = verifyFrameAngular();
+
+        if (messageWoSpec != "") {
+            if (parentTop.showWarningMessage) {
+                parentTop.showWarningMessage('Warning! Any changes to Plans & Specifications will update sent RFQs automatically.');
+            }
+            else {
+                parent.$("#WoSpecMessageValue").html('<span><strong>Warning!</strong> Any change to Plans and Specifications will change committed RFQs, use Addendums as an alternative.</span>');
+                parent.$("#textWoSpec").show();
+                parent.$("#textWoSpec").css('z-index', '14');
+            }
+        }
+        else {
+            parent.$("#textWoSpec").hide();
+        }
+	}
+	
+	function LoadConfiguration(page,console){
+		if(!page){
+			page = "app/underconstruction.html" ;
+			ShowLightBoxASP(page, '', '650px');
+			return ;
+		}
+		if(isMobileDevice())
+		{
+			ShowLightBoxASP(page, '', '650px');
+			return ;
+		}
+		if (console == "console"){
+			ShowLightBoxASP(page, 'console', '650px');
+		}
+		else
+		if (console == "large"){
+			ShowLightBoxASP(page, 'large', '650px');
+		}
+		else{
+			ShowLightBoxASP(page, '', '650px');
+		}
+	}
+
+	function isMobileDevice() {
+		return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+	};
+
+</script>
+
+	<script type="text/javascript">
+
+		$('#lst_Scope,#lst_Version,#lst_Author, #lst_FieldLens').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 0,
+			setEventClickSelAll: false,
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+		});
+
+		$('#lst_Type,#lst_Status,#lst_CurrentSet,#lst_Discipline').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 1,
+			setEventClickSelAll: false,		
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+		});
+
+		jQuery("#TextToSearch").jcOnPageFilter({ animateHideNShow: true,
+            focusOnLoad: true,
+            highlightColor: '#fff70080',
+            textColorForHighlights: '#212121',
+            caseSensitive: false,
+            hideNegatives: true,
+            parentLookupClass: 'SearchTextParent',
+            childBlockClass: 'SearchTextChild'
+	});
+
+    var console = '';
+    if (console != 'newpco') {
+        if (document.getElementById("sortall_current")) document.getElementById("sortall_current").style.display = "none";
+        if (document.getElementById("idButtons")) document.getElementById("idButtons").style.display = "none";
+        if (document.getElementById("btnFieldLens")) document.getElementById("btnFieldLens").style.display = "none";
+        if (document.getElementById("btnPlangridSync")) document.getElementById("btnPlangridSync").style.display = "none";
+        if (document.getElementById("btnPlangrid")) document.getElementById("btnPlangrid").style.display = "none";
+        if (document.getElementById("btnCommit")) document.getElementById("btnCommit").style.display = "none";
+        if (document.getElementById("btnUnCommit")) document.getElementById("btnUnCommit").style.display = "none";
+        if (document.getElementById("MassUpdate")) document.getElementById("MassUpdate").style.display = "none";
+        if (document.getElementById("btnVoid")) document.getElementById("btnVoid").style.display = "none";
+        if (document.getElementById("btnDelete")) document.getElementById("btnDelete").style.display = "none";
+    }
+    
+	</script>
+	
+<script>
+    
+
+    $('#SpecNameAdd').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    
+     
+</script>
+
+
+
+<script type="text/javascript">
+    var console = '';
+    if (console != "newpco") {
+        $(window).load(function () {
+            setEclipseScreenIcon();
+        });
+    }
+
+	var parentTop = verifyFrameAngular();
+    if (parentTop != "") {
+        document.getElementById("dLabel").style.display = "none";
+        document.getElementById("dMaximize").style.display = "none";
+        document.getElementById("Manage_title_Name").innerHTML = "";
+        parent.top.$(".TOPProjectsBar").hide();
+        parent.top.$("#OpenMaximize").val('no');
+    }
+</script>

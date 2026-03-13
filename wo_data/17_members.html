@@ -1,0 +1,95 @@
+
+</div>
+</div>
+
+</body>
+<script type="text/javascript">
+        $(document).ready(function () {
+            if (document.getElementById("JsonFieldlens")) {
+                document.getElementById("idFieldlens").innerHTML = document.getElementById("JsonFieldlens").innerHTML;
+            }
+
+            $("#idFieldlens").css("display","none");
+            $("#exportcontacts").css("display","none");
+            $("#btnHideMembers").css("display","none");
+        });
+
+        (function ($) {
+            var accordion_list_item, info_block;
+
+            $('.title_info_block').on('click', function () {
+            
+                var idT = $(this).attr("id")
+                var idDt = idT.slice(1)
+
+                accordion_list_item = $(this).parents('.accordion_list_item');
+
+                info_block = accordion_list_item.find('.info');
+
+                if (accordion_list_item.hasClass('active_info_block')) {
+                    accordion_list_item.removeClass('active_info_block');
+                    info_block.slideUp();
+                }
+                else {
+                    accordion_list_item.addClass('active_info_block');
+                    info_block.stop(true, true).slideDown();
+
+                }
+
+            });
+
+            $('.accordion_list_item input[type="checkbox"]').click(function (e) {
+                e.stopPropagation();
+            });
+
+        })(jQuery);
+
+        $(window).load(function () {
+            setEclipseScreenIcon();
+            List_WoTeam('', "ServiceProvider", '', '', '', '', '', '', '', '', '','', '', '')            
+        });
+</script>
+<style>
+    .ac-sent {
+        border: 1px solid #ABF5D2;
+        border-radius: 9px;
+        padding: 1px 13px 1px 13px;
+        color: #016644;
+        font-size: 11px;
+        font-weight: 500;
+        height: 18px;
+        margin: 8px 0;
+    }
+    .btn-fl{
+        display:inline-flex;
+        justify-content: center;
+        align-items:center;
+        background-color: rgb(255, 255, 255);
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        color: rgb(51, 51, 51);
+        font-family: 'Roboto', sans-serif;
+        box-shadow: none !important;
+        border-color: #4697ce;
+        border-width: 1px;
+        border-style: solid;
+        text-decoration: none;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        white-space: nowrap;
+        font-size: 13px;
+        height: 38px;
+    }
+    .btn-fl p{
+        padding: 10px;
+        margin: 0;
+    }
+    .btn-fl img{
+        width: 99px;
+        height: 19px;
+    }
+</style>
+</html>   

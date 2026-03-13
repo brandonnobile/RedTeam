@@ -1,0 +1,91 @@
+=== Contract ===
+
+<svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg> <svg xmlns="http://www.w3.org/2000/svg" class="iconSubStatus" width="28" height="28" viewBox="0 0 28 28">
+ <g id="sub-status" transform="translate(-44 -140)">
+ <rect id="Rectangle_1986" data-name="Rectangle 1986" width="28" height="28" transform="translate(44 140)" fill="none"/>
+ <g id="Group_20" data-name="Group 20" transform="translate(-788 286)">
+ <path id="Path_33" data-name="Path 33" d="M272,272v12.656h12.656V272Zm0,0" transform="translate(560 -418)" fill="#5cdb3c"/>
+ <path id="Path_34" data-name="Path 34" d="M392,272h6.328v12.656H392Zm0,0" transform="translate(446.634 -418)" fill="#1db00b"/>
+ <g id="Group_14" data-name="Group 14" transform="translate(835.5 -143.275)">
+ <path id="Path_42" data-name="Path 42" d="M4815.021,278.235h-.967v1.058a.09.09,0,0,0,0-.011h.009c.162.6.466,1.508.942,2.924h-.955V283.4h1.267l.552,1.55h1.525Z" transform="translate(-4810.92 -278.235)" fill="#efe2dd"/>
+ <path id="Path_43" data-name="Path 43" d="M4648.744,282.206c.38-1.2.714-2.251.88-2.913v-1.058h-.855l-2.278,6.71h1.426l.523-1.55h1.185v-1.189Z" transform="translate(-4646.49 -278.235)" fill="#fff5f5"/>
+ </g>
+ <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(838 -131)" fill="#fff" stroke="#000" stroke-width="1">
+ <rect width="1.4" height="1.4" stroke="none"/>
+ <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+ </g>
+ <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(838 -128)" fill="#fff" stroke="#000" stroke-width="1">
+ <rect width="1.4" height="1.4" stroke="none"/>
+ <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+ </g>
+ <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(838 -125)" fill="#fff" stroke="#000" stroke-width="1">
+ <rect width="1.4" height="1.4" stroke="none"/>
+ <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+ </g>
+ <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(841 -125)" fill="#fff" stroke="#000" stroke-width="1">
+ <rect width="1.4" height="1.4" stroke="none"/>
+ <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+ </g>
+ <g id="Rectangle_8" data-name="Rectangle 8" transform="translate(844 -125)" fill="#fff" stroke="#000" stroke-width="1">
+ <rect width="1.4" height="1.4" stroke="none"/>
+ <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+ </g>
+ <g id="Group_18" data-name="Group 18" transform="translate(-6100.789 -2200.656)">
+ <path id="Path_50" data-name="Path 50" d="M6948.13,2070v12.66h12.66V2070Zm7.421,8.955a4.008,4.008,0,0,1-.134-.411c-.023-.083-.039-.138-.049-.163a2.534,2.534,0,0,1-.761.519,2.2,2.2,0,0,1-.866.173,1.793,1.793,0,0,1-1.279-.441,1.465,1.465,0,0,1-.467-1.113,1.494,1.494,0,0,1,.213-.794,1.393,1.393,0,0,1,.6-.534,4.736,4.736,0,0,1,1.106-.323,7.583,7.583,0,0,0,1.348-.341v-.139a.715.715,0,0,0-.2-.571,1.177,1.177,0,0,0-.746-.171.993.993,0,0,0-.578.147,1.01,1.01,0,0,0-.336.511l-1.262-.227a1.962,1.962,0,0,1,.733-1.127,2.674,2.674,0,0,1,1.542-.365,3.342,3.342,0,0,1,1.385.218,1.4,1.4,0,0,1,.641.561,2.868,2.868,0,0,1,.185,1.243l-.014,1.623a5.6,5.6,0,0,0,.066,1.02,2.966,2.966,0,0,0,.251.705Z" transform="translate(-0.001 -0.001)" fill="#5cdb3c"/>
+ <path id="Path_51" data-name="Path 51" d="M6952.553,2075.533a.58.58,0,0,0-.272.49.672.672,0,0,0,.219.5.753.753,0,0,0,.553.213,1.217,1.217,0,0,0,.718-.247.886.886,0,0,0,.33-.459,2.723,2.723,0,0,0,.054-.679v-.276c-.175.06-.459.129-.845.213A2.556,2.556,0,0,0,6952.553,2075.533Z" transform="translate(1.103 1.352)" fill="#5cdb3c"/>
+ </g>
+ </g>
+ </g>
+</svg> <svg class="IconTools" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="tools" transform="translate(-319 -550)">
+ <rect id="Rec_1743" data-name="Rec_1743" width="24" height="24" transform="translate(319 550)" fill="none"/>
+ <path id="apps_1_" data-name="apps (1)" d="M16,20h4V16H16m0-2h4V10H16M10,8h4V4H10m6,4h4V4H16M10,14h4V10H10M4,14H8V10H4M4,20H8V16H4m6,4h4V16H10M4,8H8V4H4Z" transform="translate(319 550)"/>
+ </g>
+</svg> 
+
+ %svgtools% %svgtools% 
+ %ndocuments% 
+ %CustomerPONumber% 
+ %ProposalDate% 
+ %ScopeNum% 
+ %NameProject% 
+ %TypeOfBidDesc1% 
+ %PlannedDuration% 
+ %ProposedAmount% 
+ %WorkorderStatus% 
+ %SubStatus% 
+
+ %svgmetadataHistory% 
+
+ %statusrtdocusign% 
+
+ 	View View 	Edit 	Recover 	Commit Scope 	Uncommit Scope 	Commit Pricing 	Uncommit Pricing 	Assistant Assistant 	Authorize Authorize 	Deauthorize 	Cancel Scope 	Cancel Proposal 	%Icon_subStatuses% Sub-Status 
+
+ %svgtools% %svgtools% 
+ %ndocuments% 
+ %CustomerPONumber% 
+ %ProposalDate% 
+ %ScopeNum% 
+ %NameProject% 
+ %TypeOfBidDesc1% 
+ %PlannedDuration% 
+ %ProposedAmount% 
+ %RCOStatus% 
+ %SubStatus% 
+
+ %svgmetadataHistory% 
+
+ %statusrtdocusign% 
+
+ 	View 	Edit 	Recover 	Commit 	UnCommit 	Authorize 	Demote 	Cancel 	Void 	Delete 	Deauthorize %HeaderText% 
+
+ %totaldays% 
+ %totalamount% 
+
+ %titleamount% 
+ %totaldays% 
+ %totalamount% 
+
+ Grouped by Sub-Status: %title% 
+
+ CustomerPONumber asc

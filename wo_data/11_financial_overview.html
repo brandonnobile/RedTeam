@@ -1,0 +1,2625 @@
+
+
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>RedTeam Financial Overview</title>
+<link href="https://flex.redteam.com/rts/app/asp/css/estilos.css" type="text/css" rel="stylesheet" />
+<script language="JavaScript" src="../../asp/js/correo.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/global.js" type="text/javascript"></script>
+<script language="JavaScript">
+function printRpt() {	
+    beforePrint();
+    setTimeout("onPrint()",100);
+    setTimeout("afterPrint()",600);
+}
+    
+function onPrint() {
+    window.print();
+}
+    
+function beforePrint() {
+    document.getElementById("botones").style.display = "none";
+}
+
+function afterPrint() {
+    document.getElementById("botones").style.display = "";
+}
+    
+window.onbeforeprint=beforePrint
+window.onafterprint=afterPrint
+
+function IncludeBudgetDetails(WorkorderID, WorkorderMod, CustomerFacilityID, WorkorderStatus, Client, ActiveUser) {
+
+    document.getElementById("tblLoadingMsg").style.display = "";
+    document.getElementById("rbIncludeBudgetDetailsByCC").disabled = true;
+    document.getElementById("rbIncludeBudgetDetailsByScope").disabled = true;
+    document.getElementById("lnkSnapshot").style.display = "none";
+    document.getElementById("lnkExport").style.display = "none";
+    document.getElementById("lnkPrint").style.display = "none";
+    document.getElementById("lnkClose").style.display = "none";
+
+    
+    var rbIncludeBudgetDetailsByCC = document.getElementById("rbIncludeBudgetDetailsByCC");
+    var rbIncludeBudgetDetailsByScope = document.getElementById("rbIncludeBudgetDetailsByScope");
+    var rbIncludeBudgetDetailsByPhase = document.getElementById("rbIncludeBudgetDetailsByPhase");
+    //alert(rbIncludeBudgetDetailsByCC.checked);
+    //alert(rbIncludeBudgetDetailsByScope.checked);
+    //alert(rbIncludeBudgetDetailsByPhase.checked);
+    //return;
+
+    var url = 'ViewProjectSum_L_SPEED.asp?WorkorderID=' + WorkorderID + '&WorkorderMod=' + WorkorderMod + '&CustomerFacilityID=' + CustomerFacilityID + '&WorkorderStatus=' + WorkorderStatus + '&Client=' + Client + '&ActiveUser=' + ActiveUser;
+    var reload = false;
+
+    if (rbIncludeBudgetDetailsByCC.checked) {
+        var divBudgetViewContent1 = document.getElementById("divBudgetView1").outerHTML;
+        url += "&includebudgetbycc=yes";
+        if (divBudgetViewContent1.length <= 60) {
+            reload = true;
+        }
+        else {
+            document.getElementById("divBudgetView1").style.display = '';
+            
+        }
+    }
+    else {
+        document.getElementById("divBudgetView1").style.display = 'none';
+      
+    }
+
+    if (rbIncludeBudgetDetailsByScope.checked) {
+        var divBudgetViewContent2 = document.getElementById("divBudgetView2").outerHTML;
+        url += "&includebudgetbyscope=yes";
+        if (divBudgetViewContent2.length <= 60) {
+            reload = true;
+        }
+        else {
+            document.getElementById("divBudgetView2").style.display = '';
+          
+        }
+    }
+    else {
+        document.getElementById("divBudgetView2").style.display = 'none';
+
+    }
+
+    if (rbIncludeBudgetDetailsByPhase.checked) {
+        var divBudgetViewContent3 = document.getElementById("divBudgetView3").outerHTML;
+        url += "&includebudgetbyphase=yes";
+        if (divBudgetViewContent3.length <= 60) {
+            reload = true;
+        }
+        else {
+            document.getElementById("divBudgetView3").style.display = '';
+
+        }
+    }
+    else {
+        document.getElementById("divBudgetView3").style.display = 'none';
+
+    }
+
+    if (rbIncludeBudgetDetailsByCC.checked || rbIncludeBudgetDetailsByScope.checked || rbIncludeBudgetDetailsByPhase.checked) {
+        if (reload) {
+            window.location = url;
+            //console.log(url);
+        }
+    }
+
+}
+  
+function GetReport(params) {
+    var file;
+    file = document.form1.F_Snapshots.options[document.form1.F_Snapshots.selectedIndex].value;
+
+    if (file == 'ViewProjectSum_SPEED.asp' && params != "") {
+        window.location = "ViewProjectSum_L_SPEED.asp?" + params;
+    }
+    else if (file == 'ViewProjectSum_SPEED.asp' && params == "") {
+        window.location = "ViewProjectSum_L_SPEED.asp";
+    }
+    else if (params != "") {
+        var page = "ViewProjectSum_L_SPEED.asp?historyfile=" + file + '&' + params;
+        window.location = page;
+    }
+    else if (params == "") {
+        var page = "ViewProjectSum_L_SPEED.asp?historyfile=" + file;
+        window.location = page;
+    }
+}
+
+function exportRpt() {
+    var ExportUrl = "FinancialOverview_ExpXLS.asp?band=export&WorkorderID=1940046&WorkorderMod=00&CustomerFacilityID=00221&WorkorderStatus=InProgress&Client=remnantconstruction&ActiveUser=1";
+    //alert(ExportUrl);
+    document.getElementById("ifrmExport").src = ExportUrl;
+}
+
+function snapshotRpt(url) {
+
+    document.getElementById("tblLoadingMsg").style.display = "";
+    document.getElementById("rbIncludeBudgetDetailsByCC").disabled = true;
+    document.getElementById("rbIncludeBudgetDetailsByScope").disabled = true;
+    document.getElementById("lnkSnapshot").style.display = "none";
+    document.getElementById("lnkExport").style.display = "none";
+    document.getElementById("lnkPrint").style.display = "none";
+    document.getElementById("lnkClose").style.display = "none";
+
+    if (!document.getElementById("rbIncludeBudgetDetailsByCC").checked) {
+        url = url.replace('includebudgetbycc=yes', '');
+    }
+    if (!document.getElementById("rbIncludeBudgetDetailsByScope").checked) {
+        url = url.replace('includebudgetbyscope=yes', '');
+    }
+    if (!document.getElementById("rbIncludeBudgetDetailsByPhase").checked) {
+        url = url.replace('includebudgetbyphase=yes', '');
+    }
+    //alert(url);
+
+    frmAux.action = url;
+    frmAux.target = "_self"
+    frmAux.submit();
+
+    setTimeout("winOpenerReload()", 3000);
+}
+
+function snapshotRpt_delete(url) {
+    document.location.href = url;
+}
+
+function winReload() {
+    window.location = window.location;
+}
+
+function winOpenerReload() {
+
+    var str = window.location.toString();
+    //alert(str);
+    var index = str.indexOf("WIP",60);
+    //alert(index);
+    if (index > 0) {
+        window.opener.location.reload();
+    }
+}
+
+
+function changeWIPflag(url) {
+    var WIPLabelID = document.form1.lstWIP.value;
+    //alert(WIPflagID);
+    var WIPLabelName = document.form1.lstWIP.options[document.form1.lstWIP.selectedIndex].text;
+    //alert(WIPflagText);
+
+    var x = window.confirm("This change will be reflected in the WIP. Are you sure?")
+    if (x) {
+        frmAux.action = url + "&WIPLabelID=" + WIPLabelID;
+        //alert(frmAux.action);
+        frmAux.submit();
+    }
+    else {
+        var WIPLabelID_original = document.getElementById("WIPLabelID_original").value;
+        document.form1.lstWIP.selectedIndex = WIPLabelID_original;
+    }
+
+    setTimeout("winOpenerReload()", 1000);
+}
+
+function getSelectedIndex() {
+    document.getElementById("WIPLabelID_original").value = document.form1.lstWIP.selectedIndex;
+}
+
+function LoadStyles() {
+    if (document.getElementById("divBudgetView1")) {
+        if (document.getElementById("divBudgetView1").style.display == '') {
+            document.getElementById("printzoom").className = "printzoom";
+        }
+        else if (document.getElementById("divBudgetView2").style.display == '') {
+            document.getElementById("printzoom").className = "printzoom";
+        }
+        else if (document.getElementById("divBudgetView3").style.display == '') {
+            document.getElementById("printzoom").className = "printzoom";
+        }
+        else if (document.getElementsByName("contentbudget")[0] && document.getElementById("divBudgetView1").style.display == 'none' && document.getElementById("divBudgetView2").style.display == 'none' && document.getElementById("divBudgetView3").style.display == 'none')
+        {
+            document.getElementsByName("contentnobudget")[0].className = "printzoom";
+        }
+
+    }
+    if (document.getElementById("rbIncludeBudgetDetailsByCC") && document.getElementById("rbIncludeBudgetDetailsByScope") && document.getElementById("rbIncludeBudgetDetailsByPhase")) {
+        if (rbIncludeBudgetDetailsByCC.checked) {
+            document.getElementById("rbIncludeBudgetDetailsByCC").disabled = true;
+            document.getElementById("rbIncludeBudgetDetailsByScope").disabled = false;
+            document.getElementById("rbIncludeBudgetDetailsByPhase").disabled = false;
+        }
+        else if (rbIncludeBudgetDetailsByScope.checked) {
+            document.getElementById("rbIncludeBudgetDetailsByCC").disabled = false;
+            document.getElementById("rbIncludeBudgetDetailsByScope").disabled = true;
+            document.getElementById("rbIncludeBudgetDetailsByPhase").disabled = false;
+        }
+        else if (rbIncludeBudgetDetailsByPhase.checked) {
+            document.getElementById("rbIncludeBudgetDetailsByCC").disabled = false;
+            document.getElementById("rbIncludeBudgetDetailsByScope").disabled = false;
+            document.getElementById("rbIncludeBudgetDetailsByPhase").disabled = true;
+        }
+        else {
+            document.getElementById("rbIncludeBudgetDetailsByCC").disabled = false;
+            document.getElementById("rbIncludeBudgetDetailsByScope").disabled = false;
+            document.getElementById("rbIncludeBudgetDetailsByPhase").disabled = false;
+        }
+    }
+}
+  
+</script>
+<style>
+    @media print
+    {
+        .printzoom
+        {
+            width:100%;
+            zoom: 150%;
+            }
+                    
+    }
+       
+</style>
+</HEAD>
+
+
+<BODY topmargin="0" leftmargin="0" scroll="auto" onload="LoadStyles();">
+   
+<div id="content">
+
+<iframe id="ifrmExport" name="ifrmExport" src="" style="width:200; height:100; display:none;"></iframe>
+
+<form id="frmAux" name="frmAux" action="" method="POST" target="ifrmExport" style="display:none;"></form>
+
+<FORM METHOD="POST" name=form1 ID="form1" style="display:inline">
+
+<table border="0" cellpadding="0" cellspacing="0" width="800" class="bodytext" bgcolor="#FFFFFF" Id="botones" align="center">
+<tr class="ViewActions">
+	<td valign="middle" width="50" nowrap style="padding-left:5px;">
+		<span class="linkazul1">History:&nbsp;</span>
+	</td>
+	<td valign="middle" width="250" nowrap>
+       
+	   <SELECT id="F_Snapshots" name="F_Snapshots" size="1" class="linkazul1" style="width:100%;" OnChange="GetReport('from=&WorkorderID=1940046&WorkorderMod=00&CustomerFacilityID=00221&WorkorderStatus=InProgress&Client=remnantconstruction&ActiveUser=1');">
+       
+       <OPTION value="ViewProjectSum_SPEED.asp"><span>Current</span></OPTION>
+       <OPTION value='FOV1940046-1162026-16125.htm'>1/16/2026 4:01:28 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-1142026-134519.htm'>1/14/2026 1:45:23 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-11172025-16222.htm'>11/17/2025 4:22:05 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-10202025-113739.htm'>10/20/2025 11:37:42 AM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-9172025-15510.htm'>9/17/2025 3:51:02 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-852025-163350.htm'>8/5/2025 4:33:52 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-7172025-143652.htm'>7/17/2025 2:36:54 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-552025-133821.htm'>5/5/2025 1:38:23 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-4152025-82244.htm'>4/15/2025 8:22:45 AM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-352025-10378.htm'>3/5/2025 10:37:09 AM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-342025-103342.htm'>3/4/2025 10:33:44 AM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-262025-163827.htm'>2/6/2025 4:38:29 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-12272024-143527.htm'>12/27/2024 2:35:29 PM by Jennifer Knowles</OPTION><OPTION value='FOV1940046-11272024-152455.htm'>11/27/2024 3:24:57 PM by Jennifer Knowles</OPTION>
+       </SELECT>
+    </td>
+    
+    <td valign="middle" align="right" width="50" nowrap>
+        <div>
+        <input type="radio" id="rbIncludeBudgetDetailsByCC" name="rbIncludeBudgetDetails" onclick="IncludeBudgetDetails('1940046', '00', '00221', 'InProgress', 'remnantconstruction', '1');"  /><br />
+        </div>
+        <div>
+        <input type="radio" id="rbIncludeBudgetDetailsByScope" name="rbIncludeBudgetDetails" onclick="IncludeBudgetDetails('1940046', '00', '00221', 'InProgress', 'remnantconstruction', '1');"  />
+        </div>
+        <div>
+        <input type="radio" id="rbIncludeBudgetDetailsByPhase" name="rbIncludeBudgetDetails" onclick="IncludeBudgetDetails('1940046', '00', '00221', 'InProgress', 'remnantconstruction', '1');"  />
+        </div>
+    </td>
+    <td valign="middle" width="190" nowrap>
+         <div style="padding-top:3px !important;padding-left:2px !important;">Include Budget Details by Cost Code</div>
+         <div style="padding-top:3px !important;padding-left:2px !important;">Include Budget Details by Scope</div>
+         <div style="padding-top:3px !important;padding-left:2px !important;">Include Budget Details by Phase</div>
+    </td>
+    
+	<td align="right" valign="middle" width="100%" style="padding-right:5px;">
+        
+        <A id="lnkSnapshot" class="linkazul1" href="javascript:snapshotRpt('ViewProjectSum_L_SPEED.asp?action=snapshot&includebudgetbycc=&includebudgetbyscope=&includebudgetbyphase=&from=&WorkorderID=1940046&WorkorderMod=00&CustomerFacilityID=00221&WorkorderStatus=InProgress&Client=remnantconstruction&ActiveUser=1');">[Snapshot]</A>&nbsp;&nbsp;
+            
+        <A id="lnkExport" class="linkazul1" href="javascript:exportRpt();">[Export]</A>&nbsp;&nbsp;
+        
+	    <A id="lnkPrint" class="linkazul1" href="javascript:printRpt();">[Print]</A>&nbsp;&nbsp;
+	    <A id="lnkClose" class="linkazul1" href="javascript:window.close();">[Close]</A>
+	</td>
+</tr>
+<tr class="ViewActions">
+    <td colspan="6" valign="middle" class="Orange" width="100%" style="padding-left:5px;">
+		For best results print this report on Landscape and use More Settings to set Scale to 85
+	</td>
+</tr>
+<tr class="ViewActionsDivider">
+ 	<td colspan="6" height="3" align="right" ></td>
+</tr>
+</table>
+
+<table id="tblLoadingMsg" border="0" cellpadding="0" cellspacing="0" align="center" style="width:800px !important; background-color:#FFFFFF !important; display:none;">
+<tr><td>
+<div id="divResultsClear" name="divResultsClear" style="width:100%;">
+    <div style="font-family: 'Roboto', sans-serif; font-size: 13px; font-weight:300; margin-bottom:1px !important;margin-left:0px !important;margin-right:0px !important;margin-top:17px !important;position: relative; color: #b9ab18 !important;background-color: #fff; border-color: #e8db4f; padding: 15px; border: 1px solid #b9ab18; border-radius: 3px;" id="tableMessageResClear" name="tableMessageResClear" role="alert">
+        <div><span>Your request is being processed... please wait.&nbsp;&nbsp;</span></div>
+    </div>
+</div>
+</td></tr>
+</table>
+
+</FORM>
+
+
+</div>
+
+<div ID="printzoom">
+
+<HTML>
+<HEAD>
+<title>RedTeam Financial Overview</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="https://flex.redteam.com/rts/app/asp/css/estilos.css" type="text/css" rel="stylesheet" />
+<script language="JavaScript" src="../../asp/js/global.js" type="text/javascript"></script>
+<style type="text/css">
+     .tablewidth
+     {
+         width:800;
+      }
+</style>
+</HEAD>
+
+
+<BODY topmargin="0" leftmargin="0" scroll=auto>
+    
+<div id="content" name="contentnobudget">
+
+<iframe id="ifrmExport" name="ifrmExport" src="" style="width:200; height:100; display:none;"></iframe>
+
+
+<table border="0" cellpadding="0" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align ="center">
+<tr class="ViewSectionsDivider">
+    <td colspan="2"></td>
+</tr>
+<tr>
+	<td style="padding-top:3px;width:160px;">
+	    <img class="ViewRegionLogo" alt="RedTeam_Logo" src="https://flex.redteam.com/TS/CompaniesTS/remnantconstruction/logoregion1_234201816923_0.jpg" />
+	</td>
+	<td style="padding-left:6px" valign="middle" align="left">
+	  <table border="0" width="100%">
+	    <tr>
+	        <td valign=middle width="300" bgcolor="#FFFFFF" nowrap>    
+            
+                <span class="ViewRegionName">Remnant Construction, LLC</span><br />
+                  
+	        </td>
+	        <td width="6px" valign="middle" bgcolor="#FFFFFF" nowrap>&nbsp;</td>
+	        <td  valign="middle" align="right" width="100%">
+	          <span class="ViewTitle">FINANCIAL OVERVIEW</span>
+	        </td>
+	    </tr>
+	  </table>
+	</td>
+</tr>
+<tr class="ViewSectionsDivider">
+    <td colspan="2"></td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center"> 
+<tr>
+	<td colspan="2" valign="bottom" align="right">Today's Date: 3/12/2026</td>
+</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center">
+<tr>
+	<td width="50%" nowrap valign="top">
+		<table border="0" width="100%" cellpadding="3" cellspacing="0" class="bodytext">
+		<tr>
+			<td class="cabecerahorarios"><b>Project Details</b></td>
+		</tr>
+		<tr>
+			<td>Company Division: Remnant Construction</td>
+		</tr>
+		<tr>
+			<td>Project: 1940046 - Fire Station 20 Build - New Construction</td>
+		</tr>
+		<tr>
+			<td>Customer: St. Lucie County Fire District</td>
+		</tr>
+		<tr>
+			<td>Facility: Station 20</td>
+		</tr>
+		<tr>
+			<td>Contact: Paul Langel</td>
+		</tr>
+		<tr>
+			<td>Manager: Stuart Frisby</td>
+		</tr>
+        <tr>
+			<td>Status: 
+            In Progress / Contract/PO Received
+            </td>
+		</tr>
+		<tr>
+			<td height="5"></td>
+		</tr>
+		</table>
+	</td>
+	<td width="2">&nbsp;</td>
+	<td width="50%" nowrap valign="top">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodytext" align="center">
+        <tr>
+		    <td colspan="3" bgcolor="#EEEEEE" class="cabecerahorarios">
+		    <table cellspacing="0" cellpadding="3" border="0" class="bodytext" width="100%" id="idcontractdetails">
+		    <tr>
+			    <td width="60%"><b>Contract Details</b></td>
+			    <td width="10%" align="right"><i>Days</i></td>
+			    <td width="30%" align="right"><i>Amount&nbsp($)</i></td>
+		    </tr>
+		    </table>
+		    </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+		    <table cellspacing="0" cellpadding="3" border="0" class="bodytext" width="100%" align="center">
+            <tr>
+			    <td width="60%">
+			        Original Contract dated 
+			        03/25/2024
+			    </td>
+			    <td width="10%" align="right">
+			        341
+	            </td>
+			    <td width="30%" align="right">
+			        5,999,685.28
+                </td>
+		    </tr>
+		    
+		    <tr>
+			    <td width="60%">
+			    89 Authorized Change Orders
+			    </td>
+			    <td width="10%" align="right">3</td>
+			    <td width="30%" align="right">-964,316.40</td>
+		    </tr>
+		    <tr>
+			    <td width="60%"><b>Total Modified Contract</b></td>
+			    <td width="10%" align="right"><b>344</b></td>
+			    <td width="30%" align="right"><b>5,035,368.88</b></td>
+		    </tr>
+		    <tr>
+			    <td width="60%">Contract Balance to Finish</td>
+			    <td width="10%" align="right">
+			    0
+                </td>
+			    <td width="30%" align="right">-30,135.43</td>
+		    </tr>
+		    
+		    <tr>
+			    <td width="60%">
+			        No Potential Scope Changes
+			    </td>
+			    <td width="10%" align="right">0</td>
+			    <td width="30%" align="right">0.00</td>
+		    </tr>
+            <tr>
+			   <td width="60%">Contract Start Date:</td>
+                <td width="10%" align="right"></td>
+			    <td width="30%" align="right">
+                    02/27/2024
+                </td>
+		    </tr>
+		    <tr>
+			   <td width="60%">Contract Completion Date:</td>
+                <td width="10%" align="right"></td>
+			    <td width="30%" align="right">
+                    02/04/2025
+                </td>
+		    </tr>
+		    <tr>
+			    <td width="60%">Anticipated Completion Date:</td>
+                <td width="10%" align="right"></td>
+			    <td width="30%" align="right">
+                    
+			        TBD
+			        
+                </td>
+		    </tr>
+		    <tr>
+		        <td colspan=3>&nbsp;</td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+    </td>
+</tr>        
+</table>
+
+<table border="0" cellpadding="3" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center">
+<tr>
+	<td colspan=1 bgcolor="#EEEEEE" class="cabecerahorarios">
+	    <table width="100%" border=0 cellpadding="0" cellspacing="0" class="bodytext">
+	        <tr>
+		        <td width="16%" nowrap><b>Estimate At Complete</b></td>
+                <td width="14%" align="right" nowrap><i>Budget&nbsp;($)</i></td>
+		        <td width="14%" align="right" nowrap><i>Actuals&nbsp;($)</i></td>
+		        <td width="14%" align="right" nowrap><i>Open&nbsp;($)</i></td>
+		        <td width="14%" align="right" nowrap><i>ETC&nbsp;($)</i></td>
+		        <td width="14%" align="right" nowrap><i>Complete&nbsp;($)</i></td>
+		        <td width="14%" align="right" nowrap><i>Variance&nbsp;($)</i></td>
+	        </tr>
+	    </table>
+	</td>
+</tr>
+<tr>
+    <td colspan=1>
+        <table width="100%" border=0 cellpadding="0" cellspacing="0" class="bodytext" align="center">
+			<tr>
+				<td colspan=7>&nbsp;</td>
+            </tr>
+			
+			
+			<tr>
+				<td width="16%" nowrap><b>Contract Revenue</b></td>
+				<td width="14%" nowrap align="right"><b>5,035,368.88</b></td>
+				<td width="14%" nowrap align="right"><b>5,026,881.64</b></td>
+				<td width="14%" nowrap>&nbsp;</td>
+				<td width="14%" nowrap>&nbsp;</td>
+				<td width="14%" nowrap align="right"><b>5,035,368.88</b></td>
+				<td width="14%" nowrap align="right"><b>0.00</b></td>
+			</tr>
+			<tr>
+				<td colspan=7>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>Direct Labor</td>
+				<td align="right">91,964.89</td>
+				<td align="right">91,932.97</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">91,932.97</td>
+				<td align="right">(31.92)</td>
+			</tr>
+			<tr>
+				<td>Material</td>
+				<td align="right">218,528.93</td>
+				<td align="right">164,118.85</td>
+				<td align="right">0.00</td>
+				<td align="right">5,798.92</td>
+				<td align="right">169,917.77</td>
+				<td align="right">(48,611.16)</td>
+			</tr>
+			<tr>
+				<td>Subcontract</td>
+				<td align="right">4,420,494.35</td>
+				<td align="right">4,531,344.47</td>
+				<td align="right">2,283.98</td>
+				<td align="right">0.00</td>
+				<td align="right">4,533,628.45</td>
+				<td align="right">113,134.10</td>
+			</tr>
+			<tr>
+				<td>Equipment</td>
+				<td align="right">-16,500.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">16,500.00</td>
+			</tr>
+            <tr>
+				<td>Other</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+				<td align="right">0.00</td>
+			</tr>
+			
+			<tr>
+				<td colspan=7>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><b>Total Cost</b></td>
+				<td align="right"><b>4,714,488.17</b></td>
+				<td align="right"><b>4,787,396.29</b></td>
+				<td align="right"><b>2,283.98</b></td>
+				<td align="right"><b>5,798.92</b></td>
+				<td align="right"><b>4,795,479.19</b></td>
+				<td align="right"><b>80,991.02</b></td>
+			</tr>
+			<tr>
+				<td><i>Percent Complete</i></td>
+				<td align="right"></td>
+				<td align="right"><i>99.83%</i></td>
+				<td align="right"><i>0.05%</i></td>
+				<td align="right"><i>0.12%</i></td>
+				<td align="right"><i>100.00%</i></td>
+				<td align="right"></td>
+			</tr>
+			<tr>
+				<td colspan=7>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><b>Profit (Loss)</b></td>
+				<td align="right"><b>320,880.71</b></td>
+				<td align="right"><b>239,485.35</b></td>
+				<td align="right">&nbsp;</td>
+				<td align="right">&nbsp;</td>
+				<td align="right"><b>239,889.69</b></td>
+				<td align="right"><b>(80,991.02)</b></td>
+			</tr>
+			<tr>
+				<td><i>Profit Margin</i></td>
+				<td align="right"><i>6.37%</i></td>
+				<td align="right"><i>4.76%</i></td>
+				<td align="right">&nbsp;</td>
+				<td align="right">&nbsp;</td>
+				<td align="right"><i>4.76%</i></td>
+				<td align="right">(1.61)%</td>
+			</tr>
+			<tr>
+				<td colspan=7><br />
+				    <span class="small"><i>Note - Commitments related to Potential Changes are included.</i></span>
+				</td>
+			</tr>
+			</table>
+	</td>
+</tr>
+<tr>
+    <td height="10px"></td>
+</tr>
+<tr>
+	<td bgcolor="#EEEEEE" class="cabecerahorarios">
+		<b>Working Capital</b>
+	</td>
+</tr>
+<tr>
+	<td colspan=1 width="100%">
+	    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodytext">
+	    <tr>
+		    <td colspan="6">&nbsp;</td>
+	    </tr>
+	    <tr>
+		    <td>Total Revenue</td>
+		    <td align="right" style="padding-right:15px;">5,026,881.64</td>
+		    <td>Received to Date</td>
+		    <td align="right" style="padding-right:15px;">5,065,504.31</td>
+		    <td>Accounts Payable</td>
+		    <td align="right" style="padding-right:15px;">2,119.27</td>
+	    </tr>
+	    <tr>
+	        <td width="14%">Less Total Billed</td>
+	        <td width="18%" align="right" style="padding-right:15px;">5,065,504.31</td>
+	        <td width="14%">Less Paid to Date</td>
+	        <td width="18%" align="right" style="padding-right:15px;">4,785,277.02</td>
+	        <td width="20%">Less Uncollected Revenue</td>
+		    <td width="16%" align="right" style="padding-right:15px;">(38,622.67)</td>
+	    </tr>
+	    <tr>
+		    <td height="10"></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+	    </tr>
+	    <tr>
+		    <td><b>Over (Under) Billed</b></td>
+		    <td align="right" style="padding-right:15px;"><b>38,622.67</b></td>
+		    <td><b>Net Cash Flow</b></td>
+		    <td align="right" style="padding-right:15px;"><b>280,227.29</b></td>
+		    <td><b>Net Working Capital</b></td>
+		    <td align="right" style="padding-right:15px;"><b>40,741.94</b></td>
+	    </tr>
+        </table>
+    </td>
+</tr>
+</table>
+
+<H2 STYLE='page-break-after:always'><font color=#FFFFFF>&nbsp;</font></H2>
+
+
+<table border="0" cellpadding="0" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center">
+<tr class="ViewSectionsDivider">
+    <td colspan="2"></td>
+</tr>
+<tr>
+	<td style="padding-top:3px;width:160px;">
+	    <img class="ViewRegionLogo" alt="RedTeam_Logo" src="https://flex.redteam.com/TS/CompaniesTS/remnantconstruction/logoregion1_234201816923_0.jpg" />
+	</td>
+	<td style="padding-left:6px" valign="middle" align="left" >
+	  <table border="0" width="100%">
+	    <tr>
+	        <td valign=middle width="300" bgcolor="#FFFFFF" nowrap>    
+                
+                    <span class="ViewRegionName">Remnant Construction, LLC</span><br />
+                      
+	        </td>
+	        <td width="6px" valign="middle" bgcolor="#FFFFFF" nowrap>&nbsp;</td>
+	        <td  valign="middle" align="right" width="100%">
+	          <span class="ViewTitle" >FINANCIAL OVERVIEW</span>
+	        </td>
+	    </tr>
+	  </table>
+	</td>
+</tr>
+<tr class="ViewSectionsDivider">
+    <td colspan="2"></td>
+</tr>
+</table>
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center">
+<tr>
+    <td valign="bottom" align="right" nowrap style="padding-left:5px;">
+	   1940046 - Fire Station 20 Build - New Construction
+	</td>
+	<td colspan="1" width="100%" valign="bottom" align="right">Today's Date: 3/12/2026</td>
+</tr>
+</table>
+
+
+<table border="0" cellpadding="3" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center">
+    <tr>
+        <td colspan="2" style="height:20px;"></td>
+    </tr>
+    <tr>
+       <td colspan="2" align="left">
+	        <table align="left" cellpadding="2" cellspacing="2" border=0  class="bodytext tablewidth" align="center">
+	            <tr>		               
+	               <td bgcolor="#f3f3f3" class="cabecerahorarios" valign="top" style="text-align:justify">
+		              <table border="0" class="bodytext">
+		                  <tr>
+		                  <td width="100%">
+		                    <b>Customer Changes</b>
+		                  </td>
+		                  <td width="40" nowrap>
+		                    <i>Days</i>
+		                  </td>
+		                  <td width="120" nowrap align="right">
+		                    <i>Priced&nbsp;($)</i>
+		                  </td>
+                          
+		                  </tr>
+		              </table>		              
+	               </td>
+	            </tr>
+	        </table>
+	    </td>
+    </tr>    
+    <tr>
+       <td colspan=2 valign="top">
+	     &nbsp;<b>Authorized</b>:
+       </td>
+    </tr>    
+    <tr>  
+        <td colspan="2" align="left">
+	        <table align="left" cellpadding="2" cellspacing="2" border="0"  class="bodytext tablewidth" align="center">
+	            <tr>		               
+	               <td valign="top" style="text-align:justify">
+		              <table border="0" class="bodytext" >
+		                <tr>   
+                            <td colspan="2" align="right" valign="top" nowrap>
+           
+                             </td>
+                        </tr>
+            
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                01
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 01 - 08/19/2024<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        3	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        187,896.43	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                02
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 02 - 11/13/2024<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        50,675.81	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                03
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 03 - 11/13/2024<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        11,766.02	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                04
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 04 - 11/13/2024<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,289.69	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                05
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 05 - 11/14/2024<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        -16,997.00	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                06
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 06 - 01/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        -13,098.66	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                07
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 07 - 01/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        5,932.68	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                12
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 12 - 03/03/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        7,533.00	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                13
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 13 - 03/13/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,028.62	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                OCO
+                            </td>
+                            <td valign="top" width="100%">
+                              Change OCO - <br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        20,151.41	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                17
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 17 - 04/07/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        28,869.90	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                18
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 18 - 04/15/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        18,121.42	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                19
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 19 - 05/09/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        7,405.81	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                20
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 20 - 05/08/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,438.61	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                21
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 21 - 05/08/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        16,236.91	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                22
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 22 - 05/08/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,710.05	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                23
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 23 - 05/12/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        82,298.22	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                24
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 24 - 05/09/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        6,140.72	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                25
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 25 - 06/28/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        725.78	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                26
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 26 - 05/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        4,481.65	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                27
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 27 - 05/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,806.70	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                28
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 28 - 05/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        9,159.83	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                29
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 29 - 06/02/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,438.14	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                30
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 30 - 06/28/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        4,701.65	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                31
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 31 - 06/28/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,288.66	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                32
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 32 - 06/28/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        40,443.71	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                33
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 33 - 06/29/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        820.88	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                34
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 34 - 07/22/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,621.69	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                36
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 36 - 07/09/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,093.19	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                37
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 37 - 07/22/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,253.30	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                38
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 38 - 07/22/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,472.83	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                39
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 39 - 07/22/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        35,636.15	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                40
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 40 - 07/22/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,032.17	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                42
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 42 - 07/22/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,547.28	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                43
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 43 - 07/17/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,591.58	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                44
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 44 - 07/31/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,375.86	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                45
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 45 - 07/31/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        546.27	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                46
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 46 - 08/01/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,491.12	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                47
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 47 - 08/06/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        917.73	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                49
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 49 - 08/07/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        20,049.48	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                50
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 50 - 08/18/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        106.03	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                51
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 51 - 08/18/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        11,697.42	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                52
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 52 - 08/18/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        790.98	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                53
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 53 - 08/18/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,742.27	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                54
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 54 - 08/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        9,602.82	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                56
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 56 - 08/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,374.44	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                57
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 57 - 08/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,163.62	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                58
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 58 - 08/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,585.64	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                59
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 59 - 08/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,322.82	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                60
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 60 - 08/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        672.53	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                61
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 61 - 09/05/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        8,294.22	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                62
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 62 - 09/05/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,275.47	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                63
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 63 - 09/05/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        793.82	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                64
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 64 - 09/05/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        15,377.32	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                65
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 65 - 09/05/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,181.40	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                66
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 66 - 09/12/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        6,662.37	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                67
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 67 - 09/12/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        37,193.21	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                68
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 68 - 09/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,622.99	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                69
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 69 - 09/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,430.41	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                70
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 70 - 09/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,608.24	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                71
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 71 - 10/02/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        311.86	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                72
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 72 - 10/02/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,461.38	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                73
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 73 - 10/02/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,376.55	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                74
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 74 - 10/02/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        9,574.54	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                75
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 75 - 10/02/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,948.45	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                76
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 76 - 10/06/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,846.39	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                77
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 77 - 10/06/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        20,327.32	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                78
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 78 - 10/07/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        4,847.94	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                79
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 79 - 10/08/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        14,156.20	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                80
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 80 - 10/08/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,969.07	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                81
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 81 - 10/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        8,585.67	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                82
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 82 - 10/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        513.71	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                83
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 83 - 10/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,268.04	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                84
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 84 - 10/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,247.42	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                85
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 85 - 10/27/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,268.04	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                86
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 86 - 10/30/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        339.07	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                87
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 87 - 11/10/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,829.05	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                88
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 88 - 11/06/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        5,234.64	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                89
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 89 - 11/10/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,758.55	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                90
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 90 - 11/24/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        3,652.42	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                91
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 91 - 11/18/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        5,078.14	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                92
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 92 - 11/19/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        2,262.37	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                93
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 93 - 11/20/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        5,670.10	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                94
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 94 - 12/01/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        381.27	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                95
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 95 - 12/16/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,963.80	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                96
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 96 - 12/16/2025<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        629.38	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                97
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 97 - 01/05/2026<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        1,134.02	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                OCO93
+                            </td>
+                            <td valign="top" width="100%">
+                              Change OCO93 - 01/14/2026<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        -1,753,770.36	
+                            </td>
+                            
+		                </tr>		       
+		       
+		                <tr>		     
+                            <td width="80" valign="top" nowrap style="padding-left:7px;">
+                                CO#&nbsp;
+                                99
+                            </td>
+                            <td valign="top" width="100%">
+                              Change 99 - 01/22/2026<br />
+
+                              
+                            </td>
+                            <td width="40px" valign="top" align="right" nowrap="nowrap">
+                        0	
+                            </td>
+                            <td width="122" valign="top" align="right" nowrap>    
+                        425.26	
+                            </td>
+                            
+		                </tr>		       
+		       
+                        <tr>
+                            <td colspan="3" valign="top" align="right" nowrap>
+                                <font size="1"><b>
+                                3</b></font>
+                            </td>
+                            <td valign="top" align="right" nowrap>
+                                <font size="1"><b>
+                                -964,316.40</b></font>
+                            </td>
+                            <td valign="top" align="right" nowrap></td>
+                        </tr>
+		    
+                   </table>		              
+                 </td>
+              </tr>
+          </table>
+       </td>
+    </tr>	    
+	<tr>
+       <td colspan=2 valign="top">
+	      &nbsp;<b>Potential</b>:
+       </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="left">
+           <table align="left" cellpadding="2" cellspacing="2" border="0"  class="bodytext tablewidth" align="center">
+              <tr>		               
+                 <td valign="top" style="text-align:justify">
+	                <table border="0" class="bodytext">
+	    
+                    <tr>
+                        <td colspan="4" valign="top" style="padding-left:7px;">
+                            - None
+                        </td>
+                    </tr>		    
+		    
+                     </table>		              
+                 </td>
+             </tr>
+          </table>
+       </td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="3" cellspacing="0"  class="bodytext tablewidth" bgcolor="#FFFFFF" align="center">
+    <tr>
+        <td colspan="2" style="height:20px;"></td>
+    </tr>
+    <tr>
+       <td colspan="2" align="left">
+	        <table align="left" cellpadding="2" cellspacing="2" border=0  class="bodytext tablewidth">
+	            <tr>		               
+	               <td bgcolor="#f3f3f3" class="cabecerahorarios" valign="top" style="text-align:justify">
+		              <table border="0" class="bodytext">
+		                  <tr>
+		                  <td width="100%">
+		                    <b>Internal Changes</b>
+		                  </td>
+		                  <td width="40" nowrap>
+		                    <i>Days</i>
+		                  </td>
+		                  <td width="122" nowrap align="right">
+		                    <i>Cost&nbsp;($)</i>
+		                  </td>
+		                  </tr>
+		              </table>		              
+	               </td>
+	            </tr>
+	        </table>
+	    </td>
+    </tr>    
+    <tr>
+       <td colspan=2 valign="top">
+	     &nbsp;<b>Authorized</b>:
+       </td>
+    </tr>    
+    <tr>  
+        <td colspan="2" align="left">
+	        <table align="left" cellpadding="2" cellspacing="2" border="0"  class="bodytext tablewidth" align="center">
+	            <tr>		               
+	               <td valign="top" style="text-align:justify">
+		              <table border="0" class="bodytext">
+		                <tr>   
+                            <td colspan="2" align="right" valign="top" nowrap>
+           
+                             </td>
+                        </tr>
+            
+                        <tr>
+                            <td colspan="4" valign="top" style="padding-left:7px;">
+                                - None
+                            </td>
+                        </tr>
+		    
+                   </table>		              
+                 </td>
+              </tr>
+          </table>
+       </td>
+    </tr>	    
+	<tr>
+       <td colspan=2 valign="top">
+	      &nbsp;<b>Potential</b>:
+       </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="left">
+           <table align="left" cellpadding="2" cellspacing="2" border="0"  class="bodytext tablewidth" align="center">
+              <tr>		               
+                 <td valign="top" style="text-align:justify">
+	                <table border="0" class="bodytext">
+	    
+                       <tr>
+                           <td colspan="4" valign="top" style="padding-left:7px;">
+                               - None
+                           </td>
+                       </tr>		    
+		    
+                     </table>		              
+                 </td>
+             </tr>
+          </table>
+       </td>
+    </tr>
+</table>
+</div>
+</BODY>
+</HTML>
+</div>
+
+<div id="divBudgetView1" style='display:none;'></div>
+<div id="divBudgetView2" style='display:none;'></div>
+<div id="divBudgetView3" style='display:none;'></div>
+
+</BODY>
+</HTML>

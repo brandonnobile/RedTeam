@@ -1,0 +1,542 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'> 
+    <link href="https://flex.redteam.com/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+    <link href="https://flex.redteam.com/rts/app/asp/css/estilos.css" type="text/css" rel="stylesheet" />
+    <link href="https://flex.redteam.com/rts/app/asp/css/skin/theme.css" type="text/css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://flex.redteam.com/rts/app/asp/css/bootstrap-3.3.5.min.css">
+    <script src="https://flex.redteam.com/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+    <script src="https://flex.redteam.com/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+ 
+    <link href="https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+    <link rel='stylesheet' type='text/css' href='https://flex.redteam.com/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' /> 
+    
+    <script src="https://flex.redteam.com/rts/app/asp/js/global.js?1" type="text/javascript"></script>
+    <script language="JavaScript" src="https://flex.redteam.com/rts/app/asp/js/jsonFunctions.js?be731a6" type="text/javascript"></script>
+    <script language="JavaScript" src="https://flex.redteam.com/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+    
+    <script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script>
+    <link href="/rts/app/asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="/rts/app/workorders/checklists_/css/ManageCheckListForm.css?be731a6">
+    <link rel="stylesheet" href="/rts/app/asp/css/ManageTools.css?be731a6">
+
+    <script src="/rts/app/asp/js/search/search.js?be731a6" type="text/javascript" ></script>
+    <link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+
+</head> 
+<body onload="initialize();focus('')" style="overflow:scroll;" onscroll="hideMenu();" onclick="hideMenu();">
+<script>LoadingMessagePage("on");</script>
+<iframe id="_fraGetDataTempFiles" name="_fraGetDataTempFiles" width="0" height="0" style="display:none"></iframe>
+<iframe id="_fraGetDataAux" name="_fraGetDataAux" width="0" height="0" style="display:none"></iframe>
+<iframe id="_fraGetDataAux2" name="_fraGetDataAux2" width="0" height="0" style="display:none"></iframe>
+<form method="post" id="frmSelectTypes" name="frmSelectTypes" style="display:none;" action="ChecklistsFilters.asp?WorkorderID=1940046&WorkorderMod=00&v=be731a6">
+	<input type="hidden" id="Select_Filter" name="Select_Filter" value="" />
+	<input type="hidden" id="WorkorderID_Filter" name="WorkorderID_Filter" value="1940046" />
+	<input type="hidden" id="WorkorderMod_Filter" name="WorkorderMod_Filter" value="00" />
+	<input type="hidden" id="F_Type_Filter" name="F_Type_Filter" value="" />
+	<input type="hidden" id="F_Scope_Filter" name="F_Scope_Filter" value="" />
+	<input type="hidden" id="F_Phase_Filter" name="F_Phase_Filter" value="" />
+	<input type="hidden" id="F_Author_Filter" name="F_Author_Filter" value="" />
+</form>
+<div id="content" style="top:0;left:0;display:none;">
+    <div id="DivOverflow" >
+        <div id="staticmenu" style="position:relative;display:none;background-color:#ffffff; z-index:2000;"> 
+            
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+            <form id="frmmenu" name="frmmenu" method="post" style="display:inline" target="_self" action="ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=&v=be731a6"> 
+                <input type="text" id="TextToSearch" class="inputSearch form-control HideTextToSearch" name=""TextToSearch" maxlength="40" placeholder="Search..." onfocus="if(this.value==this.defaultValue) this.value=''" onblur="VerifySearchEmpty()" value="""&getStringField(sanitizeString(TextToSearch))&""" >
+
+                <div style="min-width:890px">
+
+                    
+                            
+                </div>               
+            </form>
+        </div>
+        <textarea id="JsonHeader" style="display:none">{"Title":"Manage Checklists","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Locations","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Manage Milestones","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Manage Schedule Updates","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Manage T&M Sheets","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Punch List","Id":"trItemMenuPunch1","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=1&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Quality","Id":"trItemMenuPunch4","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=4&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Safety","Id":"trItemMenuPunch3","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=3&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Warranty","Id":"trItemMenuPunch2","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=2&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('433');","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>
+        <div class="alert alert-warning messagevalidations" id="tableMessage" name="tableMessage" role="alert" style="display:none; "><div><span id="tdMessage"></span></div></div>
+        <div class="BodyafterFixed">
+            <div id="trFiltersbox" class="trfilters" style="display:none;padding:4px 16px 4px 2px;position:relative;height:200px !important;background-color: rgb(243, 244, 246) !important;z-index:1;">
+                <form method="post" name="Form1" id="Form1" onsubmit="return false" style="display:inline;">
+                    <input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber" /> 
+                    <input type="hidden" id="ClientSession" name="ClientSession" value="remnantconstruction" />
+                    <input type="hidden" id="hdnActionCommand" name="hdnActionCommand" /> 
+                    <input type="hidden" name="hdnCurrentUrlParams" value="?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" /> 
+                    <input type="hidden" id="hdnParameters" name="hdnParameters" value="ZmlsdGVyPSZMc3RfUHVuY2hUeXBlPSZMc3RfU2NvcGU9JkxzdF9QaGFzZT0mTHN0X0F1dGhvcj0mc29ydENyaXRlcmlhbD1EYXRlIGRlc2MsUHVuY2hUeXBlTmFtZSBhc2MsY2hlY2tGb3JtTmFtZSBhc2M" />
+                    <input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="required,desc" />
+                    <input type="hidden" id="nParents" />
+                    <div class="panel panel-midnightblue customFilterBox" >
+                        <div class="panel-heading"><h4>Filters</h4></div>
+                        <div class="panel-body collapse in" style="height:150px;">
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+	                                <div class="form-group">
+	                                    <label class="control-label">Type</label>
+	                                    <div class="col-sm-3-separator">
+	                                        <select size="1"  class="form-control SlectBox" style="width:90%;display:inline-block;" name="F_Type" id="F_Type" multiple size=1></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+	                                <div class="form-group">
+	                                    <label class="control-label">Scope</label>
+	                                    <div class="col-sm-3-separator">
+	                                        <select size="1"  class="form-control SlectBox" style="width:90%;display:inline-block;" name="F_Scope" id="F_Scope" multiple size=1></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+	                                <div class="form-group">
+	                                    <label class="control-label">Phase</label>
+	                                    <div class="col-sm-3-separator">
+	                                        <select size="1"  class="form-control SlectBox" style="width:90%;display:inline-block;" name="F_Phase" id="F_Phase" multiple size=1></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+	                                <div class="form-group">
+	                                    <label class="control-label">Author</label>
+	                                    <div class="col-sm-3-separator">
+	                                        <select size="1"  class="form-control SlectBox" style="width:90%;display:inline-block;" name="F_Author" id="F_Author" multiple size=1></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" style="margin-right: 20px !important;text-align:right;">
+                                <input onclick="SendFilters('ManageChecklists.asp?filterblock=true&filter=true&by=&direction=&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221');" type="button" class="btn btn-primary" value="Filter"/> 
+                                <input id="lnkSendFilters" onclick="SendFilters('ManageChecklists.asp?filter=true&by=&direction=&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221');" type="button" class="btn btn-primary-alt btnBgGray" value="Filter & Hide"/>       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id='staticCols' style='position: relative; background-color:#F3f4f6;'><table border='0' bgcolor='#FFFFFF' width='100%' cellpadding='0' cellspacing='0' style='top:0;left:0'><tr class="Workarea_Header"  height="19" bgcolor="#F3f4f6"><td colspan="18" class="customTableHeaderContainer" style="padding-right: 0px !important;"><table id="tblHeading"  class="Workarea_Header"  border="0" cellpadding="0" cellspacing="0"  style="table-layout:fixed;border-collapse: separate;" ><thead><tr valign="middle" height="24"><th style="text-align:center;" width="35px" nowrap></th><th style="text-align:center;" width="35px" nowrap><span></span></th><th style="text-align:center;padding:5px 0px 5px 0px;" width="38px" nowrap><span>Tools</span></th><th style="text-align:left;padding-left:12px" width="110px" nowrap class="cls_th_arrow"><span>Date</span><img src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: 5px;"></th><th style="text-align:left;padding-left:15px" width="159px" nowrap>Type</th><th width="363px" nowrap style="text-align:left;padding-left:16px" >Name</th><th style="text-align:center;" width="70px" nowrap>Scope</th> <th style="text-align:center;" width="160px" nowrap>Phase</th> <th width="170px" style="text-align:left;padding-left:16px" nowrap>Author</th><th width="110px" style="text-align:left;padding-left:16px" nowrap>Status</th><th style="text-align:left;"  width="60px" nowrap><span >Log</span></th> <th style="text-align:left;"  width="100%" nowrap><span ></span></th> </tr></thead></table></td></tr></table></div>    
+        <form method="post" name="FrmDetail" id="FrmDetail" style="display:inline" target="_fraGetDataAux">
+        <div style='padding-top: 3px;'>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF"  align="center" class="Workarea_Header customTableDetail" > 
+                <tr bgcolor="#FFFFFF">
+                    <td colspan="4" align="left" valign="top" style="padding:0px !important">
+                        <table id="tblDetail" width="100%" border="0" class="ItemRecord_Manage" cellspacing="0" cellpadding="0" style="border-collapse: separate;table-layout: fixed;" >
+                            <tr style="display:none">
+                                <td>
+                                    <input type="hidden" id="tdDraftCount" name="tdDraftCount" value="0" />               
+                                    <input type="hidden" id="tdNoDraftCount" name="tdNoDraftCount" value="0" />
+                                    <input type="hidden" id="tdCommittCount" name="tdCommittCount" value="0" />
+                                    <input type="hidden" id="tdNoCommittCount" name="tdNoCommittCount" value="0" />
+                                    <input type="hidden" id="tdDraftCommitCount" name="tdDraftCommitCount" value="0" /> 
+                                </td>
+                            </tr>
+                      
+                            <tr bgcolor="#FFFFFF">
+                                <td style="padding-left:4px;" height="18" width="300px" ><span class="Orange">There are no items on file!</span></td>
+                            </tr>
+                
+                        </table>  
+                    </td>
+                </tr>
+            </table>
+            <table id="tblCounter" style="display:none;" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF" align="center" class="Workarea_Header customTableDetail" > 
+                <tr>
+                    <td style="padding:0px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: separate;table-layout: fixed;" >
+                            <tr class='ItemRecord_tools' >     
+	                            <td width='218px' height='29' nowrap style='padding-left:4px;vertical-align: middle;padding:5px 0px 5px 10px;border-bottom: 0px solid #eeeeee;'>
+                                    <b>Total Checklists</b>:&nbsp;<font id='fontCount'>0</font>
+                                </td>
+	                            <td width='159px' style='border-bottom: 0px solid #eeeeee;' nowrap></td>
+	                            <td width='363px' style='border-bottom: 0px solid #eeeeee;' nowrap></td>
+	                            <td width='70px' style='border-bottom: 0px solid #eeeeee;' nowrap ></td>
+	                            <td width='160px' style='border-bottom: 0px solid #eeeeee;' nowrap></td>       
+	                            <td width='170px' style='border-bottom: 0px solid #eeeeee;' nowrap></td>       
+	                            <td width='110px' style='border-bottom: 0px solid #eeeeee;' nowrap></td>       
+	                            <td width='60px' style='border-bottom: 0px solid #eeeeee;' nowrap ></td>
+	                            <td width='100%' nowrap style='padding:0px !important;border-bottom: 0px solid #eeeeee;'></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr style="display:none;">
+                    <td colspan="11" align="right">
+                        <input type="hidden" id="count" name="count" value="0"/>
+                        <input type="hidden" id="WorkorderID" value="1940046" /> 
+                        <input type="hidden" id="WorkorderMod" value="00" /> 
+                        <input type="hidden" id="WorkorderStatus" value="InProgress" /> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </div> 
+</div>
+<div class="hide"><textarea type="text" id="Tools_View"><svg class="Icon_View" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="file-outline" transform="translate(-417 -189)">
+    <rect id="Rectangle_2039" data-name="Rectangle 2039" width="24" height="24" transform="translate(417 189)" fill="none"/>
+    <path id="file-outline_3_" data-name="file-outline (3)" d="M14,2H6A2,2,0,0,0,4,4V20a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V8L14,2m4,18H6V4h7V9h5Z" transform="translate(417 189)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Edit"><svg class="Icon_Edit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="pencil-outline" transform="translate(-20359 -7378)">
+    <rect id="Rectangle_179" data-name="Rectangle 179" width="24" height="24" transform="translate(20359 7378)" fill="none"/>
+    <path id="pencil-outline-2" data-name="pencil-outline" d="M14.06,9l.94.94L5.92,19H5v-.92L14.06,9m3.6-6a1,1,0,0,0-.7.29L15.13,5.12l3.75,3.75,1.83-1.83a1,1,0,0,0,0-1.41L18.37,3.29A.982.982,0,0,0,17.66,3m-3.6,3.19L3,17.25V21H6.75L17.81,9.94Z" transform="translate(20359 7378)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Commit"><svg class="Icon_Commit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="commit" transform="translate(-44 -10707)">
+    <rect id="Rectangle_185" data-name="Rectangle 185" width="24" height="24" transform="translate(44 10707)" fill="none"/>
+    <g id="Group_386" data-name="Group 386" transform="translate(-660.574 10409.343)">
+      <path id="Path_848" data-name="Path 848" d="M728.048,304.989l-4.8-4.8a1.79,1.79,0,0,0-1.276-.53h0a1.8,1.8,0,0,0-1.255.506l-1.151,1.152a1.834,1.834,0,0,0-.358.512l-5.12-.916a4.615,4.615,0,0,0-5.4,3.6l-.244,1.209a2.664,2.664,0,0,0,2.1,3.13,2.676,2.676,0,0,0,3.125-2.078l.114-.566,2.121.186,7.251,7.251a.385.385,0,0,1-.542.548l-3.009-3.008a.739.739,0,0,0-.526-.191.719.719,0,0,0-.507.237.736.736,0,0,0,0,.995l3,3a.385.385,0,0,1-.542.548l-3-3a.733.733,0,0,0-1.081.99l3.038,3.038a.385.385,0,0,1-.542.548l-3-3a.732.732,0,0,0-1.079.99l3.034,3.04a.384.384,0,0,1-.013.545.38.38,0,0,1-.528,0l-12.019-12.017a.725.725,0,0,0-.508-.237.765.765,0,0,0-.526.191.736.736,0,0,0-.238.507.728.728,0,0,0,.193.528l2.827,2.83-.7.7a1.654,1.654,0,0,0,0,2.341l.275.275a1.655,1.655,0,0,1,1.3,1.3l.274.274a1.655,1.655,0,0,1,1.305,1.3l.274.274a1.655,1.655,0,0,1,1.3,1.3l.274.275a1.662,1.662,0,0,0,2.342,0l.7-.7,1.877,1.877a13.924,13.924,0,0,0,6.3-4.218,1.848,1.848,0,0,0,1.058-3.14l-.6-.6,4.467-4.458A1.811,1.811,0,0,0,728.048,304.989Zm-1.035,1.519-1.37,1.367-5.045-5.042a.342.342,0,0,1,0-.484l1.128-1.128a.343.343,0,0,1,.485,0l4.8,4.8A.344.344,0,0,1,727.013,306.507Zm-2.406,2.405-2.058,2.058-5.8-5.809a.737.737,0,0,0-.453-.211l-3.039-.264h-.064a.736.736,0,0,0-.719.588l-.244,1.207a1.2,1.2,0,1,1-2.353-.474l.244-1.208a3.149,3.149,0,0,1,3.708-2.45l5.143.922Zm-15.487,3.454-.645.646a.194.194,0,0,1-.271,0l-.274-.272a.2.2,0,0,1,0-.272l.648-.647Zm1.582,1.581-.646.646a.2.2,0,0,1-.272,0l-.272-.273a.2.2,0,0,1,0-.272l.647-.647Zm1.58,1.581-.645.645a.193.193,0,0,1-.272,0l-.274-.273a.193.193,0,0,1,0-.27l.647-.648Zm1.581,1.581-.646.646a.2.2,0,0,1-.271,0l-.272-.273a.193.193,0,0,1,0-.271l.647-.649Z" transform="translate(0)"/>
+      <path id="Path_849" data-name="Path 849" d="M726.211,307.316a.732.732,0,1,0-.732-.732A.733.733,0,0,0,726.211,307.316Z" transform="translate(-0.355 -0.105)"/>
+    </g>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_UnCommit"><svg class="Icon_UnCommit" xmlns="http://www.w3.org/2000/svg" width="25.142" height="24" viewBox="0 0 25.142 24">
+  <g id="uncommit" transform="translate(-185.5 -109)">
+    <rect id="Rectangle_2008" data-name="Rectangle 2008" width="24" height="24" transform="translate(186 109)" fill="none"/>
+    <path id="Union_22" data-name="Union 22" d="M1181.327,17.741a1.753,1.753,0,0,1-.357.085,1.844,1.844,0,0,1-1.579,1.58,1.848,1.848,0,0,1-3.139,1.058l-1.877-1.877-.7.7a1.66,1.66,0,0,1-2.342,0l-.274-.274a1.639,1.639,0,0,1-.454-.851,1.647,1.647,0,0,1-.851-.454l-.274-.274a1.637,1.637,0,0,1-.455-.85,1.651,1.651,0,0,1-.851-.454l-.274-.274a1.643,1.643,0,0,1-.454-.85,1.646,1.646,0,0,1-.851-.454l-.275-.275a1.653,1.653,0,0,1,0-2.341l.7-.7-2.827-2.831a.725.725,0,0,1-.193-.527.738.738,0,0,1,.238-.508.768.768,0,0,1,.523-.191.725.725,0,0,1,.511.238l12.02,12.017a.376.376,0,0,0,.262.1.386.386,0,0,0,.279-.652l-3.035-3.041a.733.733,0,0,1,.044-1.034.736.736,0,0,1,1.035.044l3,3a.386.386,0,0,0,.649-.273.383.383,0,0,0-.107-.274l-3.038-3.038a.734.734,0,0,1,.046-1.034.726.726,0,0,1,.247-.148l-4.389-4.389a2.662,2.662,0,0,1-4.417-2.47l.244-1.21c.027-.133.06-.265.1-.394l-3.347-3.347L1166.132,0l19.8,19.8-1.273,1.273Zm-9.23-.025a.193.193,0,0,0,0,.271l.272.274a.194.194,0,0,0,.134.053.2.2,0,0,0,.138-.055l.645-.646-.544-.545Zm-1.582-1.581a.194.194,0,0,0,0,.271l.275.273a.193.193,0,0,0,.272,0l.645-.644-.544-.544Zm-1.579-1.581a.2.2,0,0,0,0,.273l.273.273a.191.191,0,0,0,.134.054.194.194,0,0,0,.138-.056l.646-.646-.545-.545Zm-1.581-1.58a.2.2,0,0,0,0,.272l.274.273a.194.194,0,0,0,.272,0l.644-.646-.544-.544Zm1.943-6.462a1.2,1.2,0,0,0,.94,1.413,1.221,1.221,0,0,0,.242.024,1.194,1.194,0,0,0,.66-.2,1.278,1.278,0,0,0,.112-.084l-1.819-1.819Zm14.627,8.791-10-10,1.8.156a.74.74,0,0,1,.454.212l5.8,5.809,2.058-2.058-5.64-5.641-5.143-.922a3.155,3.155,0,0,0-1.661.113l-1.108-1.107a4.6,4.6,0,0,1,2.14-.533,4.554,4.554,0,0,1,.889.088l5.121.916a1.852,1.852,0,0,1,.357-.512l1.151-1.152a1.808,1.808,0,0,1,2.533.023l4.8,4.8a1.81,1.81,0,0,1,0,2.554l-4.467,4.458.6.6a1.852,1.852,0,0,1,.318,2.2h0Zm-2.772-13.577-1.129,1.127a.343.343,0,0,0,0,.484l5.045,5.042,1.371-1.368a.342.342,0,0,0,0-.484l-4.8-4.8a.342.342,0,0,0-.485,0Zm3.4,5.255a.732.732,0,1,1,.733.733A.732.732,0,0,1,1184.549,6.98Z" transform="translate(-978 110.84)" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_RFS"><svg class="Icon_RFS" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="comment-question-outline" transform="translate(-1530 71)">
+    <rect id="Rectangle_2063" data-name="Rectangle 2063" width="24" height="24" transform="translate(1530 -71)" fill="none"/>
+    <path id="comment-question-outline-2" data-name="comment-question-outline" d="M4,2A2,2,0,0,0,2,4V16a2,2,0,0,0,2,2H8v3a1,1,0,0,0,1,1h.5a1.019,1.019,0,0,0,.7-.29L13.9,18H20a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4M4,4H20V16H13.08L10,19.08V16H4V4m8.19,1.5a3.791,3.791,0,0,0-2.14.54,1.752,1.752,0,0,0-.78,1.65h1.97a.8.8,0,0,1,.26-.63,1.152,1.152,0,0,1,.69-.21,1.049,1.049,0,0,1,.76.26.889.889,0,0,1,.27.69,1.317,1.317,0,0,1-.22.74,1.983,1.983,0,0,1-.64.54,4.7,4.7,0,0,0-1.07.84A1.679,1.679,0,0,0,11,11h2a1.493,1.493,0,0,1,.14-.68,1.278,1.278,0,0,1,.52-.47A3.041,3.041,0,0,0,14.79,9a1.892,1.892,0,0,0,.44-1.2,2.021,2.021,0,0,0-.81-1.68,3.623,3.623,0,0,0-2.23-.62M11,12v2h2V12Z" transform="translate(1530 -71)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_UploadFile"><svg class="Icon_UploadFile" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="file-upload-outline" transform="translate(-975 520)">
+    <rect id="Rectangle_2046" data-name="Rectangle 2046" width="24" height="24" transform="translate(975 -520)" fill="none"/>
+    <path id="file-upload-outline-2" data-name="file-upload-outline" d="M14,2l6,6V20a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V4A2,2,0,0,1,6,2h8m4,18V9H13V4H6V20H18m-6-8,4,4H13.5v3h-3V16H8Z" transform="translate(975 -520)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_UploadReview"><svg class="Icon_UploadReview" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="answer-upload-outline" transform="translate(-515 -585)">
+    <rect id="Rectangle_2046" data-name="Rectangle 2046" width="24" height="24" transform="translate(515 585)" fill="none"/>
+    <path id="Union_23" data-name="Union 23" d="M1176.5,20a1.02,1.02,0,0,1-.7-.29L1172.1,16H1166a2,2,0,0,1-2-2V2a2,2,0,0,1,2-2h16a2,2,0,0,1,2,2V14a2,2,0,0,1-2,2h-4v3a1,1,0,0,1-1,1Zm-3.58-6L1176,17.08V14h6V2h-16V14Zm-.419-2V9H1170l4-4,4,4h-2.5v3Z" transform="translate(-648 588)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_RFA"><svg class="Icon_RFA" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="comment-question-outline" transform="translate(-1530 71)">
+    <rect id="Rectangle_2063" data-name="Rectangle 2063" width="24" height="24" transform="translate(1530 -71)" fill="none"/>
+    <path id="comment-question-outline-2" data-name="comment-question-outline" d="M4,2A2,2,0,0,0,2,4V16a2,2,0,0,0,2,2H8v3a1,1,0,0,0,1,1h.5a1.019,1.019,0,0,0,.7-.29L13.9,18H20a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4M4,4H20V16H13.08L10,19.08V16H4V4m8.19,1.5a3.791,3.791,0,0,0-2.14.54,1.752,1.752,0,0,0-.78,1.65h1.97a.8.8,0,0,1,.26-.63,1.152,1.152,0,0,1,.69-.21,1.049,1.049,0,0,1,.76.26.889.889,0,0,1,.27.69,1.317,1.317,0,0,1-.22.74,1.983,1.983,0,0,1-.64.54,4.7,4.7,0,0,0-1.07.84A1.679,1.679,0,0,0,11,11h2a1.493,1.493,0,0,1,.14-.68,1.278,1.278,0,0,1,.52-.47A3.041,3.041,0,0,0,14.79,9a1.892,1.892,0,0,0,.44-1.2,2.021,2.021,0,0,0-.81-1.68,3.623,3.623,0,0,0-2.23-.62M11,12v2h2V12Z" transform="translate(1530 -71)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Remove"><svg class="Icon_Remove" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="answer-remove-outline" transform="translate(-1097 -401)">
+    <rect id="Rectangle_2052" data-name="Rectangle 2052" width="24" height="24" transform="translate(1097 401)" fill="none"/>
+    <path id="comment-remove-outline" d="M15,22a1,1,0,0,0,1-1V18h4a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4A2,2,0,0,0,2,4V16a2,2,0,0,0,2,2h6.1l3.7,3.71a1.019,1.019,0,0,0,.7.29H15m-1-6v3.08L10.92,16H4V4H20V16H14m.59-10L12,8.59,9.41,6,8,7.41,10.59,10,8,12.59,9.41,14,12,11.41,14.59,14,16,12.59,13.41,10,16,7.41Z" transform="translate(1097 401)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Notification"><svg class="Icon_Notification"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="email-notification-outline" transform="translate(-874 -340)">
+    <rect id="Rectangle_2068" data-name="Rectangle 2068" width="24" height="24" transform="translate(874 340)" fill="none"/>
+    <g id="email-notification-outline-2" data-name="email-notification-outline" transform="translate(26.462 -921.511)">
+      <path id="Path_959" data-name="Path 959" d="M866.538,1273.761v7h-16v-10l8,5,4.74-2.961a6.028,6.028,0,0,1-1.328-1.171l-3.412,2.132-8-5h10.083a6.05,6.05,0,0,1,0-2H850.538a2,2,0,0,0-2,2v12a2,2,0,0,0,2,2h16a2,2,0,0,0,2-2v-7.342a5.971,5.971,0,0,1-1.995.342Z"/>
+      <path id="Path_960" data-name="Path 960" d="M866.538,1263.511a4.25,4.25,0,1,0,4.25,4.25A4.254,4.254,0,0,0,866.538,1263.511Zm0,7.2a2.95,2.95,0,1,1,2.95-2.95A2.953,2.953,0,0,1,866.538,1270.711Z"/>
+      <path id="Path_961" data-name="Path 961" d="M865.488,1266.811h.8v3.2h1.3v-4.5h-2.1Z"/>
+    </g>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Acceptance"><svg class="Icon_Acceptance" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="answer-edit-outline" transform="translate(-349 -264)">
+    <rect id="Rectangle_2051" data-name="Rectangle 2051" width="24" height="24" transform="translate(349 264)" fill="none"/>
+    <g id="answer-edit-outline-2" data-name="answer-edit-outline" transform="translate(-23)">
+      <path id="comment-edit-outline" d="M15,22a1,1,0,0,0,1-1V18h4a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4A2,2,0,0,0,2,4V16a1.993,1.993,0,0,0,2,2h6.1l3.7,3.71a1.019,1.019,0,0,0,.7.29H15m-1-6v3.08L10.92,16H4V4H20V16H14" transform="translate(372 264)"/>
+      <path id="comment-edit-outline-2" data-name="comment-edit-outline" d="M14.83,9.21,12.76,7.18l1.01-1.02a.552.552,0,0,1,.78,0l1.29,1.25a.564.564,0,0,1,0,.79M8,11.91l4.17-4.19L14.24,9.8,10.08,14H8Z" transform="translate(372 264)"/>
+    </g>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Cancel"><svg class="Icon_Cancel" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="cancel" transform="translate(-266 -566)">
+    <rect id="Rectangle_2026" data-name="Rectangle 2026" width="24" height="24" transform="translate(266 566)" fill="none"/>
+    <path id="cancel-2" data-name="cancel" d="M12,2A10,10,0,1,1,2,12,10,10,0,0,1,12,2m0,2A8,8,0,0,0,5.68,16.91L16.91,5.68A8.005,8.005,0,0,0,12,4m0,16A8,8,0,0,0,18.32,7.09L7.09,18.32A8.005,8.005,0,0,0,12,20Z" transform="translate(266 566)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_UnCancel"><svg class="Icon_UnCancel" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="un-cancel" transform="translate(-1091 124)">
+    <rect id="Rectangle_2026" data-name="Rectangle 2026" width="24" height="24" transform="translate(1091 -124)" fill="none"/>
+    <g id="Group_2819" data-name="Group 2819" transform="translate(163.418 -1382)">
+      <path id="Path_958" data-name="Path 958" d="M946.069,1262.87a9,9,0,0,0-14.487,7.13h-3l4,4,3.546-3.546a4.3,4.3,0,1,0-.046-.454h-2.5a7,7,0,1,1,2.94,5.7l-1.44,1.44a9,9,0,0,0,10.987-14.27Zm-5.489,4.43h0a2.732,2.732,0,0,1,1.164.263l-3.6,3.6a2.7,2.7,0,0,1,2.435-3.865Zm0,5.4h0a2.723,2.723,0,0,1-1.165-.264l3.6-3.6a2.7,2.7,0,0,1-2.435,3.865Z"/>
+    </g>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Reminder"><svg class="Icon_Reminder" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="bell-plus-outline" transform="translate(-923 467)">
+    <rect id="Rectangle_2058" data-name="Rectangle 2058" width="24" height="24" transform="translate(923 -467)" fill="none"/>
+    <path id="bell-plus-outline-2" data-name="bell-plus-outline" d="M10,21h4a2,2,0,0,1-4,0m11-2v1H3V19l2-2V11a6.99,6.99,0,0,1,5-6.71V4a2,2,0,0,1,4,0v.29A6.99,6.99,0,0,1,19,11v6l2,2m-4-8A5,5,0,1,0,7,11v7H17V11m-2,2H13v2H11V13H9V11h2V9h2v2h2" transform="translate(923 -468)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Delete"><svg class="Icon_Delete" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="delete-outline" transform="translate(-609 -1718)">
+    <rect id="Rectangle_2041" data-name="Rectangle 2041" width="24" height="24" transform="translate(609 1718)" fill="none"/>
+    <path id="delete-outline_1_" data-name="delete-outline (1)" d="M6,19a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V7H6V19M8,9h8V19H8V9m7.5-5-1-1h-5l-1,1H5V6H19V4Z" transform="translate(609 1718)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_RightArrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="chevron-right" transform="translate(-120 -1104)">
+    <rect id="Rectangle_1753" data-name="Rectangle 1753" width="24" height="24" transform="translate(120 1104)" fill="none" opacity="0"/>
+    <path id="chevron-right-2" data-name="chevron-right" d="M8.59,16.58,13.17,12,8.59,7.41,10,6l6,6-6,6Z" transform="translate(119.41 1104)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_RTloading"><svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">  
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg>
+</textarea><textarea type="text" id="Tools_Arrange"><svg class="Icon_Arrange" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="arrange" transform="translate(-328 -348)">
+    <rect id="Rectangle_2405" data-name="Rectangle 2405" width="24" height="24" transform="translate(328 348)" fill="none"/>
+    <g id="arrange-2" data-name="arrange" transform="translate(328 348)">
+      <path id="Path_1580" data-name="Path 1580" d="M13,13v9h9V13Zm7,7H15V15h5Z"/>
+      <path id="Path_1581" data-name="Path 1581" d="M2,11h9V2H2ZM4,4H9V9H4Z"/>
+      <path id="Path_1582" data-name="Path 1582" d="M7.5,15V13h-2v5h-3l4,4,4-4h-3Z"/>
+      <path id="Path_1583" data-name="Path 1583" d="M16.5,9v2h2V6h3l-4-4-4,4h3Z"/>
+    </g>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_OpenFolder"><svg class="Icon_OpenFolder" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="folder-open-outline" transform="translate(-306 -800)">
+    <rect id="Rectangle_2406" data-name="Rectangle 2406" width="24" height="24" transform="translate(306 800)" fill="none"/>
+    <path id="folder-open-outline-2" data-name="folder-open-outline" d="M6.1,10,4,18V8H21a2,2,0,0,0-2-2H12L10,4H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H19a1.927,1.927,0,0,0,1.9-1.5L23.2,10H6.1M19,18H6l1.6-6h13Z" transform="translate(306 800)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_Convert"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="convert" transform="translate(-571 -940)">
+    <rect id="Rectangle_2414" data-name="Rectangle 2414" width="24" height="24" transform="translate(571 940)" fill="none"/>
+    <g id="Group_8021" data-name="Group 8021" transform="translate(571 940)">
+      <path id="Path_1599" data-name="Path 1599" d="M7,18h3L6,14,2,18H5v5h5V21H7Z"/>
+      <path id="Path_1600" data-name="Path 1600" d="M19,6V1H14V3h3V6H14l4,4,4-4Z"/>
+      <g id="Group_8019" data-name="Group 8019">
+        <path id="Path_1601" data-name="Path 1601" d="M19,11H15a2.006,2.006,0,0,0-2,2v9a2,2,0,0,0,2,2h6a1.993,1.993,0,0,0,2-2V15Zm2,11H15V13h3.17L21,15.83Z"/>
+        <rect id="Rectangle_1786" data-name="Rectangle 1786" width="2" height="2" transform="translate(17 14)"/>
+        <rect id="Rectangle_1787" data-name="Rectangle 1787" width="2" height="2" transform="translate(17 18)"/>
+      </g>
+      <g id="Group_8020" data-name="Group 8020">
+        <path id="Path_1602" data-name="Path 1602" d="M7,0H3A2.006,2.006,0,0,0,1,2v9a2,2,0,0,0,2,2H9a1.993,1.993,0,0,0,2-2V4ZM9,11H3V2H6.17L9,4.83Z"/>
+        <rect id="Rectangle_1788" data-name="Rectangle 1788" width="2" height="2" transform="translate(5 5)"/>
+      </g>
+    </g>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_LockPerms"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="lock" transform="translate(-492 -1110)">
+    <rect id="Rectangle_2105" data-name="Rectangle 2105" width="24" height="24" transform="translate(492 1110)" fill="#fff" opacity="0"/>
+    <path id="lock-2" data-name="lock" d="M12,17a2,2,0,1,0-2-2,2,2,0,0,0,2,2m6-9a2,2,0,0,1,2,2V20a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V10A2,2,0,0,1,6,8H7V6A5,5,0,0,1,17,6V8h1M12,3A3,3,0,0,0,9,6V8h6V6A3,3,0,0,0,12,3Z" transform="translate(492 1110)"/>
+  </g>
+</svg>
+</textarea><textarea type="text" id="Tools_LockStatus"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="sign-caution" transform="translate(-404 -376)">
+    <rect id="Rectangle_2411" data-name="Rectangle 2411" width="24" height="24" transform="translate(404 376)" fill="#fff" opacity="0"/>
+    <path id="sign-caution-2" data-name="sign-caution" d="M2,3H22V13H18v8H16V13H8v8H6V13H2V3m16.97,8L20,9.97V7.15L16.15,11h2.82m-5.65,0,6-6H16.5l-6,6h2.82M7.66,11l6-6H10.83l-6,6H7.66M5.18,5,4,6.18V9L8,5Z" transform="translate(404 376)"/>
+  </g>
+</svg>
+</textarea></div>
+<form method="post" name="FrmFilterPunchList" id="FrmFilterPunchList" style="display:none;" action="ViewPunchListLog.asp">
+    <textarea name="formFilters"  style="display:none;" >ZmlsdGVyPSZMc3RfUHVuY2hUeXBlPSZMc3RfU2NvcGU9JkxzdF9QaGFzZT0mTHN0X0F1dGhvcj0mc29ydENyaXRlcmlhbD1EYXRlIGRlc2MsUHVuY2hUeXBlTmFtZSBhc2MsY2hlY2tGb3JtTmFtZSBhc2MmV29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDA</textarea>
+</form>
+</body>
+</html>
+<script language="JavaScript" src="/rts/app/asp/js/jquery.uitablefilter.js" type="text/javascript"></script>
+<script language="JavaScript" src="checkList.js?v=be731a6" type="text/javascript"></script>
+
+<script type="text/javascript">
+    document.getElementById("menuoptions").style.maxHeight = "450px";
+    document.getElementById("menuoptions").style.maxWidth = "400px";
+    document.getElementById("menuoptions").style.overflowY = "auto";
+    document.getElementById("menuoptions").style.overflowX = "hidden";       
+</script>

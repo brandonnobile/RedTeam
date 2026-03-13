@@ -1,0 +1,589 @@
+
+<html>
+<head>
+<title>RedTeam Manage Schedules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet">
+<!-- Fonts -->
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+<script src="../../asp/js/jsDate.js" type="text/javascript"></script>
+<script src="../../asp/js/global.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/tbsort.js" type="text/javascript"></script>
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<style>
+    .PunchListIcon {
+        width: 13px;
+        margin-right: 8px;
+    }
+</style>
+
+<script language="JavaScript">
+    function isFirefox() {
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        return is_firefox;
+    }
+    if (!isFirefox()) {
+        window.onscroll = hideMenu;
+    } else {
+        function hideMenuBody(e) {
+
+            var divList, i;
+            divList = document.getElementsByTagName("div");
+
+            for (i = 0; i < divList.length; i++) {
+                if (divList[i].id.substring(0, 10) == '_menuTools') {
+                    if (e.target.id != divList[i].id) {
+                        document.body.removeEventListener('click', hideMenuBody, false);
+                        $('#' + divList[i].id).hide();
+                    }
+                }
+            }
+        }
+    }
+    function showMenuFire(id, refpos) {
+        if (!isFirefox())
+            hideMenu();
+
+        if (document.getElementById(id).style.visibility != "visible") {
+            var elementoRef = document.getElementById(refpos);
+            var elemento = document.getElementById(id);
+            var pos = getAbsoluteElementPosition(elementoRef);
+            elemento.style.visibility = "visible";
+            elemento.style.left = pos.left + "px";
+            elemento.style.top = pos.top + 22 + "px";
+            if (isFirefox()) {
+                var timeOutShow
+                timeOutShow = 0;
+                $("body").attr("onclick", "").unbind("click");
+                $("div").attr("onclick", "").unbind("click");
+                elemento.style.left = pos.left - 15 + "px";
+                elemento.style.top = pos.top + 25 + "px";
+                jQuery.fx.off = true;
+                setTimeout(function () {
+                    $('#' + id).show(function () {
+                        document.body.addEventListener('click', hideMenuBody, false);
+                    });
+                }, timeOutShow);
+            }
+            else {
+                try {
+                    event.cancelBubble = true;
+                }
+                catch (error) {
+                }
+            }
+        }
+        else {
+            if (isFirefox()) {
+                var elemento = document.getElementById(id);
+                elemento.style.visibility = "hidden";
+            }
+        }
+    }
+
+    function gotoManagePage(page) {
+        document.location.href = page;
+    }
+
+    function loadPage(page) {
+        document.location.href = page;
+    }
+
+    function verifyRefresh() {
+        var refreshTab = parent.top.document.getElementById("refreshTab").value;
+        var iParam = parent.top.document.getElementById("iParam").value;
+
+        if (refreshTab == 'yes') {
+            parent.top.document.getElementById("refreshTab").value = 'no';
+            
+            loadPage('ManageSchedule.asp?bandTab=');
+        }
+    }
+
+    function ventana_small(page) {
+        var page = page;
+        popup = window.open(page, "addProgressReport", "width=430,height=350,top=200,left=300,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,copyhistory=no,scrollbars=yes");
+    }
+
+    //function showMnuOptions(item)
+    function showoptions(i) {
+        
+        document.getElementById("showtools" + i).style.display = "none";
+        document.getElementById("hidetools" + i).style.display = "block";
+        document.getElementById("img2_tools" + i).focus();
+        showMenuFire('_menuTools' + i, 'img1_tools' + i);
+    }
+
+    function hideoptions(i) {
+        document.getElementById("showtools" + i).style.display = "block";
+        document.getElementById("hidetools" + i).style.display = "none";
+        hideMenu();
+    }
+
+    function closewin() {
+        if (window.opener.refresh)
+            window.opener.refresh()
+        else
+            window.opener.location.reload();
+
+        window.open('', '_parent', '');
+        window.close();
+    }
+
+    function DeleteSchedule(Url) {
+        var x = window.confirm("The Schedule will be deleted. Are you sure ?")
+        if (x) {
+            var link = "ManageSchedule.asp?p=" + encodeURIComponent(Url);
+            document.location = link;
+        }
+        else {
+            window.alert("The schedule was not deleted.");
+        }
+    }
+
+    function WinEdit(Url) {
+        var direccion = "AttachSchedule.asp?p=" + encodeURIComponent(Url);
+        popup = window.open(direccion, "AddEditSchedule", "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,copyhistory=no,scrollbars=yes,width=450,height=350,top=260,left=300");
+    }
+
+    function CommitSchedule(Url) {
+        var x = window.confirm("You are about to Commit this record.\r\nOnce Committed, it cannot be changed. Do you want to continue?")
+        if (x) {
+            FrmDateManagement.action = "ManageSchedule.asp?p=" + encodeURIComponent(Url);
+            FrmDateManagement.submit();
+        }
+        else
+            window.alert("The Schedule was not committed.")
+    }
+
+    function UnCommitSchedule(url)
+    {
+        FrmDateManagement.action = "ManageSchedule.asp?p=" + encodeURIComponent(url);
+        FrmDateManagement.submit();
+    }
+    function initialize() {
+        LoadingMessagePage("off");
+        document.getElementById("content").style.display = "";
+
+        if (document.all) {
+            combowidth = document.getElementById("staticmenu").offsetWidth;
+            comboheight = combowidth = document.getElementById("staticmenu").offsetHeight;
+            setInterval("staticit_ie()", 50);
+            document.getElementById("staticmenu").style.display = "block";
+        }
+        else {
+            combowidth = document.getElementById("staticmenu").offsetWidth;
+            comboheight = combowidth = document.getElementById("staticmenu").offsetHeight;
+            setInterval("staticit_ns()", 50);
+            document.getElementById("staticmenu").style.display = "block";
+        }
+        
+        /*refresh tab verification*/
+        //setInterval("verifyRefresh()", 1000);
+
+    }
+
+    function staticit_ie() {
+
+        staticmenu.style.width = document.body.clientWidth;
+        staticmenu.style.top = document.body.scrollTop;
+        staticmenu.style.left = document.body.scrollLeft;
+
+        staticCols.style.top = document.body.scrollTop;
+
+        filterBox.style.top = document.body.scrollTop;
+        filterBox.style.left = document.body.scrollLeft;
+    }
+
+    function staticit_ns() {
+
+        staticmenu.style.width = document.body.clientWidth;
+        staticmenu.style.top = document.body.scrollTop;
+        staticmenu.style.left = document.body.scrollLeft;
+
+        staticCols.style.top = document.body.scrollTop;
+
+        filterBox.style.top = document.body.scrollTop;
+        filterBox.style.left = document.body.scrollLeft;
+    }
+
+    function ViewSpace(Flag) {
+        if (Flag == "1") {
+            document.getElementById("space").style.display = "block";
+        }
+        else {
+            document.getElementById("space").style.display = "none";
+        }
+    }
+
+    function hideToolIcon() {
+
+        if (document.getElementById("count")) {
+            var nParents = parseInt(document.getElementById("count").value);
+
+            for (var i = 1; i <= nParents; i++) {
+                if (document.getElementById("hidetools" + i)) {
+                    document.getElementById("hidetools" + i).style.display = 'none';
+                }
+
+                if (document.getElementById("showtools" + i)) {
+                    document.getElementById("showtools" + i).style.display = 'block';
+                }
+            }
+        }
+    }
+
+    function showScheduleDates() {
+        location.href = "../progress_/Schedule.asp?mng=dates";
+    }
+
+    function showScheduleDailyProgress() {
+        location.href = "../progress_/schedule.asp";
+    }
+
+    function showManageMilestones(source, woid, womod, wostatus, facilityid ) {
+        location.href = "../milestones_/ManageMilestones.asp?source=" + source + "&WorkorderID=" + woid + "&WorkorderMod=" + womod + "&WorkorderStatus=" + wostatus + "&FacilityID=" + facilityid; ;
+    }
+
+    function showManageLookaheadSchedule() {
+        var eclipse = window.parent.$(".eclipse-container").length;
+        document.location.href = '../progress_/schedule/currentSchedule.asp?p=c3B0PVRlYW1TZXJ2aWNlJndvPTE5NDAwNDYwMCZ1c3I9MSZjbGk9cmVtbmFudGNvbnN0cnVjdGlvbg&eclipse=' + eclipse;
+    }
+</script>
+
+<script src="../../asp/js/DD_roundies.js" type="text/javascript"></script>
+<script type="text/javascript">
+    DD_roundies.addRule('.KeywordDivBorderRadius', '3px');
+
+    //DD_roundies.addRule('.styled-select', '5px');
+</script>
+ 
+</head>
+
+
+
+<body bgcolor="#FFFFFF" leftmargin="0" rightmargin="0" topmargin="0" style="scrollbar-base-color: #B7C2CD;overflow-y:scroll;" scroll="yes" onload="initialize();" onclick="hideMenu();hideToolIcon();" onscroll="hideMenu();">
+<script>
+    LoadingMessagePage("on");
+</script>
+<div id="content" style="display:none;" onclick="hideMenu();hideToolIcon();"> 
+    <form method="post" style="display:inline" target="_self" action="ManageSchedule.asp?search=true&action=search" id="FrmSearch" name="FrmSearch" >
+        <input type="hidden" id="textToSearchAux" name="textToSearchAux" value="Search" />
+        <input type="hidden" id="textToSearch" name="textToSearch" value="Search" />
+    </form>
+    <form name="FrmDateManagement" id="FrmDateManagement" method="post" style="display:inline;">
+        <div id="staticmenu" style="position:relative;display:none;background-color:#ffffff">
+            
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+        </div>
+        <textarea id="JsonHeader" style="display:none">{"Title":"Manage Schedule Updates","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"trItemMenuShow2","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageSchedule"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('200');","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?be731a6" type="text/javascript"></script>
+        <div id="staticCols" style="position:relative; background-color:#F3F4F6;">
+            <table  width="100%" cellpadding="0" cellspacing="0">
+            
+                <tr>
+                
+                    <td height="20"     class="customTableHeaderContainer"  >
+                        <table id="tblHeading" class="Workarea_Header"  width="100%" border="0"  cellspacing="0" cellpadding="0">
+                            <thead>
+                            <tr>
+                               <th style="text-align:center" width="33px" nowrap></th>
+                               <th style="text-align:center" width="34px" nowrap></th>
+                               <th width="55"   valign="middle"  align="left" nowrap >&nbsp;<b>Tools</b></th>
+                               <th width="100"   valign="middle"  nowrap >Date</th>
+                               <th width="180"  valign="middle"  nowrap >Name</th>
+                               <th width="180"  valign="middle"  nowrap >Author</th>
+                               <th width="350"  valign="middle"  nowrap  style="padding-right:5px;">Description</th>
+                               <th width="250"  valign="middle"  nowrap >Anticipated Completion Date</th>
+                               <th width="100%" valign="middle"  ></th>
+                            </tr>
+                        </thead>
+                        </table>
+                    </td>
+                </tr>
+                 
+             </table>               
+        </div>
+        
+        <div id="filterBox" style="overflow-y:scroll;scrollbar-base-color:#B7C2CD;height:115px;display:none;border-bottom:solid 1px #CCCCCC;background-color:#FFFFFF;width:100%;position:relative">
+            <div id="space" style="display:none;"></div>
+            
+        </div>
+        
+            <table id="tblDetail"  class="Workarea_Header CustomTableDetail"  border="0" bgcolor="#eeeeee" width="100%"    cellpadding="0" cellspacing="0" >
+            
+                  
+                
+                <tr bgcolor="#FFFFFF">
+	               <td colspan="6">
+	                   &nbsp; &nbsp;<font class="Orange">There are no Schedules on file!</font>
+	               </td>
+	            </tr>
+                
+            </table>
+            
+          <input type="hidden" id="count"         name="count"         value="0"/>
+
+</form>
+</div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    var tbReport = new tbSort("tblHeading", "tblDetail", "", "Workarea_Header", [3, 4, 5, 6], 3, 'd', false, false);
+    if (!isFirefox()){
+        document.onclick = hideMenu;
+    }
+
+    var IS_IPAD = navigator.userAgent.match(/iPad/i) != null;
+    var IS_IPHONE = (navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null);
+    var countSU = document.getElementById("count").value;
+    
+    if (IS_IPAD == true || IS_IPHONE == true) {
+        for (i = 1; i <= countSU; i++) {
+            if (document.getElementById("viewGanttIPAD" + i)) {
+                document.getElementById("viewGanttIPAD" + i).style.display = "";
+            }
+            if (document.getElementById("viewGantt" + i)) {
+                document.getElementById("viewGantt" + i).style.display = "none";
+            }
+        }        
+    }
+    else {
+        for (i = 1; i <= countSU; i++) {
+            if (document.getElementById("viewGantt" + i)) {
+                document.getElementById("viewGantt" + i).style.display = "";
+            }
+            if (document.getElementById("viewGanttIPAD" + i)) {
+                document.getElementById("viewGanttIPAD" + i).style.display = "none";
+            }
+        }
+    }
+
+    document.getElementById("menuoptions").style.maxHeight = "450px";
+    document.getElementById("menuoptions").style.maxWidth = "400px";
+    document.getElementById("menuoptions").style.overflowY = "auto";
+    document.getElementById("menuoptions").style.overflowX = "hidden";
+    
+    $("#TextToSearch").on('keypress', function (e) {
+        if (e.which == 13) {
+            document.getElementById("textToSearch").value = document.getElementById("TextToSearch").value;
+            $("#FrmSearch").submit();
+        }
+    });
+    var txtSearchaux = document.getElementById("textToSearchAux").value;
+    var txtSearch = document.getElementById("TextToSearch").value;
+    if ($(".HideTextToSearch").val() == '&getStringField(sanitizeString(TextToSearch))&'){
+        $(".HideTextToSearch").val('') ;
+    }
+    if(/&getStringField/g.test(txtSearchaux)){
+        txtSearch = 'Search';
+    }
+    else{
+        txtSearch = txtSearchaux
+    }
+    if (txtSearch != '' && txtSearch != 'Search') {
+        document.getElementById("TextToSearch").value = txtSearch;
+        $("#TextToSearch").removeClass("HideTextToSearch").addClass("ShowTextToSearch");
+        $("#textSearch").css("display", "none");
+    }
+
+    var source = '';
+    
+        $(window).load(function () {
+            setEclipseScreenIcon();
+        });
+    
+</script>

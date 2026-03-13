@@ -1,0 +1,814 @@
+
+<html>
+<head>
+<title>RedTeam Buyout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="robots" content="index, follow" />
+<!-- Fonts -->
+<link href="/rts/app/asp/css/fontcss.css?v=?be731a6" rel="stylesheet" type="text/css">
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+<link href="/rts/assets/fonts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<link href="../../asp/css/estilos.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link href="../../asp/css/skin/theme.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+<link href="../../asp/aspcoexistencetheme/default.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' />
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' />
+<link href="/rts/app/css/GlobalManage.css??be731a6" rel="stylesheet" /> 
+<link rel='stylesheet' type='text/css' href='../../../app/workorders/buyout_/css/buyout.css?be731a6'/>
+
+<script language="JavaScript" src="../../asp/js/global.js??be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/escreen.js??be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/calendar.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/calendar-en.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/tbsort2.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/pickList.js?be731a6" type="text/javascript"></script>
+<script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js??be731a6" type="text/javascript" ></script> 
+<link href="/rts/app/asp/css/MultipleSelect/sumoselect.css??be731a6" rel="stylesheet" />
+<link rel="stylesheet" href="/rts/app/asp/css/MultipleSelect/sumoselectRtsExtras.css?v=?be731a6"> 
+<script src="/rts/app/asp/js/moment-with-locales.js" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/js/ManageJson.js?be731a6" type="text/javascript"></script>  
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link href="../../asp/css/modal-warning-style.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<script language="JavaScript" type="text/javascript">
+    var combowidth = "";
+    var comboheight = "";
+    var showVoidedRecord = true;
+ 
+    
+</script>
+
+<script src="../../asp/js/DD_roundies.js" type="text/javascript"></script>
+<script type="text/javascript">
+    DD_roundies.addRule('.KeywordDivBorderRadius', '3px');
+    window.onscroll = hideMenu;
+</script>
+</head>
+
+<div class="ParametersPage hide" style="display:none">   
+    
+    <input type="text" id="P_CustomerFacilityID" name="P_CustomerFacilityID" value="00221" >
+  
+    <input type="text" id="P_cClient" name="P_cClient" value="remnantconstruction" >
+    <input type="text" id="P_server_name" name="P_server_name" value="IO" >   
+    <input type="text" id="P_DefaultURL" name="P_DefaultURL" value="https://flex.redteam.com/TS" >  
+    <input type="text" id="P_AccountingSystem" name="P_AccountingSystem" value="qbo" >  
+    <input type="text" id="P_getAccountingPref" name="P_getAccountingPref" value="" >   
+    <input type="text" id="P_WorkorderID" name="P_WorkorderID" value="1940046" >
+    <input type="text" id="P_WorkorderMod" name="P_WorkorderMod" value="00" >
+    <input type="text" id="P_WorkorderStatus" name="P_WorkorderStatus" value="InProgress" >      
+    <input type="text" id="P_DateFormat" name="P_DateFormat" value="mm/dd/yyyy" >
+    <input type="text" id="P_LocaleLCID" name="P_LocaleLCID" value="1033" >    
+    <input type="text" id="P_Locale" name="P_Locale" value="en-us" >   
+    <input type="text" id="P_CompanyBDname" name="P_CompanyBDname" value="remnantconstruction" />  
+    <input type="text" id="P_filterblock" name="P_filterblock" value="" />   
+    <input type="text" id="P_sqlSession" name="P_sqlSession" value="" />   
+    <input type="text" id="P_f_Status" name="P_f_Status" value="" />   
+    <input type="text" id="P_sqlSession_b" name="P_sqlSession_b" value="" />  
+    <input type="text" id="P_filter" name="P_filter" value="" />  
+    <input type="text" id="P_bandStr" name="P_bandStr" value="WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" />  
+    <input type="text" id="P_UseTeamplayer" name="P_UseTeamplayer" value="0" />  
+    
+    
+    <textarea id="Icon_metadataHistory" name="Icon_metadataHistory" ><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></textarea>  
+    <input type="hidden" id="signCurrency" value="$" >
+    <input type="hidden" name="defaultitemsPerPage" id="defaultitemsPerPage" value="500" /> 
+    <input type="hidden" id="LocalLoadRecords" value="569" > 
+    <input type="hidden" id="FilterDef" value="0" > 
+    <input type="hidden" id="P_wwwDocusignApp" name="P_wwwDocusignApp" value="https://docusign.redteamsoftware.com/OAuth.asmx/" > 
+    
+    <input  type="hidden" id="Perm_maskBuyoutAmounts" value="True">
+    <input  type="hidden" id="Perm_viewCommitment" value="False">
+    <input  type="hidden" id="Perm_AddEditLaborAuthorization" value="False">
+    <input  type="hidden" id="Perm_addEquipmentRequest" value="True">
+    <input  type="hidden" id="Perm_addEA" value="False">
+    <input  type="hidden" id="Perm_addEditCommitment" value="False">
+    <input  type="hidden" id="Perm_viewSignedOrder" value="False">
+    <input  type="hidden" id="Perm_addBuyoutNote" value="False"> 
+    
+    
+    
+
+    <input type="text" id="Perm_ListLaborAuthorizations" name="Perm_ListLaborAuthorizations" value="False" >
+    
+</div>
+
+<template id="HeaderTeamplate">
+    <a href="javascript:OrderItems('%HeaderID%')" ><u>%HeaderText%</u>
+        <img id="%HeaderID%_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;%orderdefault1%">
+        <img id="%HeaderID%_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;%orderdefault2%">
+    </a>
+</template>
+
+
+<template id="RecordTemplate">  
+    <div  id="trParent_%counter%" class="TableCont RecordItem SearchTextParent %StatusColor%"  
+          buyoutid="%BuyoutID%" counteritem="%counter%" co=%isco% parentco=%parentco%>
+            <input type="hidden" id="counter_%BuyoutID%"  name="counter_%BuyoutID%" value="%counter%"  >
+            <input type="hidden" id="%BuyoutID%"  name="%BuyoutID%" value="%counter%"  >
+            <input type="button" id="buttonreload_%counter%" onclick="ReLoadItem('%BuyoutID%')" style="display:none">
+        <div class="TableCell Cell_0" nowrap >
+            <i class="zmdi zmdi-plus-square fontBtn tool-options %showExpand%" 
+                id="img1_%counter%" 
+                onclick="expandwa('%counter%','%BuyoutID%','%BOTypePrefix%','%maskBuyoutAmounts%','%bandStr%');" >
+            </i>
+            <i class="zmdi zmdi-minus-square fontBtn tool-options" id="img2_%counter%" 
+                onclick="expandwa('%counter%','','','',' %bandStr%');" style="display:none;">
+            </i>
+            <select id="LstPermitCommit%counter%" name="LstPermitCommit%counter%" 
+                    style="display:none">
+                    <option value="True">True</option>
+            </select>
+            <input type="checkbox" id="chk%counter%" name="chk%counter%%" style="display:none" value="on">
+        </div>
+        <div class="TableCell Cell_1" nowrap id="tdw%counter%">%optionsLessViewClick%</div>
+        <div class="TableCell Cell_2" nowrap id="tde%counter%">%optionsLessEditClick%</div>
+        <div class="TableCell Cell_3" nowrap >
+            <span id="img1_tools%counter%"  
+                class="tool-options">
+                <i onclick="javascript:showJsonOptions('%counter%','%jsonParamsAux%','BUYOUT_TAB_MBC','show','%counter%','workorders/buyout/','&FacilityID=%CustomerFacilityID%&currentPageNumber=1&posRecord=%counter%&prevOrdNum=')" 
+                class="zmdi zmdi-apps fontBtn hand" id="showtools%counter%" name="showtools%counter%" style="display: ;"></i> 
+                <i onclick="javascript:showJsonOptions('%counter%','','','hidden','','','&FacilityID=%CustomerFacilityID%&currentPageNumber=1&posRecord=%counter%&prevOrdNum=')" class="zmdi zmdi-apps fontBtn hand"  id="hidetools%counter%" name="hidetools%counter%"  title="Hide options" alt="" 
+                    style="display:none"></i>
+            </span>
+
+            <span id="img2_tools%counter%" class="tool-options"   >
+                    
+            </span>
+        </div>
+        <div class="TableCell Cell_4" nowrap >
+            <a>
+                <span id="itn%counter%" class="hand" 
+                       onmouseover="ajaxShowInfo('md','%counter%','workorders/buyout/','tn%counter%','%BuyoutID%','','%counter%','%bandStr%');" 
+                       onmouseout="ocultartextonota('%counter%');hideMenuAjax();" 
+                       onmouseup="ocultartextonota('%counter%');hideMenuAjax();">
+                       <i class="zmdi zmdi-tag-more fontbtn"></i>
+                </span>
+            </a>
+            <div style="width:315px" class="MessageBox" id="tn%counter%"></div>
+        </div>
+        <div class="TableCell Cell_5" nowrap >%OrderDateDisplay%</div>
+        <div class="TableCell Cell_6" nowrap >%identifierDisplay%</div>
+        <div class="TableCell Cell_7" nowrap >%vendor_nameDisplay%</div>
+        <div class="TableCell Cell_8" nowrap >%contractLink%</div>
+        <div class="TableCell Cell_9" nowrap >%ScopeNum%</div>
+        <div class="TableCell Cell_10" nowrap >%TO_Mod%</div>
+        <div class="TableCell Cell_11" nowrap >%Description%</div>
+        <div class="TableCell Cell_12" nowrap >%OrderAmount%</div>
+        <div class="TableCell Cell_13" nowrap >
+            <a><i class="zmdi zmdi-comment-outline %cssnotes% fontBtn" id="ita%counter%" border="0" 
+                    align="absmiddle"
+                    onmouseover="mostrartextoNotesAndLogAjax('%counter%','%BuyoutID%','NOTES','tnl%counter%','','notename=OrderNotes&tablename=Buyout&idtable=BuyoutID');" 
+                    onmouseout="ocultartextonota('%counter%','tnl%counter%');" 
+                    onclick="%onclicknotes%">
+                </i>
+            </a>
+            <div class="textoayuda" id="tnl%counter%"></div>
+        </div>
+        <div class="TableCell Cell_14" nowrap >
+            <a id="itl%counter%" border="0" align="absmiddle" class="%Logshow%"
+                onmouseover="mostrartextoNotesAndLogAjax('%counter%','%BuyoutID%','LOG','tl%counter%','Buyout');" 
+                onclick="ventanaTransmission('%BuyoutID%','Buyout','%bandStr%')" 
+                onmouseout="ocultartextolog('%counter%');hideMenuAjax();" 
+                onmouseup="ocultartextolog('%counter%');hideMenuAjax();">%svgmetadata%</a>
+            <div class="textoayuda" id="tl%counter%"></div>
+        </div>
+        <div class="TableCell Cell_15" nowrap >%Status%</div>
+        <div class="TableCell Cell_16" nowrap >%cstcde%</div>
+
+           
+ 
+        <div class="TableCell Cell_19" nowrap >%DocuSignStatus%</div>
+    </div>  
+    <div id="ItemsTR%counter%" style="display:none" onmouseout="hideMenuAjax()" onclick="hideMenuAjax()">
+        <div id="Items%counter%" style="display:none" ></div>
+    </div>
+</template>
+
+<template id="TotalsTemplate">
+  <div  class="TableCont RecordItem SearchTextParent" id="trTotals">
+    <div class="TableCell Cell1-7" style="text-align:right" nowrap><b>Note: Totals exclude Draft Transactions.</b></div>  
+    <div class="TableCell Cell_8-10" nowrap><b>Page Total: %TotAmountsPage%</b></div>  
+    <div class="TableCell Cell_11_12" nowrap><b>Total: %TotAmounts%</b></div> 
+    <div class="TableCell Cell_13" nowrap> </div>   
+    <div class="TableCell Cell_14" nowrap> </div> 
+    <div class="TableCell Cell_15" nowrap></div>  
+    <div class="TableCell Cell_16" nowrap ></div>
+      
+    <div class="TableCell Cell_19" nowrap></div>
+    
+
+  </div>
+</template> 
+
+<script src="js/buyout.js?be731a6" type="text/javascript"></script>
+<div class="LoadingBody"  style="display:none"><svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">  
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg>
+<div class='Icon_RTLoadingText'>Loading...</div></div>
+<body id="buyoutBody" topmargin="0" leftmargin="0" Onload="initialize('')" bgcolor="#FFFFFF" STYLE="scrollbar-base-color:#B7C2CD;overflow-y:scroll;" oncontextmenu="return true;" onunload="window.onbeforeunload = null;" onscroll="hideMenu();hideMenuAjax();OnScrollDiv(this);" >
+ 
+
+<div class="modal fade" id="cModalStatusDoc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog modal-dialogfs" role="document" style="padding:1px; width:740px !important;"  >
+        <div class="modal-content fngModalContent" style="margin-top:138px !important;width:420px !important;height:206px !important;"  >
+            <button id="fspbtnCloseDocStatus" type="button" class="close" data-dismiss="modal" aria-label="Close" style="display:none;" style="opacity:1"><span aria-hidden="true" class="positionclose"></span></button>
+            <input type="hidden" name="vDocStatus" id="vDocStatus" value="" />
+            <input type="hidden" name="vDocSource" id="vDocSource" value="" />
+            <input type="hidden" name="DocDs" id="DocDs" value="" />
+            <input type="hidden" name="DocLb" id="DocLb" value="" />
+            <input type="hidden" name="DocIfr" id="DocIfr" value="" />
+            <input type="hidden" name="DocUrl" id="DocUrl" value="" />
+            <div id="msgStatusDoc" class="alert messagevalidations" style="margin-bottom: 0px;padding: 26px;" >
+                <div style="color: #f0934e;font-size:20px;font-weight: normal;line-height: 1.4;font-family: Roboto;" >We are processing your request. Please try later.</div>
+                <div style="color: #f0934e;font-size:16px;padding-top: 20px;font-weight: normal;line-height: 1.4;" >&nbsp;</div>                                
+                <div style="text-align:right;font-size:14px;"><button type="button" class="btn btn-primary" style="border: 1px solid #4697ce;" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Accounting Periods -->
+<div class="modal fade" id="ModalAccountingPeriods" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="height:200px;" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <br />
+        <p style="padding-left:20px;font-size:14px;" id="messageModalAP_body"></p>
+        <!-- Temporals variables -->
+        <span id="messageModalAP_hidden"></span>
+      </div>
+      <div class="modal-footer" id="messageModalAP_footer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Warning Retry hh2-->
+<div class="modal fade" id="ModalRetryhh2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="height:200px;" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="padding: 0px; !important;">
+        <br />
+        <!-- Warning title -->
+        <p style="text-align:center;color:#4697ce;font-weight:bold;font-size:20px;padding-bottom: 10px; border-bottom: 1px solid rgb(229, 229, 229); padding-left: 0px;">Warning!</p>
+        <p style="padding: 10px 20px 20px 20px;font-size:14px;" id="messageModalRetry_body"></p>
+        <!-- Temporals variables -->
+        <span id="messageModalRetry_hidden"></span>
+      </div>
+      <div class="modal-footer" id="messageModalRetry_footer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Warning Message Modal -->
+<div class="modal fade" id="warningMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content warningMessageModalContent">
+		    <div class="modal-header warningMessageModalHeader">
+		    	<div class="warningMessageModalContainer1">
+                    <div class="warningMessageModalContainer2">
+                        <div class="warningMessageModalContainer3">
+                            
+                            
+                            <div id="warningExecute" style="display:none; margin-top: 5px;">
+                                <span style="font-weight: bold;">Warning!</span> The Commitment cannot be Executed because the following items must be resolved to continue. 
+                                - The Role assigned to you in Redteam does not have Permission to do so. Please contact your System Administrator to modify your Permissions.
+                            </div>
+
+                            <div id="warningCredential" style="display:none; margin-top: 5px;">
+                                <span style="font-weight: bold;">Warning!</span> The Commitment cannot be Executed because the following items must be resolved to continue. 
+                                - The Commitment requires Credentials, see Step 4 to review 
+                            </div>
+                       
+                            <div id="warningObjects" style="display:none; margin-top: 5px;">
+                                <span style="font-weight: bold;">Warning!</span> The Commitment cannot be executed and sent to your connected accounting platform due to the following items being unlinked. 
+                                Please link or update these items before you continue. 
+                            </div>
+
+                            <div id="warningExistsHH2" style="display:none; margin-top: 5px;">
+                                <span style="font-weight: bold;">Warning!</span> The Commitment cannot be Executed because the following items must be resolved to continue. 
+                                - This transaction has not yet been deleted from HH2. 
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                </div>
+		    </div>
+		    <div class="modal-body warningMessageModalBody">
+                <div id="warningMessageInnerDiv">
+                    <table style="width: 100%;" id="warningMessageModalTable">
+                        <tbody></tbody>
+                    </table>
+                </div>
+		    </div>
+		    <div class="modal-footer warningMessageModalFooter">
+                <button type="button" class="btn btn-primary warningMessageModalButton" data-dismiss="modal">OK</button>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<iframe id="_fraGetDataAux" name="_fraGetDataAux" src="" style="width:400; height:200; display:none;"></iframe>
+<iframe id="ifrmAux" name="ifrmAux" src="" style="width:400; height:200; display:none;"></iframe>
+<iframe id="ifrmActions" name="ifrmActions" src="" style="width:800; height:250; display:none;"></iframe>
+<form method="POST" name="FormSubmit" id="FormSubmit" target="ifrmAux" style="display:inline;"></form>
+<form method="POST" name="FormActions" id="FormActions" target="ifrmActions" style="display:inline;"></form>
+<div id="content" onclick="hideMenu();hideToolIcon();hideMenuAjax();" style="top:0;left:0;display:none;">
+
+ 
+<div id="TitleStaticMenu">
+<div id="staticmenu" style="position:relative;display:none;background-color:#ffffff;">
+
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+<table id="page-heading" border="0" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+    
+    <td class="HomeActionsHeader buttonssection" nowrap> 
+           
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-right:11px;">
+                    <tbody><tr>
+                     <td width="100%" nowrap>                            
+                           <div class="dropdown btn-group" style="float: right; padding-right: 8px;">
+                                                      
+                            </div> 
+                     </td>
+                   </tr>
+                  
+                </tbody></table>
+            </div>     
+    </td>
+
+    <td  id="paginationHeader"  class="NewHomeActionsHeader"  width="200" align="right" nowrap >
+      <table border="0" cellpadding="0" cellspacing="0" align="left"><tr valign="middle"><td nowrap>	<img id="p1Inactive" src="https://flex.redteam.com/rts/app/asp/images/browsePrior_inactive.png" align="absmiddle" />	<a id="p1Active" href="javascript:BackPage()" style="display:none"><img src="../../asp/images/browsePrior.png" border="0" align="absmiddle" /></a></td><td class="KeywordLabelTab" >&nbsp;Page</td><td nowrap><span class="wrapper"><div class="styled-select" ><select id="pageController" onchange="LoadDataPagination()" ></select></div></span></td><td class="KeywordLabelTab"  nowrap>&nbsp;of&nbsp;<span id="totalPagesCount"></span></td><td nowrap><img id="p2Inactive"  src="https://flex.redteam.com/rts/app/asp/images/browseNext_inactive.png" align="absmiddle" style="display:none" /><a id="p2Active"  href="javascript:NextPage()"><img src="../../asp/images/browseNext.png" border="0" align="absmiddle" /></a></td><td style="padding-left:5px;" nowrap><span class="wrapper"><div class="styled-selectItemsPerPage" ><select id="cbitemsPerPage" onchange="ChangeItemsPerPage()" ></select></div></span></td></tr></table>
+         
+    </td>
+</tr>
+<tr>
+                        
+    <td  colspan="3" align="right" style=" padding-right:11px;">
+        <table style="width: 100%; font-size:14px;">
+        <tr>
+            <td style="width: 100%;">
+            
+            
+    
+            <div  id ="tablePermanentMessage" name="tablePermanentMessage" style="background-color:#f3f4f6; padding-bottom:5px; padding-top:17px;position:relative;">
+					
+			        <div class="alert alert-warning alert-div-warning"  role="alert"  id="alertWarning">
+	                    <button  type="button" class="close closeAditionalAlert" onclick="javascript:hidealert();">
+	                         <i class="zmdi zmdi-close"></i>
+	                    </button>
+	                    <div><span> 
+                       Use Filter to display Closed Commitments.
+                        </span></div>
+	                </div> 
+	        </div>   
+   
+            
+            <div class="alert alert-warning" id="tableMessage" role="alert" style="margin-bottom:0px; margin-left:12px; margin-right:150px; padding-right: 15px; padding-left:11px; position:relative; display:none;"> 
+                <button  type="button" class="close closeAditionalAlert" onclick="javascript:hidealertaux();">
+	                <i class="zmdi zmdi-close"></i>
+	            </button>
+                <div><span id="tdMessage"></span></div>
+            </div>
+            
+            </td>
+            
+        </tr>
+        </table>
+    </td>
+</tr>
+</table> 
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage Buyout Commitments","Manage":"Buyout","Menu":{"Options":[{"Name":"Vendor Invoices","Id":"trItemMenuShow2","Onclick":"javascript:Payables('../../vendors/payables_/vendorDisb.asp?p=c2hvd2FsbD10cnVlJldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmY2lhPSZmcm9tPWJ1eW91dA');hideMenu();hideMenuAjax();","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"","Id":"linkMenuAdd","Onclick":"javascript:ShowLightBoxASP('app/workorders/buyout_/CommitmentList.asp?arrPermissions=addEdit|False||addLA|False||addEA|False||addER|True&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221', '', '650px')","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"View":{"Options":[{"Name":"Buyout Credentials","Id":"","Onclick":"javascript:viewBuyoutCredentials();","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Buyout Log","Id":"","Onclick":"javascript:ViewBuyout(1,'');","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Time Tracking Log","Id":"","Onclick":"javascript:ViewTimeTracking('views/TimeTrackingLog.asp?p=V29JRD0xOTQwMDQ2JldvTW9kPTAw');hideMenu();hideMenuAjax();","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Time Tracking (Classic)","Id":"","Onclick":"javascript:ViewTimeTracking('views/TimeTracking.asp?p=V29JRD0xOTQwMDQ2JldvTW9kPTAw');hideMenu();hideMenuAjax();","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Accounting Export","Id":"","Onclick":"javascript:ViewAccountingExport()","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('112');","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>  
+</div>
+    <div id="divfrmAdd" style="display:none;height:auto;overflow:hidden;padding-left:16px;position:relative;padding-top: 10px;"> 
+    <div class="container-fluid" style="background-color:#fff;">
+        <table cellpadding="0" cellspacing="0" border="0" class="table tableform">
+            <tr>
+                <td>
+                    <div class="modal-header" >
+                        <h3 class="modal-title" style="padding-left:10px">
+                            <strong>Select a Buyout Commitment</strong>
+                        </h3>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="container- fluid" style="margin-top:0px;overflow-y: auto;overflow-x:hidden; height: 350px;">                      
+            <div class="row">
+                <div class="col-md-6" style="margin-left:60px;">
+                    <ul id="_menuAdd" class="list-unstyled">            
+                    </ul>
+                </div>
+            </div>                           
+        </div>                  
+     </div>
+    </div>
+
+    <form method="POST" action="Buyout.asp" name="Form1" id="Form1" style="display:inline;">
+    <div id="trFiltersbox" style="width:100%;display:none;height:238px;overflow-y:auto;position:relative;background-color:#FFFFFF;">
+        <div class="panel panel-midnightblue customFilterBox" style="margin-bottom:0px;" >
+            <div class="panel-heading">
+                <h4>Filters</h4>
+            </div>
+            <div class="panel-body collapse in">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Type</label> 
+                            <div  class="col-sm-3-separator">
+                                <select style="font-size: 14px; width: 100%;" name="LstType" id="LstType" multiple class="SlectBox1"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Cost Code</label> 
+                            <div class="col-sm-3-separator">
+                                <div class="ccWithPhasesList">
+                                    <select style="display:none; width: 100%; font-size: 14px;" name="LstCC" id="LstCC" multiple></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Scope</label> 
+                            <div class="col-sm-3-separator">
+                                <select style="width:100%; font-size: 14px;" class="form-control SlectBox1" name="LstScope" id="LstScope"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Vendor</label> 
+                            <div class="col-sm-3-separator">
+                                <select style="width:100%;font-size: 14px;" name="LstVendor" id="LstVendor" multiple="multiple" class="SlectBox"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Employee</label> 
+                            <div  class="col-sm-3-separator">
+                                <select style="width:100%; font-size: 14px;" class="form-control SlectBox1" name="LstEmployee" id="LstEmployee"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Status</label> 
+                            <div  class="col-sm-3-separator">
+                                <select style="width: 100%; font-size: 14px;" name="LstStatus" id="LstStatus" multiple class="SlectBox1"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Credentials</label> 
+                            <div  class="col-sm-3-separator">
+                                <select style="width: 100%; font-size: 14px;" id="LstCredential" name="LstCredential" multiple class="SlectBox1"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group"> 
+                            <label class="control-label">&nbsp;</label> 
+                            <div  class="col-sm-3-separator form-inline">
+                                <select name="LstDateFilter" id="LstDateFilter" class="form-control SlectBox1" onchange="enableDateFilterInfo()" style="width: 100%; font-size: 14px;"> 
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">From</label> 
+                            <div class="col-sm-2-separator">
+                                <input class="form-control" type="text" name="FromDate" id="FromDate" maxlength="10" value="" style="width:95;display:inline" disabled /><a><i style="vertical-align:-5px; padding-left: 5px;" class="zmdi zmdi-calendar fontBtn hideDateIcon" id="CalendarFrom" onclick="return showCalendar('FromDate','%m/%d/%Y');"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">To</label>
+                            <div class="col-sm-2-separator">
+                                <input class="form-control" type="text" name="ToDate" id="ToDate" maxlength="10" value="" style="width:95;display:inline" disabled /><a><i style="vertical-align:-5px; padding-left: 5px;" class="zmdi zmdi-calendar fontBtn hideDateIcon" id="CalendarTo" onclick="return showCalendar('ToDate','%m/%d/%Y');"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">&nbsp;</label>
+                            <div class="col-sm-2-separator">
+                                <input type="button" onclick="javascript:FilterValidationManage();Filtercount()" id="btnFilterNoHide" name="btnFilterNoHide" class="btn btn-primary" value="Filter" />
+                                <input type="button" onclick="javascript:FilterValidationManage();filterBoxActivation('Filter');Filtercount()" id="btnFilterHide" name="btnFilterHide" class="btn btn-primary-alt btnBgGray" value="Filter & Hide" />                    
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>                 
+    </div> 
+</form> 
+
+ <table  id="HeaderTable" width="100%" cellpadding="0" cellspacing="0"> 
+        <tr>       
+            <td  height="20" class="customTableHeaderContainer" style="background-color: #f3f4f6;">     
+                <div id="tblheading" class="TableCont tblheading" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <div class="TableCell Cell_0" style nowrap> </div>            
+                    <div class="TableCell Cell_1" style nowrap> </div>    
+                    <div class="TableCell Cell_2" style nowrap> </div>    
+                    <div class="TableCell Cell_3" style nowrap> </div>    
+                    <div class="TableCell Cell_4" style nowrap> </div>    
+                    <div class="TableCell Cell_5" nowrap id="Header_Date" label="Date">Date</div>
+                    <div class="TableCell Cell_6" nowrap id="Header_Id" label="Id">Id</div>
+                    <div class="TableCell Cell_7" nowrap id="Header_Vendor" label="Vendor/Employee">Vendor/Employee</div>
+                    <div class="TableCell Cell_8" nowrap>Src</div>  
+                    <div class="TableCell Cell_9" nowrap id="Header_Scope" label="Scope">Scope</div> 
+                    <div class="TableCell Cell_10" nowrap id="Header_Mod" label="Mod">Mod</div>
+                    <div class="TableCell Cell_11" nowrap id="Header_Description" label="Description">Description</div> 
+                    <div class="TableCell Cell_12" nowrap id="Header_Committed" label="Committed ($)">Committed</div>  
+                    <div class="TableCell Cell_13" nowrap> </div>   
+                    <div class="TableCell Cell_14" nowrap> </div> 
+                    <div class="TableCell Cell_15" nowrap>Status</div>  
+                    <div class="TableCell Cell_16" nowrap id="Header_CC" label="Cost Code">Cost Code</div>
+                      
+                    <div class="TableCell Cell_19" nowrap>DocuSign</div>   
+                </div> 
+            </td>
+        </tr>
+        </table>
+</div>
+
+<div id="DivOverflow">
+
+<div class="BodyContain GeneralContain"></div> 
+<div class="BodyContainTotals GeneralContain"></div> 
+
+<div class="TableCont NoRecords GeneralContain" style="display:none">
+	<div class="NoRecordsContain"><font class="orange">There are no Items on File!</font></div>
+</div>
+
+<table id="tableMajor" border="0" cellpadding="0" cellspacing="0" style="table-layout: fixed; width: 100%;">
+   
+
+</table>
+</div>
+</div>
+
+
+
+<form name="addEditForm" id="addEditForm" ><TEXTAREA id="sqlTotalReport" name="sqlTotalReport" style="display:none;" ></TEXTAREA><TEXTAREA id="sqlTotalRecords" name="sqlTotalRecords"  style="display:none;"  ></TEXTAREA>
+<input type="text" id="filterStatus" name="filterStatus"  style="display:none;"  value="" /> 
+<input type="text" id="sqlFilter" name="sqlFilter"  style="display:none;"  value="ZmlsdGVyPSZzb3J0Qnk9JkZfVHlwZT0mRl9Bc3NlbWJseT0mRl9TY29wZT0mRl9WZW5kb3I9JkZfRW1wbG95ZWU9JkZfRGF0ZUZpbHRlcj0mRl9Gcm9tRGF0ZT0mRl9Ub0RhdGU9JkZfU3RhdHVzPSZGX1Bvc3RlZD0mRl9DcmVkZW50aWFsPSZzZWFyY2hDcml0ZXJpYT0maGRuaXRlbXNQYWdlTnVtYmVyPSZoZG5DdXJyZW50UGFnZU51bWJlcj0wJnNxbFNlc3Npb249dHJ1ZQ" />
+</form>
+<input id="count" name="count" type="hidden" value=""/>  
+</body>
+<input type="hidden" id="P_arrP" name="P_arrP" value="&mba=True&EditExplanation=&EditRTExplanation=&LstStatus=&flag=BUYOUT_TAB_MBC&arrPermissions=vcom|False||vbuyaud|False||cocom|False||coven|False||uncom|False||addedit|False||vsign|False||del|False||havetra|false||addbn|False||reopen|False||vndinv|False||addvco|False||unxcommit|False||voidcom|False||closecom|False||AddEA|False||AddLA|False||cancelcom|False||executecom|" >
+<input type="hidden" name="nItems" id="nItems" value >
+
+<form id="FormView" name="FormView" method="post" style="display:none;" target="_blank" > 
+    <textarea style="display:none;" id="viewPrintParams" name="viewPrintParams"></textarea>
+</form>
+
+
+<script src="js/buyout_Load.js?be731a6" type="text/javascript"></script>
+</html>
+<script type="text/javascript">  
+    
+    $('#LstCC').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        selectAll: true,
+        csvDispCount: 1, 
+        captionFormat: '{0} selected',
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected',
+        hideGroups: true
+    }); 
+         
+    setInterval('checkTableMessage()',800);  
+
+    $(window).load(function() { 
+         
+        LoadHeaderSorts("Id","desc")
+        LoadManage()   
+        
+        document.onclick = hideMenu;
+        document.onclick = hideMenuAjax;
+        window.onscroll =hideMenuAjax;
+        window.onscroll =OnScrollDiv;
+
+        setEclipseScreenIcon();
+    });
+
+    $(window).on('scroll', function() {
+      DetectScroll()
+    });
+
+     $("#TextToSearch").on('keypress',function(e) { 
+        if(e.which == 13) {
+          SearchinData();
+        }
+    });
+
+    window.addEventListener("resize", divOverflowChangePaddingTop);
+</script>

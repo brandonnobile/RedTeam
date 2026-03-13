@@ -1,0 +1,70 @@
+[
+  {
+    "headers": [
+      "Add Punch List Item",
+      ""
+    ],
+    "rows": [
+      [
+        "Type:",
+        "Select one...\n                        Punch ListQualitySafetyWarranty\n                        \n                        *",
+        ""
+      ],
+      [
+        "Scope:",
+        "Select one...\n                        Original - Fire Station 20 Build - New Construction (InProgress)C0 01 - OCO #1 Changes due to EDC Civil Revisions, 07/09/24 (Authorized)C0 02 - OCO #2 Civil Changes to EDC Plans due to PSL Reviews (Authorized)C0 03 - OCO#3 Upsize Generator and Electric for Additional FPL Transformer. (Authorized)C0 04 - OCO#4 Add access control to doors 105B, 106B and 108. Delete 106A door and Frame. (Authorized)C0 05 - OCO#5 Remaining credit on Flashing Beacons that have been deleted from the project. (Authorized)C0 06 - OCO #6 Owner-Requested Changes (Authorized)C0 07 - OCO #7 Added J Fixtures (Authorized)C0 08 - OCO #8 Change Locker Size and Add 3 Lockers (Authorized)C0 10 - OCO #10 - Paint Overhead Doors Red (Authorized)C0 11 - OCO #11 - Cyclovac Change; for the Owner supplied Equipment. CENTRAL VAC. (Authorized)C0 12 - OCO #12 - Roof Ladders (Authorized)C0 13 - OCO #13 - Hardware Changes, per Architect (Authorized)C0 14 - OCO #14 - Add Structural Steel Supports (Authorized)C0 16 - OCO #15 - Modify Island Cabinetry (Authorized)C0 17 - OCO #16 - Added Concrete Paving (Authorized)C0 18 - OCO #17 - Revision 7: Big Ass Fan (Authorized)C0 19 - OCO #18 - Revision 7: Misc. Electrical Additions (Authorized)C0 20 - OCO #19 - Circuitry for Sink Disposals (Authorized)C0 21 - OCO #20 - Plumbing Additions (Authorized)C0 22 - OCO #21 - Thimble for Generator Exhaust Change Out Side Wall (Authorized)C0 23 - OCO #22 - Added Drive Thru Turn Lane (Authorized)C0 24 - OCO #23 - Kitchen Cabinet Changes/Additions (Authorized)C0 25 - OCO #24 - Core Drilling for Added IT Lines Across Apparatus Bay (Authorized)C0 26 - OCO #25 - Added Underground Piping for Condensate Drains (Authorized)C0 27 - OCO #26 - Cabinet Additions (Authorized)C0 28 - OCO #27 - Added Gate Lights & Traffic Signal Lights (Authorized)C0 29 - OCO #28 - Replace Interior Window (Authorized)C0 30 - OCO #29 - Install Roof Drains (Authorized)C0 31 - OCO #30 - Install ACT in Kitchen & Dining Area (Authorized)C0 32 - OCO #31 - Casework (Authorized)C0 33 - OCO #32 - Change Colors of Ceiling & Fixture Trim to Black (Authorized)C0 34 - OCO #33 - Power Supplies for Access Control (Authorized)C0 36 - OCO #35 - Reframe Exterior Access Panel (Authorized)C0 37 - OCO #36 - Add Yard Drain & Bubbler (Authorized)C0 38 - OCO #37 - Changes Per IT Walkthrough (Authorized)C0 39 - OCO #38 - Added Epoxy (Authorized)C0 40 - OCO #39 - Hardware Change for 2 Pocket Doors (Authorized)C0 42 - OCO #40 - install 4 Pipe Flashing (Authorized)C0 43 - OCO #41 - Westnet Antenna (Authorized)C0 44 - OCO #42 - Big Ass Fan Addition (Authorized)C0 45 - OCO #43 - Add 11 Boxes for Smoke/CO Detectors (Authorized)C0 46 - OCO #44 - Electrical Changes for AHU 3-AS (Authorized)C0 47 - OCO #45 - Additional Fire Extinguisher & Cabinet (Authorized)C0 49 - OCO #46 - Install Cowling, Exhaust & Insulation at Generator (Authorized)C0 50 - OCO #47 - Install Water Dam for Overflow Drains (Authorized)C0 51 - OCO #48 - Fire Alarm Additions (Authorized)C0 52 - OCO #49 - Lower Irrigation Lines (Authorized)C0 53 - OCO #50 - Additional Concrete (Authorized)C0 54 - OCO #51 - Added Plant Quantities (Authorized)C0 56 - OCO #52 - Bollards for Apparatus Bay (Authorized)C0 57 - OCO #53 - Additional Conduit (Authorized)C0 58 - OCO #54 -  Simpson Stopper Upgrade (Authorized)C0 59 - OCO #55 - Additional Work For Overhead Doors (Authorized)C0 60 - OCO #56 - Install 3 Ceiling Boxes & 15 Camera Backboxes (Authorized)C0 61 - OCO #57 -  Final Clean & Lamp (Authorized)C0 62 - OCO #58 - Install Power/Circuitry for MUA Condenser (Authorized)C0 63 - OCO #59 - Additional Bath Accessories (Authorized)C0 64 - OCO #60 - Change for New Screened Enclosure (Authorized)C0 65 - OCO #61 - Install OS&Y Tamper Switches & PIV Tamper (Authorized)C0 66 - OCO #62 - Additional Planting & Irrigation (Authorized)C0 67 - OCO #63 - Additional Sitework (Authorized)C0 68 - OCO #64 - Change for Gas Piping (Authorized)C0 69 - OCO #65 -  Additional Sod & Grading (Authorized)C0 70 - OCO #66 - Pressure Washing Driveway (Authorized)C0 71 - OCO #67 - Additional Doors & Hardware (Authorized)C0 72 - OCO #68 - Supply Power to Refueling Station (Authorized)C0 73 - OCO #69 - Provide Power & Control for Generator (Authorized)C0 74 - OCO #70 - Cost for Impellers (Authorized)C0 75 - OCO #71 - Additional Casework (Authorized)C0 76 - OCO #72 - Install Grease Trap Vents (Authorized)C0 77 - OCO #73 - Additional Landscaping (Authorized)C0 78 - OCO #74 -  Install Mirror Wall (Authorized)C0 79 - OCO #75 - Repair Irrigation System (Authorized)C0 80 - OCO #76 - Regrade by Rollup Door (Authorized)C0 81 - OCO #77 - Cost for Fire Alarm Work (Authorized)C0 82 - OCO #78 - Modify Exterior Gas Service (Authorized)C0 83 - OCO #79 - Supply & Install Fencing (Authorized)C0 84 - OCO #80 - Replace Cam Locks (Authorized)C0 85 - OCO #81 - Fee for Multiple Trips for Start Up (Authorized)C0 86 - OCO #82 - Connected Low Voltage to Open Terminals & Diagnosed Electrical Problem (Authorized)C0 87 - OCO #83 - Install Provided Lights for Helipad Area (Authorized)C0 88 - OCO #84 - Added CO Detectors & PIV Valve & Deduct Work by Fire Equipment Services (Authorized)C0 89 - OCO #85 - Install 6 3-Button Stations & 2 Missing Antennas (Authorized)C0 90 - Additional As-Built Surveys to Close out project (Authorized)C0 91 - OCO #86 - Additional Landscaping (Authorized)C0 92 - OCO #87 - Additional Caulking (Authorized)C0 93 - OCO #88 - Painting (Authorized)C0 94 - OCO #89 - Supply UPS for Hood Gas Solenoid (Authorized)C0 95 - OCO #90 - Sod & Grading for PW Final (Authorized)C0 96 - OCO #91 - Miscellaneous Drywall Patching (Authorized)C0 97 - OCO #92 - Costs for Paint at Helicopter Pad (Authorized)C0 98 - OCO #93 ODP Closeout (Authorized)C0 99 - OCO #94 - Costs for 2 Week Fluke Metering Report (Authorized)\n                        \n                        *",
+        ""
+      ],
+      [
+        "Location:",
+        "Select one ...\n                            + Add new\n                            Default\n                        \n                    *",
+        ""
+      ],
+      [
+        "Description:",
+        "",
+        ""
+      ],
+      [
+        "Author:",
+        "Select one ...\n                                             ACutAbove-Eneyda EneydaBeckley En-General InboxCarter Ass-Sybil WilkersonDH Pace-Brandon FieldsDH Pace-Steve HaeringFarmer & I-Susan CalvarusoFarmer & I-Toby CharlesFE&T-Brian BuxtonHaley Ward-Jayson HarrisonHaley Ward-Steven FrinkHaley Ward-Tanner RetherfordHaley Ward-Tony CantonOceanside-Mike ThomasOCI Assoc-James BuchardRemnant-Arthur NortonRemnant-Bernie ZukauskasRemnant-Brandon HooperRemnant-Brandon NobileRemnant-Brian GarciaRemnant-Christopher MartinezRemnant-Cleveland WilliamsRemnant-Craig GumRemnant-Cris TaylorRemnant-Devin CaraballoRemnant-Donald FrenchRemnant-Erin O'BrienRemnant-Implementation Remnant-Jacob FischerRemnant-Jennifer KnowlesRemnant-Jeremy GoffRemnant-Jerome de GrootRemnant-John MayrRemnant-Joseph MayhewRemnant-Joshua LopezRemnant-Linda S. FrenchRemnant-Louis CaciopoliRemnant-Mark BockRemnant-Maxwell RuddRemnant-Mike KingRemnant-Mike StubblefieldRemnant-Patrick GarciaRemnant-Randy ShurrRemnant-RedTeam SupportRemnant-Shannon WorleyRemnant-Stuart FrisbyRemnant-Terry LynchRemnant-Thomas KinsellaSLCFD-Joey CassonSLCFD-John WallaceSLCFD-Paul LangelUniversalE-Antonio TorresUniversalE-Karla GabayVelcon Eng-Darren GuettlerVelcon Eng-Greg SantoimmaVelcon Eng-Heath StoctonWannemache-A.J. VanhooserWannemache-Jeff McDowell\n                                            \n                                         *",
+        ""
+      ],
+      [
+        "Responsible:",
+        "Select one ...\n                                            A-1 Construction Co.Action Fencing, Inc.Advanced Hood SystemsAgler Kitchen, Bath & FloorsAll Specialty SalesAlliance Group Contracting CorporationBeckley Engineering Consultants [third-party]Brothers Fire Protection, Inc.Carter Associates, Inc.Coastal VacuumCommunication Access Services, Inc.Complete Cooling & Heating Services, Inc.Complete Electric, Inc.Cook Shell Contractors, LLCD & D Garage Doors of the Treasure Coast, Inc. DBA Overhead Door Co of the Treasure CoastEnergy and Impact Solutions, LLC DBA Vero Glass & MirrorEuropean Custom Casework, Inc.Festina Lente, LLC DBA AA Sign LinesFire Equipment Systems of Florida, Inc.G & R Concrete Designs, LLCGearGrid CorporationGras Lawn, LLCHaley Ward, Inc. [third-party]HD FlagpolesInterior Specialties, Inc.Kelsie's Blinds, Inc.Key Mart, Inc.Kuebler Mechanical, LLCMER Enterprises, LLC DBA Leed InsulationMidstate Caulking & Construction Services, LLCNature's Keeper Inc.OCI Associates, Inc. [third-party]Perini Interiors, LLCPOD, LLC DBA Tubito PaintingRemnant Construction, LLCRF Concrete Construction, Inc.Rodeo RoofingSafe Clean Experts of South Florida, LLCSecurity Builders Supply Co.Snyder Plumbing of the Treasure Coast, Inc.St. Lucie County Fire District [customer]Suncor, Inc.Sunline Civil Construction, Inc.Tennessee Building ComponentsThe Porch FactoryUniversal Engineering SciencesV.M. Iron Work and Structural Steel Corp.Velcon Engineering & Surveying, LLCWannemacher Jensen Architects, Inc. [third-party]Westnet, LLC",
+        ""
+      ],
+      [
+        "Required Date:",
+        "",
+        ""
+      ],
+      [
+        "Attachment:",
+        "Drag and Drop your file here \n                                                            \n                                                                OR\n                                                              \n                                                            \n                                                                \n                                                                ADD FILE...\n                                                            \n                                                             \n                                                           \n                                                                                               \n                                                            \n                                                                Allowed file types:\n                                                                    \n                                                                    *.docx,*.dwf,*.dwg,*.gif,*.jpeg,*.jpg,*.mp3,*.mp4,*.mpp,*.pdf,*.png,*.tif,*.tiff,*.txt,*.wmv,*.xlsx,*.xps \n                                                                The file size cannot exceed \n                                                                25MB."
+      ],
+      [
+        "Company Confidential:",
+        "",
+        ""
+      ],
+      [
+        "",
+        ""
+      ]
+    ],
+    "row_count": 10
+  },
+  {
+    "headers": [
+      ""
+    ],
+    "rows": [
+      [
+        "There are no items on file!"
+      ]
+    ],
+    "row_count": 1
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "headers": [
+      "Send Invitations?"
+    ],
+    "rows": [
+      [
+        "Would you like to send invitations to guests?"
+      ],
+      [
+        ""
+      ]
+    ],
+    "row_count": 2
+  }
+]

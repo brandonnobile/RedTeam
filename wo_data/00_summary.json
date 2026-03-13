@@ -1,0 +1,129 @@
+{
+  "workorder_id": "1940046",
+  "files_pulled": [
+    {
+      "file": "00_employee.json",
+      "size": 18965
+    },
+    {
+      "file": "00_session_info.json",
+      "size": 359
+    },
+    {
+      "file": "01_workorder_basic.json",
+      "size": 366
+    },
+    {
+      "file": "01_workorder_detail.json",
+      "size": 2269
+    },
+    {
+      "file": "02_home_menu.json",
+      "size": 17471
+    },
+    {
+      "file": "02_tabs.json",
+      "size": 1373
+    },
+    {
+      "file": "03_all_contacts.json",
+      "size": 1472522
+    },
+    {
+      "file": "03_contacts.json",
+      "size": 18
+    },
+    {
+      "file": "04_spreadsheets.json",
+      "size": 18
+    },
+    {
+      "file": "05_dashboard_news.html",
+      "size": 90735
+    },
+    {
+      "file": "05_dashboard_news_tables.json",
+      "size": 193
+    },
+    {
+      "file": "06_rfi_dialog.html",
+      "size": 7028
+    },
+    {
+      "file": "07_budget.html",
+      "size": 13905
+    },
+    {
+      "file": "07_budget_tables.json",
+      "size": 95
+    },
+    {
+      "file": "08_billing.html",
+      "size": 7130
+    },
+    {
+      "file": "09_buyout.html",
+      "size": 50477
+    },
+    {
+      "file": "10_punchlist.html",
+      "size": 503
+    },
+    {
+      "file": "11_financial_overview.html",
+      "size": 103953
+    },
+    {
+      "file": "11_financial_overview_tables.json",
+      "size": 18198
+    },
+    {
+      "file": "12_changes_overview.html",
+      "size": 345
+    },
+    {
+      "file": "12_changes_overview_full.html",
+      "size": 451781
+    },
+    {
+      "file": "12_changes_overview_tables.json",
+      "size": 59640
+    },
+    {
+      "file": "13_rfi_summary.html",
+      "size": 616
+    },
+    {
+      "file": "13_rfi_summary_full.html",
+      "size": 101557
+    },
+    {
+      "file": "13_rfi_summary_tables.json",
+      "size": 12671
+    },
+    {
+      "file": "14_attachments.html",
+      "size": 574191
+    },
+    {
+      "file": "14_attachments_tables.json",
+      "size": 39044
+    },
+    {
+      "file": "15_photos.html",
+      "size": 15285
+    },
+    {
+      "file": "20_all_links.json",
+      "size": 15179
+    },
+    {
+      "file": "20_attachments_list.json",
+      "size": 154
+    },
+    {
+      "file": "20_attachments_tables.json",
+      "size": 34356
+    }
+  ]
+}

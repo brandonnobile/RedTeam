@@ -1,0 +1,37 @@
+=== Schedule Values ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ {"Title":"Schedule of Values","Manage":"Contract","Menu":{"Options":[{"Name":"Contract","Id":"trItemMenuShow1","Onclick":"javascript:document.location.href='../proposal_/contract.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&FacilityID=';","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Project Phases","Id":"trItemMenuShow2","Onclick":"javascript:document.location.href='../projectPhases_/projectPhases.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&tab=contract&FacilityID='","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Project Cost Codes","Id":"trItemMenuShow3","Onclick":"javascript:document.location.href='../projectcostcodes_/ProjectCostCodes.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&FacilityID=&fromTab=Contract'","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Project Cost Categories","Id":"trItemMenuShow4","Onclick":"javascript:document.location.href='../projectCategories_/projectCategories.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&tab=contract&FacilityID=';","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Unit Prices","Id":"trItemMenuShow5","Onclick":"javascript:document.location.href='../workorderPrices_/manageWOPrices.asp?WorkorderID=1940046&WorkorderMod=&WorkorderStatus=&tab=contract&FacilityID='","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add Schedule of Values","Id":"btnAddSOV","Onclick":"javascript:filterBoxActivation('add');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Add Schedule of Values","Id":"","Onclick":"javascript:ShowLightBoxASP('/rts/app/workorders/ScheduleOfValues_/EditScheduleOfValues.asp?tab=modeNew&WOpen=&WOpenP= &WorkorderID=1940046&WMod=&WorkorderStatus=&FacilityID=&console=&LinkSOVtoBudget=no',' ','640px')","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Add Schedule of Values Heading","Id":"btnAddHeading","Onclick":"javascript:slideBoxActivation('add');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Import SOV from Estimate","Id":"btnImportFromEstimate","Onclick":"javascript:showImportMessage();","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"},{"Name":"Import Schedule of Values","Id":"btnImportSOV","Onclick":"javascript:importOptions('GRID_Import_ScheduleOfValues.asp?view=blank&tab=contract&console=&WMod=&wostatus=&WOpen=&LinkSOVtoBudget=no&WorkorderID=1940046&WorkorderMod=','');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"viewSOV","Onclick":"javascript:window.open('tpl.viewSchedOfValues.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9JkZhY2lsaXR5SUQ9JlByaW50PVRydWUmY2xpZW50PXJlbW5hbnRjb25zdHJ1Y3Rpb24mV09wZW49','_blank');","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[{"Name":"Arrange","Id":"btnArrange","Onclick":"javascript:ShowLightBoxASP('/rts/app/workorders/ScheduleOfValues_/SortSchedItems.asp?tab=&WOpen=&WOpenP= &WorkorderID=1940046&WMod=&WorkorderStatus=&FacilityID=&console=&LinkSOVtoBudget=no',' ','Calc(100vh - 102px)')","IconName":"","Enabled":true,"Manage":"ManageScheduleofValues"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('191');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Add Schedule of Values Heading 	Schedule of Values Heading : 	* 	Add SOV item 	Type: 	Select one... Overhead Profit SOV * 	Description of Work: 	* 	Scheduled Value ($): 	* 	Owner's Contingency: 	# 	Description of Work 	Scheduled Value ($) 	Period Ending 	% Completed 	Owner's Contingency 	Type 	There are no records on file! 
+ 	Total : 	0.00 	0.00% 	Contract Amount including Change Orders: $0.00 
+ go to Previuos go to Next

@@ -1,0 +1,57 @@
+=== Vendor Directives ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+ 	{"Title":"Manage Vendor Directives","Manage":"Buyout","Menu":{"Options":[{"Name":"Buyout Commitments","Id":"trItemMenuShow1","Onclick":"javascript:window.location = 'buyout.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0wMDIyMQ'","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"},{"Name":"Lien Law Claims","Id":"trItemMenuShow2","Onclick":"javascript:document.location.href='../lienlaw_/managelienlawdocuments.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221'","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"},{"Name":"Vendor Invoices","Id":"trItemMenuShow3","Onclick":"javascript:Payables('../../vendors/payables_/vendorDisb.asp?p=c2hvd2FsbD10cnVlJldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmY2lhPSZmcm9tPWJ1eW91dA');hideMenu();","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add Vendor Change Order","Id":"","Onclick":"javascript:gotoFormsConsoleCommitment('app/forms/tpl_forms/tpl_formsConsole.asp?p=aT0mdW5pcXVlSUQ9bnVsbCZiYW5kPWVkaXQmc3RhdHVzPURyYWZ0Jndpa2lUcmFuc2FjdGlvbklEPTI1OTkmdHlwZUlEPSZ0eXBlPSZ0cmFuc1RpdGxlPUNvbnZlcnQrdG8rVmVuZG9yK0NoYW5nZSZ3b19pZF9tb2Q9MTk0MDA0Nl8wMCZ3b2lkPTE5NDAwNDYmd29tb2Q9MDAmb3JpZ2VuPWFkZERpcmVjdGl2ZSZwYXJhbVBhZ2U9ZGlyZWN0aXZlQWRkfDB8fFdvcmtvcmRlcklEfDE5NDAwNDZ8fFdvcmtvcmRlck1vZHwwMHx8V29ya29yZGVyU3RhdHVzfEluUHJvZ3Jlc3N8fEZhY2lsaXR5SUR8MDAyMjE');","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"},{"Name":"Add Vendor Directive","Id":"","Onclick":"javascript:gotoFormsConsoleCommitment('app/forms/tpl_forms/tpl_formsConsole.asp?p=ZWRpdFJ0ZUV4cD1UcnVlJmVkaXRFeHA9VHJ1ZSZiYW5kPWFkZCZzdGVwPTEmY3VycmVudFN0ZXA9MSZ3aWtpVHJhbnNhY3Rpb25JRD0xMTQmc3RlcFRpdGxlPUdlbmVyYWwmdHJhbnNUaXRsZT1WZW5kb3IrRGlyZWN0aXZlJndvX2lkX21vZD0xOTQwMDQ2XzAwJnBhcmFtUGFnZT1Xb3Jrb3JkZXJJRHwxOTQwMDQ2fHxXb3Jrb3JkZXJNb2R8MDB8fFdvcmtvcmRlclN0YXR1c3xJblByb2dyZXNzfHxGYWNpbGl0eUlEfDAwMjIxfHxkaXJlY3RpdmVJRHwwfHxiYW5kfE5ld3x8aXwxfHxiYW5kZGlyfG5ld3x8anNQcmludHw');","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"","Onclick":"view();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('174');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Reference: 
+ All... 
+
+ Scope: 
+ Original - Fire Station 20 Build - New Construction C0 01 - OCO #1 Changes due to EDC Civil Revisions, 07/09/24 C0 02 - OCO #2 Civil Changes to EDC Plans due to PSL Reviews C0 03 - OCO#3 Upsize Generator and Electric for Additional FPL Transformer. C0 04 - OCO#4 Add access control to doors 105B, 106B and 108. Delete 106A door and Frame. C0 05 - OCO#5 Remaining credit on Flashing Beacons that have been deleted from the project. C0 06 - OCO #6 Owner-Requested Changes C0 07 - OCO #7 Added J Fixtures C0 08 - OCO #8 Change Locker Size and Add 3 Lockers C0 09 - OCO #9 Concrete Price Escalation C0 10 - OCO #10 - Paint Overhead Doors Red C0 11 - OCO #11 - Cyclovac Change; for the Owner supplied Equipment. CENTRAL VAC. C0 12 - OCO #12 - Roof Ladders C0 13 - OCO #13 - Hardware Changes, per Architect C0 14 - OCO #14 - Add Structural Steel Supports C0 15 - OCO #15 - Add Plastic Strip Curtain C0 16 - OCO #15 - Modify Island Cabinetry C0 17 - OCO #16 - Added Concrete Paving C0 18 - OCO #17 - Revision 7: Big Ass Fan C0 19 - OCO #18 - Revision 7: Misc. Electrical Additions C0 20 - OCO #19 - Circuitry for Sink Disposals C0 21 - OCO #20 - Plumbing Additions C0 22 - OCO #21 - Thimble for Generator Exhaust Change Out Side Wall C0 23 - OCO #22 - Added Drive Thru Turn Lane C0 24 - OCO #23 - Kitchen Cabinet Changes/Additions C0 25 - OCO #24 - Core Drilling for Added IT Lines Across Apparatus Bay C0 26 - OCO #25 - Added Underground Piping for Condensate Drains C0 27 - OCO #26 - Cabinet Additions C0 28 - OCO #27 - Added Gate Lights & Traffic Signal Lights C0 29 - OCO #28 - Replace Interior Window C0 30 - OCO #29 - Install Roof Drains C0 31 - OCO #30 - Install ACT in Kitchen & Dining Area C0 32 - OCO #31 - Casework C0 33 - OCO #32 - Change Colors of Ceiling & Fixture Trim to Black C0 34 - OCO #33 - Power Supplies for Access Control C0 35 - OCO #34 - Change Kitchen Faucets C0 36 - OCO #35 - Reframe Exterior Access Panel C0 37 - OCO #36 - Add Yard Drain & Bubbler C0 38 - OCO #37 - Changes Per IT Walkthrough C0 39 - OCO #38 - Added Epoxy C0 40 - OCO #39 - Hardware Change for 2 Pocket Doors C0 41 - OCO #40 - install 4 Pipe Flashing C0 42 - OCO #40 - install 4 Pipe Flashing C0 43 - OCO #41 - Westnet Antenna C0 44 - OCO #42 - Big Ass Fan Addition C0 45 - OCO #43 - Add 11 Boxes for Smoke/CO Detectors C0 46 - OCO #44 - Electrical Changes for AHU 3-AS C0 47 - OCO #45 - Additional Fire Extinguisher & Cabinet C0 48 - OCO #46 = Additions to Generator C0 49 - OCO #46 - Install Cowling, Exhaust & Insulation at Generator C0 50 - OCO #47 - Install Water Dam for Overflow Drains C0 51 - OCO #48 - Fire Alarm Additions C0 52 - OCO #49 - Lower Irrigation Lines C0 53 - OCO #50 - Additional Concrete C0 54 - OCO #51 - Added Plant Quantities C0 55 - OCO #52 - Bollards for Apparatus Bay C0 56 - OCO #52 - Bollards for Apparatus Bay C0 57 - OCO #53 - Additional Conduit C0 58 - OCO #54 - Simpson Stopper Upgrade C0 59 - OCO #55 - Additional Work For Overhead Doors C0 60 - OCO #56 - Install 3 Ceiling Boxes & 15 Camera Backboxes C0 61 - OCO #57 - Final Clean & Lamp C0 62 - OCO #58 - Install Power/Circuitry for MUA Condenser C0 63 - OCO #59 - Additional Bath Accessories C0 64 - OCO #60 - Change for New Screened Enclosure C0 65 - OCO #61 - Install OS&Y Tamper Switches & PIV Tamper C0 66 - OCO #62 - Additional Planting & Irrigation C0 67 - OCO #63 - Additional Sitework C0 68 - OCO #64 - Change for Gas Piping C0 69 - OCO #65 - Additional Sod & Grading C0 70 - OCO #66 - Pressure Washing Driveway C0 71 - OCO #67 - Additional Doors & Hardware C0 72 - OCO #68 - Supply Power to Refueling Station C0 73 - OCO #69 - Provide Power & Control for Generator C0 74 - OCO #70 - Cost for Impellers C0 75 - OCO #71 - Additional Casework C0 76 - OCO #72 - Install Grease Trap Vents C0 77 - OCO #73 - Additional Landscaping C0 78 - OCO #74 - Install Mirror Wall C0 79 - OCO #75 - Repair Irrigation System C0 80 - OCO #76 - Regrade by Rollup Door C0 81 - OCO #77 - Cost for Fire Alarm Work C0 82 - OCO #78 - Modify Exterior Gas Service C0 83 - OCO #79 - Supply & Install Fencing C0 84 - OCO #80 - Replace Cam Locks C0 85 - OCO #81 - Fee for Multiple Trips for Start Up C0 86 - OCO #82 - Connected Low Voltage to Open Terminals & Diagnosed Electrical Problem C0 87 - OCO #83 - Install Provided Lights for Helipad Area C0 88 - OCO #84 - Added CO Detectors & PIV Valve & Deduct Work by Fire Equipment Services C0 89 - OCO #85 - Install 6 3-Button Stations & 2 Missing Antennas C0 90 - Additional As-Built Surveys to Close out project C0 91 - OCO #86 - Additional Landscaping C0 92 - OCO #87 - Additional Caulking C0 93 - OCO #88 - Painting C0 94 - OCO #89 - Supply UPS for Hood Gas Solenoid C0 95 - OCO #90 - Sod & Grading for PW Final C0 96 - OCO #91 - Miscellaneous Drywall Patching C0 97 - OCO #92 - Costs for Paint at Helicopter Pad C0 98 - OCO #93 ODP Closeout C0 99 - OCO #94 - Costs for 2 Week Fluke Metering Report 
+
+ From: 
+ All... 
+
+ To: 
+ All... 
+
+ Submitted: 
+ All... 
+
+ Action: 
+
+ Status: 
+ Cancelled Closed Committed Draft Void 
+
+ 	Tools 	Reference 	Directive 	Scope 	Subject 	To 	Submitted 	Action 	Change Order 	Amount ($) 	Status 	Log 
+ 	There are no Vendor Directives on File!

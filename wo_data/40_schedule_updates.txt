@@ -1,0 +1,33 @@
+=== Schedule Updates ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less {"Title":"Manage Schedule Updates","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"trItemMenuShow2","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageSchedule"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('200');","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ 	Tools 	Date 	Name 	Author 	Description 	Anticipated Completion Date 	There are no Schedules on file!

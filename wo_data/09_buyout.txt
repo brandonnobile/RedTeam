@@ -1,0 +1,116 @@
+=== Buyout ===
+
+<svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg> %HeaderText% 
+
+ True 
+ %optionsLessViewClick% 
+ %optionsLessEditClick% 
+
+ %OrderDateDisplay% 
+ %identifierDisplay% 
+ %vendor_nameDisplay% 
+ %contractLink% 
+ %ScopeNum% 
+ %TO_Mod% 
+ %Description% 
+ %OrderAmount% 
+
+ %svgmetadata% 
+
+ %Status% 
+ %cstcde% 
+ %DocuSignStatus% 
+
+ Note: Totals exclude Draft Transactions. 
+ Page Total: %TotAmountsPage% 
+ Total: %TotAmounts% 
+
+ Loading... 
+
+ We are processing your request. Please try later. 
+
+ Close 
+
+ Warning! 
+
+ Warning! The Commitment cannot be Executed because the following items must be resolved to continue. 
+ - The Role assigned to you in Redteam does not have Permission to do so. Please contact your System Administrator to modify your Permissions. 
+ Warning! The Commitment cannot be Executed because the following items must be resolved to continue. 
+ - The Commitment requires Credentials, see Step 4 to review 
+ Warning! The Commitment cannot be executed and sent to your connected accounting platform due to the following items being unlinked. 
+ Please link or update these items before you continue. 
+ Warning! The Commitment cannot be Executed because the following items must be resolved to continue. 
+ - This transaction has not yet been deleted from HH2. 
+
+ OK 
+
+ menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ 	Page 	of 	Use Filter to display Closed Commitments. 
+
+ {"Title":"Manage Buyout Commitments","Manage":"Buyout","Menu":{"Options":[{"Name":"Vendor Invoices","Id":"trItemMenuShow2","Onclick":"javascript:Payables('../../vendors/payables_/vendorDisb.asp?p=c2hvd2FsbD10cnVlJldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmY2lhPSZmcm9tPWJ1eW91dA');hideMenu();hideMenuAjax();","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"","Id":"linkMenuAdd","Onclick":"javascript:ShowLightBoxASP('app/workorders/buyout_/CommitmentList.asp?arrPermissions=addEdit|False||addLA|False||addEA|False||addER|True&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221', '', '650px')","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"View":{"Options":[{"Name":"Buyout Credentials","Id":"","Onclick":"javascript:viewBuyoutCredentials();","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Buyout Log","Id":"","Onclick":"javascript:ViewBuyout(1,'');","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Time Tracking Log","Id":"","Onclick":"javascript:ViewTimeTracking('views/TimeTrackingLog.asp?p=V29JRD0xOTQwMDQ2JldvTW9kPTAw');hideMenu();hideMenuAjax();","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Time Tracking (Classic)","Id":"","Onclick":"javascript:ViewTimeTracking('views/TimeTracking.asp?p=V29JRD0xOTQwMDQ2JldvTW9kPTAw');hideMenu();hideMenuAjax();","IconName":"","Enabled":true,"Manage":"ManageBuyout"},{"Name":"Accounting Export","Id":"","Onclick":"javascript:ViewAccountingExport()","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('112');","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageBuyout"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Select a Buyout Commitment 
+
+ Filters 
+
+ Type 
+
+ Cost Code 
+
+ Scope 
+
+ Vendor 
+
+ Employee 
+
+ Status 
+
+ Credentials 
+
+ From 
+
+ To 
+
+ Date 
+ Id 
+ Vendor/Employee 
+ Src 
+ Scope 
+ Mod 
+ Description 
+ Committed 
+
+ Status 
+ Cost Code 
+ DocuSign 
+
+ There are no Items on File!

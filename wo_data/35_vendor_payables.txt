@@ -1,0 +1,141 @@
+=== Vendor Payables ===
+
+<svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg> 
+
+ %InvoiceType% 
+ %ProjNumOriginal% 
+ %ProjectTitle% 
+ %Ordnum% 
+ %InvoiceNumber% 
+ %VendorInvoiceDate% 
+ %InvoicePeriodEnding% 
+ %EntityName% 
+ %OriginalAmountDisplay% 
+ %approvedAmountDisplay% 
+ %retainedAmountDisplay% 
+ %subtotalbeforetaxDisplay% 
+ %taxvenuesDisplay% 
+ %VATAmountDisplay% 
+ %authorizedAmountDisplay% 
+ %paidAmountDisplay% 
+ %payableAmountDisplay% 
+ %VendorInvoiceApprovedDate% 
+ %Inbox% 
+ %VendorInvoiceStatus% 
+
+ %Billed% 
+
+ %svgmetadata% 
+
+ Note: Totals exclude Draft Transactions. 
+
+ Total: 
+ %total_invoiced% 
+ %total_approved% 
+ %total_retained% 
+ %total_subtotalbeforetax% 
+ %total_taxvenues% 
+ %total_vat% 
+ %total_auto% 
+ %total_paid% 
+ %total_balance% 
+
+ %HeaderText% 
+
+ Loading... 
+
+ menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ 	Page 	of 	Filters 
+
+ Company Division: 
+
+ Project: 
+
+ Order: 
+
+ Status: 
+
+ Vendor: 
+
+ QuickBooks: 
+
+ Type: 
+
+ Inbox: 
+ All 
+
+ Select a date: 
+
+ From: 
+
+ To: 
+
+ Tax Venue: 
+
+ Filtered Search: 
+
+ Project Status: 
+
+ Tools 
+ File 
+ Type 
+ Project 
+ Project Name 
+ Order # 
+ Invoice # 
+ Invoice Date 
+ Period Ending 
+ Vendor 
+ Invoiced 
+ Approved 
+ Retained 
+ Subtotal before Tax 
+ Tax 
+ VAT 
+ Authorized Payable 
+ Paid 
+ Balance 
+ Approved On 
+ Inbox 
+ Status 
+ Payment 
+ Billed 
+ QuickBooks 
+ Notes 
+ Log {"Title":"Manage Vendor Invoices","Manage":"Buyout","Menu":{"Options":[],"Enabled":"false","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"VendorInvoices"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"","Id":"","Onclick":"parent.top.loadLightBox_ASP('app/forms/formsConsoleLoader.asp?p=YmFuZD1hZGQmd2lraVRyYW5zYWN0aW9uSUQ9MjU5OCZzdGFydE1vZGU9c3RlcDAmZnJvbT1BY2NvdW50JnRyYW5zVGl0bGU9QWRkIFZlbmRvciBJbnZvaWNlJnBhcmFtUGFnZT1Xb3Jrb3JkZXJJRHx8fFdvcmtvcmRlck1vZHx8fFdvcmtvcmRlclN0YXR1c3x8fEZhY2lsaXR5SUR8&PageForConsole=dmVuZG9ycy9wYXlhYmxlc18vVmVuZG9yRGlzYi5hc3A','medium','650px');","IconName":"","Enabled":true,"Manage":"VendorInvoices"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"View":{"Options":[{"Name":"Vendor Invoices","Id":"trItemMenuView4","Onclick":"javascript:OpenViewPage('ViewWOdisbursements.asp')","IconName":"","Enabled":true,"Manage":"VendorInvoices"},{"Name":"Accounting Export","Id":"trItemMenuView4","Onclick":"javascript:ViewAccountingExport()","IconName":"","Enabled":true,"Manage":"VendorInvoices"},{"Name":"Payables Aging","Id":"trItemMenuView4","Onclick":"ViewPayablesAging('ViewPayablesAging2.asp');hideMenu();","IconName":"","Enabled":true,"Manage":"VendorInvoices"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation();","IconName":"","Enabled":true,"Manage":"VendorInvoices"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('261');","IconName":"","Enabled":true,"Manage":"VendorInvoices"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"linkMenuMore5","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"VendorInvoices"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ There are no Items on File! 
+
+ Warning! Current Retainage percentage does not match the percentage specified on the Commitment. Do you want to continue? 
+ Yes No 
+
+ Warning!

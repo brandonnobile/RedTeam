@@ -1,0 +1,70 @@
+=== Meeting ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ {"Title":"Manage Meeting Minutes","Manage":"Dialog","Menu":{"Options":[{"Name":"Correspondence","Id":"trItemMenuShow1","Onclick":"javascript:showContractCorrespondence();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"},{"Name":"Issues","Id":"trItemMenuShow2","Onclick":"javascript:showIssues();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Meeting Agenda","Id":"","Onclick":"javascript:parent.top.loadLightBox_Fullscreen('app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWFkZGFnZW5kYSZ3b2lkPTE5NDAwNDYmd29tb2Q9MDAmYmFuZD1hZGQmd2lraVRyYW5zYWN0aW9uSUQ9NTA5JnBhcmFtUGFnZT1wfFltRnVaRDFPWlhjbVYyOXlhMjl5WkdWeVNVUTlNVGswTURBME5pWlhiM0pyYjNKa1pYSk5iMlE5TURBbVYyOXlhMjl5WkdWeVUzUmhkSFZ6UFVsdVVISnZaM0psYzNNbVJtRmphV3hwZEhsSlJEMA');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"},{"Name":"Meeting Minutes","Id":"","Onclick":"javascript:parent.top.loadLightBox_Fullscreen('app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWFkZG1pbnV0ZSZ3b2lkPTE5NDAwNDYmd29tb2Q9MDAmYmFuZD1hZGQmd2lraVRyYW5zYWN0aW9uSUQ9NTE3JnBhcmFtUGFnZT1wfFltRnVaRDFPWlhjbVYyOXlhMjl5WkdWeVNVUTlNVGswTURBME5pWlhiM0pyYjNKa1pYSk5iMlE5TURBbVYyOXlhMjl5WkdWeVUzUmhkSFZ6UFVsdVVISnZaM0psYzNNbVJtRmphV3hwZEhsSlJEMA');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"Meeting Minutes Log","Id":"","Onclick":"javascript:ViewMMLog();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('53');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Stage: 
+ Meeting Agenda 
+
+ Type: 
+ Owner and Contractor Team Meeting 
+
+ Status: 
+ Committed Draft 
+
+ 	Tools 	Type 	ID 	Stage 	Date 	Purpose 	Status 	Log 	Team Meeting 
+ Team Meeting 	001 	Agenda 	09/04/2024 	OAC Meeting 	Draft 	-Stuart Frisby created on 09/30/2024 10:31:28(Google Chrome 128.0.0.0 from 73.179.100.169) 
+
+ Transmission Log: 
+ -Stuart Frisby created on 09/30/2024 10:31:28(Google Chrome 128.0.0.0 from 73.179.100.169) 
+
+ 	View Agenda 	Edit Agenda 	Commit 	Delete 
+ 	Owner and Contractor 
+ Owner and Contractor 	003 	Meeting 	11/06/2024 	OAC Meeting (Monthly) 	Committed 	-Kayla Diefendorf #emailed CC# Jacob Fischer (jfischer@remnantconstruction.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234) (committed) 
+
+ -Kayla Diefendorf #emailed TO# Tanner Retherford (tannerretherford@edc-inc.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); Louis Caciopoli (lcaciopoli@remnantconstruction.com); Stuart Frisby (sfrisby@remnantconstruction.com); Paul Langel (plangel@slcfd.org); A.J. Vanhooser (AJ.Vanhooser@wjarc.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234) (committed) 
+
+ -Kayla Diefendorf committed on 12/03/2024 13:32:34(Google Chrome 131.0.0.0 from 73.138.186.234) 
+
+ Transmission Log: 
+ -Kayla Diefendorf #emailed CC# Jacob Fischer (jfischer@remnantconstruction.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234) (committed) 
+
+ -Kayla Diefendorf #emailed TO# Tanner Retherford (tannerretherford@edc-inc.com); Kayla Diefendorf (kdiefendorf@remnantconstruction.com); Louis Caciopoli (lcaciopoli@remnantconstruction.com); Stuart Frisby (sfrisby@remnantconstruction.com); Paul Langel (plangel@slcfd.org); A.J. Vanhooser (AJ.Vanhooser@wjarc.com); on 12/03/2024 13:36:21(Google Chrome 131.0.0.0 from 73.138.186.234) (committed) 
+
+ -Kayla Diefendorf committed on 12/03/2024 13:32:34(Google Chrome 131.0.0.0 from 73.138.186.234) 
+
+ 	View Minutes 	Edit Minutes 	UnCommit 
+
+ Send Invitations? 
+ 	Would you like to send invitations to guests?

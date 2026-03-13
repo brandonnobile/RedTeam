@@ -1,0 +1,957 @@
+
+<html>
+<head>
+<title>RedTeam Manage T&M Sheets </title>
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+<link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+
+<script src="../../asp/js/global.js" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/tbsort.js" type="text/javascript"></script>
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<style>
+    .customTableHeaderContainer {
+        padding: 0px 0px 0px 16px !important;
+    }
+</style>
+
+<script language="JavaScript" type="text/javascript" >
+    function isFirefox() {
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        return is_firefox;
+    } 
+    if (!isFirefox()) {
+        window.onscroll = hideMenu;
+    } else {
+        function hideMenuBody(e) {
+
+            var divList, i;
+            divList = document.getElementsByTagName("div");
+
+            for (i = 0; i < divList.length; i++) {
+                if (divList[i].id.substring(0, 10) == '_menuTools') {
+                    if (e.target.id != divList[i].id) {
+                        document.body.removeEventListener('click', hideMenuBody, false);
+                        $('#' + divList[i].id).hide();
+                    }
+                }
+            }
+        }
+    }
+    function showMenuFire(id, refpos) {
+        if (!isFirefox())
+            hideMenu();
+
+        if (document.getElementById(id).style.visibility != "visible") {
+            var elementoRef = document.getElementById(refpos);
+            var elemento = document.getElementById(id);
+            var pos = getAbsoluteElementPosition(elementoRef);
+            elemento.style.visibility = "visible";
+            elemento.style.left = pos.left + "px";
+            elemento.style.top = pos.top + 22 + "px";
+            if (isFirefox()) {
+                var timeOutShow
+                timeOutShow = 0;
+                $("body").attr("onclick", "").unbind("click");
+                $("div").attr("onclick", "").unbind("click");
+                elemento.style.left = pos.left - 10  + "px";
+                elemento.style.top = pos.top + 20 + "px";
+                jQuery.fx.off = true;
+                setTimeout(function () {
+                    $('#' + id).show(function () {
+                        document.body.addEventListener('click', hideMenuBody, false);
+                    });
+                }, timeOutShow);
+            }
+            else {
+                try {
+                    event.cancelBubble = true;
+                }
+                catch (error) {
+                }
+            }
+        }
+        else {
+            if (isFirefox()) {
+                var elemento = document.getElementById(id);
+                elemento.style.visibility = "hidden";
+            }
+        }
+    }
+
+    function gotoPage(flag) {
+        var col = (document.getElementById("hdnCurrentSortCriterial").value.split(","))[0];
+
+        paginationControl(flag, "sortCriterial=" + col + "&justNavigation=1", null);
+    }
+
+    function refresh(lineItem) {
+        paginationControl(null, null, lineItem);
+    }
+
+    function paginationControl(flag, actionCommand, lineItem, pNumber) {
+
+        var pageController = document.getElementById("pageController");
+        var gotoPageNumber = parseInt(pageController.value);
+
+        if (flag) {
+            switch (flag.toLowerCase()) {
+                case "prior":
+                    if (pageController.selectedIndex == 0) return;
+                    gotoPageNumber--;
+                    break;
+
+                case "next":
+                    if (pageController.selectedIndex == pageController.length - 1) return;
+                    gotoPageNumber++;
+                    break;
+            }
+        }
+
+        gotoPageNumber = (pNumber) ? pNumber : gotoPageNumber;
+
+        var currentUrl = new String(document.location.href.toLowerCase());
+
+        if (currentUrl.indexOf("filter=true") >= 0 || (actionCommand != null && actionCommand != "")) {
+            document.getElementById("hdnCurrentPageNumber").value = gotoPageNumber;
+
+            if (actionCommand) document.getElementById("hdnActionCommand").value = (actionCommand != "") ? actionCommand : "";
+
+            var pos = currentUrl.indexOf("managetmsheets.asp");
+
+            if (pos > 0) {
+                var urlParams = currentUrl.substring(pos);
+
+                if (lineItem) {
+                    if (urlParams.indexOf("&i=") < 0 && urlParams.substring(0, 2) != "i=") urlParams += ((urlParams.length > 0) ? "&" : "") + "i=" + lineItem;
+                }
+
+                document.FrmTMSheets.submit();
+
+            }
+        }
+        else {
+            var urlTarget = addUrlParameter(document.location, "currentPageNumber", gotoPageNumber);
+
+            if (lineItem) urlTarget = addUrlParameter(urlTarget, "i", lineItem);
+
+            document.location = urlTarget;
+        }
+    }
+
+    function sortReport(col) {
+        paginationControl(null, "sortCriterial=" + col + "&headerClicked=1", null, 1);
+    }
+    
+    function ventana(url) {
+        var page = url;
+        ventanaTMsheets = window.open(page, "TMsheets", "toolbar=no,location=no,directories=no,status=yes,menubar=no,resizable=no,copyhistory=no,scrollbars=yes,width=940,height=580,top=60,left=80");
+    }
+
+    function ImportWin() {
+        var page = "/rts/app/workorders/TMsheets_/ImportTMsheet.asp?" + "WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221";
+        ShowLightBoxASP(page,'console','380px');
+    }
+    function EditViewTMsheet(idItem,WorkorderID,page,action){
+        var  flag = "VERIFYEXISTMSHEETS";
+        var params;
+        params ="flag="+flag+"&idItem="+idItem+"&WorkorderID="+WorkorderID;
+
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                    url: '/rts/app/asp/jsongetdata.asp',
+                    type: "GET",
+                    data: params,
+                    cache : false,
+                    success: function (a) {
+                        var WorkorderTMuniqueID = a['datos'][0]['WorkorderTMuniqueID'];
+                        if(WorkorderTMuniqueID>0){
+                        
+                            if(action=="edit"){
+                                  window.location.href = page;
+                            }
+                            else{
+                                window.open(page);  
+                            }
+                        }
+                        else{
+                            showMessageBar('This document no longer exists. It may have been removed or deleted. Please check RedTeam and try again.');   
+                        }
+                    },
+                    error: function (jqXHR, textStatus, error) {
+                        console.log('Error');
+                    }
+            });
+    }
+    
+    function deleteln(url, row,idItem, WorkorderID) {
+        var  flag = "VERIFYEXISTMSHEETS";
+        var params;
+        params ="flag="+flag+"&idItem="+idItem+"&WorkorderID="+WorkorderID;
+
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                    url: '/rts/app/asp/jsongetdata.asp',
+                    type: "GET",
+                    data: params,
+                    cache : false,
+                    success: function (a) {
+                        var WorkorderTMuniqueID = a['datos'][0]['WorkorderTMuniqueID'];
+                        if(WorkorderTMuniqueID>0){
+                            var x = window.confirm("The T&M Sheet will be deleted. Are you sure ?")
+                        if (x) {
+                            if (document.getElementById("tdChkItem" + row))
+                                document.getElementById("tdChkItem" + row).innerHTML = "x";
+                            if (document.getElementById("tr" + row))
+                                document.getElementById("tr" + row).style.display = "none";
+                            if (document.getElementById("trLine" + row))
+                                document.getElementById("trLine" + row).style.display = "none";
+                            if (document.getElementById("lblTotal")) {
+                                document.getElementById("countband").value = parseInt(document.getElementById("countband").value) - 1;
+                                document.getElementById("lblTotal").innerHTML = document.getElementById("countband").value;
+                            }
+
+                            Form1.action = "ManageTMsheets.asp?p=" + escape(url);
+                            Form1.target = "ifrmAux";
+                            Form1.submit();
+                            Form1.target = "_self";
+
+                        }
+                        else
+                            window.alert("The T&M Sheet was not deleted.")
+                        }
+                        else{
+                            showMessageBar('This document no longer exists. It may have been removed or deleted. Please check RedTeam and try again.');   
+                        }
+                    },
+                    error: function (jqXHR, textStatus, error) {
+                        console.log('Error');
+                    }
+            }); 
+    }
+
+    function showoptions(i) {
+        document.getElementById("showtools" + i).style.display = "none";
+        document.getElementById("hidetools" + i).style.display = "block";
+        document.getElementById("img2_tools" + i).focus();
+        showMenuFire('_menuTools' + i, 'img1_tools' + i);
+    }
+
+    function hideoptions(i) {
+        document.getElementById("showtools" + i).style.display = "block";
+        document.getElementById("hidetools" + i).style.display = "none";
+        hideMenu();
+    }
+
+    function gotoManagePage(page) {
+        document.location.href = page;
+    }
+
+    function ViewManageTMsheetsLog() {
+        var page = "ManageTMsheetsView.asp?p=" + document.getElementById("hdnParameters").value;
+        window.open(page);
+
+    }
+
+    function initialize() {
+        LoadingMessagePage("off");
+        document.getElementById("content").style.display = "";
+        var wS = screen.width;
+        if (document.all) {
+            combowidth = document.getElementById("staticmenu").offsetWidth;
+            comboheight = combowidth = document.getElementById("staticmenu").offsetHeight;
+            setInterval("staticit_ie()", 50);
+            document.getElementById("staticmenu").style.display = "block";
+        }
+        else {
+            if (wS > 768) {
+                if (document.getElementById("staticmenu")){
+                    combowidth = document.getElementById("staticmenu").offsetWidth;
+                    comboheight = combowidth = document.getElementById("staticmenu").offsetHeight;
+                    setInterval("staticit_ns()", 50);
+                    document.getElementById("staticmenu").style.display = "block";
+                }
+                
+            }
+            else {
+                document.getElementById("DivOverflow").style.height = "529px";
+                document.getElementById("DivOverflow").style.overflow = "auto";
+                document.getElementById("DivOverflow").style.position = "absolute";
+                document.getElementById("staticmenu").style.display = "block";
+            }
+            
+        }
+    }
+
+    function staticit_ie() {
+        staticmenu.style.width = document.body.clientWidth;
+        staticmenu.style.top = document.body.scrollTop;
+        staticmenu.style.left = document.body.scrollLeft;
+
+        staticCols.style.top = document.body.scrollTop;
+
+    }
+
+    function staticit_ns() {
+        staticmenu.style.width = document.body.clientWidth;
+        staticmenu.style.top = document.body.scrollTop;
+        staticmenu.style.left = document.body.scrollLeft;
+
+        staticCols.style.top = document.body.scrollTop;
+    }
+
+    function ViewSpace(Flag) {
+        if (Flag == "1") {
+            document.getElementById("space").style.display = "block";
+        }
+        else {
+            document.getElementById("space").style.display = "none";
+        }
+    }
+
+
+    function selectAll() {
+        var nItems = document.getElementById("nCC").value;
+        var value = document.getElementById("chkSelectAll").checked;
+
+        if (value) {
+            document.getElementById("nSelections").value = nItems;
+        }
+        else {
+            document.getElementById("nSelections").value = "0";
+        }
+
+        for (pos = 1; pos <= nItems; pos++) {
+            if (document.getElementById("chkItem" + pos)) {
+                if (document.getElementById("chkItem" + pos).style.display != "none") {
+                    document.getElementById("chkItem" + pos).checked = value;
+                }
+            }
+        }
+
+        concatenateSelections();
+        showCloseCommitmentsOption();
+    }
+
+    function countSelections(pos,idItem,WorkorderID) {
+        var  flag = "VERIFYEXISTMSHEETS";
+        var params;
+        params ="flag="+flag+"&idItem="+idItem+"&WorkorderID="+WorkorderID;
+
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                    url: '/rts/app/asp/jsongetdata.asp',
+                    type: "GET",
+                    data: params,
+                    cache : false,
+                    success: function (a) {
+                        var WorkorderTMuniqueID = a['datos'][0]['WorkorderTMuniqueID'];
+                        if(WorkorderTMuniqueID>0){
+                            var nSelections = document.getElementById("nSelections").value;
+                            var chkSelection = false;
+                            if (document.getElementById("chkItem" + pos))
+                                chkSelection = document.getElementById("chkItem" + pos).checked;
+
+                            if (chkSelection) {
+                                nSelections++;
+                                document.getElementById("nSelections").value = nSelections;
+                            }
+                            else {
+                                nSelections--;
+                                document.getElementById("nSelections").value = nSelections;
+                            }
+
+                            concatenateSelections();
+                            showCloseCommitmentsOption(idItem,WorkorderID);
+                        }
+                        else{
+                            showMessageBar('This document no longer exists. It may have been removed or deleted. Please check RedTeam and try again.');   
+                        }
+                    },
+                    error: function (jqXHR, textStatus, error) {
+                        console.log('Error');
+                    }
+            });
+        
+
+    }
+
+    function concatenateSelections() {
+        var nSelections = document.getElementById("nSelections").value;
+        var nItems = document.getElementById("nCC").value;
+        var SelectedItems = "";
+
+        for (pos = 1; pos <= nItems; pos++) {
+
+            var chkSelection = false
+            if (document.getElementById("chkItem" + pos))
+                chkSelection = document.getElementById("chkItem" + pos).checked;
+
+            if (chkSelection) {
+                var AssemblyNumber = document.getElementById("AssemblyNumber" + pos).value;
+                SelectedItems = SelectedItems + AssemblyNumber + ",";
+            }
+        }
+        document.getElementById("SelectedItems").value = SelectedItems;
+    }
+
+    function showCloseCommitmentsOption() {
+        var nSelections = document.getElementById("nSelections").value;
+
+        if (nSelections > 0) {
+            document.getElementById("tabhidden2").style.display = "none";
+            document.getElementById("btnPosted").style.display = "";
+            document.getElementById("Icons_General").style.display = "none";
+        }
+        else {
+            document.getElementById("tabhidden2").style.display = "";
+            document.getElementById("btnPosted").style.display = "none";
+            document.getElementById("Icons_General").style.display = "inline-flex";
+        }
+    }
+
+    function hideToolIcon() {
+        if (document.getElementById("count")) {
+            var nParents = parseInt(document.getElementById("count").value);
+
+            for (var i = 1; i <= nParents; i++) {
+                if (document.getElementById("hidetools" + i)) {
+                    document.getElementById("hidetools" + i).style.display = 'none';
+                }
+
+                if (document.getElementById("showtools" + i)) {
+                    document.getElementById("showtools" + i).style.display = 'block';
+                }
+            }
+        }
+    }
+
+    function loadPage(page) {
+        document.location.href = page;
+    }
+
+    function showScheduleDates() {
+        location.href = "../progress_/Schedule.asp?mng=dates" + "&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221";
+    }
+
+    function showScheduleDailyProgress() {
+        location.href = "../progress_/Schedule.asp?" + "WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221";
+    }
+
+    function showSchedules() {
+        location.href = "../schedulesupdate_/ManageSchedule.asp?bandTab=" + "&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221";
+    }
+
+    function showManageMilestones() {
+        location.href = "../milestones_/ManageMilestones.asp?" + "WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221";
+    }
+
+    function showManageLookaheadSchedule() {
+        document.location.href = 'schedule/currentSchedule.asp?p=c3B0PVRlYW1TZXJ2aWNlJndvPTE5NDAwNDYwMCZ1c3I9MSZjbGk9cmVtbmFudGNvbnN0cnVjdGlvbg';
+    }
+
+    function hightlight(rowID, action) {
+        if (action == 'on')
+            document.getElementById("tr" + rowID).style.backgroundColor = "#D6ECFF";
+
+        else
+            if (action == 'off')
+                if (document.getElementById("chk" + rowID).checked == false)
+                    document.getElementById("tr" + rowID).style.backgroundColor = "#ffffff";
+
+                else
+                    document.getElementById("tr" + rowID).style.backgroundColor = "#add8e6";
+
+    }
+
+    function checkrow(rowID) {
+        if (document.getElementById("chk" + rowID).checked == false) {
+            document.getElementById("tr" + rowID).style.backgroundColor = "#add8e6";
+            document.getElementById("chk" + rowID).checked = true;
+        }
+        else
+            if (document.getElementById("chk" + rowID).checked == true) {
+                document.getElementById("tr" + rowID).style.backgroundColor = "#ffffff";
+                document.getElementById("chk" + rowID).checked = false;
+            }
+    }
+
+    function CommitTAM(url, row,idItem,WorkorderID) {
+        var  flag = "VERIFYEXISTMSHEETS";
+        var params;
+        params ="flag="+flag+"&idItem="+idItem+"&WorkorderID="+WorkorderID;
+
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                    url: '/rts/app/asp/jsongetdata.asp',
+                    type: "GET",
+                    data: params,
+                    cache : false,
+                    success: function (a) {
+                        var WorkorderTMuniqueID = a['datos'][0]['WorkorderTMuniqueID'];
+                        if(WorkorderTMuniqueID>0){
+                            document.getElementById("tr" + row).className = "committedtext";
+                            document.getElementById("tr" + row).style.backgroundColor = "#add8e6";
+
+                            if (document.getElementById("tdChkItem" + row))
+                                document.getElementById("tdChkItem" + row).innerHTML = "x";
+                            if (document.getElementById("jsStatus" + row))
+                                document.getElementById("jsStatus" + row).innerHTML = "Committed";
+                            if (document.getElementById("jsToolCommit" + row)) {
+                                document.getElementById("jsToolCommit" + row).style.display = "none";
+                                document.getElementById("jsToolCommit" + row).style.width = "0";
+                            }
+                            
+                            Form1.action = "ManageTMsheets.asp?p=" + escape(url);
+                            Form1.target = "ifrmAux";
+                            Form1.submit();
+                            Form1.target = "_self";
+                        }
+                        else{
+                            showMessageBar('This document no longer exists. It may have been removed or deleted. Please check RedTeam and try again.');   
+                        }
+                    },
+                    error: function (jqXHR, textStatus, error) {
+                    }
+            });
+
+    }
+
+    function MultipleCommit(url) {
+
+        var SelectedItems = document.getElementById("SelectedItems").value;
+
+        band = 0;
+        var num = parseInt(document.getElementById("count").value);
+        if (num > 0) {
+            for (i = 1; i <= num; i++) {
+                if (document.getElementById('chkItem' + i)) {
+                    if (document.getElementById('chkItem' + i).checked) {
+
+                        document.getElementById("tr" + i).className = "committedtext";
+                        document.getElementById("tr" + i).style.backgroundColor = "#add8e6";
+
+                        if (document.getElementById("jsStatus" + i))
+                            document.getElementById("jsStatus" + i).innerHTML = "Committed";
+                        if (document.getElementById("jsToolCommit" + i)) {
+                            document.getElementById("jsToolCommit" + i).style.display = "none";
+                            document.getElementById("jsToolCommit" + i).style.width = "0";
+                        }
+                    }
+                }
+            }
+        }
+        setTimeout("sendMultipleCommit('" + url + "&SelectedItems=" + SelectedItems + "')", 500);
+    }
+
+    function sendMultipleCommit(url) {
+        var oldUrl = FrmTMSheets.action
+        FrmTMSheets.action = "ManageTMsheets.asp?" + url;
+        FrmTMSheets.target = "ifrmAux";
+        FrmTMSheets.submit();
+        FrmTMSheets.action = oldUrl;
+        FrmTMSheets.target = "_self";
+
+        if (document.getElementById("btnPosted")) document.getElementById("btnPosted").style.display = 'none';
+        document.getElementById("Icons_General").style.display = "inline-flex";
+        if (document.getElementById("tabhidden2")) document.getElementById("tabhidden2").style.display = "";
+        if (document.getElementById("chkSelectAll")) document.getElementById("chkSelectAll").checked = false;
+        if (document.getElementById("nSelections")) document.getElementById("nSelections").value = "0";
+        if (document.getElementById("SelectedItems")) document.getElementById("SelectedItems").value = ""; 
+    }
+
+
+    function UnCommitTAM(url,row,idItem,WorkorderID) {
+        var  flag = "VERIFYEXISTMSHEETS";
+        var params;
+        params ="flag="+flag+"&idItem="+idItem+"&WorkorderID="+WorkorderID;
+
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                    url: '/rts/app/asp/jsongetdata.asp',
+                    type: "GET",
+                    data: params,
+                    cache : false,
+                    success: function (a) {
+                        var WorkorderTMuniqueID = a['datos'][0]['WorkorderTMuniqueID'];
+                        if(WorkorderTMuniqueID>0){
+                            document.getElementById("tr" + row).className = "drafttext";
+                            document.getElementById("tr" + row).style.backgroundColor = "#add8e6";
+
+                            if (document.getElementById("jsStatus" + row))
+                                document.getElementById("jsStatus" + row).innerHTML = "Draft";
+                            if (document.getElementById("jsToolUncommit" + row)) {
+                                document.getElementById("jsToolUncommit" + row).style.display = "none";
+                                document.getElementById("jsToolUncommit" + row).style.width = "0";
+                            }
+
+
+                            Form1.action = "ManageTMsheets.asp?p=" + escape(url);
+                            Form1.target = "ifrmAux";
+                            Form1.submit();
+                            Form1.target = "_self";
+                        }
+                        else{
+                            showMessageBar('This document no longer exists. It may have been removed or deleted. Please check RedTeam and try again.');   
+                        }
+                    },
+                    error: function (jqXHR, textStatus, error) {
+                    }
+            });
+        
+    }
+
+
+    function Lookahead() {
+        document.location.href = '../progress_/schedule/currentSchedule.asp?p=c3B0PVRlYW1TZXJ2aWNlJndvPTE5NDAwNDYwMCZ1c3I9MSZjbGk9cmVtbmFudGNvbnN0cnVjdGlvbg';
+    }
+
+
+</script>
+      
+</head>
+<body leftmargin="0" rightmargin="0" topmargin="0" STYLE="overflow-y:scroll;" scroll="yes" onload="initialize();" onclick="hideMenu();hideToolIcon();" onscroll="hideMenu();" >
+<script language="JavaScript">
+    LoadingMessagePage("on");
+</script>
+
+
+<iframe id="ifrmAux" name="ifrmAux" src="" style="width:400; height:200; display:none;"></iframe>
+
+
+<div id="content" style="top:0;left:0;display:none;" onclick="hideMenu();hideToolIcon();" >
+<div id= "DivOverflow">
+
+
+<form method="post" style="display:inline;" action="ManageTMsheets.asp?p=U29ydEJ5PXRydWU&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" name="FrmTMSheets" id="FrmTMSheets">
+
+
+
+<div id="staticmenu" style="position:relative;left:0;top:0;display:none;width:100%; background-color:#f3f4f6;">
+    
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+    <table id="page-heading" width="100%"  cellpadding=0 cellspacing=0 border="0" >
+        <tr>
+            
+            <input type="hidden" id="textToSearch2" name="textToSearch2"  value="Search">
+               
+               <td id="tabhidden2" colspan="1" rowspan="2" class="HomeActionsHeader" width="185" align="center" valign="middle" style="float: right;" nowrap="nowrap">
+                
+                    &nbsp;
+                
+               </td>
+                <input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber"  value="0" />
+                <input type="hidden" id="hdnActionCommand" name="hdnActionCommand" /> 
+                <input type="hidden" name="hdnCurrentUrlParams" value="" /> 
+                <input type="hidden" id="hdnParameters" name="hdnParameters" value="V29JRD0xOTQwMDQ2JnNlYXJjaFRvU1A9JnNvcnRDcml0ZXJpYWw9Y29udmVydChzbWFsbGRhdGV0aW1lO1dvcmtvcmRlclRNd29ya0RhdGU7MTAxKSBkZXNjLFdvcmtvcmRlclRNU2NvcGUgZGVzYw" />
+                <input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="Date,desc" />
+        </tr>
+     </table>
+</div>
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage T&M Sheets","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"},{"Name":"Locations","Id":"","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"},{"Name":"Schedule Updates","Id":"","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add T&M Sheets","Id":"","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"},{"Name":"Import T&M Sheets","Id":"","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"View T&M Sheets","Id":"","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('202');","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Commit","Id":"btnPosted","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":true,"Manage":"btn btn_primary"}],"Enabled":"false","Onclick":"false"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>
+    <div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none;">
+						<div><span id="tdMessage" name="tdMessage"></span></div>
+    </div>
+    
+    <div id="staticCols" style="position:relative;">
+        <table  width="100%" cellpadding="0" cellspacing="0" border="0" >
+        
+            <tr>
+            
+                <td  height="20"  class="customTableHeaderContainer" >
+                    <table id="tblHeading" width="100%" border="0" class="Workarea_Header" border="0" cellspacing="0" cellpadding="0">    
+                    <thead>
+                        <tr valign="middle">
+                            <th width="50" style="vertical-align:center;text-align:center;" nowrap="nowrap">
+                            
+                            <input  type="checkbox"  id="chkSelectAll" name="chkSelectAll" onclick="selectAll();" class="chkbox-co-existence"/></th>
+                            
+                            <th width="55" valign="middle" style="text-align:center;"  nowrap="nowrap">Tools</th>
+
+                            <th width="55"  style="text-align:center;"  valign="middle"  nowrap="nowrap">Files</th>
+
+                            <th width="100" valign="middle" nowrap="nowrap"><a href="javascript:sortReport('Date')" class="Workarea_Header" >Date<img src="../../asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;" /></a></th>
+
+                            <th width="110"  valign="middle"  nowrap="nowrap"><a href="javascript:sortReport('Scope')" class="Workarea_Header" >Scope</a></th>
+
+                            <th width="110"  style="text-align:right;"  valign="middle"  nowrap="nowrap"><a href="javascript:sortReport('Amount')" class="Workarea_Header" >Amount&nbsp;($)</a></th>
+                            
+                            <th width="240"  valign="middle"  nowrap="nowrap"><a href="javascript:sortReport('Description')" class="Workarea_Header" >Description</a></th>
+                            
+                            <th width="90" valign="middle"  nowrap="nowrap"><a href="javascript:sortReport('Status')" class="Workarea_Header" >Status</a></th>
+                            
+                            <th width="100" valign="middle"  nowrap="nowrap"><a href="javascript:sortReport('Billed')" class="Workarea_Header" >Billed</a></th>
+                            
+                            <th width="100%" nowrap="nowrap" ></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </td>
+            </tr>
+         </table>               
+    </div>               
+    
+    <div id="filterBox" style="overflow-y:scroll;scrollbar-base-color:#B7C2CD;height:115px;display:none;border-bottom:solid 1px #CCCCCC;background-color:#FFFFFF;width:100%;position:relative">
+        <div id="space" style="display:none;"></div>
+        <table cellspacing=0 cellpadding=0 border="0" width="100%" style="background-color:Transparent" class="bodytext">
+            <tr>
+                
+                <td width="100%" style="padding:4px 4px 4px 4px;">                              
+                    
+                    <!--iframe id="ifExplanation" name="ifExplanation" src="formExplanation.asp?p=RXhwbGFuYXRpb25JRD0yMDI" width="100%" height="100%" scrolling="no" frameborder="0"></iframe -->
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <table id="tblDetail"  cellpadding="0" cellspacing="0" border="0" class="Workarea_Header customTableDetail" width="100%" >
+     <tbody>  
+      
+        <tr>
+            <td colspan="10"   valign="middle">
+                <span class="orange">There are no T&M Sheets on File!</span>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>    
+    <input type="hidden" id="nSelections"   name="nSelections"   value="0" />
+    <input type="hidden" id="nCC"           name="nCC"           value="0" />
+    <input type="hidden" id="SelectedItems" name="SelectedItems" value="" />
+    <input type="hidden" id="count"         name="count"         value="0"/>
+    <input type="hidden" id="countband"     name="countband"     value="0"/>
+   </form> 
+   <form method="post" name="Form1" id="Form1"></form>
+</div>
+</div>
+<form method="post" id="FrmSearch" name="FrmSearch" style="display:inline" action="ManageTMsheets.asp?search=true&action=search&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" >
+    <!--<input type="hidden" id="textToSearch2" name="textToSearch2"  value="Search">       -->
+</form>
+<form id="formRefresh" name="formRefresh" method="post" ></form>
+</body>
+</html>
+
+
+<script language="javascript" type="text/javascript" >
+    if (!isFirefox()) {
+        document.onclick = hideMenu;
+    }
+
+
+    $(window).load(function () {
+        setEclipseScreenIcon();
+    });
+
+    document.getElementById("menuoptions").style.maxHeight = "450px";
+    document.getElementById("menuoptions").style.maxWidth = "400px";
+    document.getElementById("menuoptions").style.overflowY = "auto";
+    document.getElementById("menuoptions").style.overflowX = "hidden";
+    
+    document.getElementById("btnPosted").style.display = "none";
+
+    $("#TextToSearch").on('keypress', function (e) {
+        if (e.which == 13) {
+            document.getElementById("textToSearch2").value = document.getElementById("TextToSearch").value;
+            $("#FrmSearch").submit();
+        }
+    });
+
+    var txtSearch = document.getElementById("textToSearch2").value;
+    if (txtSearch != '' && txtSearch != 'Search') {
+        document.getElementById("TextToSearch").value = txtSearch;
+        $("#TextToSearch").removeClass("HideTextToSearch").addClass("ShowTextToSearch");
+        $("#textSearch").css("display", "none");
+    }
+</script>

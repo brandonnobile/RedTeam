@@ -1,0 +1,59 @@
+=== Progress ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+ 	{"Title":"Manage Daily Progress","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"trItemMenuShow1","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage Locations","Id":"trItemMenuShow5","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage Milestones","Id":"trItemMenuShow6","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage Schedule Updates","Id":"trItemMenuShow1","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage T&M Sheets","Id":"trItemMenuShow1","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"","Id":"linkMenuAdd","Onclick":"javascript:addProgressReport('False','26024','app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWFkZHByb2dyZXNzJndvaWQ9MTk0MDA0NiZ3b21vZD0wMCZiYW5kPWFkZCZ3aWtpVHJhbnNhY3Rpb25JRD05OCZhdHRhY2hwZXJtaXNzaW9uPUZhbHNlJnRyYW5zVGl0bGU9QWRkIFByb2dyZXNzIFJlcG9ydCZwYXJhbVBhZ2U9cHxZbUZ1WkQxT1pYY21abWxzZEdWeVBTWnpiM0owUW5sVFVVeFRaVzUwWlc1alpUMWpZWE4wS0dSaGRHVlRkV0p0YVhSMFpXUWdZWE1nWkdGMFpYUnBiV1VwSUdSbGMyTXNkUzVHYVhKemRFNWhiV1VnS3lCMUxreGhjM1JPWVcxbElHRnpZeXhrYVdGc2IyZFRkR0YwZFhNZ1lYTmpKbFpwWlhkRWNtRm1kRkJ5YjJkeVpYTnpVbVZ3YjNKMFBVWmhiSE5sSmxacFpYZERiMjF0YVhSMFpXUlFjbTluY21WemMxSmxjRzl5ZEQxR1lXeHpaU1p6WldGeVkyaERjbWwwWlhKcFlUMG1WMjl5YTI5eVpHVnlTVVE5TVRrME1EQTBOaVpYYjNKcmIzSmtaWEpOYjJROU1EQQ');hideMenu();","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"View":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('199');","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"false","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Weather 
+ [No Weather] AM Sun /PM Rain Clear Cloudy Drizzle Dust Fog Freezing Fog Haze Heavy Rain Heavy Snow Hurricane Light Drizzle Light Ice Pellets Light Rain Light Showers Rain Light Snow Light Thunderstorm Rain Low Drifting Snow Mist Mix of sun and rain Mostly Cloudy Overcast Partly Cloudy Patches Fog Rain Scattered Clouds Scattered Showers Showers Snow Sleet Smoke Snow Sunny Thunderstorm Thunderstorm Rain Tropical Depression Tropical Storm Windy 
+
+ Observations 
+ [No Observations] [Inactive Observations] Delays in work progress Verbal Directives issued by the Project Owner Written Directives issued to any Subcontractor Accidents Deliveries Inspections General Comments Project Manager Comments 
+
+ Company 
+ [No Company] A-1 Construction Co. Action Fencing, Inc. Advanced Hood Systems Agler Kitchen, Bath & Floors All Specialty Sales Alliance Group Contracting Corporation Beckley Engineering Consultants [third-party] Brothers Fire Protection, Inc. Carter Associates, Inc. Coastal Vacuum Communication Access Services, Inc. Complete Cooling & Heating Services, Inc. Complete Electric, Inc. Cook Shell Contractors, LLC D & D Garage Doors of the Treasure Coast, Inc. DBA Overhead Door Co of the Treasure Coast Elite Florida Contractors Corp Energy and Impact Solutions, LLC DBA Vero Glass & Mirror European Custom Casework, Inc. Festina Lente, LLC DBA AA Sign Lines Fire Equipment Systems of Florida, Inc. G & R Concrete Designs, LLC GearGrid Corporation Gras Lawn, LLC Haley Ward, Inc. [third-party] HD Flagpoles Interior Specialties, Inc. Kelsie's Blinds, Inc. Key Mart, Inc. Kuebler Mechanical, LLC MER Enterprises, LLC DBA Leed Insulation Midstate Caulking & Construction Services, LLC Nature's Keeper Inc. Newman's Power Systems, Inc. OCI Associates, Inc. [third-party] Perini Interiors, LLC POD, LLC DBA Tubito Painting Remnant Construction, LLC RF Concrete Construction, Inc. Rodeo Roofing Safe Clean Experts of South Florida, LLC Security Builders Supply Co. Snyder Plumbing of the Treasure Coast, Inc. St. Lucie County Fire District [customer] Suncor, Inc. Sunline Civil Construction, Inc. Tennessee Building Components The Porch Factory Universal Engineering Sciences V.M. Iron Work and Structural Steel Corp. Velcon Engineering & Surveying, LLC Wannemacher Jensen Architects, Inc. [third-party] Westnet, LLC 
+
+ Status 
+ Committed Draft 
+
+ From 
+
+ To 
+
+ Author 
+ Devin Caraballo (Superintendent) Joshua Lopez (Assistant Superintendent) Louis Caciopoli (Superintendent) Stuart Frisby (Project Manager) 
+
+ 	Tools 	Files 	Scope 	Date 	Author 	Weather 	Precipitation 	Companies 	Workers 	Observations 	Photos 	Status 	Log 
+
+ 	There are no Progress Reports on File! 
+
+ 	Page Total: 	0.00 	0 	0 	Total: 	0.00 	0 	0 	_pa null||cast(dateSubmitted as datetime) desc,u.FirstName + u.LastName asc,dialogStatus asc||1||False||False||1940046||00||||default||default||default||default||default||null||null||500||1 Rl9UeXBlPWRlZmF1bHQmRl9PYnM9ZGVmYXVsdCZGX0NvbXBhbnk9ZGVmYXVsdCZGX1N0YXR1cz1kZWZhdWx0JkZfQXV0aG9yPWRlZmF1bHQmRl9Gcm9tRGF0ZT0mRl9Ub0RhdGU9

@@ -1,0 +1,1556 @@
+
+<html>
+<head>
+<title>TeamService - Vendor Directives</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+
+
+<link href="/rts/app/asp/css/fontcss.css?v=?be731a6" rel="stylesheet" type="text/css">
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+<link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet">
+<link href="../../asp/css/theme.css" type="text/css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="../../asp/aspcoexistencetheme/default.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' /> 
+
+<script src="../../asp/js/global.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+<script src="../../asp/js/tbsort2.js" type="text/javascript"></script>
+<script src="../../asp/js/pickList.js" type="text/javascript"></script>
+<script src="../../asp/js/jsDate.js" type="text/javascript"></script>
+<script src="../../asp/js/calendar.js" type="text/javascript"></script>
+<script src="../../asp/js/calendar-setup.js" type="text/javascript"></script>
+<script src="../../asp/js/calendar-en.js" type="text/javascript"></script>
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+
+
+<script language="JavaScript" type="text/javascript">
+    function isFirefox() {
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        return is_firefox;
+    }
+    if (!isFirefox()) {
+        window.onscroll = hideMenu;
+    } else {
+        function hideMenuBody(e) {
+
+            var divList, i;
+            divList = document.getElementsByTagName("div");
+
+            for (i = 0; i < divList.length; i++) {
+                if (divList[i].id.substring(0, 10) == '_menuTools') {
+                    if (e.target.id != divList[i].id) {
+                        document.body.removeEventListener('click', hideMenuBody, false);
+                        $('#' + divList[i].id).hide();
+                    }
+                }
+            }
+        }
+    }
+    function showMenuFire(id, refpos) {
+        if (!isFirefox())
+            hideMenu();
+
+        if (document.getElementById(id).style.visibility != "visible") {
+            var elementoRef = document.getElementById(refpos);
+            var elemento = document.getElementById(id);
+            var pos = getAbsoluteElementPosition(elementoRef);
+            elemento.style.visibility = "visible";
+            elemento.style.left = pos.left + "px";
+            elemento.style.top = pos.top + 22 + "px";
+            if (isFirefox()) {
+                var timeOutShow
+                timeOutShow = 0;
+                $("body").attr("onclick", "").unbind("click");
+                $("div").attr("onclick", "").unbind("click");
+                elemento.style.left = pos.left - 10 + "px";
+                elemento.style.top = pos.top + 15 + "px";
+                jQuery.fx.off = true;
+                setTimeout(function () {
+                    $('#' + id).show(function () {
+                        document.body.addEventListener('click', hideMenuBody, false);
+                    });
+                }, timeOutShow);
+            }
+            else {
+                try {
+                    event.cancelBubble = true;
+                }
+                catch (error) {
+                }
+            }
+        }
+        else {
+            if (isFirefox()) {
+                var elemento = document.getElementById(id);
+                elemento.style.visibility = "hidden";
+            }
+        }
+    }
+       
+     function gotoPage(flag)
+    { 
+        var col = (document.getElementById("hdnCurrentSortCriterial").value.split(","))[0];
+        
+        paginationControl(flag, "sortCriterial=" + col + "&justNavigation=1", null);
+    }
+
+    function refresh(lineItem)
+    {
+        paginationControl(null, null, lineItem);
+    }
+  
+    function paginationControl(flag, actionCommand, lineItem, pNumber)
+    {    
+        var pageController = document.getElementById("pageController");
+        var gotoPageNumber = parseInt(pageController.value);
+
+        if (flag)
+        {       
+            switch (flag.toLowerCase())
+            {
+                case "prior":
+                    if (pageController.selectedIndex == 0) return;
+                    gotoPageNumber--;
+                    break;
+
+                case "next":
+                    if (pageController.selectedIndex == pageController.length - 1) return;
+                    gotoPageNumber++;
+                    break;
+            }
+        }
+        
+        gotoPageNumber = (pNumber)?pNumber:gotoPageNumber;
+       
+        var currentUrl = new String(document.location.href.toLowerCase()); // a minuscula
+        var CurrentUrlNorm = new String(document.location.href); 
+         
+        if (currentUrl.indexOf("filter=true") >= 0 || (actionCommand != null && actionCommand != ""))
+        {
+            document.getElementById("hdnCurrentPageNumber").value = gotoPageNumber;
+            
+            if (actionCommand) document.getElementById("hdnActionCommand").value = (actionCommand != "") ? actionCommand : "";
+            
+            var pos = currentUrl.indexOf("managedirectives.asp");
+         
+            if (pos > 0)
+            {
+                var urlParams = currentUrl.substring(pos);
+                var urlParamsNorm = CurrentUrlNorm.substring(pos);
+                
+                if (lineItem)
+                {
+                    if (urlParams.indexOf("&i=") < 0 && urlParams.substring(0,2) != "i=") urlParamsNorm += ((urlParamsNorm.length > 0) ? "&" : "") + "i=" + lineItem;
+                }
+               
+                if (currentUrl.indexOf("filter=true") < 0) urlParamsNorm = addUrlParameter(urlParamsNorm, "filter", "true");               
+                SendFilters(urlParamsNorm);
+               
+             }
+        }
+        else
+        {
+            var urlTarget = addUrlParameter(document.location, "currentPageNumber", gotoPageNumber);
+            
+            if (lineItem) urlTarget = addUrlParameter(urlTarget, "i", lineItem);
+
+            document.location = urlTarget;
+        }
+    }  
+    
+    function sortReport(col)
+    {
+        paginationControl(null, "sortCriterial=" + col + "&headerClicked=1", null, 1);        
+    }
+    
+    function filterBoxActivation(){
+		var filterBox = document.getElementById("trFiltersbox");
+		if (filterBox.style.display == "none"){
+			filterBox.style.display = 'block'
+		}else{
+			filterBox.style.display = 'none'
+		}
+	}
+
+function showoptions(i)
+{	
+		document.getElementById("showtools"+i).style.display = "none";
+		document.getElementById("hidetools"+i).style.display = "block";
+		if (!isFirefox()) {
+        showMenu('_menuTools'+i, 'img_tools'+i);
+        }
+        if (isFirefox()) {
+        showMenuFire('_menuTools'+i, 'img_tools'+i);
+        }
+
+}
+  
+function hideoptions(i)
+{
+  	document.getElementById("showtools"+i).style.display = "block";
+	document.getElementById("hidetools"+i).style.display = "none";
+	hideMenu();
+}
+
+function printRpt()
+{	
+	document.getElementById("botones").style.display = "none";
+	window.print();
+	document.getElementById("botones").style.display = "block";
+}
+
+function ventana(url)
+{	var page = url;
+	window.open(page, "showhiddenmembers", "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,copyhistory=no,scrollbars=yes,width=930,height=600,top=100,left=150");
+}
+
+function ventana2(url)
+{	var page = url;
+    window.open(page, "showhiddenmembers", "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,copyhistory=no,scrollbars=yes,width=750,height=600,top=100,left=150");
+}
+
+function closewin()
+{
+    window.open('','_parent','');
+    
+    if (window.opener.refresh)
+        window.opener.refresh()
+    else
+	    window.opener.location.reload();
+    window.close();
+}
+
+
+function deleteln(Directive,row)
+{	
+    var x=window.confirm("The Vendor Directive will be deleted. Are you sure ?")
+    if (x)
+    {
+		if (document.getElementById("jsTdAmount" + row)) {
+
+            var tdAmount = document.getElementById("jsTdAmount" + row).innerHTML;
+            
+            var bandAmount = 0;
+
+            var posTBD = tdAmount.indexOf("TBD");
+            var posAst = tdAmount.indexOf("***.**");
+            
+            if (posTBD >= 0) {
+                bandAmount = 1;
+            }
+            if (posAst >= 0) {
+                bandAmount = 1;
+            }
+
+            if (bandAmount == 0) {
+                var pageTotalAmount = document.getElementById("pageTotalAmount").innerHTML;
+                document.getElementById("pageTotalAmount").innerHTML = SubTwoRealValues(pageTotalAmount, tdAmount, 2);
+            }
+        }
+        
+        if (document.getElementById("tr" + row))
+        document.getElementById("tr" + row).style.display = "none";
+
+        if (document.getElementById("trLine" + row))
+        document.getElementById("trLine" + row).style.display = "none";
+            
+        FormAux.action = "ManageDirectives.asp?p=" + escape(Directive);
+        FormAux.target = "ifrmAux";
+        FormAux.submit();
+        FormAux.target = "_self";  
+    }
+	else
+		window.alert("The Vendor Directive was not deleted.")
+}
+
+function voidln(Directive,row,addEditForm) {
+
+    if (addEditForm) {
+        document.getElementById("tr" + row).className = "voidedtext";
+        //document.getElementById("tr" + row).style.backgroundColor = "#add8e6"; 
+
+        if (document.getElementById("jsStatus" + row))
+            document.getElementById("jsStatus" + row).innerHTML = "Void";
+
+        if (document.getElementById("jsToolCommit" + row)) {
+            document.getElementById("jsToolCommit" + row).style.display = "none";
+            document.getElementById("jsToolCommit" + row).style.width = "0";
+            document.getElementById("jsToolCommit" + row).innerHTML = "";
+        }
+
+        if (document.getElementById("jsToolUncommit" + row)) {
+            document.getElementById("jsToolUncommit" + row).style.display = "none";
+            document.getElementById("jsToolUncommit" + row).style.width = "0";
+            document.getElementById("jsToolUncommit" + row).innerHTML = "";
+        }
+
+        if (document.getElementById("jsToolConvertToChangeOrder" + row)) {
+            document.getElementById("jsToolConvertToChangeOrder" + row).style.display = "none";
+            document.getElementById("jsToolConvertToChangeOrder" + row).style.width = "0";
+            document.getElementById("jsToolConvertToChangeOrder" + row).innerHTML = "";
+        }
+
+        if (document.getElementById("jsToolVoid" + row)) {
+            document.getElementById("jsToolVoid" + row).style.display = "none";
+            document.getElementById("jsToolVoid" + row).style.width = "0";
+            document.getElementById("jsToolVoid" + row).innerHTML = "";
+        }
+
+        if (document.getElementById("jsToolDeleteDisabled" + row)) {
+            document.getElementById("jsToolDeleteDisabled" + row).style.display = "none";
+            document.getElementById("jsToolDeleteDisabled" + row).style.width = "0";
+            document.getElementById("jsToolDeleteDisabled" + row).innerHTML = "";
+        }
+
+        if (document.getElementById("jsTdAmount" + row)) {
+
+            var tdAmount = document.getElementById("jsTdAmount" + row).innerHTML;
+
+            var bandAmount = 0;
+
+            var posTBD = tdAmount.indexOf("TBD");
+            var posAst = tdAmount.indexOf("***.**");
+
+            if (posTBD >= 0) {
+                bandAmount = 1;
+            }
+            if (posAst >= 0) {
+                bandAmount = 1;
+            }
+
+            if (bandAmount == 0) {
+                var pageTotalAmount = document.getElementById("pageTotalAmount").innerHTML;
+                document.getElementById("pageTotalAmount").innerHTML = SumTwoRealValues(pageTotalAmount, tdAmount, 2);
+            }
+        }
+        
+        FormAux.action = "ManageDirectives.asp?p=" + escape(Directive);
+        FormAux.target = "ifrmAux";
+        FormAux.submit();
+        FormAux.target = "_self";
+        
+    }
+    else {
+        var x = window.confirm("The Vendor Directive will be voided. Are you sure ?")
+        if (x) {
+            document.getElementById("tr" + row).className = "voidedtext";
+            document.getElementById("tr" + row).style.backgroundColor = "#FFFFFF"; //#FFFFFF
+
+            if (document.getElementById("jsStatus" + row))
+                document.getElementById("jsStatus" + row).innerHTML = "Void";
+
+            if (document.getElementById("jsToolCommit" + row)) {
+                document.getElementById("jsToolCommit" + row).style.display = "none";
+                document.getElementById("jsToolCommit" + row).style.width = "0";
+                document.getElementById("jsToolCommit" + row).innerHTML = "";
+            }
+
+            if (document.getElementById("jsToolUncommit" + row)) {
+                document.getElementById("jsToolUncommit" + row).style.display = "none";
+                document.getElementById("jsToolUncommit" + row).style.width = "0";
+                document.getElementById("jsToolUncommit" + row).innerHTML = "";
+            }
+
+            if (document.getElementById("jsToolConvertToChangeOrder" + row)) {
+                document.getElementById("jsToolConvertToChangeOrder" + row).style.display = "none";
+                document.getElementById("jsToolConvertToChangeOrder" + row).style.width = "0";
+                document.getElementById("jsToolConvertToChangeOrder" + row).innerHTML = "";
+            }
+
+            if (document.getElementById("jsToolVoid" + row)) {
+                document.getElementById("jsToolVoid" + row).style.display = "none";
+                document.getElementById("jsToolVoid" + row).style.width = "0";
+                document.getElementById("jsToolVoid" + row).innerHTML = "";
+            }
+
+            if (document.getElementById("jsToolDeleteDisabled" + row)) {
+                document.getElementById("jsToolDeleteDisabled" + row).style.display = "none";
+                document.getElementById("jsToolDeleteDisabled" + row).style.width = "0";
+                document.getElementById("jsToolDeleteDisabled" + row).innerHTML = "";
+            }
+
+            if (document.getElementById("jsTdAmount" + row)) {
+
+                var tdAmount = document.getElementById("jsTdAmount" + row).innerHTML;
+                
+                var bandAmount = 0;
+
+                var posTBD = tdAmount.indexOf("TBD");
+                var posAst = tdAmount.indexOf("***.**");
+                
+                if (posTBD >= 0) {
+                    bandAmount = 1;
+                }
+                if (posAst >= 0) {
+                    bandAmount = 1;
+                }
+
+                if (bandAmount == 0) {
+                    var pageTotalAmount = document.getElementById("pageTotalAmount").innerHTML;
+                    document.getElementById("pageTotalAmount").innerHTML = SumTwoRealValues(pageTotalAmount, tdAmount, 2);
+                }
+            }
+            
+            FormAux.action = "ManageDirectives.asp?p=" + escape(Directive);
+            FormAux.target = "ifrmAux";
+            FormAux.submit();
+            FormAux.target = "_self";
+            
+        }
+        else
+            window.alert("The Vendor Directive was not voided.")
+    }
+}
+
+
+
+function CommitMD(url, row, band){
+
+    blankTrs(row);
+
+    document.getElementById("tr" + row).className = "committedtext";
+    //document.getElementById("tr" + row).style.backgroundColor = "#add8e6";
+
+    if (document.getElementById("jsStatus" + row))
+        document.getElementById("jsStatus" + row).innerHTML = "Committed";
+
+    if (document.getElementById("jsToolCommit" + row)) {
+        document.getElementById("jsToolCommit" + row).style.display = "none";
+        document.getElementById("jsToolCommit" + row).style.width = "0";
+    }
+
+    if (document.getElementById("jsToolDelete" + row)) {
+        document.getElementById("jsToolDelete" + row).style.display = "none";
+        document.getElementById("jsToolDelete" + row).style.width = "0";
+    }
+
+    if(band){
+		url = url+"&i="+row;
+		FormAux.action = "ManageDirectives.asp?"+ escape(url);
+	}
+	else{
+		FormAux.action = "ManageDirectives.asp?p=" + escape(url);
+	}
+    FormAux.target = "ifrmAux";
+    FormAux.submit();
+    FormAux.target = "_self";
+
+}
+
+function UnCommitMD(url, row, band) {
+
+    blankTrs(row);
+
+    document.getElementById("tr" + row).className = "drafttext";
+    //document.getElementById("tr" + row).style.backgroundColor = "#add8e6";
+
+    if (document.getElementById("jsStatus" + row))
+        document.getElementById("jsStatus" + row).innerHTML = "Draft";
+
+    if (document.getElementById("jsToolUncommit" + row)) 
+    {
+        document.getElementById("jsToolUncommit" + row).style.display = "none";
+        document.getElementById("jsToolUncommit" + row).style.width = "0";
+    }
+    
+    if (document.getElementById("jsToolConvertToChangeOrder" + row)) 
+    {
+        document.getElementById("jsToolConvertToChangeOrder" + row).style.display = "none";
+        document.getElementById("jsToolConvertToChangeOrder" + row).style.width = "0";
+    }
+    
+    if (document.getElementById("jsToolVoid" + row)) 
+    {
+        document.getElementById("jsToolVoid" + row).style.display = "none";
+        document.getElementById("jsToolVoid" + row).style.width = "0";
+    }
+    
+    if (document.getElementById("jsToolDeleteDisabled" + row)) 
+    {
+        document.getElementById("jsToolDeleteDisabled" + row).style.display = "none";
+        document.getElementById("jsToolDeleteDisabled" + row).style.width = "0";
+    }
+
+    if(band)
+    {
+		url = url+"&i="+row;
+		FormAux.action = "ManageDirectives.asp?"+ escape(url);
+	}
+	else
+	{
+		FormAux.action = "ManageDirectives.asp?p=" + escape(url);
+	}	
+	
+    FormAux.target = "ifrmAux";
+    FormAux.submit();
+    FormAux.target = "_self";
+
+}
+
+function blankTrs(i) {
+    var vColor = "#FFFFFF" //#add8e6
+    if (document.getElementById("count")) {
+        var nrecords = 0
+        nrecords = parseInt(document.getElementById("count").value);
+        if (nrecords > 0) {
+            for (var a = 1; a <= nrecords; a++) {
+                if (document.getElementById("tr" + a)) {
+                    document.getElementById("tr" + a).style.backgroundColor = "#ffffff";
+
+                    document.getElementById("jsTdView" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsToolEditSecond" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdTools" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdTrans" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdReference" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdDirective" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdScope" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdSubject" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdRecipient" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdDateSubmitted" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdActionType" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdChangeOrder" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdAmount" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsStatus" + a).style.backgroundColor = "#ffffff";
+                    document.getElementById("jsTdNotification" + a).style.backgroundColor = "#ffffff";
+                }
+            }
+        }
+    }
+    if (i) {        
+        document.getElementById("tr" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdView" + i).style.backgroundColor = vColor;
+        document.getElementById("jsToolEditSecond" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdTools" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdTrans" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdReference" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdDirective" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdScope" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdSubject" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdRecipient" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdDateSubmitted" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdActionType" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdChangeOrder" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdAmount" + i).style.backgroundColor = vColor;
+        document.getElementById("jsStatus" + i).style.backgroundColor = vColor;
+        document.getElementById("jsTdNotification" + i).style.backgroundColor = vColor;
+    }
+}
+
+function ivalue(paramId){
+	var inputElements = document.getElementsByTagName('input');
+	var count = inputElements.length;
+	var ivalue = "0";
+	var parentid;
+	for(var i=0; i < count ; i ++ ) {
+		if(inputElements[i].type == "text"){
+			if(inputElements[i].value == paramId){
+				ivalue = inputElements[i].id;
+				ivalue = ivalue.substring(8,ivalue.length);
+				break;
+			}
+		}
+	}
+	return ivalue
+}
+
+function SendFilters(page)
+{
+
+  document.Form1.action = page;
+  document.Form1.submit();
+}
+
+function hightlight(rowID,action)
+{
+  if(action == 'on') {
+      document.getElementById("tr" + rowID).style.backgroundColor = "#D6ECFF";
+
+      document.getElementById("jsTdView" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsToolEditSecond" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdTools" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdTrans" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdReference" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdDirective" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdScope" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdSubject" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdRecipient" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdDateSubmitted" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdActionType" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdChangeOrder" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdAmount" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsStatus" + rowID).style.backgroundColor = "#D6ECFF";
+      document.getElementById("jsTdNotification" + rowID).style.backgroundColor = "#D6ECFF";
+
+  }
+  else {
+      if(action == 'off') {
+         if(document.getElementById("chk"+rowID).checked == false) {
+             document.getElementById("tr" + rowID).style.backgroundColor = "#ffffff";
+
+             document.getElementById("jsTdView" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsToolEditSecond" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdTools" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdTrans" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdReference" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdDirective" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdScope" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdSubject" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdRecipient" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdDateSubmitted" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdActionType" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdChangeOrder" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdAmount" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsStatus" + rowID).style.backgroundColor = "#ffffff";
+             document.getElementById("jsTdNotification" + rowID).style.backgroundColor = "#ffffff";
+
+		 }
+         else {
+             document.getElementById("tr" + rowID).style.backgroundColor = "#add8e6";
+
+             document.getElementById("jsTdView" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsToolEditSecond" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdTools" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdTrans" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdReference" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdDirective" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdScope" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdSubject" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdRecipient" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdDateSubmitted" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdActionType" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdChangeOrder" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdAmount" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsStatus" + rowID).style.backgroundColor = "#add8e6";
+             document.getElementById("jsTdNotification" + rowID).style.backgroundColor = "#add8e6";
+
+         }
+      }
+  }
+}
+
+function checkrow(rowID) {
+
+    
+  if(document.getElementById("chk"+rowID).checked == false) {
+      document.getElementById("tr" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdView" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsToolEditSecond" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdTools" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdTrans" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdReference" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdDirective" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdScope" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdSubject" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdRecipient" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdDateSubmitted" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdActionType" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdChangeOrder" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdAmount" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsStatus" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("jsTdNotification" + rowID).style.backgroundColor = "#add8e6";
+      document.getElementById("chk" + rowID).checked = true;
+  }
+  else
+  if(document.getElementById("chk"+rowID).checked == true) {
+          document.getElementById("tr" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdView" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsToolEditSecond" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdTools" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdTrans" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdReference" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdDirective" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdScope" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdSubject" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdRecipient" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdDateSubmitted" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdActionType" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdChangeOrder" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdAmount" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsStatus" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("jsTdNotification" + rowID).style.backgroundColor = "#ffffff";
+          document.getElementById("chk" + rowID).checked = false;
+      }
+    
+}
+
+function focus(i)
+{ 
+	if(i>0)
+	{
+		//document.getElementById("img_tools"+i).focus();
+	}
+}
+
+function initialize(estimateredirect)
+{
+    LoadingMessagePage("off");
+    if(document.getElementById("content"))
+    document.getElementById("content").style.display = "";
+            
+    if (document.all) {
+        if (document.getElementById("staticmenu")) {
+            combowidth = document.getElementById("staticmenu").offsetWidth;
+            comboheight = combowidth = document.getElementById("staticmenu").offsetHeight;
+            setInterval("staticit_ie()", 50);
+            document.getElementById("staticmenu").style.display = "block";
+        }
+    }
+    else
+    {
+        if (document.getElementById("staticmenu")) {
+        var wS = screen.width;
+        if (wS <= 768) {
+            document.getElementById("page-heading").style.width = "1000px";
+        }
+        else {
+        document.getElementById("page-heading").style.width = "100%";
+        }
+        combowidth = document.getElementById("staticmenu").offsetWidth;
+        comboheight = combowidth = document.getElementById("staticmenu").offsetHeight;
+        setInterval("staticit_ns()", 50);
+        document.getElementById("staticmenu").style.display = "block";
+            
+        }
+    }
+
+    if (document.getElementById("tblHeading") && document.getElementById("tblDetail"))
+        document.getElementById("tblDetail").style.width = document.getElementById("tblHeading").clientWidth + "px"
+    
+    Assistant();
+
+    if (estimateredirect != 'undefined' && estimateredirect != '') {
+        var parentTop = verifyFrameAngular();
+        if (parentTop != "") {
+            //Angular multistep closes when this option is opened from the vendor quotes tool
+            parent.top.angular.element(parent.top.document.getElementsByClassName('modal-dialog')[0]).scope().$parent.ok();
+        }
+        parent.top.loadLightBox_Fullscreen(estimateredirect);   
+    }
+}
+
+function staticit_ie()
+{
+	staticmenu.style.width = document.body.clientWidth;
+	staticmenu.style.top = document.body.scrollTop;
+	staticmenu.style.left = document.body.scrollLeft;
+	
+	staticCols.style.top = document.body.scrollTop;
+	//staticCols.style.left = document.body.scrollLeft; /* enable this, if you want this bar floating with the scroll */
+	
+	filterBox.style.top = document.body.scrollTop;
+	filterBox.style.left = document.body.scrollLeft;
+	    
+	/*enable for Warning message section*/
+	//tableMessage.style.top = document.body.scrollTop;
+	//tableMessage.style.left = document.body.scrollLeft;
+	
+	trFiltersbox.style.top = document.body.scrollTop;
+	trFiltersbox.style.left = document.body.scrollLeft;
+}
+
+function staticit_ns()
+{
+    staticmenu.style.width = document.body.clientWidth;
+	staticmenu.style.top = document.body.scrollTop;
+	staticmenu.style.left = document.body.scrollLeft;
+	
+	staticCols.style.top = document.body.scrollTop;
+	//staticCols.style.left = document.body.scrollLeft;
+	
+	filterBox.style.top = document.body.scrollTop;
+	filterBox.style.left = document.body.scrollLeft;
+	
+	/*enable for Warning message section*/
+	//tableMessage.style.top = document.body.scrollTop;
+	//tableMessage.style.left = document.body.scrollLeft;
+	
+	trFiltersbox.style.top = document.body.scrollTop;
+	trFiltersbox.style.left = document.body.scrollLeft;
+    }
+function view()
+{
+      var page = "viewManageDirectivesLog.asp?p=" + document.getElementById("hdnParameters").value;      
+      window.open(page);
+}
+
+function Payables(page)
+{	
+    window.location = sanitizeString(page);
+}
+
+function hideToolIcon()
+{
+    var nParents = parseInt(document.getElementById("count").value);
+    //alert(nParents) 
+    for (var i = 1; i<=nParents; i++)
+    {
+        if(document.getElementById("hidetools"+i)) 
+            document.getElementById("hidetools"+i).style.display = "none";
+        if(document.getElementById("showtools"+i))
+            document.getElementById("showtools"+i).style.display = "block";	
+	 }
+}
+
+function convertToChangeOrder(urlParams,row)
+{ 
+    sURL = getURL("/app/") + "asp/" + "generateVendorChangeOrder.asp?p="+urlParams;
+    self.frames["_fraGetDataAux"].location.replace(sURL);
+        
+}
+
+function refreshtab()
+{
+    //parent.top.document.getElementById("refreshTab").value = 'yes';
+    var encryptedSubmitParameters = Base64.encode("WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221");
+    document.location.href = 'Buyout.asp?p='+encryptedSubmitParameters;
+}
+
+
+function verifyRefresh()
+{
+    var refreshTab = parent.top.document.getElementById("refreshTab").value;
+    var iParam = parent.top.document.getElementById("iParam").value;
+    
+    if(refreshTab == 'yes')
+    {
+       parent.top.document.getElementById("refreshTab").value = 'no';
+       refresh(iParam);
+    }
+}
+
+function refresh(lineItem)
+{
+    paginationControl(null, null, lineItem);
+}
+
+function addRow(obj, ref, jsCtoolView, jsCtoolEdit, jsCtoolCommit, jsCToolDelete,  jsCToolDeleteDisabled,isUId, jsCtoolViewSecond,jsCtoolEditSecond) {
+    obj.value = parseInt(obj.value) + 1;
+    var oId = obj.value;
+    
+    /*begin: Add Tr Detail*/
+    var objTrDetail = document.createElement("tr");
+    objTrDetail.id = "tr" + oId;
+    objTrDetail.className =   "drafttext";
+    //objTrDetail.bgColor   =   "add8e6";
+    objTrDetail.valign    =   "middle";
+    
+    objTrDetail.onclick = new Function("checkrow('" + oId + "')");
+    objTrDetail.onmouseover = new Function("hightlight('" + oId + "','on')");
+    objTrDetail.onmouseout = new Function("hightlight('" + oId + "','off')");
+    
+        var objTdTools = document.createElement("td");
+        objTdTools.id = "jsTdTools" + oId;
+        objTdTools.bgColor = "#FFFFFF";
+        objTdTools.setAttribute("width", "50px");
+        objTdTools.setAttribute("align", "center");
+        objTdTools.setAttribute("style", "padding-left: 2px; padding-right: 15px;");
+        objTdTools.height = "40";
+        objTdTools.valign = "middle";
+        
+
+        var objToolViewSecond = document.getElementById("jsTdView" + ref).cloneNode(true);
+          objToolViewSecond.id = "jsTdView" + oId;
+          objToolViewSecond.innerHTML = jsCtoolViewSecond;
+
+          var objToolEditSecond = document.getElementById("jsToolEditSecond" + ref).cloneNode(true);
+          objToolEditSecond.id = "jsToolEditSecond" + oId;
+          objToolEditSecond.innerHTML = jsCtoolEditSecond;
+        
+        var strHtmlTdTools  = '<span onclick="javascript:showoptions(' + oId + ')" id="img_tools' + oId + '" style="color: #656b79;"><i class="zmdi zmdi-apps fontBtn hand" id="showtools'+oId+'" name="showtools'+oId+'" style="display:block" /></i></span>';
+            strHtmlTdTools += '<span onclick="javascript:hideoptions(' + oId + ')" ><i class="zmdi zmdi-apps fontBtn hand" id="hidetools' + oId + '" name="hidetools' + oId + '" style="display:none" /></i></span>';
+            strHtmlTdTools += '<input type="checkbox" id="chk' + oId + '" checked name="chk'+oId+'" style="display:none" />';
+			strHtmlTdTools += '<input type="text" id="recordid' + oId + '"  name="recordid'+oId+'" value="'+isUId+'"  style="display:none" />';
+            objTdTools.innerHTML = strHtmlTdTools;
+    
+        var objTdTrans = document.getElementById("jsTdTrans" + ref).cloneNode(true);
+        objTdTrans.id = "jsTdTrans" + oId;
+
+        var objTdReference = document.getElementById("jsTdReference" + ref).cloneNode(true);
+        objTdReference.id = "jsTdReference" + oId;
+
+        var objTdDirective = document.getElementById("jsTdDirective" + ref).cloneNode(true);
+        objTdDirective.id = "jsTdDirective" + oId;
+
+        var objTdScope = document.getElementById("jsTdScope" + ref).cloneNode(true);
+        objTdScope.id = "jsTdScope" + oId;
+
+        var objTdSubject = document.getElementById("jsTdSubject" + ref).cloneNode(true);
+        objTdSubject.id = "jsTdSubject" + oId;
+
+        var objTdRecipient = document.getElementById("jsTdRecipient" + ref).cloneNode(true);
+        objTdRecipient.id = "jsTdRecipient" + oId;
+
+        var objTdDateSubmitted = document.getElementById("jsTdDateSubmitted" + ref).cloneNode(true);
+        objTdDateSubmitted.id = "jsTdDateSubmitted" + oId;
+
+        var objTdActionType = document.getElementById("jsTdActionType" + ref).cloneNode(true);
+        objTdActionType.id = "jsTdActionType" + oId;
+
+        var objTdChangeOrder = document.getElementById("jsTdChangeOrder" + ref).cloneNode(true);
+        objTdChangeOrder.id = "jsTdChangeOrder" + oId;
+
+        var objTdAmount = document.getElementById("jsTdAmount" + ref).cloneNode(true);
+        objTdAmount.id = "jsTdAmount" + oId;
+
+        var objStatus = document.getElementById("jsStatus" + ref).cloneNode(true);
+        objStatus.id = "jsStatus" + oId;
+        objStatus.innerHTML = "Draft";
+
+        var objTdNotification = document.getElementById("jsTdNotification" + ref).cloneNode(false);
+        objTdNotification.id = "jsTdNotification" + oId;
+        var strHtmlTdNotes;
+        if (document.getElementById("tl" + ref)) {
+            strHtmlTdNotes = '<a id="itl' + oId + '" onmouseover="mostrartextolog(' + oId + ')" onmouseout="ocultartextolog(' + oId + ')"><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></a>';
+            strHtmlTdNotes += '<div class="textoayuda" id="tl'+oId+'">'; 
+            strHtmlTdNotes += document.getElementById("tl" + ref).innerHTML;
+            strHtmlTdNotes += '</div>';            
+        }
+        else {
+            strHtmlTdNotes = '&nbsp;';
+        }
+        objTdNotification.innerHTML = strHtmlTdNotes;
+
+    objTrDetail.appendChild(objToolViewSecond);
+    objTrDetail.appendChild(objToolEditSecond);
+    objTrDetail.appendChild(objTdTools);
+    objTrDetail.appendChild(objTdTrans);
+    objTrDetail.appendChild(objTdReference);
+    objTrDetail.appendChild(objTdDirective);
+    objTrDetail.appendChild(objTdScope);
+    objTrDetail.appendChild(objTdSubject);
+    objTrDetail.appendChild(objTdRecipient);
+    objTrDetail.appendChild(objTdDateSubmitted);
+    objTrDetail.appendChild(objTdActionType);
+    objTrDetail.appendChild(objTdChangeOrder);
+    objTrDetail.appendChild(objTdAmount);
+    objTrDetail.appendChild(objStatus);
+    objTrDetail.appendChild(objTdNotification);
+
+    var objTrRef = document.getElementById("trLine" + ref);
+    var objTbody = objTrRef.parentNode;
+    objTbody.insertBefore(objTrDetail, objTrRef.nextSibling);
+    /*end: Add Tr Detail*/
+
+
+    /*begin: Add Tr MenuTools*/
+    var objTrMnuOptions = objTrDetail.cloneNode(false);
+    objTrMnuOptions.id = "MnuOptions" + oId;
+
+        var objTdMenuTools = document.getElementById("tdMenuTools" + ref).cloneNode(false);
+        objTdMenuTools.id = "tdMenuTools" + oId;
+
+            var objDivMenuTools = document.getElementById("_menuTools" + ref).cloneNode(false);
+            objDivMenuTools.id = "_menuTools" + oId;
+
+                var objTableTools = document.getElementById("tableTools" + ref).cloneNode(false);
+                objTableTools.id = "tableTools" + oId;
+
+                    var objTrTools = document.getElementById("trTools" + ref).cloneNode(false);
+                    objTrTools.id = "trTools" + oId;
+
+                        var objJsToolView = document.getElementById("jsToolView" + ref).cloneNode(false);
+                        objJsToolView.id = "jsToolView" + oId;
+                        if (jsCtoolView != "")
+                        {
+                            objJsToolView.setAttribute("width", "70px");
+                            objJsToolView.setAttribute("height", "40px");
+                            objJsToolView.style["display"] = "";
+                            objJsToolView.innerHTML = jsCtoolView;
+                        }
+                        else
+                        {
+                            objJsToolView.setAttribute("width", "0px");
+                            objJsToolView.innerHTML = "";
+                        }
+
+                        var objJsToolEdit = document.getElementById("jsToolEdit" + ref).cloneNode(false);
+                        objJsToolEdit.id = "jsToolEdit" + oId;
+                        if (jsCtoolEdit != "") {
+                            objJsToolEdit.setAttribute("width", "65px");
+                            objJsToolEdit.style["display"] = "";
+                            objJsToolEdit.innerHTML = jsCtoolEdit;
+                        }
+                        else {
+                            objJsToolEdit.setAttribute("width", "0px");
+                            objJsToolEdit.innerHTML = "";
+                        }                        
+
+                        var objJsToolCommit = document.getElementById("jsToolCommit" + ref).cloneNode(false);
+                        objJsToolCommit.id = "jsToolCommit" + oId;
+                        if (jsCtoolCommit != "") {
+                            objJsToolCommit.setAttribute("width", "95px");
+                            objJsToolCommit.style["display"] = "";
+                            objJsToolCommit.innerHTML = jsCtoolCommit;
+                        }
+                        else {
+                            objJsToolCommit.setAttribute("width", "0px");
+                            objJsToolCommit.innerHTML = "";
+                        }
+
+                        var objJsToolUncommit = document.getElementById("jsToolUncommit" + ref).cloneNode(false);
+                        objJsToolUncommit.id = "jsToolUncommit" + oId;
+                        objJsToolUncommit.setAttribute("width", "0px");
+                        objJsToolUncommit.innerHTML = "";
+
+                        var objJsToolConvertToChangeOrder = document.getElementById("jsToolConvertToChangeOrder" + ref).cloneNode(false);
+                        objJsToolConvertToChangeOrder.id = "jsToolConvertToChangeOrder" + oId;
+                        objJsToolConvertToChangeOrder.setAttribute("width", "0px");
+                        objJsToolConvertToChangeOrder.innerHTML = "";
+
+                        var objJsToolVoid = document.getElementById("jsToolVoid" + ref).cloneNode(false);
+                        objJsToolVoid.id = "jsToolVoid" + oId;
+                        objJsToolVoid.setAttribute("width", "0px");
+                        objJsToolVoid.innerHTML = "";
+
+                        var objJsToolDelete = document.getElementById("jsToolDelete" + ref).cloneNode(false);
+                        objJsToolDelete.id = "jsToolDelete" + oId;
+                        if (jsCToolDelete != "") {
+                            objJsToolDelete.setAttribute("width", "90px");
+                            objJsToolDelete.setAttribute("height", "40px");
+                            objJsToolDelete.style["display"] = "";
+                            objJsToolDelete.innerHTML = jsCToolDelete;
+                        }
+                        else {
+                            objJsToolDelete.setAttribute("width", "0px");
+                            objJsToolDelete.innerHTML = "";
+                        }
+
+                        var objJsToolDeleteDisabled = document.getElementById("jsToolDeleteDisabled" + ref).cloneNode(false);
+                        objJsToolDeleteDisabled.id = "jsToolDeleteDisabled" + oId;
+                        objJsToolDeleteDisabled.setAttribute("width", "0px");
+                        objJsToolDeleteDisabled.innerHTML = "";
+
+                        objTrMnuOptions.appendChild(objTdMenuTools);
+                        objTdMenuTools.appendChild(objDivMenuTools);
+                        objDivMenuTools.appendChild(objTableTools);
+                        objTableTools.appendChild(objTrTools);
+                        objTrTools.appendChild(objJsToolView);
+                        objTrTools.appendChild(objJsToolEdit);
+                        objTrTools.appendChild(objJsToolCommit);
+                        objTrTools.appendChild(objJsToolUncommit);
+                        objTrTools.appendChild(objJsToolConvertToChangeOrder);
+                        objTrTools.appendChild(objJsToolVoid);
+                        objTrTools.appendChild(objJsToolDelete);
+                        objTrTools.appendChild(objJsToolDeleteDisabled);
+
+    objTbody.insertBefore(objTrMnuOptions, objTrDetail.nextSibling);
+    /*end: Add Tr MenuTools*/
+
+    /*begin: Add Tr Line*/
+    var objTrLine = document.getElementById("trLine" + ref).cloneNode(false);
+    objTrLine.id = "trLine" + oId;
+
+        var objTdLine = document.getElementById("tdLine" + ref).cloneNode(false);
+        objTdLine.id = "tdLine" + oId;
+
+        objTrLine.appendChild(objTdLine);
+
+    objTbody.insertBefore(objTrLine, objTrMnuOptions.nextSibling);
+    /*begin: Add Tr Line*/
+    
+
+    return false; //evita que haya un submit por equivocacion.
+
+}
+
+function verifyEmail(id, i) {
+    page = "ManageDirectives.asp?UniqueDirectiveID=" + id + "&band=verifyemail&i=" + i;
+    FormAux.action = page;
+    FormAux.target = "ifrmAux";
+    FormAux.submit();
+    FormAux.target = "_self";
+}
+
+
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+}
+
+
+function Assistant() {
+    if (getURLParameter('AddVendorDirective') == "true") {
+        
+         window.location = '../../forms/tpl_forms/tpl_formsConsole.asp?p=ZWRpdFJ0ZUV4cD1UcnVlJmVkaXRFeHA9VHJ1ZSZiYW5kPWFkZCZzdGVwPTEmY3VycmVudFN0ZXA9MSZ3aWtpVHJhbnNhY3Rpb25JRD0xMTQmc3RlcFRpdGxlPUdlbmVyYWwmdHJhbnNUaXRsZT1WZW5kb3IrRGlyZWN0aXZlJndvX2lkX21vZD0xOTQwMDQ2XzAwJnBhcmFtUGFnZT1Xb3Jrb3JkZXJJRHwxOTQwMDQ2fHxXb3Jrb3JkZXJNb2R8MDB8fFdvcmtvcmRlclN0YXR1c3xJblByb2dyZXNzfHxGYWNpbGl0eUlEfDAwMjIxfHxkaXJlY3RpdmVJRHwwfHxiYW5kfE5ld3x8aXwxfHxiYW5kZGlyfG5ld3x8anNQcmludHw';
+    }
+}
+
+function gotoFormsConsoleCommitment(pValue, count) {
+    var cacheBust = Date.now().toString();
+    pValue += (pValue.indexOf("?") === -1 ? "?" : "&");
+    pValue += "v=" + cacheBust;
+    parent.top.loadLightBox_Fullscreen(pValue);    
+}
+
+function gotoFormsConsole(pValue, count) {
+    var cacheBust = Date.now().toString();
+    pValue += (pValue.indexOf("?") === -1 ? "?" : "&");
+    pValue += "v=" + cacheBust;
+    parent.top.loadLightBox_Fullscreen(pValue);    
+}
+
+
+</script>
+<style type="text/css">
+.workbreak{
+word-wrap: break-word;
+word-break: break-all;
+white-space: normal;
+overflow-wrap: break-word;}
+</style>  
+</head>
+
+
+<body style="background-color:#f3f4f6;" leftmargin="0" rightmargin="0" topmargin="0" style="scrollbar-base-color: #B7C2CD;" scroll="yes" onload="initialize('');" onscroll="hideMenu();">
+<iframe id="ifrmAux"        name="ifrmAux"          src=""  style="width:1200; height:400; display:none;"></iframe>
+<iframe id="_fraGetDataAux" name="_fraGetDataAux"   src=""  style="width:1200; height:400; display:none;"></iframe>
+
+
+<script language="javascript" type="text/javascript" >
+    LoadingMessagePage("on");
+</script>   
+
+<div id="content" style="display:none;" onclick="hideMenu();hideToolIcon();">
+
+<form method="post" name="Form1" id="Form1" style="display:inline">
+
+
+
+<div id="staticmenu" style="position:relative;display:block;background-color:transparent">
+
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+<table id ="page-heading" CELLPADDING="0" CELLSPACING="0" border="0">
+<tr>
+    
+       <td  class="HomeActionsHeader" width="150" align="right" valign="middle" nowrap style="padding-right: 20px;padding-bottom: 8px;">
+
+                       
+           
+       </td>
+
+</tr>
+</table>
+
+</div>
+
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage Vendor Directives","Manage":"Buyout","Menu":{"Options":[{"Name":"Buyout Commitments","Id":"trItemMenuShow1","Onclick":"javascript:window.location = 'buyout.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0wMDIyMQ'","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"},{"Name":"Lien Law Claims","Id":"trItemMenuShow2","Onclick":"javascript:document.location.href='../lienlaw_/managelienlawdocuments.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221'","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"},{"Name":"Vendor Invoices","Id":"trItemMenuShow3","Onclick":"javascript:Payables('../../vendors/payables_/vendorDisb.asp?p=c2hvd2FsbD10cnVlJldvcmtvcmRlcklEPTE5NDAwNDYmV29ya29yZGVyTW9kPTAwJldvcmtvcmRlclN0YXR1cz1JblByb2dyZXNzJkZhY2lsaXR5SUQ9MDAyMjEmY2lhPSZmcm9tPWJ1eW91dA');hideMenu();","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add Vendor Change Order","Id":"","Onclick":"javascript:gotoFormsConsoleCommitment('app/forms/tpl_forms/tpl_formsConsole.asp?p=aT0mdW5pcXVlSUQ9bnVsbCZiYW5kPWVkaXQmc3RhdHVzPURyYWZ0Jndpa2lUcmFuc2FjdGlvbklEPTI1OTkmdHlwZUlEPSZ0eXBlPSZ0cmFuc1RpdGxlPUNvbnZlcnQrdG8rVmVuZG9yK0NoYW5nZSZ3b19pZF9tb2Q9MTk0MDA0Nl8wMCZ3b2lkPTE5NDAwNDYmd29tb2Q9MDAmb3JpZ2VuPWFkZERpcmVjdGl2ZSZwYXJhbVBhZ2U9ZGlyZWN0aXZlQWRkfDB8fFdvcmtvcmRlcklEfDE5NDAwNDZ8fFdvcmtvcmRlck1vZHwwMHx8V29ya29yZGVyU3RhdHVzfEluUHJvZ3Jlc3N8fEZhY2lsaXR5SUR8MDAyMjE');","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"},{"Name":"Add Vendor Directive","Id":"","Onclick":"javascript:gotoFormsConsoleCommitment('app/forms/tpl_forms/tpl_formsConsole.asp?p=ZWRpdFJ0ZUV4cD1UcnVlJmVkaXRFeHA9VHJ1ZSZiYW5kPWFkZCZzdGVwPTEmY3VycmVudFN0ZXA9MSZ3aWtpVHJhbnNhY3Rpb25JRD0xMTQmc3RlcFRpdGxlPUdlbmVyYWwmdHJhbnNUaXRsZT1WZW5kb3IrRGlyZWN0aXZlJndvX2lkX21vZD0xOTQwMDQ2XzAwJnBhcmFtUGFnZT1Xb3Jrb3JkZXJJRHwxOTQwMDQ2fHxXb3Jrb3JkZXJNb2R8MDB8fFdvcmtvcmRlclN0YXR1c3xJblByb2dyZXNzfHxGYWNpbGl0eUlEfDAwMjIxfHxkaXJlY3RpdmVJRHwwfHxiYW5kfE5ld3x8aXwxfHxiYW5kZGlyfG5ld3x8anNQcmludHw');","IconName":"","Enabled":true,"Manage":"ManageVendorDirective"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"","Onclick":"view();","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('174');","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageMeetingMinute"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?be731a6" type="text/javascript"></script>
+<div id="filterBox" style="overflow-y:scroll;scrollbar-base-color:#B7C2CD;height:115px;display:none;border-bottom:solid 1px #CCCCCC;background-color:#FFFFFF;width:100%;position:relative">
+<table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:Transparent" class="bodytext">
+    <tr>
+        
+        <td width="100%" style="padding:4px 4px 4px 4px;">
+                        
+        </td>
+    </tr>
+</table>
+</div>
+
+    
+    
+    <input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber" /> 
+    <input type="hidden" id="hdnActionCommand" name="hdnActionCommand" /> 
+    <input type="hidden" name="hdnCurrentUrlParams" value="?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" /> 
+    <input type="hidden" id="hdnParameters" name="hdnParameters" value="V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0wMDIyMSZmaWx0ZXI9ZmFsc2UmRl9TY29wZT0mc29ydENyaXRlcmlhbD1UT19SZWZlcmVuY2UgYXNj" />
+    <input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="Reference,asc" />
+            
+
+<div id="trFiltersbox" style="display:none;height:250;overflow-y:hidden;background-color:#FFFFFF;position:relative;">
+
+    <div class="panel panel-midnightblue customFilterBox" >
+        <div class="panel-heading">
+            <h4>Filters</h4>
+        </div>
+    </div>
+    <div  class="panel-body collapse in" style="height:250px;"> 
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Reference:</label> 
+                    <div  class="col-sm-3-separator"> 
+                        
+                        <select name="LstReference" size="1" id="LstReference" class="form-control">
+                            <option value="0">All...</option>
+                            
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Scope:</label> 
+                    <div  class="col-sm-3-separator">
+                        <select id="LstScope" name="LstScope" style="display:none;" multiple>
+                        <option value="00" selected>Original - Fire Station 20 Build - New Construction</option><option value="01" selected>C0 01 - OCO #1 Changes due to EDC Civil Revisions, 07/09/24</option><option value="02" selected>C0 02 - OCO #2 Civil Changes to EDC Plans due to PSL Reviews</option><option value="03" selected>C0 03 - OCO#3 Upsize Generator and Electric for Additional FPL Transformer.</option><option value="04" selected>C0 04 - OCO#4 Add access control to doors 105B, 106B and 108. Delete 106A door and Frame.</option><option value="05" selected>C0 05 - OCO#5 Remaining credit on Flashing Beacons that have been deleted from the project.</option><option value="06" selected>C0 06 - OCO #6 Owner-Requested Changes</option><option value="07" selected>C0 07 - OCO #7 Added J Fixtures</option><option value="08" selected>C0 08 - OCO #8 Change Locker Size and Add 3 Lockers</option><option value="09" selected>C0 09 - OCO #9 Concrete Price Escalation</option><option value="10" selected>C0 10 - OCO #10 - Paint Overhead Doors Red</option><option value="11" selected>C0 11 - OCO #11 - Cyclovac Change; for the Owner supplied Equipment. CENTRAL VAC.</option><option value="12" selected>C0 12 - OCO #12 - Roof Ladders</option><option value="13" selected>C0 13 - OCO #13 - Hardware Changes, per Architect</option><option value="14" selected>C0 14 - OCO #14 - Add Structural Steel Supports</option><option value="15" selected>C0 15 - OCO #15 - Add Plastic Strip Curtain</option><option value="16" selected>C0 16 - OCO #15 - Modify Island Cabinetry</option><option value="17" selected>C0 17 - OCO #16 - Added Concrete Paving</option><option value="18" selected>C0 18 - OCO #17 - Revision 7: Big Ass Fan</option><option value="19" selected>C0 19 - OCO #18 - Revision 7: Misc. Electrical Additions</option><option value="20" selected>C0 20 - OCO #19 - Circuitry for Sink Disposals</option><option value="21" selected>C0 21 - OCO #20 - Plumbing Additions</option><option value="22" selected>C0 22 - OCO #21 - Thimble for Generator Exhaust Change Out Side Wall</option><option value="23" selected>C0 23 - OCO #22 - Added Drive Thru Turn Lane</option><option value="24" selected>C0 24 - OCO #23 - Kitchen Cabinet Changes/Additions</option><option value="25" selected>C0 25 - OCO #24 - Core Drilling for Added IT Lines Across Apparatus Bay</option><option value="26" selected>C0 26 - OCO #25 - Added Underground Piping for Condensate Drains</option><option value="27" selected>C0 27 - OCO #26 - Cabinet Additions</option><option value="28" selected>C0 28 - OCO #27 - Added Gate Lights & Traffic Signal Lights</option><option value="29" selected>C0 29 - OCO #28 - Replace Interior Window</option><option value="30" selected>C0 30 - OCO #29 - Install Roof Drains</option><option value="31" selected>C0 31 - OCO #30 - Install ACT in Kitchen & Dining Area</option><option value="32" selected>C0 32 - OCO #31 - Casework</option><option value="33" selected>C0 33 - OCO #32 - Change Colors of Ceiling & Fixture Trim to Black</option><option value="34" selected>C0 34 - OCO #33 - Power Supplies for Access Control</option><option value="35" selected>C0 35 - OCO #34 - Change Kitchen Faucets</option><option value="36" selected>C0 36 - OCO #35 - Reframe Exterior Access Panel</option><option value="37" selected>C0 37 - OCO #36 - Add Yard Drain & Bubbler</option><option value="38" selected>C0 38 - OCO #37 - Changes Per IT Walkthrough</option><option value="39" selected>C0 39 - OCO #38 - Added Epoxy</option><option value="40" selected>C0 40 - OCO #39 - Hardware Change for 2 Pocket Doors</option><option value="41" selected>C0 41 - OCO #40 - install 4 Pipe Flashing</option><option value="42" selected>C0 42 - OCO #40 - install 4 Pipe Flashing</option><option value="43" selected>C0 43 - OCO #41 - Westnet Antenna</option><option value="44" selected>C0 44 - OCO #42 - Big Ass Fan Addition</option><option value="45" selected>C0 45 - OCO #43 - Add 11 Boxes for Smoke/CO Detectors</option><option value="46" selected>C0 46 - OCO #44 - Electrical Changes for AHU 3-AS</option><option value="47" selected>C0 47 - OCO #45 - Additional Fire Extinguisher & Cabinet</option><option value="48" selected>C0 48 - OCO #46 = Additions to Generator</option><option value="49" selected>C0 49 - OCO #46 - Install Cowling, Exhaust & Insulation at Generator</option><option value="50" selected>C0 50 - OCO #47 - Install Water Dam for Overflow Drains</option><option value="51" selected>C0 51 - OCO #48 - Fire Alarm Additions</option><option value="52" selected>C0 52 - OCO #49 - Lower Irrigation Lines</option><option value="53" selected>C0 53 - OCO #50 - Additional Concrete</option><option value="54" selected>C0 54 - OCO #51 - Added Plant Quantities</option><option value="55" selected>C0 55 - OCO #52 - Bollards for Apparatus Bay</option><option value="56" selected>C0 56 - OCO #52 - Bollards for Apparatus Bay</option><option value="57" selected>C0 57 - OCO #53 - Additional Conduit</option><option value="58" selected>C0 58 - OCO #54 -  Simpson Stopper Upgrade</option><option value="59" selected>C0 59 - OCO #55 - Additional Work For Overhead Doors</option><option value="60" selected>C0 60 - OCO #56 - Install 3 Ceiling Boxes & 15 Camera Backboxes</option><option value="61" selected>C0 61 - OCO #57 -  Final Clean & Lamp</option><option value="62" selected>C0 62 - OCO #58 - Install Power/Circuitry for MUA Condenser</option><option value="63" selected>C0 63 - OCO #59 - Additional Bath Accessories</option><option value="64" selected>C0 64 - OCO #60 - Change for New Screened Enclosure</option><option value="65" selected>C0 65 - OCO #61 - Install OS&Y Tamper Switches & PIV Tamper</option><option value="66" selected>C0 66 - OCO #62 - Additional Planting & Irrigation</option><option value="67" selected>C0 67 - OCO #63 - Additional Sitework</option><option value="68" selected>C0 68 - OCO #64 - Change for Gas Piping</option><option value="69" selected>C0 69 - OCO #65 -  Additional Sod & Grading</option><option value="70" selected>C0 70 - OCO #66 - Pressure Washing Driveway</option><option value="71" selected>C0 71 - OCO #67 - Additional Doors & Hardware</option><option value="72" selected>C0 72 - OCO #68 - Supply Power to Refueling Station</option><option value="73" selected>C0 73 - OCO #69 - Provide Power & Control for Generator</option><option value="74" selected>C0 74 - OCO #70 - Cost for Impellers</option><option value="75" selected>C0 75 - OCO #71 - Additional Casework</option><option value="76" selected>C0 76 - OCO #72 - Install Grease Trap Vents</option><option value="77" selected>C0 77 - OCO #73 - Additional Landscaping</option><option value="78" selected>C0 78 - OCO #74 -  Install Mirror Wall</option><option value="79" selected>C0 79 - OCO #75 - Repair Irrigation System</option><option value="80" selected>C0 80 - OCO #76 - Regrade by Rollup Door</option><option value="81" selected>C0 81 - OCO #77 - Cost for Fire Alarm Work</option><option value="82" selected>C0 82 - OCO #78 - Modify Exterior Gas Service</option><option value="83" selected>C0 83 - OCO #79 - Supply & Install Fencing</option><option value="84" selected>C0 84 - OCO #80 - Replace Cam Locks</option><option value="85" selected>C0 85 - OCO #81 - Fee for Multiple Trips for Start Up</option><option value="86" selected>C0 86 - OCO #82 - Connected Low Voltage to Open Terminals & Diagnosed Electrical Problem</option><option value="87" selected>C0 87 - OCO #83 - Install Provided Lights for Helipad Area</option><option value="88" selected>C0 88 - OCO #84 - Added CO Detectors & PIV Valve & Deduct Work by Fire Equipment Services</option><option value="89" selected>C0 89 - OCO #85 - Install 6 3-Button Stations & 2 Missing Antennas</option><option value="90" selected>C0 90 - Additional As-Built Surveys to Close out project</option><option value="91" selected>C0 91 - OCO #86 - Additional Landscaping</option><option value="92" selected>C0 92 - OCO #87 - Additional Caulking</option><option value="93" selected>C0 93 - OCO #88 - Painting</option><option value="94" selected>C0 94 - OCO #89 - Supply UPS for Hood Gas Solenoid</option><option value="95" selected>C0 95 - OCO #90 - Sod & Grading for PW Final</option><option value="96" selected>C0 96 - OCO #91 - Miscellaneous Drywall Patching</option><option value="97" selected>C0 97 - OCO #92 - Costs for Paint at Helicopter Pad</option><option value="98" selected>C0 98 - OCO #93 ODP Closeout</option><option value="99" selected>C0 99 - OCO #94 - Costs for 2 Week Fluke Metering Report</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">From:</label> 
+                    <div  class="col-sm-3-separator"> 
+                        <select name="LstFrom" id="LstFrom" class="form-control">
+                            <option value="0">All...</option>
+                             
+                        </select> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">To:</label> 
+                    <div  class="col-sm-3-separator">
+                        <select name="LstTo" id="LstTo" class="form-control">
+                            <option value="0">All...</option>
+                            
+                      </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Submitted:</label> 
+                    <div  class="col-sm-3-separator">
+                        <select name="LstSubmittedDate" id="LstSubmittedDate" class="form-control">
+                            <option value="0">All...</option>
+                            
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Action:</label> 
+                    <div  class="col-sm-3-separator">
+                        <select id="LstActionType" name="LstActionType" style="display:none;" multiple>
+                           
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Status:</label> 
+                    <div  class="col-sm-3-separator">
+                        <select id="LstStatus" name="LstStatus" style="display:block;" multiple>
+                       <option value="Cancelled" >Cancelled</option><option value="Closed" >Closed</option><option value="Committed" selected>Committed</option><option value="Draft" selected>Draft</option><option value="Void" >Void</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label> 
+                    <div  class="col-sm-3-separator">                       
+
+                        <input type="button" onclick="SendFilters('ManageDirectives.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221&filterblock=true&filter=true');" value="Filter" class="btn btn-primary" style="height:34px;">
+
+                        <input onclick="SendFilters('ManageDirectives.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221&filterblock=false&filter=true');" type="button" value="Filter & Hide"  class="btn btn-primary-alt btnBgGray" style="height:34px;">
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div> 
+
+</div>
+
+
+<div id="staticCols" style="position:relative; background-color:#f3f4f6;">
+
+    <table width="100%" cellpadding="0" cellspacing="0" >
+       
+       <tr>
+           
+           <td class="customTableHeaderContainer" style="padding: 0px 4px 0px 16px !important;">
+
+               <table width="100%" id="tblHeading" border="0" class="Workarea_Header" cellspacing="0" cellpadding="0"> 
+
+                <thead>
+
+                <tr style="padding-left:0px;">
+
+                    <th style="text-align:center" width="35px" nowrap=""></th>
+
+                    <th style="text-align:center" width="35px" nowrap=""></th>
+
+                    <th style="padding-left:2px;padding-right:5px;"" width="50" nowrap="nowrap" >Tools</th>
+                    
+                    <th width="30" nowrap="nowrap" align="center"><img src="../../asp/images/in-out-icon.png" style="height:15; width:11;" alt="Submitted" /></th>
+                    
+                    <th width="120" nowrap="nowrap"><a href="javascript:sortReport('Reference')" class="Workarea_Header">Reference<img src="../../asp/images/sort_asc.png" border="0"  style="position: relative; top: 5px;"/></a></th>
+                    
+                    <th width="90" nowrap="nowrap" style="text-align:center;"><a href="javascript:sortReport('Directive')" class="Workarea_Header">Directive</a></th>
+                    
+                    <th width="80" align="center" nowrap="nowrap" style="text-align:center;"><a href="javascript:sortReport('Scope')" class="Workarea_Header">Scope</a></th>
+                    
+                    <th width="180" nowrap="nowrap"><a href="javascript:sortReport('Subject')" class="Workarea_Header">Subject</a></th>
+                    
+                    <th width="180" nowrap="nowrap"><a href="javascript:sortReport('To')" class="Workarea_Header">To</a></th>
+                    
+                    <th width="108" nowrap="nowrap"><a href="javascript:sortReport('Submitted')" class="Workarea_Header">Submitted</a></th>
+                    
+                    <th width="155" nowrap="nowrap"><a href="javascript:sortReport('Action')" class="Workarea_Header">Action</a></th>
+                    
+                    <th width="110" nowrap="nowrap"><a href="javascript:sortReport('Change')" class="Workarea_Header">Change Order</a></th>
+                    
+                    <th width="115" align="left" style="text-align:right;padding-left:30px;" nowrap="nowrap"><a href="javascript:sortReport('Amount')" class="Workarea_Header">Amount&nbsp;($)</a></th>
+                    
+                    <th width="100" nowrap="nowrap"><a href="javascript:sortReport('Status')" class="Workarea_Header">Status</a></th>
+                    
+                    <th width="80%" style="text-align:left" nowrap>Log</th>           
+                </tr>
+                </thead>
+               </table>
+           </td>
+        </tr>
+    </table>
+</div>
+
+<table id="tblDetail" border="0" cellspacing="0" cellpadding="0" style="font-size:14px;margin-left:16px !important; margin-right:0px !important;table-layout: fixed;">
+	
+       <tr>
+            <td colspan="13" height="29" bgcolor="#ffffff" align="left" >
+                <span class="orange">There are no Vendor Directives on File!</span>
+            </td>
+            
+       </tr>
+	
+  
+</table>
+
+
+ <table class="bodytext">  
+  <tr>
+    <td colspan="10" align="right">
+      &nbsp;
+    </td>
+  </tr>
+  </table>
+</form>
+</div>
+<form method="post" name="FormAux" id="FormAux"><input type="hidden" name="sqlPageTotal" id="sqlPageTotal" value="	SELECT 	wo.ProjectTitle, wo.CustomerName, wo.NetProfit, cf.MarkupRate		FROM	Workorders wo inner join CustomerFacilities cf on wo.CustomerFacilityID = cf.CustomerFacilityID  	WHERE	 wo.WorkorderID = ? and	 wo.CustomerFacilityID = ? and wo.WorkorderMod = ?	"><input type="hidden" name="count" id="count" value=""></form>
+
+<form id="formRefresh" name="formRefresh" method="post" ></form>
+</body>
+</html>	
+<script language="javascript" type="text/javascript" >
+    var lstScope = new pickList();
+    lstScope.init("LstScope", 260, 280);
+
+    var lstActionType = new pickList();
+    lstActionType.init("LstActionType", 150, 140);
+
+    var lstStatus = new pickList();
+    lstStatus.init("LstStatus",110,160);
+    if(!isFirefox()){
+    document.onclick = hideMenu;
+    }
+
+    $(function () { setEclipseScreenIcon(); })
+</script>

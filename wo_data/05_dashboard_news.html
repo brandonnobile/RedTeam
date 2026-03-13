@@ -1,0 +1,1487 @@
+
+<html>
+<head>
+<meta content="text/html;" http-equiv="content-type" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activities Log</title> 
+
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+
+<link rel='stylesheet' type='text/css' href='../activities_/wonews-dist.css?v=?be731a6' />
+
+<!-- Dashboard Libraries -->
+<script src="dashboard.js?v=?be731a6" type="text/javascript"></script>
+<link href="dashboard.css?v=?be731a6" rel="stylesheet" type="text/css">
+
+<!-- Radian Bar Libraries -->
+<script src="/rts/app/components/DonutChart-RadialBar/jquery.radialBar.js" type="text/javascript"></script>
+
+<!-- Vendor Quotes Tile Libraries -->
+<link rel="stylesheet" href="/rts/app/components/kendoui/2022.1.301/styles/kendo.default-main.min.css" />
+<script src="/rts/app/components/kendoui/2022.1.301/js/kendo.all.min.js"></script>
+
+<!-- blueimp Gallery styles -->
+<link rel="stylesheet" href="/rts/app/components/Uploads/blueimp/blueimp-gallery.min.css">
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="/rts/app/components/Uploads/css/jquery.fileupload.css">
+<link rel="stylesheet" href="/rts/app/components/Uploads/css/jquery.fileupload-ui.css">
+
+<!-- CSS adjustments for browsers with JavaScript disabled -->
+<noscript><link rel="stylesheet" href="/rts/app/components/Uploads/css/jquery.fileupload-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="/rts/app/components/Uploads/css/jquery.fileupload-ui-noscript.css"></noscript>
+<link  rel="Stylesheet"  href="/rts/app/components/Uploads/css/globalstyle.css?v=?be731a6"/>
+<link  rel="Stylesheet"  href="/rts/app/components/Uploads/css/dropzonrectangleestyle.css"/>          
+
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+<link href="/rts/app/asp/css/rtsicons.css?v=?be731a6" rel="stylesheet" type="text/css"> 
+
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script language="JavaScript" src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/css/materialtheme.css?v=?be731a6' />  
+
+<link href="/rts/app/asp/aspcoexistencetheme/default.css?v=?be731a6" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css?v=?be731a6' />  
+
+<link href="/rts/app/asp/css/skin/theme.css?v=?be731a6" type="text/css" rel="stylesheet" />
+<script language="JavaScript" src="/rts/app/asp/js/global.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/moment-with-locales.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/calendar.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/calendar-en.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/marketingtools.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/divRondiesCorners.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/bootstrap.file-input.js" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/images-grid/images-grid.js" type="text/javascript"></script>
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/js/images-grid/images-grid.css' />
+<script language="JavaScript" src="../activities_/wonews.js?v=be731a6" type="text/javascript"></script> 
+<script language="JavaScript" src="/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/lozad/lozad.min.js?v=?be731a6" type="text/javascript"></script>
+<script language="JavaScript" src="https://flex.redteam.com/rts/app/js/ManageJson.js?v=?be731a6" type="text/javascript"></script>
+
+<style type="text/css">
+    .orange {
+        FONT-WEIGHT: normal;
+        FONT-SIZE: 14px;
+        COLOR: #ff9900;
+        FONT-FAMILY: 'Roboto', sans-serif;
+        padding-left: 10px;  
+    }
+    
+    div.text-overflow {
+        width: 100%;
+        height: 75px;
+        font-size: 14px; 
+        display:inline-block; 
+        overflow:hidden;
+        text-align: justify; 
+        word-break: break-word;
+        word-wrap: break-word;
+        width: 100% !important;    
+        color: #313534;
+        letter-spacing: 0.1px;
+        font-family: 'Roboto', sans-serif;        
+        line-height: 1.4615384615384615;
+    }
+    
+    .popover-content
+    {
+        background:#000; 
+        color: white;
+        font-size: 12px !important;
+    }
+    
+    .popover.top {        
+        background:#000;
+        border: 1px solid #656263;
+        max-width:230px !important;
+        text-align: left;
+    }
+                
+    .popover .arrow {
+        border-top-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    .popover.top > .arrow:after {    
+        border-top-color: #000;
+    }
+      
+    .files audio, .files video {
+        max-width: 60px;
+    } 
+    
+    .btn-etoolbar {padding: 11px 13px !important;}
+    .btn-etoolbar > i { font-size: 18px !important; }
+
+    @media only screen and (min-width: 500px) and  (max-width: 698px) {
+    .PaddingSize1 {padding-bottom: 4px;}
+    .DropzoneSize {margin-bottom: -48px;}
+    .SpaceInline {line-height: 12pt !important;}
+    .HeightSize {margin-top: 15px !important;}
+    .HeightSize1 {margin-bottom: 16px !important;}
+    .DivMargin {margin-top: 30px !important;}
+    .HeightDropzone {Height: 90px;}
+    .HeightDropzone1 {Height: 194px !important;}
+    .PaddingDiv{padding-top: 0px;}
+    .WidthFileDiv{width:100% !important;}
+    }
+    
+    @media only screen and (min-width: 699px) and  (max-width: 890px) {
+    .PaddingSize1 {padding-bottom: 4px;}
+    .DropzoneSize {margin-bottom: -32px;}
+    .SpaceInline {line-height: 12pt !important;}
+    .HeightSize {margin-top: 20px !important;}
+    .HeightSize1 {margin-bottom: 21px !important;}
+    .DivMargin {margin-top: 30px !important;padding-left:10px !important;padding-right:10px !important;}
+    .HeightDropzone {Height: 84px !important;}
+    .HeightDropzone1 {Height: 174px !important;}
+    .PaddingDiv{padding-top: 0px !important;}
+    .WidthFileDiv{width:100% !important;}
+    }
+    @media only screen and (min-width: 900px) and  (max-width: 1256px) {
+    .WidthFileDivProg{width:528px !important;}
+    .SpaceInline {line-height: 14pt !important;}
+    }
+     @media only screen and (max-width: 1259px) {
+    .HeightDropzone {Height: 65px;}
+    .HeightDropzone1 {Height: 148px;}
+    .WidthFileDiv {width:99%;}
+    }
+
+    @media only screen and (min-width: 1260px) and (max-width: 1329px) {
+    .HeightDropzone{height: 65px;}
+    .HeightDropzone1{Height: 150px;}
+    .WidthFileDiv{width:100%;}
+    .WidthFileDivProg{width:626px !important;}
+    }
+    @media only screen and (min-width: 1330px) and (max-width: 1439px) {
+    .WidthFileDivProg{width:644px !important;}
+    .heightspace{white-space:pre-line;}
+    .Spaceline{line-height: 15pt !important;}
+    }
+    
+    @media only screen and (min-width: 1440px) and  (max-width: 1719px) {
+    .HeightDropzone{Height: 63px;}
+    .HeightDropzone1{Height: 146px;}
+    .WidthFileDiv{width:101% !important;}
+    .WidthFileDivProg{width:735px !important;}
+    }
+    
+    @media only screen and (min-width: 1720px) {
+    .HeightDropzone{Height: 63px;}
+    .HeightDropzone1{Height: 146px;}
+    .WidthFileDiv{width:100%;}
+    }
+
+    .calendar{
+        z-index: 99999 !important;
+    }
+
+     .BodyDashboard{
+        display:flex;
+        flex-direction: row;
+    }
+    
+    .BD_Label{
+        flex-basis:24%;
+        order:1; 
+    }
+    
+    .BD_line{ 
+        flex:auto;
+        order:2; 
+    }
+    
+    .BDTitle{
+        font-weight:300;margin-bottom:0px;
+        display:flex;
+        border-top: 1px solid #e9ecf0;
+    }
+
+    .DB_Legend{
+        padding-right:10px;padding-bottom:16px;font-size:14px;text-align:right;
+    }
+    
+
+    .ItemDashboard{
+        padding: 6px 10px;
+        line-height: 1.4615384615384615;
+        vertical-align: top;
+        border-top: 1px solid #e9ecf0;
+    }
+
+    .Dline_disabled{
+        background-color:rgb(237, 238, 240);width:100%;text-align:center;
+    }
+    .DlineSpan_disabled{
+        align:center;width:200px;text-align:center;
+    }
+
+    .Cont_LegendLine{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    
+    .widthlegend{
+         flex-basis:25px;
+    }
+
+    .AcText{  
+        text-align: justify;word-wrap: break-word;white-space: pre-line;
+    }
+    
+    .AcText:first-letter {
+        text-transform: uppercase;
+    }
+
+    .pLeftZero 
+    {
+        padding-top: 16px !important;
+    }
+    
+    .manageBtn 
+    {
+        padding: 0px !important;
+        padding-right: 16px !important;
+        margin-right: 0px !important;
+    }
+    
+    .column-btn {
+      float: left !important;
+      padding-top: 16px !important;
+      height: 52px;
+    }
+
+    /* Style the buttons */
+    .toggle-btn {
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 14px;
+        text-transform: none !important;
+        height: 24px;
+        vertical-align: middle;
+        display: inline-block;
+        margin-bottom: 0px;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        background-image: none;
+        white-space: nowrap;
+        padding: 3px 16px;
+        user-select: none;
+        box-shadow: rgb(0 0 0 / 7%) 0px 0px 0px 0px inset;
+    }
+
+    .toggle-btn:hover {
+      background-color: none !important;
+      border-color: #D3D0D0 !important;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background-color: #4697ce;
+      border-color: #4697ce;
+    }
+    
+    .row 
+    {
+        padding-left: 0px !important;
+        margin-left: -15px !important;
+    }
+    
+    #lnkViewItems > li > a {
+        height: 35px !important;
+        width: 240px;
+        font: normal normal normal 14px/17px Roboto;
+        line-height: 2.4em !important;
+    }
+
+    .dropdown-menu > li > a {
+        color: #656b79 !important;
+        height: 35px !important;
+        padding-right: 16px !important;
+        padding-bottom: 20px !important;
+        padding-left: 16px !important;
+        line-height: 2.4em !important;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+</style>
+
+<script type="text/javascript">   
+
+    let arrImagesGrid = []
+    let arrImagesGridOldPost = []
+    window.addEventListener('arrImagesGrid', onImagesGridOldPost, false);
+
+
+    function loadImagesGridOldPost (event){
+        if(arrImagesGridOldPost.length){
+            loadImagesGrid(arrImagesGridOldPost)
+            const observer = lozad();
+                  observer.observe();
+        }
+    }
+
+    function onImagesGridOldPost (event){
+        let item = event.detail
+        arrImagesGridOldPost.push(item)
+    }
+
+    function loadImagesGrid(arrImagesGrid){
+      for (let index = 0; index < arrImagesGrid.length; index++) {
+            let item = arrImagesGrid[index]
+            $(item['id']).imagesGrid({
+                images: item['grid'],
+                align: item['align'],
+                lazyload: item['lazyload']
+            })
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        if(arrImagesGrid.length){
+            loadImagesGrid(arrImagesGrid)
+            const observer = lozad();
+                  observer.observe();
+        } 
+    })
+
+    function saveScreenRes() {
+        var ScreenData =  {ScreenResolution: screen.width+'x'+ screen.height, BrowserVersion: navigator.appVersion}
+        let EncryptInfo = Base64.encode('band=saveScreenRes');
+        $.post( "ProjectDashboard.asp?"+EncryptInfo, ScreenData)
+    }
+
+    function openPhotos(url) {
+        parent.top.document.querySelector("body").style.overflow = "hidden"; 
+        parent.top.loadLightBox_Fullscreen('app/workorders/photos_/woPhotos.asp?p='+url)
+    }
+
+    function generalUrlOpenerASP(url,ngUrl,type,workorderID,workorderMod){      
+      var element = parent.top.document.getElementById("headerbar") 
+      if (element) { 
+ 
+          if (typeof parent.top.simulateGeneralUrlOpener == 'function') {
+             
+              parent.top.simulateGeneralUrlOpener(url,ngUrl,type,workorderID,workorderMod)
+          }
+      }
+    }
+
+   
+
+  function addComment(pid, cid, tab, qload, paramMT) {                
+        var uid = (cid.split("_"))[0];      
+        var frm = document.getElementById("frmUpload_1");
+        if (tab.toUpperCase() == "NEWS") {
+            paramMT = ""; 
+            tabP = "&tab=" + tab            
+        }
+        else{
+            tabP = "";
+        }
+        
+        if (document.getElementById("CommentTextLarge"+cid).value == "") {
+            showMessageBar('<b>Warning!</b> Enter some comment to share.');
+            document.getElementById("CommentTextLarge"+cid).focus();
+            return;
+        }
+        activatedivWaitMsg(true);  
+      let EncryptInfo = Base64.encode('band=addComment&parentId=' + pid + '&commentId=' + cid + '&ql=' + (qload?1:0) + '&p=MTk0MDA0NnwwMHx8fHwoJ2FsbCcsJ3NwJyl8dGVhbXw' + tabP + paramMT);
+      $.post("ProjectDashboard.asp?"+EncryptInfo, 
+                $("#frmUpload_1").serialize(),
+                function (res) {
+                    LoadManage('update' , pid)  
+                    loadNewUA(true)      
+                    
+
+        }); 
+
+    }
+
+    function addLike(pid, cid, qload, tab, paramMT) {
+        var uid = (cid.split("_"))[0];
+        if (tab.toUpperCase() == "NEWS") {
+            paramMT = ""; 
+            tabP = "&tab=" + tab            
+        }
+        else{
+            tabP = "";
+        }        
+        let EncryptInfo = Base64.encode('band=addLike&parentid=' + trim(pid) + '&commentid=' + cid + '&ql=' + (qload?1:0) + '&p=MTk0MDA0NnwwMHx8fHwoJ2FsbCcsJ3NwJyl8dGVhbXw' + tabP + paramMT);
+        $.post("ProjectDashboard.asp?"+EncryptInfo, 
+                $("#frmUpload_1").serialize(),
+                function (res) {
+                    LoadManage('Like' , pid)   
+                    
+
+        });
+    }
+    
+    function unLikeComment(aid, cid, qload, tab, paramMT) {
+        var frm = document.getElementById("frmUpload_1");  
+        
+        if (tab.toUpperCase() == "NEWS") {
+            paramMT = ""; 
+            tabP = "&tab=" + tab            
+        }
+        else
+            tabP = "";
+    
+        let EncryptInfo = Base64.encode('band=unLikeActivity&ActivityID=' + trim(aid) + '&commentid=' + cid + '&ql=' + (qload?1:0) + '&p=MTk0MDA0NnwwMHx8fHwoJ2FsbCcsJ3NwJyl8dGVhbXw' + tabP + paramMT);
+        $.post("ProjectDashboard.asp?"+EncryptInfo, 
+                $("#frmUpload_1").serialize(),
+                function (res) {
+                    LoadManage('unlike' , trim(aid))  
+                   activateWaitMsg(false); 
+
+        });
+    }
+        
+    function addActivity(tab, paramMultiTab) {
+        var frm = document.getElementById("frmUpload_1");
+         
+        paramMultiTab = "&" + paramMultiTab
+        tabP = "&tab=" + tab
+        
+        bandSave = 0;
+        
+        if (document.getElementById("ActivityText").value == "") {
+            showMessageBar('<b>Warning!</b> Enter some comment to share.');
+            frm.ActivityText.focus();
+            bandSave = 1;
+        }
+        else {
+            if ($('#table_files1').find(".cancel").length > 0) {
+                showMessageBar("<b>Warning!</b> Files are pending upload. Click Start Upload to continue. ");
+                bandSave = 1;
+            }
+            else {
+                $('#table_files1 tr').each(function () {
+                    var txtdescription = $(this).find("td").eq(3).find('textarea').val();
+                    if (typeof txtdescription != "undefined") {
+                        if (txtdescription == "") {
+                            showMessageBar('<b>Warning!</b> Enter a file or description.');
+                            $(this).find("td").eq(3).find('textarea').focus();
+                            bandSave = 1;                            
+                        }
+                    }
+                });
+            }
+      }
+
+      if (bandSave == 1)
+        return;
+      else {     
+        activatedivWaitMsg(true);
+         $("#buttonShare").addClass("disabled");
+
+         let EncryptInfo = Base64.encode('band=addActivity' + '&p=MTk0MDA0NnwwMHx8fHwoJ2FsbCcsJ3NwJyl8dGVhbXw' + tabP + paramMultiTab);
+         $.post("ProjectDashboard.asp?"+EncryptInfo, 
+                $("#frmUpload_1").serialize(),
+                function (res) {
+                    if(res == 'ERROR'){
+                        activatedivWaitMsg(false);
+                        $("#buttonShare").removeClass("disabled");
+                        showMessageBar('<b>Warning!</b> File type not allowed.');
+                        $(this).find("td").eq(3).find('textarea').focus();
+                    }else{
+                        LoadManage('New' , res) 
+                        loadNewUA(true)  
+                    }   
+        }); 
+
+      }
+    }
+    
+    function deleteActivity(uid, tab, paramMultiTab) {
+        if (tab.toUpperCase() == "NEWS") {
+             paramMultiTab = "&" + paramMultiTab ;
+             tabP = "&tab=" + tab ;  
+        }
+        else
+            tabP = "" 
+
+        let EncryptInfo = Base64.encode('band=deleteActivity&ActivityID=' + uid + '&p=MTk0MDA0NnwwMHx8fHwoJ2FsbCcsJ3NwJyl8dGVhbXw' + tabP + paramMultiTab);
+        document.getElementById("ifrmData").src = "ProjectDashboard.asp?"+EncryptInfo;
+        tmrflag = false; 
+       
+        let parent = $('.Parent_' + uid)
+        let childs  = $('.Child_' + uid)
+        parent.remove()
+        childs.remove()
+
+    }
+
+     function SaveImage(Path,FileName){
+    
+     document.getElementById("_fraGetDataAux").src = "/rts/app/workorders/photos_/woPhotos.asp?DownloadFile=true&path=" + Path + "&FileName=" + FileName 
+    
+    } 
+
+    function LoadingMessagePage(displayMode) {
+            if (displayMode.toLowerCase() == "on") {            
+                var cacheBust = Date.now().toString()
+                $("#cache").load("/rts/app/asp/Loading.html?v=" + cacheBust);
+                
+            }
+            else {
+                if (document.getElementById("cache")) {
+                    document.getElementById("cache").style.display = "none";
+                    if (window.jQuery) {
+                        $(".zmdi-help-outline").parent().attr("title", "Explanation");
+                        $(".zmdi-plus").parent().attr("title", "Insert Tiles");
+                        $(".zmdi-filter-list").parent().attr("title", "Filter");
+                        $(".zmdi-desktop-windows").parent().attr("title", "View");
+                        $(".zmdi-more-horiz").parent().attr("title", "More");
+                    }
+                }
+            }
+        }
+
+    function loadImageNews(id, path, imgload, pathweb, maxwidth, maxheight) {
+
+        var UrlImage = "https://api.redteam.com/v1/flex/images" + "/Imagesize";
+        var data = { height: maxheight, width: maxwidth, path: path };
+
+        $.ajax({
+            url: UrlImage,
+            type: "POST",
+            data: data,
+            dataType: "xml",
+            success: function (data) {
+                var $xml = $(data);
+                $("#" + imgload).hide();
+                var image = $xml.find("string").text();
+                $('#' + id).attr('src', image);
+                $('#' + id).show();
+            },
+            error: function (result) {
+                $("#" + imgload).hide();
+                $('#' + id).attr('src', pathweb);
+                $('#' + id).addClass("imgstyle");
+                $('#' + id).show();
+
+            }
+        });
+    }
+
+
+</script> 
+</head>
+
+
+<div class="ParametersPage hide" style="display:none">   
+    
+    <input type="hidden" id="P_CustomerFacilityID" name="P_CustomerFacilityID" value="00221" >
+  
+    <input type="text" id="P_cClient" name="P_cClient" value="remnantconstruction" >
+    <input type="text" id="P_server_name" name="P_server_name" value="IO" >    
+    <input type="text" id="P_DefaultURL" name="P_DefaultURL" value="https://flex.redteam.com/TS" >     
+    <input type="text" id="P_EditRTExplanation" name="P_EditRTExplanation" value="" >  
+    <input type="text" id="P_EditExplanation" name="P_EditExplanation" value="" >    
+    <input type="text" id="P_WorkorderID" name="P_WorkorderID" value="1940046" >
+    <input type="text" id="P_WorkorderMod" name="P_WorkorderMod" value="00" >  
+    <input type="text" id="P_WorkorderStatus" name="P_WorkorderStatus" value="InProgress" >   
+    <input type="text" id="P_DateFormat" name="P_DateFormat" value="mm/dd/yyyy" >
+    <input type="text" id="P_ActiveUser" name="P_ActiveUser" value="1" > 
+    <input type="text" id="P_LocaleLCID" name="P_LocaleLCID" value="1033" >    
+    <input type="text" id="P_Locale" name="P_Locale" value="en-us" >   
+    <input type="text" id="CompanyBDname" name="CompanyBDname" value="remnantconstruction" />  
+    <input type="text" id="signCurrency" value="$" >
+    <input type="text" id="defaultitemsPerPage" name="defaultitemsPerPage" value="" />  
+    <input type="text" id="P_ServiceProviderType" name="P_ServiceProviderType" value="TeamService">
+    <input type="text" id="P_RTS_CompanyType" name="P_RTS_CompanyType" value="TeamService"> 
+    <input type="text" id="P_IsDisabledTakeoff" name="P_IsDisabledTakeoff" value="no">
+
+    <input type="text" id="P_IsBidPackageEnabled" name="P_IsBidPackageEnabled" value="">
+    
+    <input type="text" id="P_imgPath" name="P_imgPath" value="\\IO\CompaniesTS\remnantconstruction\Uploads\Users\">
+    <input type="text" id="P_imgPathAct" name="P_imgPathAct" value="\\IO\CompaniesTS\remnantconstruction\Uploads\Activities\">
+    <input type="text" id="P_imgPathAct2" name="P_imgPathAct2" value="\\\\IO\\CompaniesTS\\remnantconstruction\\Uploads\\Activities\\">    
+    <input type="text" id="P_DefaultURLAct" name="P_DefaultURLAct" value="https://flex.redteam.com/TS/CompaniesTS/remnantconstruction/Uploads/Activities/">
+
+    <input type="text" id="P_PathImage" name="P_PathImage" value="https://remnantconstruction.flex.redteam.com/Uploads/Users/">
+    <input type="text" id="P_PathImageAct" name="P_PathImageAct" value="https://remnantconstruction.flex.redteam.com/Uploads/Activities/">
+    
+    <input type="text" id="P_PathImagePro" name="P_PathImagePro" value="https://remnantconstruction.flex.redteam.com/Uploads/ProgressRep/">
+    <input type="text" id="P_PathImageProthumbnail" name="P_PathImageProthumbnail" value="\\\\IO/CompaniesTS/remnantconstruction/Uploads/ProgressRep/">
+    <input type="text" id="P_PathPro" name="P_PathPro" value="\\IO\CompaniesTS\remnantconstruction\Uploads\ProgressRep\">
+
+    <input type="text" id="P_banstatus" name="P_banstatus" value="true"> 
+    <input type="text" id="P_wwwAppRoot" name="P_wwwAppRoot" value="https://flex.redteam.com/rts"> 
+    <input type="text" id="P_wwwImageApp" name="P_wwwImageApp" value="https://api.redteam.com/v1/flex/images"> 
+    <input type="text" id="P_splogo" name="P_splogo" value="5296201582556.png">
+    <input type="text" id="P_band" name="P_band" value="">
+    <input type="text" id="P_OptionOldest" name="P_OptionOldest" value="False">
+    <input type="text" id="P_LoadItemID" name="P_LoadItemID" value="">  
+    <input type="text" id="P_UImage" name="P_UImage" value="109062025125314.jpg"> 
+    <input type="text" id="P_GetUAParams_User" name="P_GetUAParams_User" value="">
+    <input type="text" id="P_GetUAParams_StartDate" name="P_GetUAParams_StartDate" value="">
+    <input type="text" id="P_GetUAParams_FinishDate" name="P_GetUAParams_FinishDate" value="">
+    <input type="text" id="P_GetUAParams_ActivityPermissions" name="P_GetUAParams_ActivityPermissions" value="('all','sp')">
+    <input type="text" id="P_Tab" name="P_Tab" value= "team">
+    <input type="text" id="P_setting" name="P_setting" value= "">    
+    <input type="text" id="Perm_TabContract" name="Perm_TabContract" value="">
+    <input type="text" id="Perm_TabDialog" name="Perm_TabDialog" value="">
+    <input type="text" id="Perm_TabBuyout" name="Perm_TabBuyout" value="">
+    <input type="text" id="Perm_ManageMilestones" name="Perm_ManageMilestones" value="">
+    <input type="text" id="Perm_DeliverableItem" name="Perm_DeliverableItem" value="">
+    <input type="text" id="Perm_TabBilling" name="Perm_TabBilling" value="">
+    <input type="text" id="Perm_TabProgress" name="Perm_TabProgress" value="">
+    <input type="text" id="Perm_ManageIssues" name="Perm_ManageIssues" value="">
+    <input type="text" id="Perm_ManageActionItem" name="Perm_ManageActionItem" value="">
+    <input type="text" id="Perm_ManageQuotes" name="Perm_ManageQuotes" value="">
+    <input type="text" id="Perm_TeamEstimate" name="Perm_TeamEstimate" value="True">
+    <input type="text" id="Perm_ViewViewDraftProgressReport" name="Perm_ViewViewDraftProgressReport" value="">
+    <input type="text" id="Perm_ViewCommittedProgressReport" name="Perm_ViewCommittedProgressReport" value="">
+    
+   
+</div>
+
+<template id="TemplateDasboardLine">
+   <div class="BodyDashboard"> 
+        <div class="ItemDashboard BD_Label ">%Label_Action%</div>
+        <div class="ItemDashboard BD_line">
+            <div class="progress" style="margin-bottom:0px;">
+                <div class="progress-bar progress-bar-danger %cls1%" style="width:%w1%"><span %clsspan1%>%count1%</span></div> 
+                <div class="progress-bar progress-bar-warning" style="width:%w2%"><span>%count2%</span></div>
+                <div class="progress-bar progress-bar-success" style="width:%w3%"><span>%count3%</span></div>
+                <div class="progress-bar progress-bar-info" style="width:%w4%"><span>%count4%</span></div>
+            </div>
+        </div> 
+    </div>
+</template>  
+
+<template id="TemplateItemLine">    
+    <li class="preselect-imenu Parent_%ParentID%"  >
+    <div class="card">
+        <div class="comment-avatar"><img class="img-circle" id="jimg%rowKey%" name="jimg%rowKey%" src="%P_PathImage%"></div>
+        <div class="card-body">
+            <p class="%ShowProject%" style="width:90%;color: #A9A9A9;font-size:15px;word-wrap: break-word;">
+                <a href="../../../#/workorders/%WorkorderID%" target="_top">%ShowProjectInfo%</a>
+            </p>
+            <h4 class="comment-title">
+                <span onclick="javascript:ContactCard('%EncriptParam%','contact');" 
+                style="cursor: pointer;font-size: 15px;word-wrap: break-word;">%FirstName% %LastName%</span>&nbsp;&nbsp;
+                <span style="font-size: 14px;">
+                    <small style="color: #A9A9A9;" data-toggle="tooltip" data-placement="top" title="%ActivityDate%" >%timeAgoTxt%&nbsp;&nbsp;</small>
+                    <a class="%showlike%" href="javascript:%likehref%('%ParentID%','%rowKey%',true,'%P_Tab%', '&WorkorderID=%WoIDUA%&WorkorderMod=%WoModUA%&WorkorderStatus=%WoStatusUA%&CustomerFacilityID=%WoFacilityUA%');void(0);" 
+                        style="color: #4697ce;font-size:12px">%likeDesc%
+                    </a>
+                </span>
+            </h4>
+            <a id="remRAct%rowKey%" class="btn btn-primary stick-top-right" %posReply% onclick="%buttonReplydonclick%" %buttonReplydis%>Reply</a>
+            <a id="remAct%rowKey%" 
+                class="btn btn-default stick-top-right %showdelete%" 
+                style="background-color: rgb(43, 61, 81); color: white;" 
+                onclick="deleteActivity('%UniqueActivityID%','%P_Tab%','WorkorderID=%WoIDUA%&WorkorderMod=%WoModUA%&WorkorderStatus=%WoStatusUA%&CustomerFacilityID=%WoFacilityUA%');void(0);">DELETE</a>
+            <p class="AcText" style="padding-right: 6.5%;">%ActivityText%</p>
+            <div style="padding-right: 6.5%;">
+                <div id="attachs_%rowKey%"></div>
+            </div>
+             <div id="ProgRepAttachments_%ProgRepID%_%UniqueActivityID%"></div> 
+            <small><a class="listLikesPerson" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="%fullNameLikes%" style="color: #4697ce; text-decoration: none;">%countFullNameLikesDesc%</a>%likeDesCount%</small>
+        </div>
+    </div>
+    <ul id="divCommentText%rowKey%" class="list-comments" style="display:none;">
+        <li style="margin-bottom: 0;">
+            <div class="card" style="margin-left: 0px;">
+                <div class="comment-avatar"><img class="img-circle" id="jimg%rowKey%" name="jimg%rowKey%" src="%P_PathImage%"></div>
+                <div class="card-body" style="padding-bottom: 10px; padding-top: 15px;">
+                    <a  class="btn btn-midnightblue stick-top-right" 
+                        onclick="addComment('%ParentID%','%rowKey%','',true, '&WorkorderID=%WoIDUA%&WorkorderMod=%WoModUA%&WorkorderStatus=%WoStatusUA%&CustomerFacilityID=%WoFacilityUA%')">SHARE</a>
+                    <textarea name="CommentTextLarge%rowKey%" id="CommentTextLarge%rowKey%" placeholder="What's going on?" class="form-control form-control2 " rows="2" style="margin-bottom: 10px;" onkeyup="checkLengthTextArea(this,700)"></textarea>
+                </div>
+            </div>
+         
+        </li>
+       
+    </ul>
+</li>
+</template>
+
+<template id="TemplateItemComment">   
+    <li style="margin-bottom: 18px;" class="Child_%ParentID%">
+        <div class="card" style="margin-left: 60px;">
+            <div class="comment-avatar"><img class="img-circle" id="jimg%rowKey%" name="jim%rowKey%" src="%P_PathImage%"></div>
+            <div class="card-body">
+                <h4 class="comment-title"><span onclick="javascript:ContactCard('%EncriptParam%','contact');" 
+                    style="cursor: pointer;font-size: 15px;word-wrap: break-word;">%FirstName% %LastName%</span>&nbsp;&nbsp;
+                    <small style="color: #A9A9A9;" data-toggle="tooltip" data-placement="top" title="" data-original-title="%ActivityDate%">%timeAgoTxt%</small></h4>
+                <p class="AcText">%ActivityText%</p>
+            </div>
+        </div>
+    </li>     
+</template>
+
+<template id="TR_Attachtemplate">   
+    <tr id="Attach%UniqueActivityID%-%counter%" %showatt%>
+        <td width="160px" align="center" style="vertical-align: top;">
+            <div style="width:140px; padding-top: 10px; padding-bottom: 10px; " class="GrisBorder">
+                <a href="%originalLink%" target="_blank">%scriptimage%</a>
+            </div>
+        </td>
+        <td style="width: 16px !important;" nowrap="">&nbsp;</td>
+        <td id="td%UniqueActivityID%-%counter%" style="width: 100% !important;font-size: 14px !important; vertical-align: top !important; padding-right:0px !important; text-align: justify;">
+            <div id="attachDescription%UniqueActivityID%-%counter%" style="width: 100% !important;" class="text-overflow">%FileDescription%</div>
+            <a id="aDown%UniqueActivityID%-%counter%" style="text-decoration: none; display: block; margin-left: 98.5%;"
+                 onclick="ShowAttachDescription('%UniqueActivityID%-%counter%',true)">
+                    <i class="zmdi zmdi-caret-down fontBtn" style="vertical-align: -5px;"></i>
+            </a>
+            <a id="aUp%UniqueActivityID%-%counter%" style="text-decoration:none; display:none; margin-left:98.5%;" 
+                onclick="ShowAttachDescription('%UniqueActivityID%-%counter%',false)">
+                <i class="zmdi zmdi-caret-up fontBtn" style="vertical-align: -5px;"></i>
+            </a>
+            %scriptDescription%  
+        </td>
+    </tr>
+    <tr id="AttachBlank%UniqueActivityID%-%counter%" %showatt%><td colspan="3" style="height:16px !important;" nowrap=""> </td></tr>
+</template>
+
+
+<body topmargin="0" leftmargin="0" rightmargin="0" class="body-bg" onclick="hideMenu();" link="#ca5425" vlink="#f19d7c" onload="saveScreenRes();initialize('team');checkLogoSize();" onscroll="hideMenu();">
+<div id="cache" style="top: 0px;left: 0px;"></div>
+<iframe id="_fraGetDataAux" name="_fraGetDataAux" style="width:0; height:0; display:none;"  src="" ></iframe>
+<form method="post" name="FrmUpdate" id="FrmUpdate" style="display:inline" target="_fraGetDataAux"></form>   
+<form id="FormViewProposal_Assistant" name="FormViewProposal_Assistant" method="post" style="display:none;" target="_blank" ></form>
+
+<div id="content" style="display:none; padding-top: 0px; overflow: auto !important;">
+<div id="divLoader" class="divLoaderNews" style="display:none">
+    <div id="loading">
+	    <img src="/rts/app/asp/images/loader-9.gif" style="width:30%;" />
+	    <br />
+	    <span align="center" style="text-align:center;font-size:32px;color:black;font-weight: 300;">Please Wait...</span>
+    </div> 
+    <div id="load_screen"></div>
+</div>
+
+
+
+<script type="text/javascript">
+    LoadingMessagePage("on");
+</script>
+<div id="staticmenu" style="position:relative;display:none;background-color:rgb(243, 244, 246);z-index:999;"><table id="page-heading" border="0" width="100%" cellpadding="0" cellspacing="0"><tbody><tr><td  class="HomeActionsHeader"><div style="display:flex;"><div style="padding-top: 16px; padding-left: 0px !important;"><div class="dropdown btn-group"><a class="manageBtn" id="dLabel" - data-toggle="dropdown"><i class="iconMenu"><svg class="IconClass" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="menu" transform="translate(2023 -8164)">
+    <g id="menu-2" data-name="menu">
+      <rect id="Rectangle_322" data-name="Rectangle 322" width="24" height="24" transform="translate(-2023 8164)" fill="none"/>
+      <path id="menu_3_" data-name="menu (3)" d="M3,6H21V8H3V6m0,5H21v2H3V11m0,5H21v2H3Z" transform="translate(-2023 8164)"/>
+    </g>
+  </g>
+</svg>
+</i></a><ul class="dropdown-menu noLeft" aria-labelledby="dLabel"><li class="preselect-imenu"><a onclick="javascript:document.location.href='../members_/woTeam.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221';">Members</a></li><li class="preselect-imenu"><a onclick="javascript:openPhotos('c29ydEJ5U1FMPWNhc3QoZGF0ZVN1Ym1pdHRlZCBhcyBkYXRldGltZSkgZGVzYyx1LkZpcnN0TmFtZSArIHUuTGFzdE5hbWUgYXNjLGRpYWxvZ1N0YXR1cyBhc2MmVmlld0RyYWZ0UHJvZ3Jlc3NSZXBvcnQ9JlZpZXdDb21taXR0ZWRQcm9ncmVzc1JlcG9ydD0')">Photos</a></li><li class="preselect-imenu"><a onclick="javascript:document.location.href='../activities_/AlertsList.asp';">Action Items</a></li></ul></div></div><div class="column-btn"><a id="btnProjectDashboard" class="toggle-btn btn-dashboard-inverse" onclick="javascript:fn_toggle('Dashboard');">Project Dashboard</a></div><div class="column-btn"><a id="btnManageNewsFeed" class="toggle-btn btn-manage-active" onclick="javascript:fn_toggle('Manage');">News Feed</a></div></div></td><td style="border-left:solid 0px #fff;padding-top:2px;" class="HomeActionsHeader buttonssection pright" nowrap="nowrap"><div style="float:right;"><div><div><table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-right:7px;"><tbody><tr><td  width="100%" colspan="1" valign="middle" nowrap="nowrap" align="right">
+        
+        <div class="rt-toolbar-option" id="btnDashboard_Add">
+            <a id="lnkPlus" data-toggle="dropdown" aria-expanded="false" style="text-decoration: none !important" onclick="fn_HiddenTiles_List('1','1940046');">
+                <i class="rt-toolbar-option-icon rt-new"></i>
+                <span id="lblPlus" class="rt-toolbar-option-label">Add</span>
+            </a>
+            <ul id="lnkPlusItems" class="dropdown-menu" aria-labelledby="lnkPlus" style="padding-right:80px; margin-right:290px;">
+            </ul>
+        </div>
+        
+          
+        <div class="rt-toolbar-option" id="btnDashboard_View">
+            <a id="lnkView" data-toggle="dropdown" aria-expanded="false" style="text-decoration: none !important">
+                <i class="rt-toolbar-option-icon rt-view"></i>
+                <span class="rt-toolbar-option-label">View</span>
+            </a>
+            <ul id="lnkViewItems" class="dropdown-menu" aria-labelledby="lnkView">
+            
+            </ul>
+        </div>
+        
+
+        <div class="rt-toolbar-option-x" id="btnNewsFeed_Filters">
+			<a id="lnkFilterBox" onclick="filterBoxActivation();" style="text-decoration: none !important">
+                <i class="rt-toolbar-option-icon rt-filter"></i>
+			    <span id="lblFilterBox" class="rt-toolbar-option-label">Filter</span>
+            </a>
+		</div>
+
+        <!--
+        <a class="btn btn-default btnCustomPadding" disabled=""><i class="zmdi zmdi-more-horiz fontBtn "></i></a>
+        -->
+
+        <div class="rt-toolbar-option" id="btnDashboard_Help">
+			<a id="lnkHelp" onclick="openLigthBox('70');" style="text-decoration: none !important">
+			    <i class="rt-toolbar-option-icon rt-help"></i>
+                <span class="rt-toolbar-option-label">Help</span>
+            </a>
+		</div>
+
+        <div class="rt-toolbar-option" id="btnDashboard_Maximize">
+			<a id="lnkMaximize" onclick="toggleEclipseScreen({ autoIcon: this });" style="text-decoration: none !important">
+			    <i class="rt-toolbar-option-icon rt-maximize"></i>
+                <span id="lblMaximize" class="rt-toolbar-option-label">Maximize</span>
+            </a>
+		</div>
+
+        </td></tr></tbody></table></div></div></div></td></tr><tbody></table>   
+    <div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none; ">
+        <div><span id="tdMessage"></span></div>
+    </div>
+
+    <div id="trFiltersbox"  class="container-fluid" style="display:none;background: #f3f4f6;position:static;">
+        <div class="row" >
+        <div class="col-md-12"  >
+        <div  style="padding:4px 4px 0px 4px;">
+            <div id="DivFilter2" class="panel panel-midnightblue "  >             
+            <div class="panel-heading">
+                <h4>Filters</h4>
+            </div>             
+            <form id="formFilter" name="formFilter" method="post" style="display:inline" class="form-horizontal row-border">
+            <div class="col-md-12" id="DivFilter1" style="background-color:#FFFFFF !important;border-color:#FFFFFF !important;">
+            <div class="col-md-3-iPad">
+              <div class="form-group">
+                      <label class="control-label" style="font-size:14px;margin-bottom:5px;color:rgba(0,0,0,1);">Name</label> 
+                      <div  class="col-sm-3-separator">
+                          <select class="form-control" id="user" name="user"><option value="0">Select one...</option><option value='4963'>Christopher Martinez</option><option value='4634'>Craig Gum</option><option value='4847'>Devin Caraballo</option><option value='1606'>Erin O'Brien</option><option value='4810'>Jacob Fischer</option><option value='1650'>Jennifer Knowles</option><option value='4977'>Joshua Lopez</option><option value='4643'>Kayla Diefendorf</option><option value='1201'>Linda S. French</option><option value='4290'>Louis Caciopoli</option><option value='1507'>Maxwell Rudd</option><option value='4318'>Stuart Frisby</option><option value='4397'>Terry Lynch</option></select>                        
+                    </div>
+              </div>
+             </div> 
+             <div class="col-md-3-iPad">
+              <div class="form-group form-inline">
+                <label class="control-label" style="font-size:14px;margin-bottom:5px;color:rgba(0,0,0,1);">From Date:</label> 
+                <div  class="col-sm-3-separator">   
+                <input type="text" id="startDate" name="startDate" maxlength="10" class="form-control" style="width:100px;display:inline" value=""><a> <i style="vertical-align:-5px;"class="zmdi zmdi-calendar fontBtn"  onclick="return showCalendar('startDate','%m/%d/%Y')" ></i> </a>
+                </div>
+              </div>
+             </div>
+             <div class="col-md-3-iPad">
+              <div class="form-group form-inline">
+                <label class="control-label" style="font-size:14px;margin-bottom:5px;color:rgba(0,0,0,1);">To Date:</label> 
+                <div  class="col-sm-3-separator">
+                <input class="form-control" type="text" id="finishDate" name="finishDate" maxlength="10" style="font-size:14px;height:32px; display:inline" value=""><a > <i style="vertical-align:-5px;"class="zmdi zmdi-calendar fontBtn" onclick="return showCalendar('finishDate','%m/%d/%Y')" ></i>   </a>              
+                </div>
+              </div>
+             </div>
+             <div class="col-md-3-iPad">
+              <div class="form-group">
+                <label class="control-label" style="font-size:14px;margin-bottom:5px;color:rgba(0,0,0,1);">&nbsp;</label> 
+                <div  class="col-sm-3-separator"> 
+                 
+                  <input type="button"  onclick="javascript:FilterList('V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmQ3VzdG9tZXJGYWNpbGl0eUlEPTAwMjIxJmZpbHRlcmJsb2NrPVRydWU','1','')"    style="width:65px;text-transform:none;" class="btn btn-primary-alt" value="Filter"/> 
+                  <input type="button"  id="lnkSendFilters" onclick="javascript:FilterList('','','WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221');filterBoxActivation();" style="width:110px; text-transform: none"   class="btn btn-primary" value="Filter & Hide"/>       
+                </div>
+              </div>  
+            </div>
+            </div>
+            </form> 
+        </div>
+        </div>
+         
+        </div>
+        </div>
+        <div class="row" style:"height:20px;">
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 0px;background: #f3f4f6 ;">
+        <div class="row">
+        </div>
+    </div>
+    </div>
+
+    <div id="divManageNewsFeed" class="container-fluid" style="background: #f3f4f6 ;z-index: 0;position: relative;">
+    <div class="" style="margin-top: 16px;">
+        <div class="col-md-8 col-xs-12" style="padding-left:1px; padding-right:10px; width:70%;">
+            <form id="frmUpload_1" name="frmUpload_1" method="post" style="display:inline" target="ifrmData" class="fileupload" data-upload-template-id="template-upload-1" data-download-template-id="template-download-1">
+                        
+                    <ul class="list-comments">
+                        <li class=""preselect-imenu"">
+                            <div class="card">
+                                <div class="comment-avatar">
+                                <img class='img-circle' src="https://remnantconstruction.flex.redteam.com/Uploads/Users/109062025125314.jpg"  id="imgUser" />
+                                </div>
+                                <div class="card-body" style="padding-bottom: 7px; padding-top: 15px;">
+                                    
+                                    <a class="btn btn-midnightblue stick-top-right" id= "buttonShare" onclick="addActivity('team','WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221');" >SHARE</a>
+                                    
+                                    <textarea name="ActivityText" id="ActivityText" placeholder="What's going on?" class="form-control form-control2 " rows="2" style="margin-bottom: 10px;" onkeyup="checkLengthTextArea(this,700)" ></textarea>
+                                     
+                                        <small id="attachCommand" style="display:block; float: left;">                                    
+                                            <a id="arrowDown" style="color: #4697ce;text-decoration: none;" onclick="showAttachmentSection(true)">                                       
+                                                Attachments
+                                                <i class="zmdi zmdi-caret-down fontBtn" style="vertical-align: -5px;"></i>                                        
+                                            </a>  
+                                            <a id="arrowUp" style="color: #4697ce;text-decoration: none;display:none;" onclick="showAttachmentSection(false)">                                       
+                                                Attachments                                        
+                                                <i class="zmdi zmdi-caret-up fontBtn" style="vertical-align: -5px;"></i>
+                                            </a>  
+                                        </small>                                        
+                                    
+                                </div>
+                                 <div id="divAttachments" style="display:none; width:89%; padding-top:0px;background: #ffffff;padding-left:50px;" >                                    
+                                        
+                                        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                                        <div class="row fileupload-buttonbar" style="margin-left: 55px; position:relative; display:block; z-index:1000;margin-right:14px !important;">
+                                            <div id="addFilesSections1" style="color: #f5f5f5 !important;height: 80px;width:420px;display:none;" class="dropdisabled">
+                                                <button class="btn btn-success fileinput-button nohover-success" style="background-color:#f5f5f5 !important" disabled="">
+                                                    <i class="glyphicon glyphicon-plus"></i>
+                                                    <span>Add files...</span>
+                                                </button><span style="color:#656b79; font-size:14px;font-weight:bold;margin:0px 11px;">OR</span><span style="color:#656b79; font-size: 14px !important;">Drag and Drop your file here</span>
+                                            </div>   
+
+                                            <div id="dropzone1" class="fade dropzone HeightDropzone1 DropzoneSize WidthFileDiv" style="padding-top:22px; border-color:#BCBFC6;width:102%;padding-left: 0px !important;padding-right: 0px !important;overflow:hidden;">
+                                            <!-- The fileinput-button span is used to style the file input field as button -->
+                                            <div style = "margin-bottom:23px !important;">
+                                            <span class="btn btn-success fileinput-button" >
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                                <span>Add files...</span>
+                                                <input type="file" name="files[]" multiple>
+                                            </span>
+                                       
+                                            <span style="margin-left:9px !important; margin-right:9px !important;font-size: 14px; font-weight:bold; color:#656b79">
+                                                OR
+                                            </span>
+                                            <span style="font-size: 14px; padding-top:20px !important; color:#656b79">Drag and Drop your files here </span>            
+                                            </div>
+                                            <button type="reset" class="btn btn-warning cancel" style="display:none;">
+                                                <i class="glyphicon glyphicon-ban-circle"></i>
+                                                <span>Cancel upload</span>
+                                            </button>
+               
+                                                
+                                            <!-- The global file processing state -->
+                                            <span class="fileupload-process"></span>
+                                            <div class="HeightDropzone" style="width: 100%;word-wrap: break-word; font-size:13px;text-align:left;background-color:#f3f4f6;
+                                                                               display:block;position:relative;">                                      
+                                            <div class="DivMargin" style="padding-left:10px;padding-top:3px;padding-bottom:0px;vertical-align:middle;padding-right:10px;">
+                                                <span style="width: 100%;display: inline-block;margin-top: 5px;color:#656b79;font-size:13px;">Allowed files types:
+                                                    <span class="SpaceInline heightspace Spaceline" style="word-wrap: break-word;color:DarkOrange; font-size:13px !important;line-height:18pt;padding-left:0px;"> 
+                                                    *.docx,*.dwf,*.dwg,*.gif,*.jpeg,*.jpg,*.mpp,*.pdf,*.png,*.tif,*.tiff,*.txt,*.xlsx,*.xps
+                                                    </span> 
+                                                </span>
+                                             
+                                             <div class="PaddingDiv PaddingSize1" style="padding-bottom:10px;vertical-align:middle;height:50%">
+                                                <span style="padding-left:0px; width: 100%; font-size:13px; color:#656b79;">
+                                                The file size cannot exceed 
+                                                    <span style="font-weight:bold; color:#656b79; font-size:13px;">
+                                                    25MB.
+                                                    </span>
+                                                </span> 
+                                             </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                      
+                                        <br />
+                                        <!-- The global progress state -->
+                        
+                                        <div>
+                                            <button type="submit" class="btn btn-primary start hidden" id="startUploadhidden1" style="margin-left: 510px; display: none; text-transform: none !important;">
+                                                <i class="glyphicon glyphicon-upload"></i><span>Start upload</span>
+                                            </button>
+                                        </div>
+                                        <div>
+                                                <table id="table_files1" role="presentation" class="Workarea_Header header-fixed hidden PaddingRightDiv PaddingTopFileDiv WidthFileDivProg" style="height:50px !important; margin-bottom: -26px !important;margin-top: -12px !important;" >
+                                                    <thead>   
+                                                        <th height="50px" style="width:7%" nowrap="">&nbsp;</th>                                             
+                                                        <th height="50px" style="width:14%;text-align: center; color: #656b79 !important;">File</th>
+                                                        <th height="50px" style="width:22%;" nowrap id="sortname1"><span class="sortorder reverse pull-right" id="order1" onclick="javascript:sortname(1)" style="float: left !important; color: #656b79 !important;">File Name</span></th>                                                
+                                                        <th height="50px" style="width:30%;color: #656b79 !important;" nowrap  id="Th2"> Description</th>                                               
+                                                        <th height="50px" nowrap style="width:20%; padding-top: 7px !important; padding-bottom: 2px !important; color: #656b79 !important;" id="Th3">          
+                                                        <button type="button" class="btn btn-primary start hidden" id="startUpload1" onclick="javascript:uploadFiles('remnantconstruction','1','EntityCustomerBlog');"  style="height:34px!important; width:100%; font-size:13px !important;margin-bottom: 4px; text-transform:none !important;border-radius:4px !important;">
+                                                            <i class="glyphicon glyphicon-upload"></i>
+                                                            <span>Start upload</span>
+                                                        </button>   
+                                                        </th>
+                                                        <th height="50px" style="width:7%;" nowrap="">&nbsp;</th>   
+                                                    </thead>
+                                                    <tbody class="files"></tbody>
+                                                </table>
+                                                <br />
+                                        </div> 
+                                        <br />  
+                                    </div>
+                                    
+                                </div>
+                            </div> 
+                                                      
+                        </li>
+                    </ul>
+                   <div id="activityList"> 
+                        <div class="NoRecords" style="display:none"><span style="color:#ffa826;">There are no Activity log records on file!</span></div>
+                        <ul id="ItemsContain" class="list-comments"></ul>
+                        <div class="alert alert-warning messagevalidations"  id ="processMsg" name="processMsg" role="alert" style="position:absolute; width:100%; display:none;margin-left: 0px !important;">
+                            <div><span id="tdMessage"><b>Processing information... please wait</b>&nbsp;<img src="/rts/app/asp/images/processing.gif" height="15"></span></div>
+                        </div>
+                        <ul id="Old_ItemsContain" class="list-comments"></ul>
+                        <table id="mstrpt" style="width:100% !important;">
+                        <tr >
+                            <input type="hidden" id="lastOld" value="false">
+                            <td colspan="2" style="padding:0px 0 10px 0" id="showOldPost">
+                                <div class="btn btn-midnightblue"  onclick="LoadManage('old')">Older posts</div>
+                            </td>
+                            <td colspan="2" style="padding:0px 0 10px 0;display:none" id="showOldPost_2">
+                                <div class="btn btn-midnightblue"  onclick="ShowOlderPosts()">Older posts</div>
+                            </td>
+                            <td   id="closeOldPost" style="text-align:right;padding:0px 0 10px 0;display:none">
+                                <div class="btn btn-midnightblue"  onclick="hideOlderPosts();">Less posts</div>
+                            </td>
+                        </tr>  
+                        </table>  
+                    
+                </div>
+            </form>
+        </div> 
+        
+    </div>
+ </div>
+<div id="_menuManage" class="menuFrameContext" style="z-index:501; display:none;">
+    <table class="menuFrame" width="110px" border="0" cellpadding="0" cellspacing="0">
+        <tr height="18">
+            <td style="padding-left:2px;" class="menuItemDinamic" id="itemMenu2" onmouseover="itemMenuSelect(this)" onmouseout="itemMenuUnselect(this)" onclick="javascript:document.location.href='woTeam.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&CustomerFacilityID=00221';hideMenu();">
+            &nbsp;<a href="#" class="linkazul2"><img src="/rts/app/asp/images/point.gif" border="0" alt="">&nbsp;&nbsp;Members</a>
+            </td>
+        </tr>
+        <tr><td><div class="sepBetweenItems"></div></td></tr>
+        <tr height="18">
+            <td style="padding-left:2px;" class="menuItemDinamic" id="itemMenu1" onmouseover="itemMenuSelect(this)" onmouseout="itemMenuUnselect(this)" onclick="javascript:openPhotos('c29ydEJ5U1FMPWNhc3QoZGF0ZVN1Ym1pdHRlZCBhcyBkYXRldGltZSkgZGVzYyx1LkZpcnN0TmFtZSArIHUuTGFzdE5hbWUgYXNjLGRpYWxvZ1N0YXR1cyBhc2MmVmlld0RyYWZ0UHJvZ3Jlc3NSZXBvcnQ9JlZpZXdDb21taXR0ZWRQcm9ncmVzc1JlcG9ydD0');hideMenu();">
+            &nbsp;<a href="#" class="linkazul2"><img src="/rts/app/asp/images/point.gif" border="0">&nbsp;&nbsp;Photos</a>
+            </td>
+        </tr>
+        <tr><td><div class="sepBetweenItems"></div></td></tr>
+        
+    </table>
+</div>
+<div id="_menuView" class="menuFrameContext" style="z-index:501; display:none;" >
+    <table class="menuFrame" width="150px" border="0" cellpadding="0" cellspacing="0">
+        
+    </table>
+</div>
+ 
+<iframe id="ifrmData" name="ifrmData" style="display:none;"></iframe>
+<script type="text/javascript">
+
+    $("#frmUpload_1").on("change", 'input[type=file]', function (e) {
+
+        var fsize = $(this).get(0).files[0].size;
+        var fnameo = $(this).get(0).files[0].name;
+        var processingImgEmpty = '<div  class="alert alert-warning msgEmpty"  id ="tableMessage" name="tableMessage" role="alert" style="margin-right:16px;"><div><span id="tdMessage">txt_msg</span></div></div>'
+        var fileName = fnameo.toLowerCase();
+        var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|tiff|tif|dwg|xps|dwf|mpp|docx|doc|pdf|xlsx|xls|txt)$");
+        if (!(regex.test(fileName))) {
+            var processingImgNull = processingImgEmpty.replace("txt_msg", "<b>Warning!</b> File type not allowed. Allowed file types: *.jpg,*jpeg,*.png,*.gif,*.tiff,*.tif,*.pdf,*.doc/x,*.xls/x,*.txt,*.dwg,*.xps,*.dwf,*.mpp")
+            $("#divAttachments").prepend(processingImgNull);
+            $(this).val("");
+            setTimeout("hideMsg();", 5000);
+            return;
+        }
+        if (fsize > 25 * 1024 * 1024) {
+            var processingImgNull = processingImgEmpty.replace("txt_msg", "<b>Warning!</b> Your file is too large. Please try again (max file's size allowed 25Mb)...")
+            $("#divAttachments").prepend(processingImgNull);
+            $(this).val("");
+            setTimeout("hideMsg();", 5000);
+            return;
+        }
+    });
+
+    function hideMsg() {
+        $("div").remove(".msgEmpty");
+    }
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+
+    function UpdateTooltip() {
+        $('[data-toggle="tooltip"]').tooltip('destroy');
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+</script>
+</body>
+</html>
+
+<script type="text/javascript">
+    var urlDefaul;
+    urlDefaul = "https://uploads.flex.redteam.com";    
+</script> 
+
+<!-- The template to display files available for upload -->
+<script id="template-upload-1" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade" style="height: 57px;">
+        <td style="width: 7%;" nowrap>
+        </td>
+        <td  style="width: 14%;padding:0 5%" nowrap><span class="preview"></span>
+        </td>
+        <td style="width: 22%; word-wrap: break-word;">
+            <p class="name" style="margin-top: 8px; display: block; max-width: 180px;" nowrap>{%=file.name%}</p>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td nowrap style="width:30%;vertical-align: supper;">
+            <textarea rows="3"  style="font-size: 14px !important;width:90% !important;height:50px;resize: none; float:left;" maxlength="1000" onkeydown="checkLengthTextArea(this,1000);" onkeyup="checkLengthTextArea(this,1000);" class="form-control">{%=file.name.substr(0, file.name.lastIndexOf('.'))%}</textarea>
+            <span class="orange" style="vertical-align: top !important;">*</span>
+        </td>
+        <td nowrap style="width:20%;" >
+            <p class="size" style="margin-top: 0px;">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="background-color: #f5f5f5 !important; margin-bottom: 10px;box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+        </td>
+        <td style="width: 7%;text-align: center;" nowrap>
+            {% if (!i && !o.options.autoUpload) { %}
+               <button class="btn btn-primary start hidden" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+
+             <i onclick="cancelUploadWoNews('1');" class="zmdi zmdi-close cancel fontBtn hand"></i>
+               
+            {% } %}
+        </td>
+    </tr>
+{% } 
+%}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download-1" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td style="height: 57px;text-align: center; width: 7%;" nowrap>
+
+            {% if (file.deleteUrl) { %}
+                <a href="#"  onclick="javascript:deletefile('{%=file.name%}',this);return false;">
+                    <i class="zmdi zmdi-delete" style="font-size:24px !important;"></i>
+                </a>
+               
+
+                <input type="checkbox" name="delete" value="1" class="toggle hidden">
+            {% } else { %}
+                <button type="button" class="btn btn-primary-alt cancel" style="height:40px;width:112px;">
+                    Cancel
+                </button>
+            {% } %}
+        </td>
+        {% if (file.Ext==".jpg" || file.Ext==".jpeg" || file.Ext==".gif" || file.Ext==".png") { %}
+        <td  style="width: 14%;text-align: center;" nowrap> <img src="https://files.flex.redteam.com{%=file.imgurl%}"  style="max-height:60px;width:60px">
+        {% } else { %}
+                <td  style="width: 14%;text-align: center;" nowrap> <img src="https://flex.redteam.com/rts{%=file.imgurl%}"  style="height:60px;width:60px">
+        {% } %}
+        </td>
+        <td style="width: 22%;word-wrap: break-word;">
+            <p class="name" style="margin-bottom: 0px; display: block; max-width: 180px;" nowrap>
+                {% if (file.url) { %}
+                    <a href="https://files.flex.redteam.com{%=file.url%}" title="{%=file.name%}"  {%=file.thumbnailUrl?'data-gallery':''%} target="_blank" >{%=file.name%} </a>
+                {% } else { %}
+                    <span>{%=file.name%}</span>
+                {% } %}
+            </p>
+            {% if (file.error) { %}
+                <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td nowrap style="width:30%;margin-bottom: 0px;word-wrap: break-word;">
+            <input type="hidden"   name="Attachment1"  value="{%=file.name%}">
+            <input type="hidden"   name="FileExtension1"  value="{%=file.Ext%}">
+            <input type="hidden"   name="FileSize1" value="{%=file.size%}">
+            <input type="hidden"   name="S3FileName1" value="{%=file.s3FileName%}">
+            <input type="hidden"   name="S3Directory1" value="{%=file.s3Directory%}">
+            <textarea rows="3" maxlength="1000" onkeydown="checkLengthTextArea(this,1000);" onkeyup="checkLengthTextArea(this,1000);" name="AttachmentNotes1" style="font-size: 14px !important;width:90% !important; height:50px;resize: none;float:left;" class="form-control">{%=file.description%}</textarea>
+            <span class="orange" style="vertical-align: top !important;">*</span>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td style="width: 20%;" nowrap>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+
+        <td style="width: 7%;text-align: right;" nowrap>           
+        </td>
+
+    </tr>
+{% } %}
+</script>
+
+<script type="text/javascript">
+    var typeObject = "tWoNews"; //upload component
+    var sectionFrom = 'wonews';
+    var scope = 'workorder';
+    var urlDefault = '/rts/app/components/Uploads/server';
+</script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $('.listLikesPerson').popover({
+            placement: function (context, source) {
+                var self = this;
+                var position = $(source).position();
+
+                setTimeout(function () {
+                    self.$arrow.css('left', 25);
+                    self.$tip.css('left', position.left);
+                }, 0);
+
+                return "top";
+            }
+        });
+
+    }) 
+</script>
+
+<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="/rts/app/components/Uploads/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="/rts/app/components/Uploads/blueimp/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="/rts/app/components/Uploads/blueimp/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="/rts/app/components/Uploads/blueimp/canvas-to-blob.min.js"></script>
+<!-- blueimp Gallery script -->
+<script src="/rts/app/components/Uploads/blueimp/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="/rts/app/components/Uploads/js/jquery.iframe-transport.js"></script>
+<script src="/rts/app/components/Uploads/js/cors/jquery.postmessage-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload-validate.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="/rts/app/components/Uploads/js/jquery.fileupload-ui.js"></script>
+<!-- The main application script -->
+
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+<!--[if (gte IE 8)&(lt IE 10)]>
+<script src="/rts/app/components/Uploads/js/cors/jquery.xdr-transport.js"></script>
+<![endif]-->
+<script src="/rts/app/components/Uploads/js/general_multipledropzone.js?v=?be731a6"></script>
+<!-- RED-5504: Using S3 upload version -->
+<script src="/rts/app/components/Uploads/js/main_multipledropzone_s3.js?v=?be731a6"></script>
+<script type="text/javascript" src="../activities_/js/woNews_Load.js?v=?be731a6"></script>
+<script>    LoadManage()</script>
+
+
+ 
+
+<div id="DivPerformance" style="display:none"></div>
+<script>
+    $(window).load(function () {
+        setEclipseScreenIcon();
+    });
+</script>
+
+<form id="frmTiles">
+
+<div id="divProjectDashboard" class="grid-container" style="display:none;">
+    
+    <div id="divContainer" class="grid-container-fit">
+
+        <div id="divColumn_1" class="column" draggable="true" style="display:block"><div id="divTile_1"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Location</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_LOC" onclick="javascript:fn_goToManage('1','LOC','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('1','5','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_1" style="width:100%; height=140px"></div><input type="text" id="TILE_UNIQUE_ID_1" name="TILE_UNIQUE_ID_1" value="5" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_1" value="LOC" style="display:none;" /><input type="text" id="TILE_URL_ID_1" value="https://flex.redteam.com/rts/app/workorders/dashboard/Location_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_1" value="TILE_MANAGE_URL_VALUE" style="display:none;" /><input type="text" id="TILE_ORDER_ID_1" name="TILE_ORDER_ID_1" class="order" value="1" style="display:none;" /><input type="text" id="TILE_STATUS_ID_1" value="on" style="display:none;" /></div></div><div id="divColumn_2" class="xcolumn grid-row-span" draggable="true" style="display:block"><div id="divTile_2"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Project Team</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_PTEAM" onclick="javascript:fn_goToManage('2','PTEAM','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('2','8','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_2" style="width:100%; height=320px"></div><input type="text" id="TILE_UNIQUE_ID_2" name="TILE_UNIQUE_ID_2" value="8" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_2" value="PTEAM" style="display:none;" /><input type="text" id="TILE_URL_ID_2" value="https://flex.redteam.com/rts/app/workorders/dashboard/ProjectTeam_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_2" value="" style="display:none;" /><input type="text" id="TILE_ORDER_ID_2" name="TILE_ORDER_ID_2" class="order" value="2" style="display:none;" /><input type="text" id="TILE_STATUS_ID_2" value="on" style="display:none;" /></div></div><div id="divColumn_3" class="column" draggable="true" style="display:block"><div id="divTile_3"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Weather</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_WEATHER" onclick="javascript:fn_goToManage('3','WEATHER','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('3','12','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_3" style="width:100%; height=140px"></div><input type="text" id="TILE_UNIQUE_ID_3" name="TILE_UNIQUE_ID_3" value="12" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_3" value="WEATHER" style="display:none;" /><input type="text" id="TILE_URL_ID_3" value="https://flex.redteam.com/rts/app/workorders/dashboard/Weather_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_3" value="TILE_MANAGE_URL_VALUE" style="display:none;" /><input type="text" id="TILE_ORDER_ID_3" name="TILE_ORDER_ID_3" class="order" value="6" style="display:none;" /><input type="text" id="TILE_STATUS_ID_3" value="on" style="display:none;" /></div></div><div id="divColumn_4" class="column" draggable="true" style="display:block"><div id="divTile_4"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Changes</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_CHANGES" onclick="javascript:fn_goToManage('4','CHANGES','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('4','3','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_4" style="width:100%; height=140px"></div><input type="text" id="TILE_UNIQUE_ID_4" name="TILE_UNIQUE_ID_4" value="3" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_4" value="CHANGES" style="display:none;" /><input type="text" id="TILE_URL_ID_4" value="https://flex.redteam.com/rts/app/workorders/dashboard/Changes_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_4" value="TILE_MANAGE_URL_VALUE" style="display:none;" /><input type="text" id="TILE_ORDER_ID_4" name="TILE_ORDER_ID_4" class="order" value="7" style="display:none;" /><input type="text" id="TILE_STATUS_ID_4" value="on" style="display:none;" /></div></div><div id="divColumn_5" class="column" draggable="true" style="display:block"><div id="divTile_5"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Other</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_OTHER" onclick="javascript:fn_goToManage('5','OTHER','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('5','6','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_5" style="width:100%; height=140px"></div><input type="text" id="TILE_UNIQUE_ID_5" name="TILE_UNIQUE_ID_5" value="6" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_5" value="OTHER" style="display:none;" /><input type="text" id="TILE_URL_ID_5" value="https://flex.redteam.com/rts/app/workorders/dashboard/Other_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_5" value="TILE_MANAGE_URL_VALUE" style="display:none;" /><input type="text" id="TILE_ORDER_ID_5" name="TILE_ORDER_ID_5" class="order" value="8" style="display:none;" /><input type="text" id="TILE_STATUS_ID_5" value="on" style="display:none;" /></div></div><div id="divColumn_6" class="column" draggable="true" style="display:block"><div id="divTile_6"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Action Items To Do</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_AITEMS" onclick="javascript:fn_goToManage('6','AITEMS','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('6','1','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_6" style="width:100%; height=140px"></div><input type="text" id="TILE_UNIQUE_ID_6" name="TILE_UNIQUE_ID_6" value="1" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_6" value="AITEMS" style="display:none;" /><input type="text" id="TILE_URL_ID_6" value="https://flex.redteam.com/rts/app/workorders/dashboard/ActionItems_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_6" value="" style="display:none;" /><input type="text" id="TILE_ORDER_ID_6" name="TILE_ORDER_ID_6" class="order" value="10" style="display:none;" /><input type="text" id="TILE_STATUS_ID_6" value="on" style="display:none;" /></div></div><div id="divColumn_7" class="xcolumn grid-row-span" draggable="true" style="display:block"><div id="divTile_7"><div class="div-tile-header"><div style="display:inline-table; width:85%;" class="tile-title">Photos</div><div style="display:inline-table; width:15%;"><div id="divManageIcon" class="div-tile-header-manage-icon-opaque" style="display:block; float:left;"><span id="goToManageIcon_PHOTOS" onclick="javascript:fn_goToManage('7','PHOTOS','MANAGE_ICON_URL');" title="Go to Manage"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="open-in-new" transform="translate(-306 -617)"><rect id="Rectangle_5405" data-name="Rectangle 5405" width="24" height="24" transform="translate(306 617)" fill="none"/><path id="open-in-new_2_" data-name="open-in-new (2)" d="M14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V12H19Z" transform="translate(306 617)"/></g></svg></span></div><div style="display:none; float:right;" id="divMaximizeIcon"></div><div id="divHideIcon" onclick="javascript:fn_hideTile('7','7','1');" title="Remove Tile" class="div-tile-header-hide-icon-opaque" style="display:block; float:right;"><span onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g id="close" transform="translate(-222 -536)"><rect id="Rectangle_1734" data-name="Rectangle 1734" width="24" height="24" transform="translate(222 536)" fill="none"/><path id="close_4_" data-name="close (4)" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z" transform="translate(222 536)"/></g></svg></span></div></div></div><div id="divTileBody_7" style="width:100%; height=320px"></div><input type="text" id="TILE_UNIQUE_ID_7" name="TILE_UNIQUE_ID_7" value="7" style="display:none;" /><input type="text" id="TILE_ALIAS_ID_7" value="PHOTOS" style="display:none;" /><input type="text" id="TILE_URL_ID_7" value="https://flex.redteam.com/rts/app/workorders/dashboard/Photos_Tile.asp" style="display:none;" /><input type="text" id="TILE_MANAGE_URL_ID_7" value="c29ydEJ5U1FMPWNhc3QoZGF0ZVN1Ym1pdHRlZCBhcyBkYXRldGltZSkgZGVzYyx1LkZpcnN0TmFtZSArIHUuTGFzdE5hbWUgYXNjLGRpYWxvZ1N0YXR1cyBhc2MmVmlld0RyYWZ0UHJvZ3Jlc3NSZXBvcnQ9JlZpZXdDb21taXR0ZWRQcm9ncmVzc1JlcG9ydD0" style="display:none;" /><input type="text" id="TILE_ORDER_ID_7" name="TILE_ORDER_ID_7" class="order" value="12" style="display:none;" /><input type="text" id="TILE_STATUS_ID_7" value="on" style="display:none;" /></div></div>
+        
+    </div>
+    <input type="hidden" id="TilesCounter" name="TilesCounter" value="7" />
+    <input type="hidden" id="HiddenTilesCounter" name="HiddenTilesCounter" value="0" />
+    <input type="hidden" id="DisplayedTilesCounter" name="DisplayedTilesCounter" value="7" />
+</div>
+
+
+</form>
+
+<script type="text/javascript">
+
+    
+
+    function LoadTiles() {
+
+        var TilesCounter = document.getElementById("TilesCounter").value;
+        var theUrl = '';
+        var theStatus = '';
+        var theDiv = 0;
+        
+        for (i = 1; i <= TilesCounter; i++) {
+
+            if (document.getElementById("TILE_URL_ID_" + i)) {
+                theUrl = document.getElementById("TILE_URL_ID_" + i).value;
+                theStatus = document.getElementById("TILE_STATUS_ID_" + i).value;
+                theDiv = i;
+                
+                if (document.getElementById("TILE_MANAGE_URL_ID_" + i).value == 'TILE_MANAGE_URL_VALUE') {
+                    if (document.getElementById("TILE_ALIAS_ID_" + i).value != 'LOC') {
+                        var divTile = document.getElementById("divTile_" + i);
+                        var manageIcon = divTile.getElementsByClassName('div-tile-header-manage-icon-opaque')[0];
+                        if (manageIcon) {
+                            manageIcon.classList.remove("div-tile-header-manage-icon-opaque");
+                            manageIcon.classList.add("div-tile-header-manage-icon-hiden");
+                        }
+                    }
+                }
+
+                if (theStatus == 'on') {
+                    getTileContent(theUrl, theDiv);
+                }
+            }
+        }
+    }
+
+    function getTileContent(theUrl, theDiv) {
+
+        $.get(
+            theUrl,
+        //{ paramOne: 1, paramX: 'abc' },
+            function (data) {
+                //console.log(theDiv);
+                //console.log(data);
+                $('#divTileBody_' + theDiv).html(data);
+            }
+        );
+    }
+
+    function postTiles() {
+    
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+        var data = $('#frmTiles').serialize();
+        
+        let EncryptInfo = Base64.encode('save_display_order=true');
+
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "ProjectDashboard.asp?"+EncryptInfo,
+            data: data,
+            processData: false,
+            cache: false,
+            timeout: 800000,
+            success: function (data) {
+                
+                //console.log("SUCCESS : ", data);
+ 
+            },
+            error: function (e) {
+ 
+                console.log("ERROR : ", e);
+ 
+            }
+        });
+    }
+
+    function Reorganize_Tiles() {
+        
+        let myTiles = document.querySelectorAll('.order');
+        let posTyle = 0;
+
+        //console.log(myTiles);
+
+        myTiles.forEach(function(item) {
+            posTyle++;
+            item.value = posTyle;
+        });
+
+        postTiles();
+    }
+
+    fn_toggle('Dashboard');
+
+    let tile_source_obj;
+    let tile_target_obj;
+    let tile_source_classes = '';
+    let tile_target_classes = '';
+    
+    function handleDragStart(e) {
+        
+        tile_source_obj = this;
+        tile_source_classes = this.classList;
+        //console.log('Drag Start --> ' + tile_source_classes);
+        
+        this.style.opacity = '0.4';
+        
+        dragSrcEl = this;
+
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
+    }
+
+    function handleDragEnd(e) {
+        this.style.opacity = '1';
+    }
+
+    function handleDragOver(e) {
+        
+        this.style.opacity = '0.4';
+
+        e.preventDefault();
+        return false;
+    }
+
+    function handleDragEnter(e) {
+        //console.log(this);
+    }
+
+    function handleDragLeave(e) {
+        this.style.opacity = '1';
+    }
+
+    function handleDrop(e) {
+        
+        e.stopPropagation(); // stops the browser from redirecting.
+
+        tile_target_obj = this;
+        tile_target_classes = this.classList;
+
+        //console.log('Drop --> ' + tile_target_classes);
+
+        if (tile_source_classes != tile_target_classes) {
+            if (!tile_source_classes.contains("grid-row-span") && tile_target_classes.contains("grid-row-span")) {
+                tile_source_obj.classList.replace("column", "xcolumn");
+                tile_source_obj.classList.add("grid-row-span");
+                tile_target_obj.classList.replace("xcolumn", "column");
+                tile_target_obj.classList.remove("grid-row-span");
+            }
+            else
+            if (tile_source_classes.contains("grid-row-span") && !tile_target_classes.contains("grid-row-span")) {
+                tile_source_obj.classList.replace("xcolumn", "column");
+                tile_source_obj.classList.remove("grid-row-span");
+                tile_target_obj.classList.replace("column", "xcolumn");
+                tile_target_obj.classList.add("grid-row-span");
+            }
+        }
+
+        this.style.opacity = '1';
+
+        if (dragSrcEl !== this) {
+            dragSrcEl.innerHTML = this.innerHTML;
+            this.innerHTML = e.dataTransfer.getData('text/html');
+        }
+
+        Reorganize_Tiles();
+
+        return false;
+    }
+
+    let tiles = document.querySelectorAll('.column');
+    tiles.forEach(function(item) {
+        
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('drop', handleDrop);
+    });
+
+    tiles = document.querySelectorAll('.xcolumn');
+    tiles.forEach(function(item) {
+        
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('drop', handleDrop);
+    });
+
+    
+
+</script>

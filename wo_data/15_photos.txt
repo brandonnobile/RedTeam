@@ -1,0 +1,35 @@
+=== Photos ===
+
+Please Wait... 
+
+ menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less {"Title":"Manage Photos","Manage":"Team","Menu":{"Options":[],"Enabled":"false","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"View":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Filter":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('70');","IconName":"","Enabled":true,"Manage":"ManagePhotos"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[],"Enabled":"false","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Close","Id":"btn-cancel-enabled","Onclick":"javascript:closeModalCancelbtn();CloseLightBoxPhotos('');","IconName":"","Enabled":"true","Manage":"btn btn_primary"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Show your latest photos by adding them to your Progress Reports.

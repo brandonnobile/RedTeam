@@ -1,0 +1,34 @@
+=== TM Sheets ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+ 	{"Title":"Manage T&M Sheets","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"},{"Name":"Locations","Id":"","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"},{"Name":"Schedule Updates","Id":"","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"Add T&M Sheets","Id":"","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"},{"Name":"Import T&M Sheets","Id":"","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"View T&M Sheets","Id":"","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":"disabled","Manage":"ManageT&MSheets"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('202');","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Commit","Id":"btnPosted","Onclick":"javascript:MultipleCommit('bandTypeOfBid=&bandCOTypeOfBid=&band=multipleCommit')","IconName":"","Enabled":true,"Manage":"btn btn_primary"}],"Enabled":"false","Onclick":"false"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ 	Tools 	Files 	Date 	Scope 	Amount ($) 	Description 	Status 	Billed 	There are no T&M Sheets on File!

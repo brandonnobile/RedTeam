@@ -1,0 +1,187 @@
+<div id="_menuMore" class="menuFrameContext"><table class="menuFrame" width="150px" border="0" cellpadding="0" cellspacing="0"></table></div>
+  </div>
+ </div>
+</BODY>
+</HTML>
+
+
+<script>
+    vAccountingSystem = 'QBO';
+    vMessageTextShow = '';
+    
+    loadFilter('LstStatus','false','&LstStatus=','&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221',vAccountingSystem);
+
+    if (vAccountingSystem == "QBO")
+        loadFilter('LstQBO','false','&LstQBO=','&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221',vAccountingSystem);
+    else
+        loadFilter('LstPosted','false','&LstPosted=','&WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221',vAccountingSystem);
+
+    $('#LstStatus').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        selectAll: true,
+        csvDispCount: 1,
+        setEventClickSelAll: false,
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+    });
+
+    if (vAccountingSystem == "QBO") {
+        $('#LstQBO').SumoSelect({
+            search: true,
+            searchText: 'Search...',
+            selectAll: true,
+            csvDispCount: 1,
+            setEventClickSelAll: false,
+            captionFormatAllSelected: '{0} selected',
+            placeholder: '0 selected'
+        });
+    }
+    else {
+        $('#LstPosted').SumoSelect({
+            search: true,
+            searchText: 'Search...',
+            selectAll: true,
+            csvDispCount: 1,
+            setEventClickSelAll: false,
+            captionFormatAllSelected: '{0} selected',
+            placeholder: '0 selected'
+        });
+    }
+      
+    $('#LstDateFilter').SumoSelect({
+        search: true,
+        searchText: 'Search...',             
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+    }); 
+     
+
+    initialize('');
+    if( typeof addDocumentClickEvent == 'function'){
+        addDocumentClickEvent(hideMenu);
+    }
+
+    if (vMessageTextShow != "") {
+        parent.$("#BillingMessageValue").html(vMessageTextShow);
+        parent.$("#textBilling").show();
+    }
+    else {
+        parent.$("#textBilling").hide();
+    }
+
+    $(window).load(function () { 
+        setEclipseScreenIcon(); 
+    }); 
+
+    document.getElementById("btnPosted").style.display = "none";
+
+    $(document).ready(function () {
+    if (document.getElementById("JsonDocu"))
+        {
+            document.getElementById("btnDocusign").innerHTML = document.getElementById("JsonDocu").innerHTML;
+        }
+    });
+
+function showDialogMessage(msg) {
+     $("#warning_section").html("<span>Warning!</span> This customer Invoice can not be committed and sent to your connected accounting platform due to the following items being unlinked. Please link these items in the Apps menu before you continue.");
+     $('#warningMessageModalTable > tbody').html(msg)
+     $('#warningMessageModal').toggleClass('warningMessageModalFlexible')
+     $('#warningMessageModal').modal()
+}
+
+function showDialogInsertCustomers(msg) {
+     $("#ModalACustomersImport_body").html('<table width="100%" CELLPADDING="0" CELLSPACING="0" border="0" style="padding-bottom: 15px; padding-left: 0px; padding-top:15px " class="table tableform" >' +
+        '<tr><td>'+
+        '<label class="control-label-right">Statement Cycle ID:</label></td>'+
+        '<td class="form-inline">'+
+        '<SELECT name="Statement" size="1" id="Statement" style="width:360px; display:inline;" " class="form-control" tabindex="10" disabled></SELECT>' +
+        '</tr>' +
+        '<tr><td>'+
+        '<label class="control-label-right">AR Account:</label></td>'+
+        '<td class="form-inline">'+
+        '<SELECT name="ARAccount" size="1" id="ARAccount" style="width:360px; display:inline;" " class="form-control" tabindex="10" disabled></SELECT>' +
+        '</tr>'+
+        '<tr><td>'+
+        '<label class="control-label-right">Sales Account:</label></td>'+
+        '<td class="form-inline">'+
+        '<SELECT name="SalesAccount" size="1" id="SalesAccount" style="width:360px; display:inline;" " class="form-control" tabindex="10" disabled></SELECT>' +
+        '</tr>'+
+        '<tr><td>'+
+        '<label class="control-label-right">Cash Discount Account:</label></td>'+
+        '<td class="form-inline">'+
+        '<SELECT name="CashAccount" size="1" id="CashAccount" style="width:360px; display:inline;" " class="form-control" tabindex="10" disabled></SELECT>' +
+        '</tr></table>'
+    );
+    $('#ModalACustomersImport').toggleClass('warningMessageModalFlexible')
+    $('#ModalACustomersImport').modal()
+}
+
+function getChartOfAccount(){
+    $.get(`https://api.acumatica.flex.redteam.com/fn/chart-of-account/5342`, object => {
+        const accounts = object.data        
+        document.getElementById("Statement").disabled = false;
+        $('#Statement').empty().append('<option value="0">Select one...</option>');
+
+        document.getElementById("ARAccount").disabled = false;
+        $('#ARAccount').empty().append('<option value="0">Select one...</option>');
+
+        document.getElementById("SalesAccount").disabled = false;
+        $('#SalesAccount').empty().append('<option value="0">Select one...</option>');
+
+        for (current of accounts) {
+            let selectedLabel = ''
+            $('#Statement').append(`<option value="${current.AccountCD}">
+            ${current.AccountCD} - ${current.AccountClass} - ${current.Description}</option>`);
+
+            if(current.ControlAccountModule == "AR"){
+                $('#ARAccount').append(`<option value="${current.AccountCD}">
+                ${current.AccountCD} - ${current.AccountClass} - ${current.Description}</option>`);
+            }
+
+            $('#SalesAccount').append(`<option value="${current.AccountCD}">
+            ${current.AccountCD} - ${current.AccountClass} - ${current.Description}</option>`);
+        }
+    });
+}
+
+function getCashAccount(){
+    $.get(`https://api.acumatica.flex.redteam.com/fn/statement-cycle/5342`, object => {
+        const accounts = object.data
+        
+        document.getElementById("CashAccount").disabled = false;
+        $('#CashAccount').empty().append('<option value="0">Select one...</option>');
+
+        for (current of accounts) {
+            let selectedLabel = ''
+            $('#CashAccount').append(`<option value="${current.CycleID}">
+            ${current.CycleID} - ${current.Description} </option>`);
+        }
+    });
+}
+
+function saveCustomers(){
+    let body =  {
+        "StatementCycleID" : document.getElementById("Statement").value,
+        "CARAccountID" : document.getElementById("ARAccount").value,
+        "custom":{
+            "CurrentCustomer":{
+                "DiscTakenAcctID": document.getElementById("CashAccount").value
+            }
+        },
+        "DefLocation":{
+            "CSalesAcctID":document.getElementById("SalesAccount").value
+        }
+    }
+
+    $.post(`https://api.acumatica.flex.redteam.com/fn/customer-rts/5342`, body , function (data) {
+        console.log("data",data)
+    });
+
+    console.log("body",body)
+
+
+}
+</script>
+
+

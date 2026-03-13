@@ -1,0 +1,190 @@
+=== Checklists ===
+
+menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+ {"Title":"Manage Checklists","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Locations","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Manage Milestones","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Manage Schedule Updates","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Manage T&M Sheets","Id":"","Onclick":"","IconName":"","Enabled":"disabled","Manage":"ManageChecklist"},{"Name":"Punch List","Id":"trItemMenuPunch1","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=1&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Quality","Id":"trItemMenuPunch4","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=4&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Safety","Id":"trItemMenuPunch3","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=3&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"},{"Name":"Warranty","Id":"trItemMenuPunch2","Onclick":"gotoManagePage('../punchlist_/ManagePunchList.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&punchType=2&v=be731a6');","IconName":"","Enabled":true,"Manage":"SubMenu"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('433');","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageChecklist"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Type 
+
+ Scope 
+
+ Phase 
+
+ Author 
+
+ 	Tools 	Date 	Type 	Name 	Scope 	Phase 	Author 	Status 	Log 	There are no items on file! 
+
+ 	Total Checklists : 0 	<svg class="Icon_View" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="file-outline" transform="translate(-417 -189)">
+ <rect id="Rectangle_2039" data-name="Rectangle 2039" width="24" height="24" transform="translate(417 189)" fill="none"/>
+ <path id="file-outline_3_" data-name="file-outline (3)" d="M14,2H6A2,2,0,0,0,4,4V20a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V8L14,2m4,18H6V4h7V9h5Z" transform="translate(417 189)"/>
+ </g>
+</svg> <svg class="Icon_Edit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="pencil-outline" transform="translate(-20359 -7378)">
+ <rect id="Rectangle_179" data-name="Rectangle 179" width="24" height="24" transform="translate(20359 7378)" fill="none"/>
+ <path id="pencil-outline-2" data-name="pencil-outline" d="M14.06,9l.94.94L5.92,19H5v-.92L14.06,9m3.6-6a1,1,0,0,0-.7.29L15.13,5.12l3.75,3.75,1.83-1.83a1,1,0,0,0,0-1.41L18.37,3.29A.982.982,0,0,0,17.66,3m-3.6,3.19L3,17.25V21H6.75L17.81,9.94Z" transform="translate(20359 7378)"/>
+ </g>
+</svg> <svg class="Icon_Commit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="commit" transform="translate(-44 -10707)">
+ <rect id="Rectangle_185" data-name="Rectangle 185" width="24" height="24" transform="translate(44 10707)" fill="none"/>
+ <g id="Group_386" data-name="Group 386" transform="translate(-660.574 10409.343)">
+ <path id="Path_848" data-name="Path 848" d="M728.048,304.989l-4.8-4.8a1.79,1.79,0,0,0-1.276-.53h0a1.8,1.8,0,0,0-1.255.506l-1.151,1.152a1.834,1.834,0,0,0-.358.512l-5.12-.916a4.615,4.615,0,0,0-5.4,3.6l-.244,1.209a2.664,2.664,0,0,0,2.1,3.13,2.676,2.676,0,0,0,3.125-2.078l.114-.566,2.121.186,7.251,7.251a.385.385,0,0,1-.542.548l-3.009-3.008a.739.739,0,0,0-.526-.191.719.719,0,0,0-.507.237.736.736,0,0,0,0,.995l3,3a.385.385,0,0,1-.542.548l-3-3a.733.733,0,0,0-1.081.99l3.038,3.038a.385.385,0,0,1-.542.548l-3-3a.732.732,0,0,0-1.079.99l3.034,3.04a.384.384,0,0,1-.013.545.38.38,0,0,1-.528,0l-12.019-12.017a.725.725,0,0,0-.508-.237.765.765,0,0,0-.526.191.736.736,0,0,0-.238.507.728.728,0,0,0,.193.528l2.827,2.83-.7.7a1.654,1.654,0,0,0,0,2.341l.275.275a1.655,1.655,0,0,1,1.3,1.3l.274.274a1.655,1.655,0,0,1,1.305,1.3l.274.274a1.655,1.655,0,0,1,1.3,1.3l.274.275a1.662,1.662,0,0,0,2.342,0l.7-.7,1.877,1.877a13.924,13.924,0,0,0,6.3-4.218,1.848,1.848,0,0,0,1.058-3.14l-.6-.6,4.467-4.458A1.811,1.811,0,0,0,728.048,304.989Zm-1.035,1.519-1.37,1.367-5.045-5.042a.342.342,0,0,1,0-.484l1.128-1.128a.343.343,0,0,1,.485,0l4.8,4.8A.344.344,0,0,1,727.013,306.507Zm-2.406,2.405-2.058,2.058-5.8-5.809a.737.737,0,0,0-.453-.211l-3.039-.264h-.064a.736.736,0,0,0-.719.588l-.244,1.207a1.2,1.2,0,1,1-2.353-.474l.244-1.208a3.149,3.149,0,0,1,3.708-2.45l5.143.922Zm-15.487,3.454-.645.646a.194.194,0,0,1-.271,0l-.274-.272a.2.2,0,0,1,0-.272l.648-.647Zm1.582,1.581-.646.646a.2.2,0,0,1-.272,0l-.272-.273a.2.2,0,0,1,0-.272l.647-.647Zm1.58,1.581-.645.645a.193.193,0,0,1-.272,0l-.274-.273a.193.193,0,0,1,0-.27l.647-.648Zm1.581,1.581-.646.646a.2.2,0,0,1-.271,0l-.272-.273a.193.193,0,0,1,0-.271l.647-.649Z" transform="translate(0)"/>
+ <path id="Path_849" data-name="Path 849" d="M726.211,307.316a.732.732,0,1,0-.732-.732A.733.733,0,0,0,726.211,307.316Z" transform="translate(-0.355 -0.105)"/>
+ </g>
+ </g>
+</svg> <svg class="Icon_UnCommit" xmlns="http://www.w3.org/2000/svg" width="25.142" height="24" viewBox="0 0 25.142 24">
+ <g id="uncommit" transform="translate(-185.5 -109)">
+ <rect id="Rectangle_2008" data-name="Rectangle 2008" width="24" height="24" transform="translate(186 109)" fill="none"/>
+ <path id="Union_22" data-name="Union 22" d="M1181.327,17.741a1.753,1.753,0,0,1-.357.085,1.844,1.844,0,0,1-1.579,1.58,1.848,1.848,0,0,1-3.139,1.058l-1.877-1.877-.7.7a1.66,1.66,0,0,1-2.342,0l-.274-.274a1.639,1.639,0,0,1-.454-.851,1.647,1.647,0,0,1-.851-.454l-.274-.274a1.637,1.637,0,0,1-.455-.85,1.651,1.651,0,0,1-.851-.454l-.274-.274a1.643,1.643,0,0,1-.454-.85,1.646,1.646,0,0,1-.851-.454l-.275-.275a1.653,1.653,0,0,1,0-2.341l.7-.7-2.827-2.831a.725.725,0,0,1-.193-.527.738.738,0,0,1,.238-.508.768.768,0,0,1,.523-.191.725.725,0,0,1,.511.238l12.02,12.017a.376.376,0,0,0,.262.1.386.386,0,0,0,.279-.652l-3.035-3.041a.733.733,0,0,1,.044-1.034.736.736,0,0,1,1.035.044l3,3a.386.386,0,0,0,.649-.273.383.383,0,0,0-.107-.274l-3.038-3.038a.734.734,0,0,1,.046-1.034.726.726,0,0,1,.247-.148l-4.389-4.389a2.662,2.662,0,0,1-4.417-2.47l.244-1.21c.027-.133.06-.265.1-.394l-3.347-3.347L1166.132,0l19.8,19.8-1.273,1.273Zm-9.23-.025a.193.193,0,0,0,0,.271l.272.274a.194.194,0,0,0,.134.053.2.2,0,0,0,.138-.055l.645-.646-.544-.545Zm-1.582-1.581a.194.194,0,0,0,0,.271l.275.273a.193.193,0,0,0,.272,0l.645-.644-.544-.544Zm-1.579-1.581a.2.2,0,0,0,0,.273l.273.273a.191.191,0,0,0,.134.054.194.194,0,0,0,.138-.056l.646-.646-.545-.545Zm-1.581-1.58a.2.2,0,0,0,0,.272l.274.273a.194.194,0,0,0,.272,0l.644-.646-.544-.544Zm1.943-6.462a1.2,1.2,0,0,0,.94,1.413,1.221,1.221,0,0,0,.242.024,1.194,1.194,0,0,0,.66-.2,1.278,1.278,0,0,0,.112-.084l-1.819-1.819Zm14.627,8.791-10-10,1.8.156a.74.74,0,0,1,.454.212l5.8,5.809,2.058-2.058-5.64-5.641-5.143-.922a3.155,3.155,0,0,0-1.661.113l-1.108-1.107a4.6,4.6,0,0,1,2.14-.533,4.554,4.554,0,0,1,.889.088l5.121.916a1.852,1.852,0,0,1,.357-.512l1.151-1.152a1.808,1.808,0,0,1,2.533.023l4.8,4.8a1.81,1.81,0,0,1,0,2.554l-4.467,4.458.6.6a1.852,1.852,0,0,1,.318,2.2h0Zm-2.772-13.577-1.129,1.127a.343.343,0,0,0,0,.484l5.045,5.042,1.371-1.368a.342.342,0,0,0,0-.484l-4.8-4.8a.342.342,0,0,0-.485,0Zm3.4,5.255a.732.732,0,1,1,.733.733A.732.732,0,0,1,1184.549,6.98Z" transform="translate(-978 110.84)" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+ </g>
+</svg> <svg class="Icon_RFS" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="comment-question-outline" transform="translate(-1530 71)">
+ <rect id="Rectangle_2063" data-name="Rectangle 2063" width="24" height="24" transform="translate(1530 -71)" fill="none"/>
+ <path id="comment-question-outline-2" data-name="comment-question-outline" d="M4,2A2,2,0,0,0,2,4V16a2,2,0,0,0,2,2H8v3a1,1,0,0,0,1,1h.5a1.019,1.019,0,0,0,.7-.29L13.9,18H20a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4M4,4H20V16H13.08L10,19.08V16H4V4m8.19,1.5a3.791,3.791,0,0,0-2.14.54,1.752,1.752,0,0,0-.78,1.65h1.97a.8.8,0,0,1,.26-.63,1.152,1.152,0,0,1,.69-.21,1.049,1.049,0,0,1,.76.26.889.889,0,0,1,.27.69,1.317,1.317,0,0,1-.22.74,1.983,1.983,0,0,1-.64.54,4.7,4.7,0,0,0-1.07.84A1.679,1.679,0,0,0,11,11h2a1.493,1.493,0,0,1,.14-.68,1.278,1.278,0,0,1,.52-.47A3.041,3.041,0,0,0,14.79,9a1.892,1.892,0,0,0,.44-1.2,2.021,2.021,0,0,0-.81-1.68,3.623,3.623,0,0,0-2.23-.62M11,12v2h2V12Z" transform="translate(1530 -71)"/>
+ </g>
+</svg> <svg class="Icon_UploadFile" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="file-upload-outline" transform="translate(-975 520)">
+ <rect id="Rectangle_2046" data-name="Rectangle 2046" width="24" height="24" transform="translate(975 -520)" fill="none"/>
+ <path id="file-upload-outline-2" data-name="file-upload-outline" d="M14,2l6,6V20a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V4A2,2,0,0,1,6,2h8m4,18V9H13V4H6V20H18m-6-8,4,4H13.5v3h-3V16H8Z" transform="translate(975 -520)"/>
+ </g>
+</svg> <svg class="Icon_UploadReview" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="answer-upload-outline" transform="translate(-515 -585)">
+ <rect id="Rectangle_2046" data-name="Rectangle 2046" width="24" height="24" transform="translate(515 585)" fill="none"/>
+ <path id="Union_23" data-name="Union 23" d="M1176.5,20a1.02,1.02,0,0,1-.7-.29L1172.1,16H1166a2,2,0,0,1-2-2V2a2,2,0,0,1,2-2h16a2,2,0,0,1,2,2V14a2,2,0,0,1-2,2h-4v3a1,1,0,0,1-1,1Zm-3.58-6L1176,17.08V14h6V2h-16V14Zm-.419-2V9H1170l4-4,4,4h-2.5v3Z" transform="translate(-648 588)"/>
+ </g>
+</svg> <svg class="Icon_RFA" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="comment-question-outline" transform="translate(-1530 71)">
+ <rect id="Rectangle_2063" data-name="Rectangle 2063" width="24" height="24" transform="translate(1530 -71)" fill="none"/>
+ <path id="comment-question-outline-2" data-name="comment-question-outline" d="M4,2A2,2,0,0,0,2,4V16a2,2,0,0,0,2,2H8v3a1,1,0,0,0,1,1h.5a1.019,1.019,0,0,0,.7-.29L13.9,18H20a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4M4,4H20V16H13.08L10,19.08V16H4V4m8.19,1.5a3.791,3.791,0,0,0-2.14.54,1.752,1.752,0,0,0-.78,1.65h1.97a.8.8,0,0,1,.26-.63,1.152,1.152,0,0,1,.69-.21,1.049,1.049,0,0,1,.76.26.889.889,0,0,1,.27.69,1.317,1.317,0,0,1-.22.74,1.983,1.983,0,0,1-.64.54,4.7,4.7,0,0,0-1.07.84A1.679,1.679,0,0,0,11,11h2a1.493,1.493,0,0,1,.14-.68,1.278,1.278,0,0,1,.52-.47A3.041,3.041,0,0,0,14.79,9a1.892,1.892,0,0,0,.44-1.2,2.021,2.021,0,0,0-.81-1.68,3.623,3.623,0,0,0-2.23-.62M11,12v2h2V12Z" transform="translate(1530 -71)"/>
+ </g>
+</svg> <svg class="Icon_Remove" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="answer-remove-outline" transform="translate(-1097 -401)">
+ <rect id="Rectangle_2052" data-name="Rectangle 2052" width="24" height="24" transform="translate(1097 401)" fill="none"/>
+ <path id="comment-remove-outline" d="M15,22a1,1,0,0,0,1-1V18h4a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4A2,2,0,0,0,2,4V16a2,2,0,0,0,2,2h6.1l3.7,3.71a1.019,1.019,0,0,0,.7.29H15m-1-6v3.08L10.92,16H4V4H20V16H14m.59-10L12,8.59,9.41,6,8,7.41,10.59,10,8,12.59,9.41,14,12,11.41,14.59,14,16,12.59,13.41,10,16,7.41Z" transform="translate(1097 401)"/>
+ </g>
+</svg> <svg class="Icon_Notification" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="email-notification-outline" transform="translate(-874 -340)">
+ <rect id="Rectangle_2068" data-name="Rectangle 2068" width="24" height="24" transform="translate(874 340)" fill="none"/>
+ <g id="email-notification-outline-2" data-name="email-notification-outline" transform="translate(26.462 -921.511)">
+ <path id="Path_959" data-name="Path 959" d="M866.538,1273.761v7h-16v-10l8,5,4.74-2.961a6.028,6.028,0,0,1-1.328-1.171l-3.412,2.132-8-5h10.083a6.05,6.05,0,0,1,0-2H850.538a2,2,0,0,0-2,2v12a2,2,0,0,0,2,2h16a2,2,0,0,0,2-2v-7.342a5.971,5.971,0,0,1-1.995.342Z"/>
+ <path id="Path_960" data-name="Path 960" d="M866.538,1263.511a4.25,4.25,0,1,0,4.25,4.25A4.254,4.254,0,0,0,866.538,1263.511Zm0,7.2a2.95,2.95,0,1,1,2.95-2.95A2.953,2.953,0,0,1,866.538,1270.711Z"/>
+ <path id="Path_961" data-name="Path 961" d="M865.488,1266.811h.8v3.2h1.3v-4.5h-2.1Z"/>
+ </g>
+ </g>
+</svg> <svg class="Icon_Acceptance" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="answer-edit-outline" transform="translate(-349 -264)">
+ <rect id="Rectangle_2051" data-name="Rectangle 2051" width="24" height="24" transform="translate(349 264)" fill="none"/>
+ <g id="answer-edit-outline-2" data-name="answer-edit-outline" transform="translate(-23)">
+ <path id="comment-edit-outline" d="M15,22a1,1,0,0,0,1-1V18h4a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4A2,2,0,0,0,2,4V16a1.993,1.993,0,0,0,2,2h6.1l3.7,3.71a1.019,1.019,0,0,0,.7.29H15m-1-6v3.08L10.92,16H4V4H20V16H14" transform="translate(372 264)"/>
+ <path id="comment-edit-outline-2" data-name="comment-edit-outline" d="M14.83,9.21,12.76,7.18l1.01-1.02a.552.552,0,0,1,.78,0l1.29,1.25a.564.564,0,0,1,0,.79M8,11.91l4.17-4.19L14.24,9.8,10.08,14H8Z" transform="translate(372 264)"/>
+ </g>
+ </g>
+</svg> <svg class="Icon_Cancel" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="cancel" transform="translate(-266 -566)">
+ <rect id="Rectangle_2026" data-name="Rectangle 2026" width="24" height="24" transform="translate(266 566)" fill="none"/>
+ <path id="cancel-2" data-name="cancel" d="M12,2A10,10,0,1,1,2,12,10,10,0,0,1,12,2m0,2A8,8,0,0,0,5.68,16.91L16.91,5.68A8.005,8.005,0,0,0,12,4m0,16A8,8,0,0,0,18.32,7.09L7.09,18.32A8.005,8.005,0,0,0,12,20Z" transform="translate(266 566)"/>
+ </g>
+</svg> <svg class="Icon_UnCancel" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="un-cancel" transform="translate(-1091 124)">
+ <rect id="Rectangle_2026" data-name="Rectangle 2026" width="24" height="24" transform="translate(1091 -124)" fill="none"/>
+ <g id="Group_2819" data-name="Group 2819" transform="translate(163.418 -1382)">
+ <path id="Path_958" data-name="Path 958" d="M946.069,1262.87a9,9,0,0,0-14.487,7.13h-3l4,4,3.546-3.546a4.3,4.3,0,1,0-.046-.454h-2.5a7,7,0,1,1,2.94,5.7l-1.44,1.44a9,9,0,0,0,10.987-14.27Zm-5.489,4.43h0a2.732,2.732,0,0,1,1.164.263l-3.6,3.6a2.7,2.7,0,0,1,2.435-3.865Zm0,5.4h0a2.723,2.723,0,0,1-1.165-.264l3.6-3.6a2.7,2.7,0,0,1-2.435,3.865Z"/>
+ </g>
+ </g>
+</svg> <svg class="Icon_Reminder" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="bell-plus-outline" transform="translate(-923 467)">
+ <rect id="Rectangle_2058" data-name="Rectangle 2058" width="24" height="24" transform="translate(923 -467)" fill="none"/>
+ <path id="bell-plus-outline-2" data-name="bell-plus-outline" d="M10,21h4a2,2,0,0,1-4,0m11-2v1H3V19l2-2V11a6.99,6.99,0,0,1,5-6.71V4a2,2,0,0,1,4,0v.29A6.99,6.99,0,0,1,19,11v6l2,2m-4-8A5,5,0,1,0,7,11v7H17V11m-2,2H13v2H11V13H9V11h2V9h2v2h2" transform="translate(923 -468)"/>
+ </g>
+</svg> <svg class="Icon_Delete" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="delete-outline" transform="translate(-609 -1718)">
+ <rect id="Rectangle_2041" data-name="Rectangle 2041" width="24" height="24" transform="translate(609 1718)" fill="none"/>
+ <path id="delete-outline_1_" data-name="delete-outline (1)" d="M6,19a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V7H6V19M8,9h8V19H8V9m7.5-5-1-1h-5l-1,1H5V6H19V4Z" transform="translate(609 1718)"/>
+ </g>
+</svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="chevron-right" transform="translate(-120 -1104)">
+ <rect id="Rectangle_1753" data-name="Rectangle 1753" width="24" height="24" transform="translate(120 1104)" fill="none" opacity="0"/>
+ <path id="chevron-right-2" data-name="chevron-right" d="M8.59,16.58,13.17,12,8.59,7.41,10,6l6,6-6,6Z" transform="translate(119.41 1104)"/>
+ </g>
+</svg> <svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38"> 
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg> <svg class="Icon_Arrange" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="arrange" transform="translate(-328 -348)">
+ <rect id="Rectangle_2405" data-name="Rectangle 2405" width="24" height="24" transform="translate(328 348)" fill="none"/>
+ <g id="arrange-2" data-name="arrange" transform="translate(328 348)">
+ <path id="Path_1580" data-name="Path 1580" d="M13,13v9h9V13Zm7,7H15V15h5Z"/>
+ <path id="Path_1581" data-name="Path 1581" d="M2,11h9V2H2ZM4,4H9V9H4Z"/>
+ <path id="Path_1582" data-name="Path 1582" d="M7.5,15V13h-2v5h-3l4,4,4-4h-3Z"/>
+ <path id="Path_1583" data-name="Path 1583" d="M16.5,9v2h2V6h3l-4-4-4,4h3Z"/>
+ </g>
+ </g>
+</svg> <svg class="Icon_OpenFolder" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="folder-open-outline" transform="translate(-306 -800)">
+ <rect id="Rectangle_2406" data-name="Rectangle 2406" width="24" height="24" transform="translate(306 800)" fill="none"/>
+ <path id="folder-open-outline-2" data-name="folder-open-outline" d="M6.1,10,4,18V8H21a2,2,0,0,0-2-2H12L10,4H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H19a1.927,1.927,0,0,0,1.9-1.5L23.2,10H6.1M19,18H6l1.6-6h13Z" transform="translate(306 800)"/>
+ </g>
+</svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="convert" transform="translate(-571 -940)">
+ <rect id="Rectangle_2414" data-name="Rectangle 2414" width="24" height="24" transform="translate(571 940)" fill="none"/>
+ <g id="Group_8021" data-name="Group 8021" transform="translate(571 940)">
+ <path id="Path_1599" data-name="Path 1599" d="M7,18h3L6,14,2,18H5v5h5V21H7Z"/>
+ <path id="Path_1600" data-name="Path 1600" d="M19,6V1H14V3h3V6H14l4,4,4-4Z"/>
+ <g id="Group_8019" data-name="Group 8019">
+ <path id="Path_1601" data-name="Path 1601" d="M19,11H15a2.006,2.006,0,0,0-2,2v9a2,2,0,0,0,2,2h6a1.993,1.993,0,0,0,2-2V15Zm2,11H15V13h3.17L21,15.83Z"/>
+ <rect id="Rectangle_1786" data-name="Rectangle 1786" width="2" height="2" transform="translate(17 14)"/>
+ <rect id="Rectangle_1787" data-name="Rectangle 1787" width="2" height="2" transform="translate(17 18)"/>
+ </g>
+ <g id="Group_8020" data-name="Group 8020">
+ <path id="Path_1602" data-name="Path 1602" d="M7,0H3A2.006,2.006,0,0,0,1,2v9a2,2,0,0,0,2,2H9a1.993,1.993,0,0,0,2-2V4ZM9,11H3V2H6.17L9,4.83Z"/>
+ <rect id="Rectangle_1788" data-name="Rectangle 1788" width="2" height="2" transform="translate(5 5)"/>
+ </g>
+ </g>
+ </g>
+</svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="lock" transform="translate(-492 -1110)">
+ <rect id="Rectangle_2105" data-name="Rectangle 2105" width="24" height="24" transform="translate(492 1110)" fill="#fff" opacity="0"/>
+ <path id="lock-2" data-name="lock" d="M12,17a2,2,0,1,0-2-2,2,2,0,0,0,2,2m6-9a2,2,0,0,1,2,2V20a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V10A2,2,0,0,1,6,8H7V6A5,5,0,0,1,17,6V8h1M12,3A3,3,0,0,0,9,6V8h6V6A3,3,0,0,0,12,3Z" transform="translate(492 1110)"/>
+ </g>
+</svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g id="sign-caution" transform="translate(-404 -376)">
+ <rect id="Rectangle_2411" data-name="Rectangle 2411" width="24" height="24" transform="translate(404 376)" fill="#fff" opacity="0"/>
+ <path id="sign-caution-2" data-name="sign-caution" d="M2,3H22V13H18v8H16V13H8v8H6V13H2V3m16.97,8L20,9.97V7.15L16.15,11h2.82m-5.65,0,6-6H16.5l-6,6h2.82M7.66,11l6-6H10.83l-6,6H7.66M5.18,5,4,6.18V9L8,5Z" transform="translate(404 376)"/>
+ </g>
+</svg> ZmlsdGVyPSZMc3RfUHVuY2hUeXBlPSZMc3RfU2NvcGU9JkxzdF9QaGFzZT0mTHN0X0F1dGhvcj0mc29ydENyaXRlcmlhbD1EYXRlIGRlc2MsUHVuY2hUeXBlTmFtZSBhc2MsY2hlY2tGb3JtTmFtZSBhc2MmV29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDA

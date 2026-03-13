@@ -1,0 +1,626 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+    <link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+    <link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet">
+    <link href="../../asp/css/theme.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">                                       
+    <script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>                                               
+    <script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+    <link href="../../asp/aspcoexistencetheme/default.css?v=?be731a6" type="text/css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' />
+    <link rel='stylesheet' type='text/css' href='schedule.css' />
+    <script src="../../asp/js/global.js?be731a6" type="text/javascript"></script>
+    <script language="JavaScript" src="/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+
+    <script src="schedule.js?be731a6" type="text/javascript"></script>  
+    <script src="../../asp/js/tbsort.js" type="text/javascript"></script>
+    <script src="../../asp/js/pickList.js" type="text/javascript"></script>
+    <script src="../../asp/js/jsDate.js" type="text/javascript"></script>
+    <script src="../../asp/js/calendar.js" type="text/javascript"></script>
+    <script src="../../asp/js/calendar-setup.js" type="text/javascript"></script>
+    <script src="../../asp/js/calendar-en.js" type="text/javascript"></script>
+    <script  type="text/javascript" src="/rts/app/asp/js/moment-with-locales.js"></script>
+
+    <script src="/rts/app/asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script> 
+    <link href="/rts/app/asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" />
+    <link href="../../templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+    <script language="JavaScript">
+
+        function hideToolIcon() {
+            var nParents = parseInt(document.getElementById("count").value);
+
+            for (var i = 1; i <= nParents; i++) {
+                if (document.getElementById("hidetools" + i))
+                    document.getElementById("hidetools" + i).style.display = 'none';
+                if (document.getElementById("showtools" + i))
+                    document.getElementById("showtools" + i).style.display = '';
+            }
+        }
+
+        function Lookahead() {
+            document.location.href = 'schedule/currentSchedule.asp?p=c3B0PVRlYW1TZXJ2aWNlJndvPTE5NDAwNDYwMCZ1c3I9MSZjbGk9cmVtbmFudGNvbnN0cnVjdGlvbg';
+        }
+    </script>
+
+<style type="text/css">
+    .SumoSelect > .optWrapper > .options > li {border-bottom: 0px !important;} 
+    .SumoSelect > .CaptionCont  {height: 34px ;}
+    .SumoSelect {width: 100% !important;}    
+    .SumoSelect > .CaptionCont > span{font-size : 14px !important;overflow: initial;}
+    #trFiltersbox{display:table;width:100%;}
+    .disabledElement{color: #D9DBE0 !important;}
+
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation:portrait)
+    {
+        #FromDate{ width: 220 !important ; }
+        #ToDate{ width: 220 !important;margin-left:4px; }
+        .LabelToDate{margin-left:4px; }
+        .up{ margin-right: 80px !important ; }
+        .panel-body { width: 1340 !important ; } 
+        .divLst_Author { margin-left: 8px !important ; }
+        .SelectBox { width: 220px  !important ; }
+        #trFiltersbox{ width: 1340 !important ; }
+        .col-md-12{ display: -webkit-box !important ; }
+        .down > .col-md-3 { width: 306 !important ; }
+        .SumoSelect.open > .optWrapper { width: 220 !important ; }
+        .divbtnSearch{ margin-top: 0 !important ; }
+        .divbtnFilters{ margin-left: 4 !important ; }
+
+    }
+
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation:landscape)
+    {
+        #FromDate{ width: 220 !important ; }
+        #ToDate{ width: 220 !important;margin-left:4px; }
+        .LabelToDate{margin-left:4px; }
+        .up{ margin-right: 80px !important ; }
+        .panel-body { width: 1340 !important ; } 
+        .divLst_Author { margin-left: 8px !important ; }
+        .SelectBox { width: 220px  !important ; }
+         #trFiltersbox{ width: 1340 !important ; }
+        .col-md-12{ display: -webkit-box !important ; }
+        .down > .col-md-3 { width: 306 !important ; }
+        .SumoSelect.open > .optWrapper { width: 220 !important ; }
+        .divbtnSearch{ margin-top: 0 !important ; }
+        .divbtnFilters{ margin-left: 4 !important ; }
+    } 
+    
+    .NoPhotos
+    {
+        cursor:default;
+        text-decoration: none !important;
+        top:0px  !important;
+        left:0px  !important;
+    } 
+
+    .inputSearch {
+        color: #656b79 !important;
+        font-style: normal !important;
+        border-top: 1px solid #E1E3E8;
+        border-bottom: 1px solid #E1E3E8;
+        border-left: 1px solid #E1E3E8;
+        border-right: 0px solid #FFFFFF;
+        height: 40px !important;
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 400 !important;
+        background-color: #fff !important;
+        width: 0px;
+        vertical-align: middle !important;
+        border-bottom-left-radius: 0px !important;
+        border-top-left-radius: 0px !important;
+        transition: all 0.1s linear;
+        padding: 0px;
+        float: right;
+        cursor: auto;
+    }
+
+    .NewHomeActionsHeader {
+        padding-top: 0px;
+        padding-right: 16px;
+        height: 36px;
+    }
+
+</style>
+
+</head>
+
+<body leftmargin="0" rightmargin="0" topmargin="0" onload="initialize();focus('0')"
+    style="overflow: scroll;" scroll="yes" onclick="hideMenu();hideToolIcon();"
+    onscroll="hideMenu()">
+    <script type="text/javascript">
+        LoadingMessagePage("on");    
+    </script>
+    <iframe id="_fraGetDataAux" name="_fraGetDataAux" width="0" height="0" style="display: none;">
+    </iframe>
+    <iframe id="ifrmAux" name="ifrmAux" style="width: 1000; height: 200; display: none;"
+        src=""></iframe>
+    
+    <div id="content" style="top: 0; left: 0; display: none;" >
+    <div id="DivOverflow" >
+        <div id="staticmenu" style="position: relative; display: none;">
+        
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabelMenu" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+        <table id="page-heading" border="0" width="100%" cellpadding=0 cellspacing=0>    
+		<tr>
+        
+                <td class="HomeActionsHeader buttonssection" nowrap="nowrap">
+                    <form id="frmmenu" name="frmmenu" method="post" style="display: inline" target="_self" action="schedule.asp?WorkorderID=1940046&WorkorderMod=00">
+                        <input type="hidden" id="searchCriteria" name="searchCriteria" class="form-control inputSearch" size="13"  maxlength="50" placeholder="Search" onfocus="if(this.value==this.defaultValue) this.value=''" onblur="VerifySearchEmpty()" value="">
+                    </form>
+                </td>
+            
+                </tr>
+            </table>
+
+            <textarea id="JsonHeader" style="display:none">{"Title":"Manage Daily Progress","Manage":"Progress","Menu":{"Options":[{"Name":"Manage Checklists","Id":"trItemMenuShow1","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage Locations","Id":"trItemMenuShow5","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage Milestones","Id":"trItemMenuShow6","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage Schedule Updates","Id":"trItemMenuShow1","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"},{"Name":"Manage T&M Sheets","Id":"trItemMenuShow1","Onclick":"","IconName":"","Enabled":false,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[{"Name":"","Id":"linkMenuAdd","Onclick":"javascript:addProgressReport('False','26024','app/forms/tpl_forms/tpl_formsConsole.asp?p=b3JpZ2VuPWFkZHByb2dyZXNzJndvaWQ9MTk0MDA0NiZ3b21vZD0wMCZiYW5kPWFkZCZ3aWtpVHJhbnNhY3Rpb25JRD05OCZhdHRhY2hwZXJtaXNzaW9uPUZhbHNlJnRyYW5zVGl0bGU9QWRkIFByb2dyZXNzIFJlcG9ydCZwYXJhbVBhZ2U9cHxZbUZ1WkQxT1pYY21abWxzZEdWeVBTWnpiM0owUW5sVFVVeFRaVzUwWlc1alpUMWpZWE4wS0dSaGRHVlRkV0p0YVhSMFpXUWdZWE1nWkdGMFpYUnBiV1VwSUdSbGMyTXNkUzVHYVhKemRFNWhiV1VnS3lCMUxreGhjM1JPWVcxbElHRnpZeXhrYVdGc2IyZFRkR0YwZFhNZ1lYTmpKbFpwWlhkRWNtRm1kRkJ5YjJkeVpYTnpVbVZ3YjNKMFBVWmhiSE5sSmxacFpYZERiMjF0YVhSMFpXUlFjbTluY21WemMxSmxjRzl5ZEQxR1lXeHpaU1p6WldGeVkyaERjbWwwWlhKcFlUMG1WMjl5YTI5eVpHVnlTVVE5TVRrME1EQTBOaVpYYjNKcmIzSmtaWEpOYjJROU1EQQ');hideMenu();","IconName":"","Enabled":true,"Manage":"ManageMilestones"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"View":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('199');","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageProgress"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"false","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?be731a6" type="text/javascript"></script>
+            
+        </div>
+        <div class="alert alert-warning " id="tableMessage" name="tableMessage" role="alert" style="margin-bottom: 5px; margin-left: 14px; margin-right: 8px; margin-top:17px; position: relative;display: none;">
+            <div>
+                <span id="tdMessage"></span>
+            </div>
+        </div>
+        
+        <div id="trFiltersbox" style="display: none;height:200px;width:100%;overflow-y:hidden;position:relative;">
+            <div class="panel panel-midnightblue customFilterBox" style="margin-bottom:0px;">
+                <div class="panel-heading">
+                    <h4>
+                        Filters</h4>
+                </div>
+                <div class="panel-body collapse in" style="padding-bottom:0px;" >
+                    <form method="post" name="Form1" id="Form1" class="form-horizontal row-border">
+                    
+                    <input type="hidden" id="hdnitemsPageNumber" name="hdnitemsPageNumber" value="500" /> 
+                    <input type="hidden" id="hdnCurrentPageNumber" name="hdnCurrentPageNumber" />
+                    <input type="hidden" id="hdnActionCommand" name="hdnActionCommand" />
+                    <input type="hidden" id="hdnCurrentUrlParams" name="hdnCurrentUrlParams" value="?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221" />
+                    <input type="hidden" id="hdnParameters" name="hdnParameters" value="" />
+                    <input type="hidden" id="hdnCurrentSortCriterial" name="hdnCurrentSortCriterial" value="date,desc" />
+                    <div class="col-md-12" >
+                        <div class="col-md-3 up">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Weather</label>
+                                <div class="col-sm-3-separator">
+                                    <select id="Lst_Weather" name="Lst_Weather" style="padding-left:10;width:120px;" multiple size="1">
+                                        <option value="9999" selected>[No Weather]</option><option value="36" selected>AM Sun /PM Rain</option><option value="29" selected>Clear</option><option value="1" selected>Cloudy</option><option value="25" selected>Drizzle</option><option value="31" selected>Dust</option><option value="2" selected>Fog</option><option value="16" selected>Freezing Fog</option><option value="18" selected>Haze</option><option value="21" selected>Heavy Rain</option><option value="12" selected>Heavy Snow</option><option value="34" selected>Hurricane</option><option value="26" selected>Light Drizzle</option><option value="11" selected>Light Ice Pellets</option><option value="24" selected>Light Rain</option><option value="23" selected>Light Showers Rain</option><option value="15" selected>Light Snow</option><option value="20" selected>Light Thunderstorm Rain</option><option value="13" selected>Low Drifting Snow</option><option value="22" selected>Mist</option><option value="37" selected>Mix of sun and rain</option><option value="28" selected>Mostly Cloudy</option><option value="3" selected>Overcast</option><option value="4" selected>Partly Cloudy</option><option value="17" selected>Patches Fog</option><option value="5" selected>Rain</option><option value="27" selected>Scattered Clouds</option><option value="38" selected>Scattered Showers</option><option value="14" selected>Showers Snow</option><option value="6" selected>Sleet</option><option value="30" selected>Smoke</option><option value="7" selected>Snow</option><option value="8" selected>Sunny</option><option value="9" selected>Thunderstorm</option><option value="19" selected>Thunderstorm Rain</option><option value="32" selected>Tropical Depression</option><option value="33" selected>Tropical Storm</option><option value="35" selected>Windy</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 up">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Observations</label>
+                                <div class="col-sm-3-separator">
+                                    <select id="Lst_Obs" name="Lst_Obs" style="padding-left:10;width:120px;"
+                                        multiple size="1">
+                                        <option value="9999" selected>[No Observations]</option><option value="iobs_000" >[Inactive Observations]</option><option value="Delays" selected>Delays in work progress</option><option value="OwnerDirectives" selected>Verbal Directives issued by the Project Owner</option><option value="SubcontractorDirectives" selected>Written Directives issued to any Subcontractor</option><option value="Accidents" selected>Accidents</option><option value="Deliveries" selected>Deliveries</option><option value="Inspections" selected>Inspections</option><option value="Comments" selected>General Comments</option><option value="PMComments" selected>Project Manager Comments</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 up">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Company</label>
+                                <div class="col-sm-3-separator">
+                                    <select id="Lst_Company" name="Lst_Company" style="padding-left:10;width:120px;" multiple size="1">
+                                        <option value="99999999" selected>[No Company]</option><option value="131" selected>A-1 Construction Co.</option><option value="4286" selected>Action Fencing, Inc.</option><option value="4079" selected>Advanced Hood Systems</option><option value="173" selected>Agler Kitchen, Bath & Floors</option><option value="4557" selected>All Specialty Sales</option><option value="4146" selected>Alliance Group Contracting Corporation</option><option value="4314" selected>Beckley Engineering Consultants [third-party]</option><option value="351" selected>Brothers Fire Protection, Inc.</option><option value="4501" selected>Carter Associates, Inc.</option><option value="4228" selected>Coastal Vacuum</option><option value="4421" selected>Communication Access Services, Inc.</option><option value="4223" selected>Complete Cooling & Heating Services, Inc.</option><option value="4133" selected>Complete Electric, Inc.</option><option value="4250" selected>Cook Shell Contractors, LLC</option><option value="2426" selected>D & D Garage Doors of the Treasure Coast, Inc. DBA Overhead Door Co of the Treasure Coast</option><option value="4446" selected>Elite Florida Contractors Corp</option><option value="1398" selected>Energy and Impact Solutions, LLC DBA Vero Glass & Mirror</option><option value="4241" selected>European Custom Casework, Inc.</option><option value="4401" selected>Festina Lente, LLC DBA AA Sign Lines</option><option value="40" selected>Fire Equipment Systems of Florida, Inc.</option><option value="4039" selected>G & R Concrete Designs, LLC</option><option value="4412" selected>GearGrid Corporation</option><option value="4480" selected>Gras Lawn, LLC</option><option value="2497" selected>Haley Ward, Inc. [third-party]</option><option value="4382" selected>HD Flagpoles</option><option value="4375" selected>Interior Specialties, Inc.</option><option value="4402" selected>Kelsie's Blinds, Inc.</option><option value="4231" selected>Key Mart, Inc.</option><option value="4577" selected>Kuebler Mechanical, LLC</option><option value="1409" selected>MER Enterprises, LLC DBA Leed Insulation</option><option value="4210" selected>Midstate Caulking & Construction Services, LLC</option><option value="928" selected>Nature's Keeper Inc.</option><option value="4627" selected>Newman's Power Systems, Inc.</option><option value="4217" selected>OCI Associates, Inc. [third-party]</option><option value="1007" selected>Perini Interiors, LLC</option><option value="115" selected>POD, LLC DBA Tubito Painting</option><option value="3" selected>Remnant Construction, LLC</option><option value="1086" selected>RF Concrete Construction, Inc.</option><option value="4566" selected>Rodeo Roofing</option><option value="4692" selected>Safe Clean Experts of South Florida, LLC</option><option value="4004" selected>Security Builders Supply Co.</option><option value="116" selected>Snyder Plumbing of the Treasure Coast, Inc.</option><option value="4005" selected>St. Lucie County Fire District [customer]</option><option value="111" selected>Suncor, Inc.</option><option value="1242" selected>Sunline Civil Construction, Inc.</option><option value="4454" selected>Tennessee Building Components</option><option value="2647" selected>The Porch Factory</option><option value="1335" selected>Universal Engineering Sciences</option><option value="2802" selected>V.M. Iron Work and Structural Steel Corp.</option><option value="2719" selected>Velcon Engineering & Surveying, LLC</option><option value="4214" selected>Wannemacher Jensen Architects, Inc. [third-party]</option><option value="4237" selected>Westnet, LLC</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 up">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Status</label>
+                                <div class="col-sm-3-separator">
+                                    <select id="Lst_Status" name="Lst_Status" style="padding-left:10;width:120px;"
+                                        multiple size="1">
+                                        <option value="Committed" selected>Committed</option><option value="Draft" selected>Draft</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-md-12 down">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    From</label>
+                                <div class="col-sm-3-separator">
+                                    <input type="text" name="FromDate" id="FromDate" maxlength="10" value=""
+                                        style="font-size: 14px; height: 32px"><a><i style="vertical-align: -5px; padding-left: 5px"
+                                            class="zmdi zmdi-calendar fontBtn" id="CalendarFrom" onclick="return showCalendar('FromDate','%m/%d/%Y');"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label LabelToDate">
+                                    To</label>
+                                <div class="col-sm-3-separator">
+                                    <input type="text" name="ToDate" id="ToDate" maxlength="10" value=""
+                                        style="font-size: 14px; height: 32px"><a><i style="vertical-align: -5px; padding-left: 5px"
+                                            class="zmdi zmdi-calendar fontBtn" id="CalendarTo" onclick="return showCalendar('ToDate','%m/%d/%Y');"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 divLst_Author">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Author</label>
+                                <div class="col-sm-3-separator">
+                                    <select id="Lst_Author" name="Lst_Author" style="padding-left:10;width:120px; 
+                                        padding-bottom: " multiple size="1">
+                                        <option value="32465" selected>Devin Caraballo (Superintendent)</option><option value="34824" selected>Joshua Lopez (Assistant Superintendent)</option><option value="26042" selected>Louis Caciopoli (Superintendent)</option><option value="26040" selected>Stuart Frisby (Project Manager)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 buttons">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    &nbsp;</label>
+                                <div class="col-sm-3-separator divbtnFilters">
+                                    <input onclick="SendFilters('schedule.asp?filterblock=true&filter=true&by=&direction=&WorkorderID=1940046&WorkorderMod=00','mm/dd/yyyy');"
+                                        type="button" class="btn btn-primary " value="Filter" />
+                                    <input id="lnkSendFilters" onclick="SendFilters('schedule.asp?filter=true&by=&direction=&WorkorderID=1940046&WorkorderMod=00','mm/dd/yyyy');"
+                                        type="button" class="btn btn-default" style="height: 34px;" value="Filter & Hide" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="staticCols" style="position: relative; background-color: #f3f4f6;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td height="20" class="customTableHeaderContainer">
+                        <table  id="tblHeading"  class="Workarea_Header" border="0" cellpadding="0" width="100%" cellspacing="0">
+                            <thead>  
+                                <tr valign="middle" height="20">
+                                    <th style="text-align:center" width="50px" nowrap></th>
+                                    <th style="text-align:left" width="53px" nowrap>Tools</th>   
+                                    <th style="text-align:center" width="50px" nowrap>Files</th>
+                                    <th width="110px" style="text-align:center"  nowrap><a onclick="javascript:sortReport('scope')" style="cursor:hand;"><u>Scope</u></a></th>
+                                    <th width="92px" nowrap><a onclick="javascript:sortReport('date')" style=""cursor:hand;""><u>Date</u><img src="../../asp/images/sort_asc.png" border="0"  style="position: relative; top: 5px;"/></a></th>
+                                    <th width="160px" nowrap><a onclick="javascript:sortReport('author')" style=""cursor:hand;""><u>Author</u></a></th>
+                                    <th width="220px" nowrap  >Weather</th>
+                                    <th width="98px" style="text-align:center" nowrap>Precipitation</th>            
+                                    <th width="90px" nowrap  style="text-align:center">Companies</th>
+                                    <th width="90px" nowrap style="text-align:center" >Workers</th>
+                                    <th width="105px" nowrap style="text-align:center">Observations</th>
+                                    <th width="90px" nowrap style="text-align:center">Photos</th>                        
+                                    <th width="90px" nowrap><a onclick="javascript:sortReport('status')" style=""cursor:hand;""><u>Status</u></a></th>
+                                    <th width="90px" nowrap>Log</th>
+                                </tr>
+                            </thead>
+                        </table> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="filterBox" style="overflow-y: scroll; scrollbar-base-color: #B7C2CD; height: 115px;
+            display: none; border-bottom: solid 1px #CCCCCC; width: 100%; position: relative">
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: Transparent">
+                <tr>
+                    <td width="100%">
+                        
+                        <iframe id="ifExplanation" name="ifExplanation" width="100%" height="10px" scrolling="no"
+                            frameborder="0"></iframe>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <form method="post" name="FrmDateManagement" id="FrmDateManagement" style="display: inline">
+        <table id="tblDetail" class="Workarea_Header customTableDetail" width="100%" border="0"
+            cellpadding="0" cellspacing="0" >
+            <tbody>
+                
+                <tr bgcolor="#FFFFFF" id="noProgressReports">
+                    <td colspan="12" width="100%" style="padding-left: 4px;">
+                        <font class="Orange">There are no Progress Reports on File!</font>
+                    </td>
+                </tr>
+                <tr id=tr0 style="display:none;"><td id=jsTdTools0 align="center" width="30px" height="30px"  nowrap></td><td id=jsTdFiles0 align="center" width="40px"  nowrap></td><td id=jsTdScope0 width="60px"  nowrap></td><td id=jsTdDate0 width="92px"  nowrap></td><td id=jsTdAuthor0 width="160px"  nowrap></td><td id=jsTdWeather0 width="220px"  nowrap></td><td id=jsTdPrecip0 width="98px" align="center"  nowrap></td><td id=jsTdCensus0 width="90px" align="center"  nowrap></td><td id=jsTdWorkers0 width="90px" align="center"  nowrap></td><td id=jsTdObs0 width="105px" align="center"  nowrap></td><td id=jsTdPhotos0 width="90px" align="center"  nowrap></td><td id=jsTdStatus0 width="90px"  nowrap></td><td id=jsTdLog0 width="90px"  nowrap></td></tr><tr bgcolor=#FFFFFF id=MnuOptions0 style="display:none;"><td id=tdMenuToolsBlank0 width="20px" nowrap></td><td id=tdMenuTools0 colspan="11" width="100%" ><div id=_menuTools0 class="menuFrameContext"><table id=tableTools0 cellspacing="0" cellpadding="1" border=0 ><tr id=trTools0 style="display:none"><td id=jsToolView0 width="60" height="30" nowrap></td><td style='display:none;' id=jsToolEmail0 width=60  nowrap></td><td style='display:none;' id=jsToolEdit0 width=60 nowrap></td><td style='display:none;' id=jsToolCommit0 width=85 nowrap></td><td style='display:none;' id=jsToolUncommit0 width=120 nowrap></td><td  style='display:none;'  id=jsToolDelete0 width=70  nowrap></td></tr></table></div></td></tr>
+                <tr>
+                <td colspan="8" width="675px" align="right" nowrap="nowrap" style="font-weight: bold;">
+                    Page Total:
+                </td>
+                <td width="98px" height="29" align="center" id="totalPageTotal" nowrap="nowrap" style="font-weight: bold;">
+                    0.00
+                </td>
+                <td width="90px" align="center" id="totalPageCompanies" style="font-weight: bold;" nowrap>
+                    0
+                </td>
+                <td width="90px" align="center" id="totalPageWorkers" style="font-weight: bold;" nowrap>
+                   0
+                </td>
+                <td colspan="4" width="375px" align="right" nowrap="nowrap" style="font-weight: bold;">
+                   
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8" width="675px" align="right" nowrap="nowrap" style="font-weight: bold;">
+                    Total:
+                </td>
+                <td width="98px" height="29" align="center" nowrap="nowrap" id="totalReport" style="font-weight: bold;">
+                    0.00
+                </td>
+                <td width="90px" align="center" id="totalCompanies"  style="font-weight: bold;" nowrap>
+                    0
+                </td>
+                <td width="90px" align="center" id="totalWorkers" style="font-weight: bold;" nowrap>
+                    0
+                </td>
+                 <td colspan="4" width="180px" align="right" nowrap="nowrap" style="font-weight: bold;">
+                   
+                </td>
+            </tr>
+        
+            </tbody>
+        </table>
+        </form>
+        <form method="post" name="FormAux" id="FormAux" style="display: none">        
+        <input type="hidden" name="count" id="count" value="0">
+        <input type="hidden" name="countAuxNew" id="countAuxNew" value="0">  
+        <textarea id="spStoredParameters" name="spStoredParameters" style="display: none;">_pa null||cast(dateSubmitted as datetime) desc,u.FirstName + u.LastName asc,dialogStatus asc||1||False||False||1940046||00||||default||default||default||default||default||null||null||500||1</textarea>
+        </form>
+
+        
+       </div>
+    </div>
+
+<FORM METHOD="POST" name="FrmFilterProgress" ID="FrmFilterProgress" style="display:none;">
+    <textarea name="formFilters"  style="display:none;" >Rl9UeXBlPWRlZmF1bHQmRl9PYnM9ZGVmYXVsdCZGX0NvbXBhbnk9ZGVmYXVsdCZGX1N0YXR1cz1kZWZhdWx0JkZfQXV0aG9yPWRlZmF1bHQmRl9Gcm9tRGF0ZT0mRl9Ub0RhdGU9</textarea>
+</FORM>
+
+</body>
+</html>
+<div id="DivPerformance" style="display: none">
+</div>
+<script>
+    $("body").click(function () {
+        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+        if (!is_firefox) {
+            hideMenu();
+            hideToolIcon();
+        }
+    });
+
+
+    $(window).load(function () {
+        setEclipseScreenIcon();
+    });
+
+    // sanitize search field
+    document.querySelector('#searchCriteria').addEventListener('input', function () {
+        var txt = this.value;
+        this.value = sanitizeString(txt);
+    });
+
+    $("#TextToSearch").on('keypress', function (e) {
+	    if (e.which == 13) {
+	        document.getElementById("searchCriteria").value = document.getElementById("TextToSearch").value;
+	        $("#frmmenu").submit();
+	    }
+	});
+
+	var txtSearch = document.getElementById("searchCriteria").value;
+	if (txtSearch != '') {
+	    document.getElementById("TextToSearch").value = txtSearch;
+	    $("#TextToSearch").removeClass("HideTextToSearch").addClass("ShowTextToSearch");
+	    $("#textSearch").css("display", "none");
+	}
+    
+</script>
+<script language="javascript" type="text/javascript">
+    $('#Lst_Weather,#Lst_Obs,#Lst_Company,#Lst_Author,#Lst_Status').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        selectAll: true,
+        csvDispCount: 1,
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+    });
+
+    document.getElementById("menuoptions").style.maxHeight = "450px";
+    document.getElementById("menuoptions").style.maxWidth = "400px";
+    document.getElementById("menuoptions").style.overflowY = "auto";
+    document.getElementById("menuoptions").style.overflowX = "hidden";
+
+</script>
+

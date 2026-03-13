@@ -1,0 +1,543 @@
+
+<html>
+<head>
+<title>RedTeam Proposal Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css">
+
+<link href="../../asp/css/estilos.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' />
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-color-palette.min.css' /> 
+
+<script src="../../asp/js/global.js" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script>
+
+<link href="../../asp/css/skin/theme.css" type="text/css" rel="stylesheet">
+<script src="../../asp/js/calendar.js"></script>
+<script src="../../asp/js/calendar-en.js"></script>
+<script src="../../asp/js/jsDate.js" defer="defer"></script>
+<script type="text/javascript" src="../../asp/js/moment-with-locales.js"></script>
+
+<script src="https://flex.redteam.com/rts/app/js/ManageJson.js?v=?be731a6" type="text/javascript"></script>
+<script src="https://flex.redteam.com/rts/app/workorders/proposal_/js/contract_Load.js?v=?be731a6" type="text/javascript"></script>
+<link href="/rts/app/css/GlobalManage.css?v=?be731a6" rel="stylesheet" /> 
+<link href="./css/contract.css?v=?be731a6" rel="stylesheet" /> 
+<script src="../../asp/js/MultipleSelect/jquery.sumoselect.3.0.2.js?v=?be731a6" type="text/javascript" ></script> 
+<link href="../../asp/css/MultipleSelect/sumoselect.css?v=?be731a6" rel="stylesheet" /> 
+<script type="text/javascript" src="./js/contract.js?v=?be731a6"></script> 
+<!--New Manage -->
+    <link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+</head>
+
+<div class="ParametersPage hide"> 
+	<input type="text" id="P_banSpecEmail" name="P_banSpecEmail" value="0" >
+    <input type="text" id="P_paramEmail" name="P_paramEmail" value="" >
+    <input type="text" id="P_WorkorderID" name="P_WorkorderID" value="1940046" >
+    <input type="text" id="P_WorkorderMod" name="P_WorkorderMod" value="00" >
+    <input type="text" id="P_WorkorderStatus" name="P_WorkorderStatus" value="InProgress" >
+    <input type="text" id="P_CustomerFacilityID" name="P_CustomerFacilityID" value="00221" >
+    <input type="text" id="P_DateFormat" name="P_DateFormat" value="mm/dd/yyyy" >
+    <input type="text" id="P_cClient" name="P_cClient" value="remnantconstruction" >
+    <input type="text" id="P_server_name" name="P_server_name" value="IO" >
+    <input type="text" id="P_DefaultURL" name="P_DefaultURL" value="https://flex.redteam.com/TS" >
+    <input type="text" id="P_wwwASPpdfApp" name="P_wwwASPpdfApp" value="https://abcpdf.flex.redteam.com/ABCpdfService.asmx" >
+    <input type="text" id="P_wwwDocusignApp" name="P_wwwDocusignApp" value="https://docusign.redteamsoftware.com/OAuth.asmx/" >
+    <input type="text" id="P_companyDBName" name="P_companyDBName" value="remnantconstruction" >
+    <input type="text" id="P_LocaleLCID" name="P_LocaleLCID" value="1033" >
+    <input type="text" id="P_contractDocument" name="P_contractDocument" value="" >
+    <input type="text" id="P_woModDocument" name="P_woModDocument" value="" >   
+    <input type="text" id="P_tdSingleForm" name="P_tdSingleForm" value="" > 
+    <input type="text" id="P_isCustomer" name="P_isCustomer" value="false" >  
+    <input type="text" id="P_Locale" name="P_Locale" value="en-us" >   
+    <input type="text" id="P_cActiveUser" name="P_cActiveUser" value="1" >  
+    <input type="text" id="CompanyBDname" name="CompanyBDname" value="remnantconstruction" /> 
+    <input type="text" id="Perm_DemoteInProgress" name="Perm_DemoteInProgress" value="" >   
+    <input type="text" id="Perm_RedTeamAssistant" name="Perm_RedTeamAssistant" value="" >     
+    <input type="text" id="Perm_UnMaskBuyoutAmounts" name="Perm_UnMaskBuyoutAmounts" value="" >
+    <input type="text" id="Perm_ViewProposal" name="Perm_ViewProposal" value="" >  
+    <input type="text" id="Perm_ManageContract" name="Perm_ManageContract" value="" >  
+    <input type="text" id="Perm_ViewRCO" name="Perm_ViewRCO" value="" >  
+    <input type="text" id="Perm_ViewRCOlog" name="Perm_ViewRCOlog" value="" >  
+    <input type="text" id="Perm_AddEditRCO" name="Perm_AddEditRCO" value="" >  
+    <input type="text" id="Perm_ViewNotes" name="Perm_ViewNotes" value="" > 
+    <input type="text" id="Perm_CommitRCO" name="Perm_CommitRCO" value="" > 
+    <input type="text" id="Perm_UncommitRCO" name="Perm_UncommitRCO" value="" > 
+    <input type="text" id="Perm_AuthorizeRCO" name="Perm_AuthorizeRCO" value="" > 
+    <input type="text" id="Perm_CancelRCO" name="Perm_CancelRCO" value="" > 
+    <input type="text" id="Perm_VoidRCO" name="Perm_VoidRCO" value="" > 
+    <input type="text" id="Perm_DeleteRCO" name="Perm_DeleteRCO" value="" >
+    <input type="text" id="Perm_AuthorizeChangeProposal" name="Perm_AuthorizeChangeProposal" value="" >
+    <input type="text" id="Perm_CancelProposal" name="Perm_CancelProposal" value="" >
+    <input type="text" id="Perm_RecoverProject" name="Perm_RecoverProject" value="" > 
+    <textarea id="Icon_metadataHistory" name="Icon_metadataHistory" ><svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg></textarea>
+    <textarea id="Icon_subStatuses" name="Icon_subStatuses"><svg xmlns="http://www.w3.org/2000/svg" class="iconSubStatus" width="28" height="28" viewBox="0 0 28 28">
+  <g id="sub-status" transform="translate(-44 -140)">
+    <rect id="Rectangle_1986" data-name="Rectangle 1986" width="28" height="28" transform="translate(44 140)" fill="none"/>
+    <g id="Group_20" data-name="Group 20" transform="translate(-788 286)">
+      <path id="Path_33" data-name="Path 33" d="M272,272v12.656h12.656V272Zm0,0" transform="translate(560 -418)" fill="#5cdb3c"/>
+      <path id="Path_34" data-name="Path 34" d="M392,272h6.328v12.656H392Zm0,0" transform="translate(446.634 -418)" fill="#1db00b"/>
+      <g id="Group_14" data-name="Group 14" transform="translate(835.5 -143.275)">
+        <path id="Path_42" data-name="Path 42" d="M4815.021,278.235h-.967v1.058a.09.09,0,0,0,0-.011h.009c.162.6.466,1.508.942,2.924h-.955V283.4h1.267l.552,1.55h1.525Z" transform="translate(-4810.92 -278.235)" fill="#efe2dd"/>
+        <path id="Path_43" data-name="Path 43" d="M4648.744,282.206c.38-1.2.714-2.251.88-2.913v-1.058h-.855l-2.278,6.71h1.426l.523-1.55h1.185v-1.189Z" transform="translate(-4646.49 -278.235)" fill="#fff5f5"/>
+      </g>
+      <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(838 -131)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="1.4" height="1.4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+      </g>
+      <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(838 -128)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="1.4" height="1.4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+      </g>
+      <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(838 -125)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="1.4" height="1.4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+      </g>
+      <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(841 -125)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="1.4" height="1.4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+      </g>
+      <g id="Rectangle_8" data-name="Rectangle 8" transform="translate(844 -125)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="1.4" height="1.4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="0.4" height="0.4" fill="none"/>
+      </g>
+      <g id="Group_18" data-name="Group 18" transform="translate(-6100.789 -2200.656)">
+        <path id="Path_50" data-name="Path 50" d="M6948.13,2070v12.66h12.66V2070Zm7.421,8.955a4.008,4.008,0,0,1-.134-.411c-.023-.083-.039-.138-.049-.163a2.534,2.534,0,0,1-.761.519,2.2,2.2,0,0,1-.866.173,1.793,1.793,0,0,1-1.279-.441,1.465,1.465,0,0,1-.467-1.113,1.494,1.494,0,0,1,.213-.794,1.393,1.393,0,0,1,.6-.534,4.736,4.736,0,0,1,1.106-.323,7.583,7.583,0,0,0,1.348-.341v-.139a.715.715,0,0,0-.2-.571,1.177,1.177,0,0,0-.746-.171.993.993,0,0,0-.578.147,1.01,1.01,0,0,0-.336.511l-1.262-.227a1.962,1.962,0,0,1,.733-1.127,2.674,2.674,0,0,1,1.542-.365,3.342,3.342,0,0,1,1.385.218,1.4,1.4,0,0,1,.641.561,2.868,2.868,0,0,1,.185,1.243l-.014,1.623a5.6,5.6,0,0,0,.066,1.02,2.966,2.966,0,0,0,.251.705Z" transform="translate(-0.001 -0.001)" fill="#5cdb3c"/>
+        <path id="Path_51" data-name="Path 51" d="M6952.553,2075.533a.58.58,0,0,0-.272.49.672.672,0,0,0,.219.5.753.753,0,0,0,.553.213,1.217,1.217,0,0,0,.718-.247.886.886,0,0,0,.33-.459,2.723,2.723,0,0,0,.054-.679v-.276c-.175.06-.459.129-.845.213A2.556,2.556,0,0,0,6952.553,2075.533Z" transform="translate(1.103 1.352)" fill="#5cdb3c"/>
+      </g>
+    </g>
+  </g>
+</svg>
+</textarea>    
+    <textarea id="Icon_Tools" name="Icon_Tools"><svg class="IconTools" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="tools" transform="translate(-319 -550)">
+    <rect id="Rec_1743" data-name="Rec_1743" width="24" height="24" transform="translate(319 550)" fill="none"/>
+    <path id="apps_1_" data-name="apps (1)" d="M16,20h4V16H16m0-2h4V10H16M10,8h4V4H10m6,4h4V4H16M10,14h4V10H10M4,14H8V10H4M4,20H8V16H4m6,4h4V16H10M4,8H8V4H4Z" transform="translate(319 550)"/>
+  </g>
+</svg>
+</textarea>    
+    <input type="hidden" id="sortCriterial" value="CustomerPONumber asc" >
+    <input type="hidden" id="signCurrency" value="$" >
+    <input type="text" id="Parameter_TokenFiedLens" name="Parameter_TokenFiedLens" value="" >
+    <input type="text" id="Parameter_FiedLensID" name="Parameter_FiedLensID" value="" >
+    <input type="hidden" name="FL_base_url" id="FL_base_url" value="https://prod.fieldlens.com/api" />
+	<input type="hidden" name="FL_url_service" id="FL_url_service" value="https://fieldlens.redteamsoftware.com" />
+    
+    
+</div>
+
+
+<template id="RecordTemplate">  
+        <div  class="TableCont RecordItem SearchTextParent %colorline% %ischildcolor%" id="tr_pc_%WorkorderMod%" rcoid="%rcoid%" style="%ischild%" typerecord="%type%" womod="%WorkorderMod%" counteritem="%counter%">
+            <input type="button" id="buttonreload_%WorkorderMod%" onclick="ReLoadItem('%WorkorderMod%')" style="display:none">
+            <div class="TableCell Cell_0" nowrap> 
+                <input type="checkbox" class="chkbox-co-existence %showchkitem%" name="chkItem%counter%" id="chkItem%counter%" onclick="countChecked('%counter%');" />
+                <input type="hidden" name="SpecStat%counter%" id="SpecStat%counter%" value="%WorkorderStatus%"  /> 
+              <input type="hidden" name="count_pc_%WorkorderMod%" id="count_pc_%WorkorderMod%" value=""  />
+            </div>
+            <div class="TableCell Cell_1" nowrap></div>
+            <div  class="TableCell Cell_2" nowrap>
+                <div id="%viewid%" class="Inline_View">
+                    <a onclick="%actionview%"><i class="ui-tooltip zmdi zmdi-file %viewactive%" title="View"></i></a>
+                </div>
+                <div id="%editid%" class="Inline_Edit">
+                    <a onclick="%editnew%"><i class="zmdi zmdi-edit fontBtn %editactive%" title="Edit"></i></a>
+                </div>
+            </div>
+            <div  class="TableCell Cell_3" nowrap>
+                <span id="img1_tools%counter%" onclick="javascript:showMnuOptions('%counter%')" class="tool-options">
+                    <i class="hand" border="0" alt="Show options" id="showtools%counter%" name="showtools%counter%">%svgtools%</i>
+                </span>
+                <span onclick="javascript:hideoptions('%counter%');" id="img2_tools%counter%" class="tool-options">
+                    <i class="hand" border="0" id="hidetools%counter%" name="hidetools1" title="Hide options" style="display:none">%svgtools%</i>
+                </span>
+            </div>   
+            <div class="TableCell Cell_4" nowrap>
+                <a href="%linkFiles%" class="%showfiles%"><i class="ui-tooltip zmdi zmdi-copy fontBtn" data-original-title="Contract Documents"></i>
+                    <span class="badge badge-success badgeShow %showbadge%">%ndocuments%</span>
+                </a> 
+            </div>     
+            <div id="jsFiles" class="TableCell Cell_5 workBreak" nowrap>%CustomerPONumber%</div>
+            <div class="TableCell Cell_6" nowrap>%ProposalDate%</div>
+            <div class="TableCell Cell_7 workBreak" nowrap>%ScopeNum%
+                 <input type="hidden" id="jsMod%counter%" name="jsMod%counter%" value="%WorkorderMod%" />
+            </div>
+            <div class="TableCell Cell_8" nowrap><span>%NameProject%</span></div>
+            <div class="TableCell Cell_9" nowrap>%TypeOfBidDesc1%</div>
+            <div class="TableCell Cell_10" nowrap>%PlannedDuration%
+                <input type="hidden" id="PlannedDuration%WorkorderMod%" name="PlannedDuration%WorkorderMod%" value="%PlannedDuration%">
+            </div>
+            <div class="TableCell Cell_11" nowrap>%ProposedAmount%
+                <input type="hidden" id="ProposedAmount%WorkorderMod%" name="ProposedAmount%WorkorderMod%" value="%ProposedAmount%">
+            </div>
+            <div class="TableCell Cell_12" nowrap>%WorkorderStatus%</div>
+            <div class="TableCell Cell_13 workBreak" id="%idsubstatus%" nowrap>%SubStatus%</div>
+            <div class="TableCell Cell_14" nowrap>
+                <a  onclick="javascript:notes('%encryptedParametersO%');"  style="cursor:hand;"><i class="zmdi zmdi-comment-outline fontBtn %ccscomments%" id="ita%counter%" border="0" align="absmiddle" alt="Add a Note" 
+                    onmouseover="mostrartextoNotesAndLogAjax('%counter%','%recnum%','NOTES','tn%counter%','','notename=Comments&tablename=Workorders&idtable=recnum');" 
+                    onmouseout="ocultartextonota('%counter%','tn%counter%');"></i></a>
+                <div class="textoayuda" id="tn%counter%" style="left: 0px;"></div> 
+                 
+            </div>
+            <div class="TableCell Cell_15" nowrap>
+                <div style="display:grid"  onmouseover="LoadMetadata('%counter%','%recnum%','%metadataSource%');"   onmouseout="Hidetextolog('%counter%','%recnum%','%metadataSource%');">
+                    <a class="hand %showlog%" id="itl%counter%" border="0" align="absmiddle" onclick="javascript:ventanaTransmission('%recnum%','%metadataSource%');"                    
+                   >
+                    %svgmetadataHistory%
+                </a>
+                </div>
+                <div class="textoayuda" id="tl%counter%" style="left: 0px;"></div>  
+            </div>
+            <div class="TableCell Cell_16" nowrap>%statusrtdocusign%</div> 
+            <input type="hidden" id="ProjNum_%recnum%" name="ProjNum_%recnum%" value="%ProjNum%" />
+            <input type="hidden" id="ScopeNum_%recnum%" name="ScopeNum_%recnum%" value="%ScopeNumA%" />
+        </div> 
+        <div  id="MnuOptions%counter%" >
+            <div id="_menuTools%counter%" class="menuFrameContext div-tools">
+              <table cellspacing="0" cellpadding="1" border="0" class="lineaazul">
+                <tr> 
+                    <td width="80" height="30" nowrap class="%showviewtool%">
+                        <a onclick="%actionview%" class="%showactiveview%"><img src="../../asp/images/view-record.gif" border="0" alt="View this record" align="absmiddle" />View</a>
+                        <span class="%showinactiveview%"><img src="../../asp/images/view-disabled.gif" border="0" alt="View this record" align="absmiddle" />View</span>
+                    </td>  
+                    <td width="80" nowrap  >
+                        <a onclick="%editnew%"><img src="../../asp/images/edit-record.gif" border="0" alt='Edit this record' align="absmiddle" />Edit</a>
+                    </td>  
+                     <td width="110" nowrap class="%showrecover%" >
+                        <a onclick="%actionrecover%"><img src="../../asp/images/left-record.gif" border="0" alt='Recover this record' align="absmiddle" />Recover</a>
+                    </td>  
+                     <td width="145" id="%idcommittool%" class="%showcommiscope%" nowrap="nowrap">
+                      <a onclick="%actioncommit%"><img src="../../asp/images/right-record.gif" border="0" title="Commit this record" align="absmiddle">Commit Scope</a>
+                    </td>
+                     <td width="160" id="%iduncomittool%" class="%showuncommitscope%"  nowrap="nowrap">
+                      <a onclick="%actionuncommit%"><img src="../../asp/images/left-record.gif" border="0" title="UnCommit this record" align="absmiddle">Uncommit Scope</a>
+                    </td>
+                     <td width="150" id="%idcomitpricing%" class="%showcomitpricing%"  nowrap="nowrap">
+                      <a onclick="%actioncomitpricing%"><img src="../../asp/images/right-record.gif" border="0" title="Commit this record" align="absmiddle">Commit Pricing</a>
+                    </td>
+                     <td width="163" id="%iduncomitpricing%" class="%showuncomitpricing%"  nowrap="nowrap">
+                      <a onclick="%actionuncomitpricing%"><img src="../../asp/images/left-record.gif" border="0" title="UnCommit this record" align="absmiddle">Uncommit Pricing</a>
+                    </td>
+                     <td width="120" nowrap  class="%showtoolassistant%">
+                        <a onclick="%clickassistant%" class="%activeshowass%"><img src="../../asp/images/assistant.png" border="0" alt='Assistant this record' align="absmiddle" />Assistant</a>
+                        <span  class="%inactiveshowass%"><img src="../../asp/images/assistant_disabled.png" border="0" alt='Assistant this record' align="absmiddle" />Assistant</span>
+                    </td> 
+                     <td width="110" id="%idauthorize%" class="%showauthorizetop%"  nowrap="nowrap">
+                      <a onclick="%actionauthorize%" class="%showactiveauthorize%"><img src="../../asp/images/right-record.gif" border="0" title="Authorize this record" align="absmiddle">Authorize</a>
+                      <span class="%showinactiveauthorize%"><img src="../../asp/images/right-record-disabled.png" border="0" title="Authorize this record" align="absmiddle">Authorize</span>
+                    </td>
+                    <td width="140" nowrap class="%showdeauthorize%">
+                        <a onclick="%deauthorizetool%"><img src="../../asp/images/left-record.gif" border="0" alt='Deauthorize this record' align="absmiddle" />Deauthorize</a>
+                    </td> 
+                    <td width="140" nowrap class="%showcanceltool%">
+                        <a onclick="%canceltool%"><img src="../../asp/images/cancel-record.png" border="0" alt='Cancel this record' align="absmiddle" />&nbsp;Cancel Scope</a>
+                    </td>  
+                    <td width="150" nowrap class="%showcanceltoolP%">
+                        <a onclick="%canceltoolP%"><img src="../../asp/images/cancel-record.png" border="0" alt='Cancel this record' align="absmiddle" />&nbsp;Cancel Proposal</a>
+                    </td>  
+                     <td width="120" nowrap id="%substatustool%" class="%showsubstatustool%">
+                        <a id="linkSubStatus%counter%" href="#" 
+                            onmouseover="showMenu_OnTool('_menuSubStatus%counter%','linkSubStatus%counter%','%counter%','no','%WorkorderStatusAMod%','%WoSubStatusIDAMod%','%WorkorderID%','%WorkorderModAMod%','contract');"  
+                            style="cursor:hand;">
+                            %Icon_subStatuses% Sub-Status</a> 
+                         <div id="_menuSubStatus%counter%" class="menuFrameContext" style="width:250px;top: 40px;">
+                            <iframe id="ifrmSubStatus%counter%" name="ifrmSubStatus%counter%" frameborder="0" width="248px" src="" onmouseout="hideMenu_OnTool('_menuSubStatus%counter%','%counter%')"></iframe>
+                         </div>
+                    </td>  
+                    
+                </tr>
+              </table>
+            
+            </div>  
+         </div> 
+
+</template>
+
+<template id="RCOTemplate"> 
+ 
+        <div  class="TableCont RecordItem SearchTextParent %StatusColor%" id="tr%counter%"  style="%through%" typerecord="%type%">
+            <div class="TableCell Cell_0" nowrap></div>
+            <div class="TableCell Cell_1" nowrap>
+                <i class="zmdi zmdi-plus-square fontBtn tool-options" style="font-size: 23px !important;" align="absmiddle" 
+                  border="0" id="img1_%RCOID%" 
+                  onclick="expandwaRCO('%RCOID%');"></i><i class="zmdi zmdi-minus-square fontBtn tool-options" align="absmiddle" 
+                  border="0" id="img2_%RCOID%" onclick="expandwaRCO('%RCOID%');" style="display:none; font-size: 23px !important;" ;=""></i>
+                <input type="hidden" name="WorkorderRCOID%counter%" id="WorkorderRCOID%counter%">
+            </div>
+            <div  class="TableCell Cell_2" nowrap>
+                <div id="%viewid%" class="Inline_View">
+                    <a onclick="%actionview%"><i class="ui-tooltip zmdi zmdi-file %viewactive%" title="View"></i></a>
+                </div>
+                <div id="%editid%" class="Inline_Edit">
+                    <a onclick="%editnew%"><i class="zmdi zmdi-edit fontBtn %editactive%" title="Edit"></i></a>
+                </div>
+            </div>
+            <div  class="TableCell Cell_3" nowrap>
+                <span id="img1_tools%counter%" onclick="%onclickmenu%" class="tool-options">
+                    <i class="hand" border="0" alt="Show options" id="showtools%counter%" name="showtools%counter%">%svgtools%</i>
+                </span>
+                <span onclick="javascript:hideoptions('%counter%');" id="img2_tools%counter%" class="tool-options">
+                    <i class="hand" border="0" id="hidetools%counter%" name="hidetools1" title="Hide options" style="display:none">%svgtools%</i>
+                </span>
+            </div>   
+            <div class="TableCell Cell_4" nowrap>
+                <a href="%linkFiles%" class="%showfiles%"><i class="ui-tooltip zmdi zmdi-copy fontBtn" data-original-title="Contract Documents"></i>
+                    <span class="badge badge-success badgeShow %showbadge%">%ndocuments%</span>
+                </a> 
+            </div>     
+            <div id="jsFiles" class="TableCell Cell_5 workBreak" nowrap>%CustomerPONumber%</div>
+            <div class="TableCell Cell_6" nowrap>%ProposalDate%</div>
+            <div class="TableCell Cell_7 workBreak" nowrap>%ScopeNum%</div>
+            <div class="TableCell Cell_8" nowrap><span>%NameProject%</span></div>
+            <div class="TableCell Cell_9" nowrap>%TypeOfBidDesc1%</div>
+            <div class="TableCell Cell_10" nowrap>%PlannedDuration%</div>
+            <div class="TableCell Cell_11" nowrap>%ProposedAmount%</div>
+            <div class="TableCell Cell_12" id="jsTdStatus%counter%" nowrap>%RCOStatus%</div>
+            <div class="TableCell Cell_13 workBreak" nowrap>%SubStatus%</div>
+            <div class="TableCell Cell_14" nowrap>
+                <a  onclick="%onclicknotes%" class="%showiconnotes%" style="cursor:hand;"><i class="zmdi zmdi-comment-outline fontBtn %ccscomments%" id="ita%counter%" border="0" align="absmiddle" alt="Add a Note" 
+                    onmouseover="mostrartextoNotesAndLogAjax('%counter%','%RCOID%','NOTES','ta%counter%','','notename=rcoNotes&tablename=WorkorderRCOs&idtable=ID&typerco=rco');" 
+                    onmouseout="ocultartextonota('%counter%','ta%counter%');"></i></a>
+                <div class="textoayuda" id="ta%counter%" style="left: 0px;"></div> 
+                 
+            </div>
+            <div class="TableCell Cell_15" nowrap>
+                <a class="hand %showlog%" id="itl%counter%" border="0" align="absmiddle" onclick="javascript:ventanaTransmission('%RCOID%','%metadataSource%');"  
+                    onmouseover="LoadMetadata('%counter%','%RCOID%','%metadataSource%');" 
+                    onmouseleave="Hidetextolog('%counter%','%RCOID%','%metadataSource%');">
+                    %svgmetadataHistory%
+                </a>
+                <div class="textoayuda" id="tl%counter%" style="left: 0px;"></div>  
+            </div>
+            <div class="TableCell Cell_16" nowrap>%statusrtdocusign%</div> 
+            <input type="hidden" id="PCONum_%counter%" name="PCONum_%counter%" value="%RCONumber%" />
+            <input type="hidden" id="RCOID_%counter%" name="RCOID_%counter%" value="%RCOID%" />
+        </div>
+        <div  id="MnuOptions%counter%" >
+         <div id="_menuTools%counter%" class="menuFrameContext div-tools">
+              <table cellspacing="0" cellpadding="1" border="0" class="lineaazul">
+                <tr> 
+                    <td width="80" height="30" id="tool_View%counter%" nowrap class="%showviewtool%">
+                        <a onclick="%actionview%"><img src="../../asp/images/view-record.gif" border="0" alt="View this record" align="absmiddle" />View</a>
+                    </td>  
+                    <td width="80" nowrap  ID="%idtooledit%">
+                        <a onclick="%editnew%"><img src="../../asp/images/edit-record.gif" border="0" alt='Edit this record' align="absmiddle" />Edit</a>
+                    </td>  
+                    <td width="110" nowrap class="%showrecover%" >
+                        <a onclick="%actionrecover%"><img src="../../asp/images/left-record.gif" border="0" alt='Recover this record' align="absmiddle" />Recover</a>
+                    </td>  
+                    <td width="100" id="%idcommittool%" style="display:none;" nowrap="nowrap">
+                      <a onclick="%actioncommit%"><img src="../../asp/images/right-record.gif" border="0" title="Commit this record" align="absmiddle">Commit</a>
+                    </td>
+                     <td width="120" id="%iduncomittool%" style="display:none;" nowrap="nowrap">
+                      <a onclick="%actionuncommit%"><img src="../../asp/images/left-record.gif" border="0" title="UnCommit this record" align="absmiddle">UnCommit</a>
+                    </td>
+                     <td width="110" id="%idauthorize%" style="display:none;" nowrap="nowrap">  
+                        <a onclick="%actionauthorize%"><img src="../../asp/images/right-record.gif" border="0" alt='Authorize this record' align="absmiddle" />Authorize</a>
+                    </td>
+                     <td width="100" id="tool_Demote" style="display:none;" nowrap="nowrap">
+                       <a onclick="%demotetool%"><img src="../../asp/images/left-record.gif" border="0" title="Demote this record" align="absmiddle">Demote</a>
+                     </td>
+                     <td width="90" id="%idcanceltool%" style="display:none;" nowrap="nowrap">
+                          <a onclick="%actioncancel%"><img src="../../asp/images/cancel-record.png" border="0" title="Cancel this record" align="absmiddle">&nbsp;Cancel</a>
+                     </td>  
+                     <td width="70" id="%idvoidtool%" style="display:none;" nowrap="nowrap">
+                       <a onclick="%actionvoid%"><img src="../../asp/images/void-record.gif" border="0" title="Void this record" align="absmiddle">Void</a>
+                     </td>
+                     <td width="95" id="%iddeletetool%" style="display:none;" nowrap="nowrap">
+                       <a onclick="%actiondelete%"><img src="../../asp/images/delete-record.gif" border="0" title="Delete this record" align="absmiddle">Delete</a>
+                    </td>
+                    <td width="140" nowrap class="%showdeauthorize%">
+                        <a onclick="%deauthorizetool%"><img src="../../asp/images/left-record.gif" border="0" alt='Deauthorize this record' align="absmiddle" />Deauthorize</a>
+                    </td>   
+                </tr>
+              </table>
+            </div> 
+        </div>  
+</template>
+
+
+<template id="HeaderTeamplate">
+    <a href="javascript:OrderItems('%HeaderID%')" ><u>%HeaderText%</u>
+        <img id="%HeaderID%_desc" src="/rts/app/asp/images/sort_desc.png" border="0" style="position: relative; top: -3px;%orderdefault1%">
+        <img id="%HeaderID%_asc" src="/rts/app/asp/images/sort_asc.png" border="0" style="position: relative; top: 5px;%orderdefault2%">
+    </a>
+</template>
+
+<template id="TotalAmountTemplate">
+  <div  class="TableCont RecordItem SearchTextParent" id="MyTotalRow">
+      <div class="TableCell Cell_0" nowrap></div>
+      <div class="TableCell Cell_1" nowrap></div>
+      <div class="TableCell Cell_2" nowrap></div>
+      <div class="TableCell Cell_3" nowrap></div>   
+      <div class="TableCell Cell_4" nowrap></div>     
+      <div class="TableCell Cell_5 workBreak" nowrap></div>
+      <div class="TableCell Cell_6" nowrap></div>
+      <div class="TableCell Cell_7 workBreak" nowrap></div>
+      <div class="TableCell Cell_8" nowrap></div>
+      <div class="TableCell Cell_9" nowrap></div>
+      <div class="TableCell Cell_10" nowrap><b>%totaldays%</b></div>
+      <div class="TableCell Cell_11" nowrap><b>%totalamount%</b></div>
+      <div class="TableCell Cell_12" nowrap></div>
+      <div class="TableCell Cell_13 workBreak" nowrap></div>
+      <div class="TableCell Cell_14" nowrap></div>
+      <div class="TableCell Cell_15" nowrap></div>
+      <div class="TableCell Cell_16" nowrap></div>  
+  </div>
+</template>
+
+<template id="SubGroupTemplate">
+    <div class="TableCont RecordItem SearchTextParent">
+    <div class="TableCell Cell_0" nowrap></div>
+    <div class="TableCell Cell_1" nowrap></div>
+    <div class="TableCell Cell_2" nowrap></div>
+    <div class="TableCell Cell_3" nowrap></div>   
+    <div class="TableCell Cell_4" nowrap></div>     
+    <div class="TableCell Cell_5 workBreak" nowrap></div>
+    <div class="TableCell Cell_6" nowrap></div>
+    <div class="TableCell Cell_7_8_9 workBreak" nowrap><b>%titleamount%</b></div> 
+    <div class="TableCell Cell_10" nowrap><b>%totaldays%</b></div>
+    <div class="TableCell Cell_11" nowrap><b>%totalamount%</b></div>
+    <div class="TableCell Cell_12" nowrap></div>
+    <div class="TableCell Cell_13 workBreak" nowrap></div>
+    <div class="TableCell Cell_14" nowrap></div>
+    <div class="TableCell Cell_15" nowrap></div>
+    <div class="TableCell Cell_16" nowrap></div>  
+    </div>
+
+</template>
+
+<template id="GroupTemplate">
+    <div class="TableCont TitleContractSub RecordItem  SearchTextParent"> 
+            <div><u>Grouped by Sub-Status: %title%</u></div> 
+    </div>
+    <div class="%type%"></div>
+    <div class="SubTotal_%type%"> 
+    </div>
+</template>
+
+<script type="text/javascript">LoadManage();</script> 
+ 
+
+
+
+ <body bgcolor="#FFFFFF" leftmargin="0" rightmargin="0" style="font-family:Roboto" onLoad="cacheOff('')"  scroll="yes" onscroll="hideMenuTools();staticit_ns()">
+ 
+
+<iframe id="_fraGetDataAux" name="_fraGetDataAux" width="500" height="100" style="display:none"></iframe>
+<iframe id="ifrmAux" name="ifrmAux" style="width:600; height:200; display:none;"></iframe>
+  <script language="JavaScript">
+      LoadingMessagePage("on"); 
+  </script>  
+
+  <div id="content" style="top:0; left:0; display:none;" onclick="hideMenuTools();">
+
+  <div id="DivOverflow" >
+  
+  
+    
+
+</div>
+</div> 
+
+</FORM>
+
+
+<br />
+
+<FORM METHOD="POST" Action="Proposal.asp?band=saveeditscope" name="FrmEditLine" id="FrmEditLine">
+	<input type="hidden" id="woItemID"      name="woItemID"     size="5" maxlength="3" />
+	<input type="hidden" id="description"   name="description"  size="25" />
+</FORM>
+
+<FORM METHOD="POST" Action="Proposal.asp?band=saveeditclarification" name="FrmEditLineClarification" id="FrmEditLineClarification">
+	<input type="hidden" id="woClariID"         name="woClariID" />
+	<input type="hidden" id="descriptionClari"  name="descriptionClari" />
+    <input type="hidden" id="amountClari"       name="amountClari" />
+</FORM>
+
+
+
+
+</div>
+
+<form id="frmAux" name="frmAux" method="post" action="" target="" style="display:none;"></form>
+<input type="hidden" name="nItems" id="nItems" value="" />
+<input type="hidden" id="scopeCounterStart00" name="scopeCounterStart00" value="" />
+<input type="hidden" id="scopeCounterFinish00" name="scopeCounterFinish00"  value="" />
+<input type="hidden" name="ncount" id="ncount" value=""/>
+<input type="hidden" name="nSelections" id="nSelections" value="0" />
+<input type="hidden" name="nmods" id="nmods" />
+
+<form id="FormView" name="FormView" method="post" style="display:none;" target="_blank">
+ <textarea style="display:none;" id="viewPrintItems" name="viewPrintItems"></textarea>
+ <textarea style="display:none;" id="viewPrintOrderBy" name="viewPrintOrderBy">CustomerPONumber asc</textarea> 
+</form>
+ 
+
+</body>
+
+
+<script language="javascript" type="text/javascript" >
+
+     LoadHeaderSorts("ID","asc") 
+
+    $('#Lst_SubStatus').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        selectAll: true,
+        csvDispCount: 1,
+        setEventClickSelAll: false,
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+    });  
+
+    function onclickSelAll(el) {
+        var O = el;
+        O.selAll.toggleClass('selected');
+        O.optDiv.find('li.opt').each(function (ix, e) {
+            e = $(e);
+            if (O.selAll.hasClass('selected')) {
+                if (!e.hasClass('selected')) e.trigger('click');
+            }
+            else
+                if (e.hasClass('selected')) e.trigger('click');
+        });
+    } 
+
+    $(window).load(function () {
+        setEclipseScreenIcon();
+    });
+</script>
+
+<script>
+    window.mobileAndTabletcheck = function () {
+        var check = false;
+        (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
+        return check;
+    };
+    function mobilescreen() {
+        if (mobileAndTabletcheck() == true) {
+            if (screen.width == 768) {
+                document.getElementById("DivOverflow").style.width = "1200";
+
+            }
+        }
+    }
+    $(document).ready(function () {
+        mobilescreen();
+        $("#MnuSortContract").css("display","none");
+        if (document.getElementById("JsonDocu"))
+            {
+                document.getElementById("idButtons").innerHTML = document.getElementById("JsonDocu").innerHTML;
+            }
+        });
+    
+</script>

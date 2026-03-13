@@ -1,0 +1,15 @@
+{
+  "UserID": 1,
+  "FirstName": "Brandon",
+  "LastName": "Nobile",
+  "RoleID": "Admin",
+  "CompanyID": "100",
+  "Region": 1,
+  "RoleType": "ServiceProvider",
+  "SystemRole": false,
+  "AdminRole": true,
+  "Title": "CEO",
+  "LoginToken": "5viLd0x3_Q1XWqH2RONPZ052Dz5l8ERr",
+  "LoginCompany": "remnantconstruction",
+  "Email": "bnobile@remnantconstruction.com"
+}

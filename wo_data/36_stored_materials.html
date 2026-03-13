@@ -1,0 +1,482 @@
+
+
+<HTML>
+<HEAD>
+<TITLE>RedTeam Stored Materials</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<link href="../../asp/css/estilos.css" type="text/css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'> 
+<link href="/rts/app/asp/css/rtsicons.css" rel="stylesheet" type="text/css"> 
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/rts/app/asp/css/bootstrap-3.3.5.min.css">
+<script src="/rts/app/asp/js/jquery/jquery-1.11.3.min.js"></script>
+<script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+
+<!-- Suggested Styles while coexisting with ASP classic -->
+<link href="../../asp/aspcoexistencetheme/default.css" type="text/css" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='../../asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' />
+
+<script src="../../asp/js/global.js" type="text/javascript"></script>
+<script language="JavaScript" src="/rts/app/asp/js/escreen.js?v=?be731a6" type="text/javascript"></script> 
+<link href="../../../app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+<script language="JavaScript">
+  
+  window.onscroll = hideMenu;
+
+  function ventana1(page)
+  {	
+    var direccioncorreo = page;
+    ventanacorreo = window.open(direccioncorreo, "", "toolbar=no,location=no,directories=no,status=yes,menubar=no,resizable=yes,copyhistory=no,width=1024,height=700");
+  }
+    
+  function Verify(line,params)
+  {	
+    if(document.getElementById("StoredMatDescription" + line).value == "")
+	{
+	  showMessageBar("<b>Warning!</b> Description is required.");
+	  document.getElementById("StoredMatDescription" + line).focus();
+	  return;
+	}
+	
+	if(document.getElementById("StoredMatAmount" + line).value == "")
+	{
+	  showMessageBar("<b>Warning!</b> Amount is required.");
+	  document.getElementById("StoredMatAmount" + line).focus();
+	  return;
+	}
+	else
+	{
+	    if (!isValidPositiveDecimalNumber(document.getElementById("StoredMatAmount" + line).value))
+	  {
+	   showMessageBar("<b>Warning!</b> Amount must be a valid positive number.")
+	   document.getElementById("StoredMatAmount" + line).focus();
+	   return;
+	  }
+}
+    var accessBDs = document.getElementById("accessBDs").value;
+    if (accessBDs == "1" || accessBDs == "All") {
+        Form1.action = "StoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&UniqueWorkorderInvoiceID=&FacilityID=&row=" + line + "&band=save" + params;
+    }
+    else {
+        Form1.action = "StoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&FacilityID=&row=" + line + "&band=save" + params;
+    }
+	Form1.submit();
+  }
+  
+  
+  function SaveEdit(line,params)
+  {	
+    if(document.getElementById("StoredMatEditDescription" + line).value == "")
+	{
+	  showMessageBar("<b>Warning!</b> Description is required.");
+	  document.getElementById("StoredMatEditDescription" + line).focus();
+	  return;
+	}
+	
+	if(document.getElementById("StoredMatEditAmount" + line).value == "")
+	{
+	  showMessageBar("<b>Warning!</b> Amount is required.");
+	  document.getElementById("StoredMatEditAmount" + line).focus();
+	  return;
+	}
+	else
+	{
+	    if (!isValidPositiveDecimalNumber(document.getElementById("StoredMatEditAmount" + line).value))
+	  {
+	   showMessageBar("<b>Warning!</b> Amount must be a valid positive number.")
+	   document.getElementById("StoredMatEditAmount" + line).focus();
+	   return;
+	  }
+	}
+    Form1.action = "StoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&FacilityID=&row=" + line + "&band=saveedit" + params;
+	Form1.submit();
+  }  
+  
+  function expand(line)
+  {
+    if (document.getElementById("TRadd" + line).style.display == "") {
+        document.getElementById("TRaddform" + line).style.display = '';
+        document.getElementById("TRadd" + line).style.display = 'none';
+        document.getElementById("StoredMatDescription" + line).focus();
+    }
+    else {
+        document.getElementById("TRaddform" + line).style.display = 'none';
+        document.getElementById("TRadd" + line).style.display = '';
+    }
+  }
+  
+  function ExpandEdit(line)
+  {
+    if (document.getElementById("TRitem" + line).style.display == "") {
+        document.getElementById("TReditform" + line).style.display = '';
+        document.getElementById("TRitem" + line).style.display = 'none';
+        document.getElementById("StoredMatEditDescription" + line).focus();
+    }
+    else {
+        document.getElementById("TReditform" + line).style.display = 'none';
+        document.getElementById("TRitem" + line).style.display = '';
+    }
+  }
+    
+  function deleteitem(ID,params)
+  {	
+  	var x=window.confirm("Do you want to delete this record?");
+	if (x) {
+        var accessBDs = document.getElementById("accessBDs").value;
+        if (accessBDs == "1" || accessBDs == "All") {
+            Form1.action = "StoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&UniqueWorkorderInvoiceID=&FacilityID=&StoredMaterialsID=" + ID + "&band=delete" + params;
+        }
+        else {
+            Form1.action = "StoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&FacilityID=&StoredMaterialsID=" + ID + "&band=delete" + params;
+        }
+		Form1.submit();
+	}
+  }  
+  
+
+  function closewin()
+  {
+   window.open('','_parent','');
+   window.close();
+  }
+      
+//congela menu superior
+var combowidth=''
+var comboheight=''
+
+function initialize()
+{
+    LoadingMessagePage("off");
+    document.getElementById("content").style.display = "";
+    
+    if (document.all)
+    {
+        combowidth=document.getElementById("staticmenu").offsetWidth;
+        comboheight=combowidth=document.getElementById("staticmenu").offsetHeight;
+        setInterval("staticit_ie()",50);
+        document.getElementById("staticmenu").style.display="block";
+    }
+    else
+    {
+        combowidth=document.getElementById("staticmenu").offsetWidth;
+        comboheight=combowidth=document.getElementById("staticmenu").offsetHeight;
+        setInterval("staticit_ns()",50);
+        document.getElementById("staticmenu").style.display="block";
+    }
+}
+
+function staticit_ie()
+    {
+	staticmenu.style.width = document.body.clientWidth;
+	staticmenu.style.top = document.body.scrollTop;
+	staticmenu.style.left = document.body.scrollLeft;
+	
+	staticCols.style.top = document.body.scrollTop;
+		
+	filterBox.style.top = document.body.scrollTop;
+	filterBox.style.left = document.body.scrollLeft;
+	
+	tableMessage.style.top = document.body.scrollTop;
+	tableMessage.style.left = document.body.scrollLeft;	
+	
+    }
+
+    function staticit_ns()
+    {
+    staticmenu.style.width = document.body.clientWidth;
+	staticmenu.style.top = document.body.scrollTop;
+	staticmenu.style.left = document.body.scrollLeft;
+	
+	staticCols.style.top = document.body.scrollTop;
+		
+	filterBox.style.top = document.body.scrollTop;
+	filterBox.style.left = document.body.scrollLeft;
+	
+	tableMessage.style.top = document.body.scrollTop;
+	tableMessage.style.left = document.body.scrollLeft;	
+	
+    }
+
+    function LoadMS(tab ,WorkorderID ,WorkorderMod){ 
+    
+    var item = {
+        "alias": tab ,
+        "workorderID": WorkorderID , 
+        "workorderMod" : WorkorderMod
+    }
+
+    parent.top.angular.element(parent.top.document.body).scope().OpenMSRedirects(item)
+
+    }
+
+    
+</script>
+</HEAD>
+
+
+
+<body leftmargin="0"  rightmargin=0 topmargin=0 onclick="hideMenu();" bgcolor="#FFFFFF" onload="initialize();" scroll="yes" onscroll="hideMenu();">
+<input type="hidden" id="accessBDs" name="accessBDs " value="1" />
+<script language="JavaScript">
+    LoadingMessagePage("on");
+</script>	
+
+
+<div id="content" style="display:none;" >
+
+<div id="staticmenu" style="position:relative;background-color:#ffffff;">
+    
+<div id="staticmenu1" class="manage-header" style="position: relative; padding-top: 18px; background-color: #f3f4f6; padding-right: 16px; z-index: inherit">
+    <div class="rectangle1">
+        <a class="btn-m btnManage menu-icon1" id="dLabel" data-toggle="dropdown">
+            <span class="material-symbols-outlined menu-icon iconManageT">
+                menu
+            </span>
+        </a>
+        <ul id="menuoptions" class="dropdown-menu dropdown-menu1" style="right: inherit; top: 58px;" aria-labelledby="linkMenuMore">
+        </ul>
+        <div class="title-manage" id="dTitle">
+            <span id="Manage_title_Name"></span>
+        </div>
+        <div class="Tooltip_title">
+            <div id="Tooltip_titleManage" class="TooltiptitleManage" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="Icons_Headers" class="rectangleIcons" style="display:none">
+        <div id="idButtons" class="rectangle-buttons" style="display:none">
+        </div>
+        <div id="Icons_General" style="display: inline-flex;">
+            <div  class="rectangle-search" id="dSearch" style="display: inline-flex; display: none;">
+                <div style="display: inline-block; position: relative; top: -2.5px;">
+                    <button type="button" class="btnSearch1 btn-m btnManage btn-xs p-0">
+                        <div class="Center_Icon" alt="Search" id="imgGo" name="imgGo">
+                            <span class="material-symbols-outlined iconManageT">
+                                search
+                            </span>
+                        </div>
+                    </button>
+                    <div id="textSearch" class="Button_Text text-maximize2" onclick="SimSearch()">Search</div>
+                </div>
+
+                <div class="TableCell prelative_ic" style="display: inline">
+                    <div class="prelative_ic">
+                        <input type="text" id="TextToSearch" class="inputSearch1 form-control HideTextToSearch" name="TextToSearch" maxlength="40" placeholder="Search..."
+                            onfocus="if(this.value==this.defaultValue) this.value=''"
+                            onblur="VerifySearchEmpty1()"
+                            value="&getStringField(sanitizeString(TextToSearch))&">
+                        <i id="buttonRemove" class="zmdi zmdi-close buttonx" style="display:none" onclick="ClearText1()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!--Button Reload-->
+            <div class="rectangle-reload" id="dReload" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-reload1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore9" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Reload">
+                            <span class="material-symbols-outlined icon-reload2 iconManageT">
+                                autorenew
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuReload" class="Button_Text text-reload2" data-toggle="dropdown">Reload</div>
+                    <ul id="reloadoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore9">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Add-->
+            <div class="rectangle-new" id="dAdd" style="position: relative;">
+                <div style="display:inline-block;">
+                    <a type="button" class="icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuAdd" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Add">
+                            <span class="material-symbols-outlined icon-new2 iconManageT">
+                                add
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAdd2" class="Button_Text text-new2" data-toggle="dropdown">New</div>
+                    <ul id="addoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuAdd">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button View-->
+            <div class="rectangle-view" id="dView" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-preview1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuView2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="View">
+                            <span class="material-symbols-outlined icon-preview2 iconManageT">
+                                preview
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuView" class="Button_Text text-preview2" data-toggle="dropdown">View</div>
+                    <ul id="viewoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Filter-->
+            <div class="rectangle-filter" id="dFilter" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-filter1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore2" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Filter">
+                            <span class="material-symbols-outlined icon-filter2 iconManageT">
+                                filter_alt
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuFilter" class="Button_Text text-filter2" data-toggle="dropdown">Filter</div>
+                    <ul id="filteroptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore2">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Analytics-->
+            <div class="rectangle-analytics" id="dAnalytics" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-analytics1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore8" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Analytics">
+                            <span class="material-symbols-outlined icon-analytics2 iconManageT">
+                                data_usage
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuAnalytics" class="Button_Text text-analytics2" data-toggle="dropdown">Analytics</div>
+                    <ul id="analyticsoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore8">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Other-->
+            <div class="rectangle-other" id="dOther" style="position: relative;">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore3" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Other">
+                            <span class="material-symbols-outlined icon-more2 iconManageT">
+                                more_horiz
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkMenuMore3" class="Button_Text text-more2" data-toggle="dropdown">Other</div>
+                    <ul id="moreoptions" class="dropdown-menu dropdown-menu1" style="left: -169px !important;" aria-labelledby="linkMenuMore3">
+                    </ul>
+                </div>
+            </div>
+
+            <!--Button Help-->
+            <div class="rectangle-help" id="dHelp" >
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-help1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkHelp" data-toggle="dropdown">
+                        <div class="Center_Icon" alt="Help">
+                            <span class="material-symbols-outlined icon-help2 iconManageT">
+                                help
+                            </span>
+                        </div>
+                    </a>
+                    <div id="linkHelp2" class="Button_Text text-help2" data-toggle="dropdown">Help</div>
+                </div>
+            </div>
+
+            <!--Button Maximize-->
+            <div id="dMaximize">
+                <div style="display: inline-block;">
+                    <a type="button" class="icon-maximize1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon" id="linkMenuMore5" data-toggle="dropdown" style="display: none;">
+                        <div class="Center_Icon" alt="Maximize">
+                            <span class="material-symbols-outlined icon-maximize2 iconManageT btn-etoolbar">
+                            </span>
+                        </div>
+                    </a>
+                    <div id="TitleExpand" class="Button_Text text-maximize2" style="display: none;" onclick="SimMax()">Maximize</div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" style="display: none; padding-left: 16px; padding-right: 8px; padding-top: 7px;"></div>
+    </div>
+</div>
+<div class="rectangle3">
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgexpand" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_more
+        </span>
+    </a>
+    <a class="btn-m btnManage icon-drop1 padding-overview" id="imgcontract" data-toggle="dropdown" style="display: none;">
+        <span class="material-symbols-outlined icon-drop2 iconManage">
+            expand_less
+        </span>
+    </a>
+</div>
+
+
+</div>    
+<textarea id="JsonHeader" style="display:none">{"Title":"Manage Stored Materials","Manage":"Billing","Menu":{"Options":[{"Name":"Customer Invoices","Id":"itemMng1","Onclick":"javascript:document.location.href='../billing_/billing.asp?p=V29ya29yZGVySUQ9JldvcmtvcmRlck1vZD0mV29ya29yZGVyU3RhdHVzPSZGYWNpbGl0eUlEPSZiYW5kVGFiPWJpbGxpbmcmYmFuZFNjaGVkdWxlT2ZWYWx1ZXM9VHJ1ZSZiYW5kVHlwZU9mQmlkPSZiYW5kQ09UeXBlT2ZCaWQ9';","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"},{"Name":"Schedule Of Values","Id":"itemMng2","Onclick":"javascript:LoadMS('schedvalues' ,'' ,'')","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[],"Enabled":"false","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"","Onclick":"window.open('ViewStoredMaterials.asp?WorkorderID=&WorkorderMod=&WorkorderStatus=&FacilityID=')","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('33');","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageStoredMaterials"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[],"Enabled":"false","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} </textarea><script src="/rts/app/templateManage2.js?v=?be731a6" type="text/javascript"></script>
+<div id="staticCols" style="width:100%;position:relative; background-color:#F3F4F6;">
+ <table  width="100%" cellpadding=0 cellspacing=0> 
+	<tr>       
+		<td height="20" class="customTableHeaderContainer">
+		    <table  id="tblHeading "class="Workarea_Header" border="0" bgcolor="#FFFFFF" width="100%" cellpadding=0 cellspacing=0>
+		        <thead>
+		            <tr  height="19">                   
+                  <TH colspan="1" width="72" style="padding-left:10px;" nowrap>SOV</TH>
+           			<TH colspan="1" width="425" nowrap>Description of Stored Materials </TH>
+           			<TH colspan="1" width="150"  style="text-align:right" nowrap> Amount&nbsp;$</TH>
+           			<TH colspan="1" width="100%">&nbsp;</TH>                  
+		            </tr>
+		        </thead>
+		    </table>
+		</td>
+	</tr>
+	</table>
+</div>
+
+
+<div id="filterBox" style="overflow-y:scroll;scrollbar-base-color:#B7C2CD;height:112px;display:none;border-bottom:solid 1px #CCCCCC;background-color:#FFFFFF;width:100%;position:relative">
+    
+</div>
+
+    <div class="alert alert-warning messagevalidations"  id ="tableMessage" name="tableMessage" role="alert" style="display:none; ">
+    
+    
+  	<div><span id="tdMessage"></span></div> 
+    </div>
+<div id="divStoredMat">
+		
+		<FORM METHOD="POST" name="Form1" ID="Form1" action="StoredMaterials.asp" target="_self" >
+		<TABLE  width="100%" CELLPADDING="0" CELLSPACING="0" border="0"  Class="Workarea_Header CustomTableDetail" BGCOLOR="#EEEEEE" >
+		
+		<TR bgcolor="#FFFFFF">
+		   <TD  nowrap colspan="4" style="padding-left:10px;padding-bottom:4px"  valign="top">
+		     <font color="#CC5200">There are no Stored Materials on File!</font>
+		   </TD>
+	    </TR>
+		
+		
+        </TABLE>
+		</FORM><!--
+   </TD>
+</TR>
+</TABLE>-->
+</div>
+</div>
+ 
+ <script>
+     document.onclick = hideMenu;
+
+     
+
+    $(window).load(function () { 
+        setEclipseScreenIcon();  
+    }); 
+
+ </script>
+
+  
+
+
+</BODY>
+</HTML>

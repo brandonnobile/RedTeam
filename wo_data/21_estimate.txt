@@ -1,0 +1,40 @@
+=== Estimate ===
+
+Loading... 
+
+ Need Permission 
+ The Role assigned to you in RedTeam does not have permission to view this 
+ page. Please contact your company's System Administrator for assistance. 
+
+ 	menu 	more_vert 	add 	preview 	more_horiz 	Cost Code 	Description 	Category 	Quantity 	U/M 	U/C($) 	Labor($) 	Material($) 	Subcontract($) 	Equipment($) 	Other($) 	Total($) 	Quotes 
+
+ 	expand_more 	expand_more 	assignment 	more_vert 	more_vert 	+ 	+ 	SUBTOTAL DIRECT COSTS 	Indirect Costs 	Indirect Cost Allocation Rates 	TOTAL DIRECT & INDIRECT COSTS 	Profit Margin 	expand_more 	Supplemental Markups 	TOTAL PRICE 	PRICE ADJUSTMENT 	Type of Proposal: 	Fee: 	Labor Overhead: 	Percent of Direct Labor 	Material Overhead: 	Percent of Direct Material 	Subcontract Overhead: 	Percent of Direct Subcontract 	Equipment Overhead: 	Percent of Direct Equipment 	Other Overhead: 	Percent of Direct Other 	Notes: 	Quote Amount: 	Add Excluded Items: 	Subtract Extra Items: 	Should Cost Comparison: 	Estimate 	more_vert 	Amount 	Bid Package Details 	close 
+
+ 	Due Date: 	event 	Attachments: 	more_vert 	Requester: 	Include only Plans & Specs associated with the Scope of this Customer Change 	Special Instructions: 	more_vert 	close 
+
+ 	This Quote is Due Not Later Than: 	event 	people_alt 	Quote: 	more_vert 	Quote Amount 	Excluded Items currently not in this Quote 	Extra Items already in other Best Quotes 	Should Cost 	Bidder Notes: 	Send Message to All Bidders 	Send 	close 
+
+ 	Message: 	Send 	close 
+
+ 	Message: 	close 
+
+ 	Narrative: 	Show on Proposal 	Variable Item Quantity 	Add Cost Code to Estimate 	Add 	close 
+
+ 	Phase: 	Search: 	Add Supplemental Markup(s) to Estimate 	Add 	close 
+
+ 	check_box_outline_blank 	library_add 
+
+ 	check_box_outline_blank 	library_add 
+
+ 	check_box_outline_blank 	library_add 
+ 	library_add 
+ 	library_add 
+ 	check_box_outline_blank 	Assign Cost Codes from Estimate 	Add 	close 
+
+ 	Search: 	Select Affected Vendor Cost Codes 	Add 	close 
+
+ 	Phase: 	Search: 	No Affected Vendors Found 	No Vendors Found 	check_box_outline_blank 	Select Potential Bidders 	Add 	close 
+
+ 	Search: 	filter_alt 	No Requirements Specified. 	check_box_outline_blank 	Select All 	No Vendors On File 	No Vendors Meet Requirements 	No Vendors Meet Requirements 	check_box_outline_blank 	Specify Vendor Requirements 	close 
+
+ 	Experience 	Trades 	Distance from Job Site 	Qualifications 	Credentials 	Time & Material Fixed Price Construction Management No Action Save as Master Assembly Delete Cost Code Remove From Bid Package No Action Delete Cost Code Percent of Total Cost Percent of Total Price Yes No Affected Vendors Add Alternate Assign Cost Codes Add Cost Codes Add Supplemental Markup Add Bid Package Add Bidders Import from Spreadsheet Import from Project Delete Estimate Delete Bid Package Send All Unsent RFQs Send Message to Bidders Export Estimate RFQ Not Sent RFQ Sent Won't Bid May Bid Will Bid Draft Committed Best Cancelled No Action Open Quote Card View Bid Form Send RFQ Send Message Delete Bidder No Action Inventory Items Unit Prices Cost Estimate Negotiated Pricing

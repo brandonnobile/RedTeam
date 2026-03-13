@@ -1,0 +1,76 @@
+=== Dashboard News ===
+
+%Label_Action% 
+
+ %count1% 
+ %count2% 
+ %count3% 
+ %count4% 
+
+ %ShowProjectInfo% 
+ %FirstName% %LastName% %timeAgoTxt% %likeDesc% Reply DELETE 
+ %ActivityText% 
+
+ %countFullNameLikesDesc% %likeDesCount% 
+
+ SHARE 
+
+ %FirstName% %LastName% %timeAgoTxt% 
+ %ActivityText% 
+
+ %scriptimage% 	%FileDescription% %scriptDescription% 
+
+ Please Wait... 
+
+ Members 
+ Photos 
+ Action Items 
+ Project Dashboard 
+ News Feed 	Add 
+ View 
+ Filter 
+ Help 
+ Maximize 
+
+ Filters 
+
+ Name 
+ Select one... Christopher Martinez Craig Gum Devin Caraballo Erin O'Brien Jacob Fischer Jennifer Knowles Joshua Lopez Kayla Diefendorf Linda S. French Louis Caciopoli Maxwell Rudd Stuart Frisby Terry Lynch 
+
+ From Date: 
+
+ To Date: 
+
+ SHARE Attachments Attachments 
+
+ Add files... OR Drag and Drop your file here 
+
+ Add files... OR Drag and Drop your files here Cancel upload 
+
+ Allowed files types: *.docx,*.dwf,*.dwg,*.gif,*.jpeg,*.jpg,*.mpp,*.pdf,*.png,*.tif,*.tiff,*.txt,*.xlsx,*.xps 
+ The file size cannot exceed 25MB. 
+
+ Start upload 
+ 	File 	File Name 	Description 	Start upload 	There are no Activity log records on file! 
+
+ Processing information... please wait 
+
+ Older posts 	Older posts 	Less posts 
+
+ 	Members 
+
+ 	Photos 
+
+ Location 
+
+ Project Team 
+
+ Weather 
+
+ Changes 
+
+ Other 
+
+ Action Items To Do 
+
+ Photos

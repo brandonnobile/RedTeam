@@ -1,0 +1,97 @@
+=== Specs ===
+
+%SpecName% %SpecName% %supSpecName% 
+ %DisciplineDescription% 
+ %SpecDate% 
+ %SpecAuthorName% 
+ %ModSpec% 
+ %SpecVersion% 
+ %WoAddendumAlias% 
+ %SpecStatus% %Linked2% 
+
+ Notes» 
+ %Notes% 
+
+ %PlangridLabel% 
+
+ %svgmetadata% 
+
+ %title% Scope Change : %ModSpec% - %ProjectTitle% %CustomerOrderAux% 
+ Select 
+
+ menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ Send to 	Page 	of 	{"Title":"Manage Plans and Specifications","Manage":"Scope","Menu":{"Options":[{"Name":"Initial Requirements","Id":"","Onclick":"javascript:document.location.href='../requirements_/Request.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHk9MDAyMjEmY29uc29sZT1uZXdwY28mb3BlbkZyb209';","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Addendums","Id":"","Onclick":"javascript:document.location.href='../addendums_/WO_AddendumSpecifications.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHk9MDAyMjEmY29uc29sZT1uZXdwY28mb3BlbkZyb209'","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Unit Prices","Id":"","Onclick":"javascript:document.location.href='../workorderPrices_/manageWOPrices.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&FacilityID=00221';","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[{"Name":"","Id":"btnReaload","Onclick":"LoadManage(true); ReloadCounters();","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Add":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"","Id":"viewPlans","Onclick":"javascript:viewPrintRequest('V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3M');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Filter":{"Options":[{"Name":"Filter","Id":"btnFilterPlans","Onclick":"javascript:filterBoxActivation('Filter')","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Group by Scope","Id":"sortall_scope","Onclick":"SortAll('Scope');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"Current Set","Id":"sortall_current","Onclick":"SortAll('CurrentSet');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Analytics":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"More":{"Options":[{"Name":"Arrange","Id":"btnArrange","Onclick":"ShowLightBoxASP('app/workorders/specifications_/SortWO_Specifications_v2.asp?WorkorderID=1940046&WorkorderMod=00&WorkorderStatus=InProgress&Facility=00221', 'medium', 'Calc(100vh - 102px)');hideMenu();","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"},{"Name":"PlanGrid Log","Id":"btnPlangridLog","Onclick":"window.open('PlangridLog.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmd29TdGF0dXM9SW5Qcm9ncmVzcw')","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('100');","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManagePlansSpecs"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Update","Id":"MassUpdate","Onclick":"javascript:MassUpdateN();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Cancel","Id":"btnVoid","Onclick":"javascript:MultipleVoid('YmFuZD1tdWx0aXBsZXZvaWQmV29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0','00','plans');hideMenu();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Download","Id":"","Onclick":"javascript:DownloadSelected('WorkorderId=1940046&WorkorderMod=00&zipWorkorderMod=00&woStatus=InProgress&zipfiles=true','00');","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Delete","Id":"btnDelete","Onclick":"javascript:MultipleDelete('YmFuZD1tdWx0aXBsZWRlbGV0ZSZXb3Jrb3JkZXJJRD0xOTQwMDQ2JldvcmtvcmRlck1vZD0wMCZXb3Jrb3JkZXJTdGF0dXM9SW5Qcm9ncmVzcyZGYWNpbGl0eUlEPQ','00','plans', '');hideMenu();","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Scope 
+
+ Type 
+
+ Status 
+
+ From 
+
+ To 
+
+ Version 
+
+ Author 
+
+ History 
+ Select one... All 001 - Specifications 001 - 10 75 00 - Flagpoles 001 - 09 65 36 - Static-Control Resilient Flooring A-410 ELEVATIONS - ENLARGED FLOOR PLANS AND INTERIOR ID-101 - FINISH PLAN AND SCHEDULE G-101 - DRAWING LEGEND AND BUILDING DATA G-102 - SHEET INDEX G-103 - CODE ANALYSIS G-104 - MOUNTING HEIGHTS G-105 - UL LISTINGS G-106 - UL LISTINGS B-101 - LIFE SAFETY PLAN A-001 - SITE PLAN A-002 - SITE DETAILS A-101 - FLOOR PLAN A-102 - ROOF PLAN A-110 - EOS PLAN A-120 - PARTITION TYPES PLAN A-130 - DIMENSION FLOOR PLAN A-201 - REFLECTED CEILING PLAN A-301 - EXTERIOR ELEVATIONS A-302 - EXTERIOR ELEVATIONS A-310 - BUILDING SECTIONS A-401 - ENLARGED WATER CLOSET PLANS AND ELEVATIONS A-410 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS A-411 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS A-420 - MILLWORK SECTIONS A-501 - APPARATUS BAY INTERIOR ELEVATIONS A-701 - WALL SECTIONS A-702 - WALL SECTIONS A-720 - ENCLOSURE DETAILS A-721 - ENCLOSURE DETAILS A-722 - ENCLOSURE DETAILS A-723 - ENCLOSURE DETAILS A-730 - CEILING DETAILS A-801 - PARTITION TYPES - METAL FRAMED WALLS A-802 - PARTITION TYPES - CMU WALLS A-803 - PARTITION TYPES - CMU WALLS A-804 - PARTITION DETAILS A-810 - DOOR SCHEDULE A-811 - DOOR DETAILS A-812 - DOOR DETAILS - SPECIALTY A-820 - STOREFRONT LOUVER ELEVATIONS A-821 - STOREFRONT DETAILS ID-101 - FINISH PLAN AND SCHEDULE ID-301 - EQUIPMENT PLAN AND SCHEDULE ID-401 - INTERIOR DETAILS SP-1 - Site Plan SP-2 - Site Plan LS-1 - SCALE 1 30 15 30 60 Civil Drawings and Specifications - Full Set S-101 - GENERAL STRUCTURAL NOTES S-201 - FOUNDATION PLAN S-202 - SLAB ON GRADE PLAN S-203 - LOW ROOF FRAMING PLAN S-204 - HIGH ROOF FRAMING PLAN S-301 - TYPICAL DETAILS S-302 - TYPICAL DETAILS S-303 - TYPICAL DETAILS S-401 - WALL SECTIONS S-402 - WALL SECTIONS S-403 - WALL SECTIONS S-404 - WALL SECTIONS S-405 - WALL SECTIONS S-501 - WALL ELEVATIONS S-502 - WALL ELEVATIONS S-503 - WALL ELEVATIONS S-504 - WALL ELEVATIONS S-601 - ISOMETRIC VIEWS M-001 - LEGEND, ABREVIATIONS, AND NOTES - HVAC M-101 - LEVEL 1 - FLOOR PLAN - HVAC M-106 - ROOF PLAN - HVAC M-201 - ENLARGED GENERATOR ROOM PLANS - HVAC M-501 - DETAILS - H.V.A.C. M-502 - DETAILS - H.V.A.C. M-601 - SCHEDULES - H.V.A.C. M-701 - CONTROLS - H.V.A.C. M-801 - KITCHEN HOOD DETAILS - H.V.A.C. M-802 - KITCHEN HOOD DETAILS - H.V.A.C. M-803 - KITCHEN HOOD DETAILS - H.V.A.C. M-804 - KITCHEN HOOD DETAILS - H.V.A.C. M-805 - KITCHEN HOOD DETAILS - H.V.A.C. M-806 - KITCHEN HOOD DETAILS - H.V.A.C. M-807 - KITCHEN HOOD DETAILS - H.V.A.C. M-808 - KITCHEN HOOD DETAILS - H.V.A.C. M-809 - KITCHEN HOOD DETAILS - H.V.A.C. M-810 - KITCHEN HOOD DETAILS - H.V.A.C. M-811 - KITCHEN HOOD DETAILS - H.V.A.C. M-812 - KITCHEN HOOD DETAILS - H.V.A.C. M-813 - KITCHEN HOOD DETAILS - H.V.A.C. M-814 - KITCHEN HOOD DETAILS - H.V.A.C. M-815 - KITCHEN HOOD DETAILS - H.V.A.C. P-001 - GENERAL NOTES AND LEGEND - PLUMBING P-100 - FOUNDATION PLAN - PLUMBING P-101 - LEVEL 1 - FLOOR PLAN - PLUMBING P-106 - ROOF PLAN - PLUMBING P-201 - ENLARGED PLANS - PLUMBING P-301 - WASTE RISERS - PLUMBING P-302 - WATER RISERS - PLUMBING P-501 - DETAILS - PLUMBING P-502 - DETAILS - PLUMBING P-601 - SCHEDULES - PLUMBING E-001 - SYMBOLS LEGEND - GENERAL NOTES - ELECTRICAL E-002 - FIXTURE SCHEDULE - ELECTRICAL E-010 - SITE PLAN - ELECTRICAL E-011 - SITE PHOTOMETRIC PLAN - ELECTRICAL E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING E-201 - LEVEL 1 - FLOOR PLAN - POWER E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM E-401 - ROOF PLAN - ELECTRICAL E-501 - DETAILS - ELECTRICAL E-502 - DETAILS - ELECTRICAL E-601 - ONE-LINE DIAGRAMS - ELECTRICAL E-701 - PANEL SCHEDULES F-001 - GENERAL NOTES DESIGN CRITERIA -FIRE PROTECTION F-101 - LEVEL 1 - FLOOR PLAN - FIRE PROTECTION F-501 - DETAILS - FIRE PROTECTION F-502 - DETAILS - FIRE PROTECTION F-503 - DETAILS - FIRE PROTECTION E-010 - SITE PLAN - ELECTRICAL E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING E-201 - LEVEL 1 - FLOOR PLAN - POWER E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM E-501 - DETAILS - ELECTRICAL E-502 - DETAILS - ELECTRICAL PG001 - Generator Specifications T-001 TECHNOLOGY - GENERAL NOTES SYMBOLS LEGEND- T-010 - SITE PLAN - TECHNOLOGY T-101 - LEVEL 1 - FLOOR PLAN - TECHNOLOGY T-201 - LEVEL 1 - FLOOR PLAN - ALERTING SYSTEM T-501 - DETAILS - TECHNOLOGY T-502 - DETAILS - TECHNOLOGY T-503 - DETAILS - TECHNOLOGY T-601 - RISER DIAGRAM - TECHNOLOGY PG-001 - GENERAL NOTES, LEGEND. SCHEDULES AND TABLES - GAS PG-100 - FOUNDATIONS PLAN - GAS PG-101 - LEVEL 1 - FLOOR PLAN - GAS PG-201 - OVERALL GAS RISER - GAS Cover Sheet 
+
+ Discipline 
+
+ No Discipline Architectural Civil Engineering Cover Sheet Electrical Fire Protection Gas Mechanical Plumbing Structural Technology Equipment Fuel Storage General Geotechnical Hazardous Materials Interiors Landscaping Other Disciplines Survey/Mapping Telecommunications 
+
+ Fieldlens 
+
+ Add Specification Heading 
+
+ 	Specification Heading: 	Tools 
+ Name 
+ Discipline 
+ Date 
+ Author 
+ Scope 
+ Version 
+ Addendum 
+ Status 
+ Notes 
+ Rendered 
+ PlanGrid 
+ Log 
+
+ There are no Plans and Specifications on File! go to Previuos go to Next PlanSpecs_List 
+
+ Loading...

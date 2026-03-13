@@ -1,0 +1,1930 @@
+<!doctype html>
+
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<title>RedTeam Preconstruction</title>
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/aspcoexistencetheme/material-design/css/material-design-iconic-font.min.css' />
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/css/rtsicons.css' />
+<link rel='stylesheet' type='text/css' href='/rts/app/asp/css/theme.css' />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100italic,100,300italic,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="v16/jquery-ui-1.12.1.min.css">
+  <link rel="stylesheet" href="v16/jquery.selectBoxIt.css">
+  <link rel="stylesheet" href="v16/jBox.all.min.css">
+
+  <script src="v16/jquery-3.6.0.min.js"></script>
+  <script src="v16/jquery-ui-1.12.1.min.js"></script>
+  <script src="v16/jquery.selectBoxIt.min.js"></script>
+  <script src="v16/jBox.all.min.js"></script>
+
+<script src="/rts/app/asp/js/global.js"></script>
+<script src="/rts/app/asp/js/calendar.js" type="text/javascript"></script>
+<script src="/rts/app/asp/js/calendar-en.js" type="text/javascript"></script>
+<script src="v16/TakeOff_functions.js?v=77746.44"></script>
+<script src="/rts/app/environment.js"></script>
+
+
+<link href='/rts/app/asp/css/fontcss.css?v=?be731a6' rel='stylesheet' type='text/css'>
+<link href="/rts/app/templateManage2.css?v=?be731a6" type="text/css" rel="stylesheet">
+
+  <link rel="stylesheet" href="v16/estimateGrid.css?v=77746.44">
+  <link rel="stylesheet" href="css/Estimate.css?v=77746.44">
+  <script src="v16/estimateGrid.js?v=77746.44"></script>
+  <script src="v16/estimateGridFields.js?v=77746.44"></script>
+  <script src="/rts/app/asp/js/checkbox-select-all.js"></script>
+  <script src="/rts/app/asp/js/bootstrap-3.3.5.min.js"></script>
+    <script src="/rts/assets/plugins/socket.io/socket.io.4.6.0.js"></script>
+<script>
+
+
+
+  var pageViewStandardCost = "/rts/app/workorders/takeoff_/InventoryItemView.asp?WorkorderID=1940046&WorkorderMod=00&FacilityID=00221&logo=5296201582556.png";
+  var pageViewTakeOffSummaryFP = "/rts/app/workorders/takeoff_/EstimateReport.asp?show=summary&WorkorderID=1940046&WorkorderMod=00&FacilityID=00221&WorkorderStatus=InProgress";
+  var pageViewTakeOffSummaryCM = "/rts/app/workorders/takeoff_/PrintBudgetBidY.asp?show=summary&WorkorderID=1940046&WorkorderMod=00&FacilityID=00221&WorkorderStatus=InProgress";
+  var pageViewTMRates = "/rts/app/workorders/takeoff_/ItemPricesXproposal.asp?WorkorderID=1940046&WorkorderMod=00&FacilityID=00221&logo=5296201582556.png";
+
+
+  const gridVersion = "v16";
+  WorkorderID = "1940046";
+  WorkorderMod = "00";
+  BidPackageID = "";
+  BidID = "";
+  BidAction = "";
+  const WorkorderStatus = "InProgress";
+  const FacilityID = "00221";
+  var gridView = "Estimate";
+  if (BidPackageID != "") {
+    gridView = "BidPackage";
+  }
+
+  var MenuClass = "OriginalMenu";
+  var openFromClass = "show";
+  if (WorkorderMod != "00") {
+    MenuClass = "ScopeMenu";
+  }
+
+function verifyFrameAngular() {
+   var nParent = parent.top.length;
+   var parentTop = '';
+   for (var i = 0; i < nParent; i++) {
+       try {
+           if (parent.top[i].document.getElementsByTagName("app-asp-frame").length > 0) {
+               parentTop = parent.top[i];
+           }
+       } catch (e) {
+           // Skip cross-origin frames that cannot be accessed
+       }
+   }
+   return parentTop;
+}
+
+var parentTop = verifyFrameAngular();
+if (parentTop != "") {
+   parent.top.$(".TOPProjectsBar").hide();
+   parent.top.$("#OpenMaximize").val('no');
+}
+
+function templateToggle() {
+  let estimateTemplate = document.getElementById("estimateTemplate");
+  if (estimateTemplate.style.display == "none") {
+    estimateTemplate.style.display = "";
+  } else {
+    estimateTemplate.style.display = "none";
+  }
+}
+
+</script>
+
+<link rel="stylesheet" href="/rts/assets/fonts/font-awesome/css/font-awesome.min.css">
+
+</HEAD>
+<div class="LoadingBody"  style="display:none"><svg class="Icon_RTLoading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">  
+<g id="rt_loading" transform="translate(4962 -14012)">
+<g id="oval" transform="translate(-4961 14013)">
+<g id="Group_3107" data-name="Group 3107" transform="translate(1 1)">
+<circle id="Ellipse_93" data-name="Ellipse 93" cx="18" cy="18" r="18" fill="none" stroke="#9199AB" stroke-width="2" style="opacity: 0.2;"/>
+<path id="Path_1021" data-name="Path 1021" d="M36,18A18,18,0,0,0,18,0" fill="none" stroke="#F44336" stroke-width="2" fill-rule="evenodd" />
+<animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+</g>
+</g> 
+</g>
+</svg>
+<div class='Icon_RTLoadingText'>Loading...</div></div>
+<BODY ID="EstimateBody" CLASS="Estimate">
+
+<div id="noPermission" class="col-md-12 body_permission" style="display:none;">
+    <br/><br/>
+	<p class="text-center">
+		<span class="text-danger" style="font-size:3em;">
+			<i class="fa fa-exclamation-triangle"></i> Need Permission
+		</span>
+	</p>
+
+    <p class="text-center">The Role assigned to you in RedTeam does not have permission to view this <br />
+        page. Please contact your company's System Administrator for assistance.
+    </p>
+
+    <br/><br/>
+</div>
+
+<div id="screenAll">
+
+<div id="estimateMenu">
+<table class="MenuTable" onclick="TableClick(event.target);" >
+<tbody>
+<tr>
+  <td class="MainMenu"><span data-name="HeaderMenu" class="material-icons-outlined">menu</span></td>
+  <td><span data-name="GridLabel"></td>
+  <td id="BidMenuTarget" class="ContextCell"><span data-name="GridTitle"></span><span class="ContextMenu ContextMenu2" data-name="EditBidPackage">more_vert</span></td>
+  <td></td>
+  <td id="AddMenuTarget"><span data-name="AddMenu" class="material-icons-outlined">add</span></td>
+  <td><span data-name="ReportMenu" class="material-icons-outlined">preview</span></td>
+  <td><i class="zmdi zmdi-filter-list"></i></td>
+  <td id="tdMenuMore"><span data-name="MoreMenu" class="material-icons-outlined">more_horiz</span></td>
+  <td><span data-name="OpenHelp" data-value=""><i class="zmdi zmdi-help-outline"></i></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="screenTop">
+
+<div id="estimateHeading">
+<table class="PhaseHeading smoothAnimation" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="HeaderRow HeadingBorder">
+    <td></td>
+    <td><span>Cost Code</span></td>
+    <td><span>Description</span></td>
+    <td></td>
+    <td><span>Category</span></td>
+    <td><span>Quantity</span></td>
+    <td><span>U/M</span></td>
+    <td><span>U/C($)</span></td>
+    <td><span>Labor($)</span></td>
+    <td><span>Material($)</span></td>
+    <td><span>Subcontract($)</span></td>
+    <td><span>Equipment($)</span></td>
+    <td><span>Other($)</span></td>
+    <td><span>Total($)</span></td>
+    <td><span>Quotes</span></td>
+  </tr>
+
+</tbody>
+</table>
+
+</DIV>
+
+</DIV>
+
+<DIV id="estimateWindow">
+</DIV>
+
+<div id="screenBottom">
+
+<table id="estimateGrid" class="PhaseList smoothAnimation GridTable" onclick="TableClick(event.target);" onmousedown="tableMouseDown(event.target);">
+<tbody>
+  <tr class="HeaderRow">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</DIV>
+
+</DIV>
+
+<div style="display: none;">
+<table id="estimateTemplate">
+<tbody>
+  <tr class="PhaseRow">
+    <td><span data-name="TOGGLE_PHASE" class="material-icons-outlined">expand_more</span></td>
+    <td colspan="2"><span data-name="PhaseLabel"></span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><span data-name="PhaseDirectLACost"></span></td>
+    <td><span data-name="PhaseDirectMACost"></span></td>
+    <td><span data-name="PhaseDirectSUCost"></span></td>
+    <td><span data-name="PhaseDirectEQCost"></span></td>
+    <td><span data-name="PhaseDirectOTCost"></span></td>
+    <td><span data-name="PhaseDirectCost"></span></td>
+    <td></td>
+  </tr>
+  <tr class="AssemblyRow">
+    <td><span data-name="TOGGLE_ASSEMBLY" class="material-icons-outlined">expand_more</span></td>
+    <td><span data-name="AssemblyNumber"></span></td>
+    <td><span data-name="AssemblyDescription"></span></td>
+    <td></td>
+    <td></td>
+    <td><span data-name="AssemblyUnits"></span></td>
+    <td><span data-name="AssemblyUnitsOfMeasure" data-value="" data-selector=""></span></td>
+    <td></td>
+    <td><span data-name="AssemblyDirectLACost"></span></td>
+    <td><span data-name="AssemblyDirectMACost"></span></td>
+    <td><span data-name="AssemblyDirectSUCost"></span></td>
+    <td><span data-name="AssemblyDirectEQCost"></span></td>
+    <td><span data-name="AssemblyDirectOTCost"></span></td>
+    <td><span data-name="AssemblyDirectCost"></span></td>
+    <td><span data-name="AssemblyVendorName"></span></td>
+  </tr>
+  <tr class="ItemRow">
+    <td><span data-name="ItemDisplayOrder"></span></td>
+    <td><span data-name="InventoryIcon" class="material-icons-outlined">assignment</span></td>
+    <td class="ContextCell"><span data-name="ItemTitle"></span><span class="ContextMenu" data-name="EditItemProfile">more_vert</span></td>
+    <td><span data-name="EditItem" data-read-only="true" class="material-icons-outlined">more_vert</span></td>
+    <td><span data-name="ItemCategoryName"></span></td>
+    <td><span data-name="ItemUnits"></span></span></td>
+    <td><span data-name="ItemUnitsOfMeasure"></span></td>
+    <td><span data-name="ItemUnitCost"></span></td>
+    <td><span data-name="ItemDirectLACost"></span></td>
+    <td><span data-name="ItemDirectMACost"></span></td>
+    <td><span data-name="ItemDirectSUCost"></span></td>
+    <td><span data-name="ItemDirectEQCost"></span></td>
+    <td><span data-name="ItemDirectOTCost"></span></td>
+    <td><span data-name="ItemDirectCost"></span></td>
+    <td></span></td>
+  </tr>
+  <tr class="NewItemRow">
+    <td><span data-name="AddItem">+</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="closedNewItem NewItemRow2">
+    <td><span data-name="AddItem">+</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SubtotalRow SubtotalTop">
+    <td></td>
+    <td></td>
+    <td colspan="4">SUBTOTAL DIRECT COSTS</td>
+    <td></td>
+    <td></td>
+    <td><span data-name="WorkorderDirectLACost"></span></td>
+    <td><span data-name="WorkorderDirectMACost"></span></td>
+    <td><span data-name="WorkorderDirectSUCost"></span></td>
+    <td><span data-name="WorkorderDirectEQCost"></span></td>
+    <td><span data-name="WorkorderDirectOTCost"></span></td>
+    <td><span data-name="WorkorderDirectCost"></span></td>
+    <td></td>
+  </tr>
+  <tr class="SubtotalRow SubtotalIndirect">
+    <td></td>
+    <td></td>
+    <td colspan="4">Indirect Costs</td>
+    <td></td>
+    <td></td>
+    <td><span data-name="WorkorderOhLACost"></span></td>
+    <td><span data-name="WorkorderOhMACost"></span></td>
+    <td><span data-name="WorkorderOhSUCost"></span></td>
+    <td><span data-name="WorkorderOhEQCost"></span></td>
+    <td><span data-name="WorkorderOhOTCost"></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SubtotalRow SubtotalIndirect">
+    <td></td>
+    <td></td>
+    <td colspan="4">Indirect Cost Allocation Rates</td>
+    <td></td>
+    <td></td>
+    <td><span data-name="WorkorderOhLACostRate"></span></td>
+    <td><span data-name="WorkorderOhMACostRate"></span></td>
+    <td><span data-name="WorkorderOhSUCostRate"></span></td>
+    <td><span data-name="WorkorderOhEQCostRate"></span></td>
+    <td><span data-name="WorkorderOhOTCostRate"></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SubtotalRow">
+    <td></td>
+    <td></td>
+    <td colspan="4">TOTAL DIRECT &amp; INDIRECT COSTS</td>
+    <td></td>
+    <td></td>
+    <td><span data-name="WorkorderLoadedLACost"></span></td>
+    <td><span data-name="WorkorderLoadedMACost"></span></td>
+    <td><span data-name="WorkorderLoadedSUCost"></span></td>
+    <td><span data-name="WorkorderLoadedEQCost"></span></td>
+    <td><span data-name="WorkorderLoadedOTCost"></span></td>
+    <td><span data-name="WorkorderLoadedCost"></span></td>
+    <td></td>
+  </tr>
+  <tr class="ProfitRow">
+    <td></td>
+    <td colspan="4"></td>
+    <td><span data-name="ProfitMoreDetails">Profit Margin</span></td>
+    <td></td>
+    <td colspan="5"></td>
+    <td><span data-name="WorkorderProfitMargin"></span></td>
+    <td><span data-name="WorkorderProfit"></span></td>
+    <td></td>
+  </tr>
+  <tr class="MarkupSection MarkupTop">
+    <td><span data-name="TOGGLE_MARKUPS" class="material-icons-outlined">expand_more</span></td>
+    <td colspan="2">Supplemental Markups</td>
+    <td></td>
+    <td colspan="9"></td>
+    <td><span data-name="WorkorderMarkupPrice"></td>
+    <td></td>
+  </tr>
+  <tr class="MarkupSection MarkupRow">
+    <td></td>
+    <td><span data-name="SupplementalNumber"></span></td>
+    <td><span data-name="MarkupDescription"></span></td>
+    <td></td>
+    <td></td>
+    <td><span data-name="ItemMarkupPriceRate"></span></td>
+    <td colspan="3"><span data-name="MarkupUnitsOfMeasure"></span></td>
+    <td colspan="4"></td>
+    <td><span data-name="ItemPrice"></span></td>
+    <td></td>
+  </tr>
+  <tr class="MarkupSection MarkupBottom">
+    <td></td>
+    <td colspan="13"></td>
+    <td></td>
+  </tr>
+
+  <tr class="TotalRow TotalTop">
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="9"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="TotalRow">
+    <td colspan="3">TOTAL PRICE</td>
+    <td></td>
+    <td colspan="9"></td>
+    <td><span data-name="WorkorderTotalPrice"></span></td>
+    <td></td>
+  </tr>
+  <tr class="TotalRow TotalBottom">
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="9"></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentHeader">
+    <td></td>
+    <td colspan="2">PRICE ADJUSTMENT</td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentFeeTop">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentFee">
+    <td></td>
+    <td colspan="2">Type of Proposal:</td>
+    <td></td>
+    <td colspan="2"><span data-name="TypeOfBidDescription" data-value=""></span></td>
+    <td colspan="3">Fee:</td>
+    <td><span data-name="WorkorderFeeRate"></span></td>
+    <td colspan="2"><span data-name="WorkorderUnitsOfMeasure" data-value=""></span></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentFeeBottom">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentOverhead">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"><span>Labor Overhead:</span></td>
+    <td><span data-name="WorkorderOhLAPriceRate"></span></td>
+    <td colspan="2"><span>Percent of Direct Labor</span></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentSpacer">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentOverhead">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"><span>Material Overhead:</span></td>
+    <td><span data-name="WorkorderOhMAPriceRate"></span></td>
+    <td colspan="2"><span>Percent of Direct Material</span></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentSpacer">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentOverhead">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"><span>Subcontract Overhead:</span></td>
+    <td><span data-name="WorkorderOhSUPriceRate"></span></td>
+    <td colspan="2"><span>Percent of Direct Subcontract</span></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentSpacer">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentOverhead">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"><span>Equipment Overhead:</span></td>
+    <td><span data-name="WorkorderOhEQPriceRate"></span></td>
+    <td colspan="2"><span>Percent of Direct Equipment</span></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentSpacer">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentOverhead">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"><span>Other Overhead:</span></td>
+    <td><span data-name="WorkorderOhOTPriceRate"></span></td>
+    <td colspan="2"><span>Percent of Direct Other</span></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentSpacer">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="AdjustmentRow AdjustmentBottom">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+  </tr>
+
+  <tr class="BidPackageRow BidPackageTop">
+    <td></td>
+    <td colspan="4"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+  </tr>
+
+  <tr class="BidPackageRow BidAction">
+    <td></td>
+    <td colspan="4">Notes:</td>
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+  </tr>
+
+  <tr class="BidPackageRow BidQuoteAmount">
+    <td></td>
+    <td colspan="4" rowspan="4"><span data-name="BidPackageNotes"></span></td>
+    <td></td>
+    <td colspan="2">Quote Amount:</td>
+    <td><span data-name="BidPackageCostEstimate"></td>
+  </tr>
+
+  <tr class="BidPackageRow BidExcludedItems">
+    <td></td>
+    <td></td>
+    <td colspan="2">Add Excluded Items:</td>
+    <td></td>
+  </tr>
+
+  <tr class="BidPackageRow BidExtraItems">
+    <td></td>
+    <td></td>
+    <td colspan="2">Subtract Extra Items:</td>
+    <td></td>
+  </tr>
+
+  <tr class="BidPackageRow BidShouldCost">
+    <td></td>
+    <td></td>
+    <td colspan="2">Should Cost Comparison:</td>
+    <td><span data-name="BidPackageShouldCost"></td>
+  </tr>
+
+  <tr class="BidPackageRow BidPackageBottom">
+    <td></td>
+    <td colspan="4"></td>
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+  </tr>
+
+</tbody>
+</table>
+
+<table>
+<tbody>
+  <tr id="AvatarCellTemplate">
+    <td class="AvatarCell"><img class="img-circle" src="" title=""></td>
+  </tr>
+  <tr id="costEstimateTemplate">
+    <td class="HeadingCost"><span>Estimate</span></td>
+    <td class="SpacingCost"></td>
+    <td class="PhaseCost"><span data-name="PhaseCostEstimate"></span></td>
+    <td class="AssemblyCost"><span data-name="AssemblyCostEstimate"></span></td>
+    <td class="ItemCost"><span data-name="ItemCostEstimate"></span></td>
+    <td class="NewItemCost"></td>
+    <td class="NewItem2Cost"></td>
+  </tr>
+  <tr id="bidColumnTemplate">
+    <td class="HeadingBid ContextCell GridTable"><span data-name="BidVendorShortName"></span><span class="ContextMenu" data-name="BidActionMenu">more_vert</span></td>
+    <td class="HeadingBidForm"><span>Amount</span></td>
+    <td class="SpacingBid"></td>
+    <td class="PhaseBid"><span data-name="BidPhaseQuote"></span></td>
+    <td class="AssemblyBid"><span data-name="BidAssemblyQuote"></span></td>
+    <td class="ItemBid"><span data-name="BidItemIncludedIcon"></span></td>
+    <td class="NewItemBid"></td>
+    <td class="NewItem2Bid"></td>
+    <td class="BpTopBid"></td>
+    <td class="BpActionBid"><span data-name="BidStatusName"></span></td>
+    <td class="BpQuoteAmountBid"><span data-name="BidQuote"></span></td>
+    <td class="BpExcludedItemsBid"><span data-name="BidExcludedCost"></span></td>
+    <td class="BpExtraItemsBid"><span data-name="BidExtraCost"></span></td>
+    <td class="BpShouldCostBid"><span data-name="BidShouldCost"></span></td>
+    <td class="BpBottomBid"></td>
+  </tr>
+</tbody>
+</table>
+
+<!-- Bid Package Window -->
+
+<div id="BidPackageWindow">
+<div id="EditBidPackageTitle">
+<table id="EditBidPackageMenu" class="ListFormTable GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr>
+    <td class="WindowTitle" id="EditBidPackageDrag"><span>Bid Package Details</span></td>
+    <td class="CloseButtonCell"><span data-name="CloseEditBidPackage" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="EditBidPackageContent">
+<table id="EditBidPackageForm" class="GridTable popupWindow smoothAnimation closedRequestors" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow DueDateRow">
+    <td></td>
+    <td colspan="2"><span>Due Date:</span></td>
+    <td class="ContextCell"><span data-name="BidPackageDueDate" class="FormField"></span><span class="ContextMenu" data-name="BidPackageDueDateCalendar" data-target="BidPackageDueDate">event</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="AttachmentRow">
+    <td></td>
+    <td colspan="2"><span>Attachments:</span></td>
+    <td colspan="2" class="ContextCell"><span data-name="BidPackageAttachmentName" data--open-file-selector="1" class="FormField"></span><span class="ContextMenu" data-name="BidPackageAttachmentMenu" data-target="BidPackageAttachmentName">more_vert</span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow4">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow RequestorRow">
+    <td></td>
+    <td colspan="2"><span>Requester:</span></td>
+    <td colspan="2"><span data-name="RequestorDesc"></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow5">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow IsSpecsByScopeRow">
+    <td></td>
+    <td></td>
+    <td><span data-name="IsSpecsByScope" class="material-icons-outlined CheckBox"></span></td>
+    <td colspan="3"><span>Include only Plans & Specs associated with the Scope of this Customer Change</span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow6">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow SpecialInstructionsRow">
+    <td></td>
+    <td colspan="2"><span>Special Instructions:</span></td>
+    <td colspan="3"><span data-name="SpecialInstructions" class="FormField"></span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow7">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<table>
+<tbody id="EditBidPackageTemplate">
+  <tr class="SpacerRow3">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="AttachmentRow">
+    <td></td>
+    <td colspan="2"></td>
+    <td colspan="2" class="ContextCell"><span data-name="BidPackageAttachmentName" data--open-file-selector="1" class="FormField"></span><span class="ContextMenu" data-name="BidPackageAttachmentMenu" data-target="BidPackageAttachmentName">more_vert</span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="RequestorRow" data--is-requestor-selected="0">
+    <td></td>
+    <td></td>
+    <td><span data-name="IsRequestorSelected" class="material-icons-outlined CheckBox"></span></td>
+    <td colspan="3"><span data-name="RequestorDescOld"></span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<!-- Quote Card Window -->
+
+<div id="QuoteCardWindow">
+<div id="EditQuoteCardTitle" class="EditQuoteCardTitle">
+<table class="EditQuoteCardMenu ListFormTable GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr>
+    <td class="WindowTitle"><span data-name="VendorEntityName"></span></td>
+    <td class="VendorRatingCell"></td>
+    <td class="CloseButtonCell"><span data-name="CloseQuoteCardWindow" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="EditQuoteCardContent" class="EditQuoteCardContent">
+<table class="EditQuoteCardForm popupWindow GridTable smoothAnimation closedContacts" onclick="TableClick(event.target);">
+<tbody class="QuoteCardData">
+  <tr class="QuoteHeaderRow">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow QuoteDueDateRow">
+    <td></td>
+    <td colspan="4"><span>This Quote is Due Not Later Than:</span></td>
+    <td colspan="3" class="ContextCell"><span data-name="BidDueDate" class="FormField"></span><span class="ContextMenu" data-name="BidDueDateCalendar" data-target="BidDueDate">event</span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="SpacerRow1">
+    <td></td>
+    <td><span data-name="ExpandContacts" class="material-icons-outlined toggleIcon">people_alt</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow NoVendorContactsRow">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="4"><span data-name="NoContactDesc"></span></td>
+    <td></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="SpacerRow2">
+    <td colspan="10"></td>
+  </tr>
+  <tr class="SpacerRow3">
+    <td colspan="3"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td></td>
+    <td colspan="2"></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="FormRow QuoteAttachmentRow">
+    <td></td>
+    <td colspan="2"><span>Quote:</span></td>
+    <td colspan="3" class="ContextCell"><span data-name="QuoteAttachmentName" data--open-file-selector="1" class="FormField"></span><span class="ContextMenu" data-name="QuoteAttachmentMenu" data-target="QuoteAttachmentName">more_vert</span></td>
+    <td></td>
+    <td class="FormField"><span data-name="BidStatusName" data-source="Estimate" class="FormField"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="SpacerRow4">
+    <td colspan="1"></td>
+    <td colspan="2"></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td></td>
+    <td colspan="2"></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="FormRow QuoteAmountRow QuoteBidRow">
+    <td colspan="1"></td>
+    <td colspan="6"><span>Quote Amount</span></td>
+    <td class="FormField"><span data-name="BidQuote" class="FormField"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteAmountRow QuoteAddExcludedRow">
+    <td colspan="1"></td>
+    <td colspan="6"><span>Excluded Items <i>currently not in this Quote</i></span></td>
+    <td class="FormField"><span data-name="BidExcludedCost" class="FormField"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteAmountRow QuoteSubtractExtraRow">
+    <td colspan="1"></td>
+    <td colspan="6"><span>Extra Items <i>already in other Best Quotes</i></span></td>
+    <td class="FormField"><span data-name="BidExtraCost" class="FormField"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteItemRow">
+    <td colspan="1"></td>
+    <td colspan="4" class="FormField"><span data-name="ItemTitle" class="FormField"></span></td>
+    <td colspan="2" class="FormField"><span data-name="ItemCostEstimate" class="FormField"></span></td>
+    <td class="FormField"><span data-name="BidItemIncludedIcon" class="material-icons-outlined"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteAmountRow QuoteShouldCostRow">
+    <td colspan="1"></td>
+    <td colspan="6"><span>Should Cost</span></td>
+    <td class="FormField"><span data-name="BidShouldCost" class="FormField"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="SpacerRow5">
+    <td colspan="1"></td>
+    <td colspan="7"></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteNotesRow">
+    <td colspan="1"></td>
+    <td colspan="7"><span>Bidder Notes:</span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteNotesCellRow">
+    <td colspan="1"></td>
+    <td colspan="7" class="FormField"><span data-name="BidNotes" data-source="Estimate" class="FormField"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="QuoteFooterRow">
+    <td colspan="1"></td>
+    <td colspan="7"></td>
+    <td colspan="2"></td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<table id="QuoteCardTemplate">
+<tbody>
+  <tr class="FormRow VendorContactRow" data--is-contact-selected="no">
+    <td></td>
+    <td></td>
+    <td><span data-name="IsContactSelected" class="material-icons-outlined CheckBox"></span></td>
+    <td colspan="4"><span data-name="VendorContactDesc"></span></td>
+    <td><span data-name="ContactPhoneNumber"></span></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr class="FormRow QuoteItemRow">
+    <td colspan="1"></td>
+    <td colspan="4" class="FormField"><span data-name="ItemTitle" class="FormField"></span></td>
+    <td colspan="2" class="FormField"><span data-name="ItemCostEstimate" class="FormField"></span></td>
+    <td class="FormField"><span data-name="BidItemIncludedIcon" class="material-icons-outlined"></span></td>
+    <td colspan="2"></td>
+  </tr>
+</tbody>
+</table>
+
+
+<!--  Bid Package Message Window -->
+
+<div id="BidPackageMessageTitle">
+<table id="BidPackageMessageMenu" class="ListFormTable NoSelections popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="WindowTitle" id="BidPackageMessageDrag"><span>Send Message to All Bidders</span></td>
+    <td class="AddButtonCell"><span data-name="SendBidPackageMessage">Send</span></td>
+    <td class="CloseButtonCell"><span data-name="CloseBidPackageMessage" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="BidPackageMessageContent">
+<table id="BidPackageMessageForm" class="GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="BidPackageMessageRow">
+    <td></td>
+    <td><span>Message:<span></td>
+    <td class="FormField"><span data-name="BidPackageMessage" class="FormField" onkeyup="keystrokeBidPackageMessage(this);"></span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<!-- Message Bidder Window -->
+
+<div id="MessageBidderTitle">
+<table id="MessageBidderMenu" class="ListFormTable GridTable popupWindow NoSelections" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="WindowTitle"><span data-name="BidderMessageTitle"></span></td>
+    <td class="AddButtonCell"><span data-name="SendBidderMessage">Send</span></td>
+    <td class="CloseButtonCell"><span data-name="CloseMessageBidder" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="MessageBidderContent">
+<table id="MessageBidderForm" class="GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="BidderMessageRow">
+    <td></td>
+    <td><span>Message:<span></td>
+    <td class="FormField"><span data-name="BidderMessage" class="FormField" onkeyup="keystrokeBidderMessage(this);"></span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<!-- Edit Item Profile Window -->
+
+<div id="EditItemProfileTitle" class="smoothAnimation">
+<table id="EditItemProfileMenu" class="ListFormTable GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="ListTitle"><span data-name="ItemProfileTitle"></span></td>
+    <td class="CloseButtonCell"><span data-name="CloseEditItemProfile" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="EditItemProfileContent">
+<table id="EditItemProfileForm" class="NarrativeTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="NarrativeHeaderRow">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="NarrativeFormRow">
+    <td>Narrative:</td>
+    <td class="FormField"><span data-name="ItemName" class="FormField"></span></td>
+    <td></td>
+  </tr>
+  <tr class="NarrativeSpacerRow">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="NarrativeCheckBoxRow">
+    <td><span data-name="IsInProposal" class="material-icons-outlined CheckBox"></span></td>
+    <td><span>Show on Proposal</span></td>
+    <td></td>
+  </tr>
+  <tr class="NarrativeSpacerRow2">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="NarrativeCheckBoxRow">
+    <td><span data-name="ItemIsCFVariable" class="material-icons-outlined CheckBox"></span></td>
+    <td><span>Variable Item Quantity</span></td>
+    <td></td>
+  </tr>
+  <tr class="NarrativeSpacerRow2">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<!--  Add Master Assemblies Window -->
+
+<div id="AddMasterAssembliesWindow">
+  <div id="AddMasterAssembliesTitle">
+    <table id="addMasterAssembliesMenu" class="ListFormTable NoSelections CostCodeTopSpacer popupWindow" onclick="TableClick(event.target);">
+      <tbody>
+      <tr class="ListFormRow">
+        <td class="ListTitle" id="AddMasterAssembliesDrag">Add Cost Code to Estimate</td>
+        <td class="AddButtonCell"><span data-name="InsertMasterAssemblies">Add</span></td>
+        <td class="CloseButtonCell"><span data-name="CloseAddMasterAssemblies" class="material-icons-outlined">close</span></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div id="AddMasterAssembliesContent">
+    <div class="InputSection">
+      <table id="addMasterAssembliesForm" class="GridTable CostCodeSearch popupWindow" onclick="TableClick(event.target);">
+      <tbody>
+        <tr class="CostCodeSearchTop">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="CostCodeSearchPhase">
+          <td><span>Phase:</span></td>
+          <td><span data-name="InsertAssemblyPhase" data-value=""></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="CostCodeSearchSpacer">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="CostCodeSearchText">
+          <td><span>Search:</span></td>
+          <td colspan="2"><span data-name="ItemSearchText"></span></td>
+          <td></td>
+        </tr>
+        <tr class="CostCodeSearchBottom">
+          <td></td>
+          <td colspan="2"></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    <div class="OutputSection">
+      <table id="MasterAssemblyList" class="ListTable" onclick="CheckboxTableClick(event.target, this,'#addMasterAssembliesMenu');">
+      <tbody>
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!--
+<div id="AddMasterAssembliesTitle">
+<table id="addMasterAssembliesMenu" class="ListFormTable NoSelections CostCodeTopSpacer popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="ListTitle" id="AddMasterAssembliesDrag">Add Cost Code to Estimate</td>
+    <td class="AddButtonCell"><span data-name="InsertMasterAssemblies">Add</span></td>
+    <td class="CloseButtonCell"><span data-name="CloseAddMasterAssemblies" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+<table id="addMasterAssembliesForm" class="GridTable CostCodeSearch popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="CostCodeSearchTop">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="CostCodeSearchPhase">
+    <td><span>Phase:</span></td>
+    <td><span data-name="InsertAssemblyPhase" data-value=""></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="CostCodeSearchSpacer">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="CostCodeSearchText">
+    <td><span>Search:</span></td>
+    <td colspan="2"><span data-name="ItemSearchText"></span></td>
+    <td></td>
+  </tr>
+  <tr class="CostCodeSearchBottom">
+    <td></td>
+    <td colspan="2"></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+
+<div id="AddMasterAssembliesContent">
+<table id="MasterAssemblyList" class="ListTable" onclick="CheckboxTableClick(event.target, this,'#addMasterAssembliesMenu');">
+<tbody>
+</tbody>
+</table>
+</div>
+-->
+
+<!--  Add Supplemental Markups Window -->
+
+<div id="AddSupplementalMarkupsWindow">
+  <div id="AddSupplementalMarkupsTitle">
+    <table id="addSupplementalMarkupsMenu" class="ListFormTable NoSelections popupWindow" onclick="TableClick(event.target);">
+    <tbody>
+      <tr class="ListFormRow">
+        <td class="ListTitle" id="AddSupplementalMarkupsDrag">Add Supplemental Markup(s) to Estimate</td>
+        <td class="AddButtonCell"><span data-name="InsertSupplementalMarkups">Add</span></td>
+        <td class="CloseButtonCell"><span data-name="CloseAddSupplementalMarkups" class="material-icons-outlined">close</span></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div id="AddSupplementalMarkupsContent">
+    <table id="SupplementalMarkupList" class="ListTable" onclick="CheckboxTableClick(event.target, this,'#addSupplementalMarkupsMenu');">
+    <tbody>
+    </tbody>
+    </table>
+  </div>
+
+</div>
+
+<table id="CostCodeList">
+<tbody class="CostCodeCategory">
+  <tr class="CostCodeCategoryRow">
+    <td colspan="2"><span></span></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="CostCodeRow" data--cost-code-key="" data--is-checked="0">
+    <td><span class="material-icons-outlined">check_box_outline_blank</span></td>
+    <td><span></span></td>
+  </tr>
+</tbody>
+</table>
+
+
+<table id="AddAssemblyList" class="ListTable" onclick="ListTableClick(event.target);">
+<tbody>
+  <tr class="ListHeaderRow">
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="AddAssemblyListForm" class="ListFormTable" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td></td>
+    <td class="ButtonCell"><span data-name="AddBidPackageAssemblies" class="material-icons-outlined">library_add</span></td>
+  </tr>
+  <tr>
+    <td><span data-name="SearchText"></span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="AddListTemplate">
+<tbody class="ListPhase">
+  <tr class="ListPhaseRow">
+    <td colspan="2"><span></span></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="ListAssemblyRow" data-wa-i-d="" data--is-assembly-included="0">
+    <td><span class="material-icons-outlined">check_box_outline_blank</span></td>
+    <td><span></span></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="EstimateAssemblyListOld" class="ListTable" onclick="ListTableClick(event.target);">
+<tbody>
+  <tr class="ListHeaderRow">
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<table class="ListFormTable" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td></td>
+    <td class="ButtonCell"><span data-name="AddBidPackageAssemblies" class="material-icons-outlined">library_add</span></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="AssemblyListTemplate">
+<tbody class="ListPhase">
+  <tr class="ListPhaseRow">
+    <td colspan="2"><span></span></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="ListAssemblyRow" data-wa-i-d="" data--is-assembly-included="0">
+    <td><span class="material-icons-outlined">check_box_outline_blank</span></td>
+    <td><span></span></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="EstimateAssemblyListTitle" class="ListFormTable">
+<tbody>
+  <tr class="ListFormRow">
+    <td></td>
+    <td class="ButtonCell"><span data-name="AddBidPackageAssemblies" class="material-icons-outlined">library_add</span></td>
+  </tr>
+</tbody>
+</table>
+
+<table class="ListFormTable" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td></td>
+    <td class="ButtonCell"><span data-name="AddBidPackageAssemblies" class="material-icons-outlined">library_add</span></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="VendorListTitle" class="ListFormTable">
+<tbody>
+  <tr class="ListFormRow">
+    <td></td>
+    <td class="ButtonCell"><span data-name="AddBidPackageBidder" class="material-icons-outlined">library_add</span></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="VendorList" class="ListTable" onclick="ListTableClick(event.target);">
+</table>
+
+<table id="VendorListTemplate">
+<tbody>
+  <tr class="VendorListRow" data--vendor-i-d="" data--vendor-short-name="" data--is-vendor-included="0">
+    <td><span class="material-icons-outlined">check_box_outline_blank</span></td>
+    <td><span></span></td>
+  </tr>
+</tbody>
+</table>
+
+<!--  Assign Cost Codes Window -->
+
+<div id="IncludeEstimateAssembliesWindow">
+  <div id="IncludeEstimateAssembliesTitle">
+    <table id="includeEstimateAssembliesMenu" class="ListFormTable NoSelections popupWindow" onclick="TableClick(event.target);">
+    <tbody>
+      <tr class="ListFormRow">
+        <td class="ListTitle" id="IncludeEstimateAssembliesDrag">Assign Cost Codes from Estimate</td>
+        <td class="AddButtonCell"><span data-name="AddBidPackageAssemblies">Add</span></td>
+        <td class="CloseButtonCell"><span data-name="CloseIncludeEstimateAssemblies" class="material-icons-outlined">close</span></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div id="IncludeEstimateAssembliesContent">
+    <div class="InputSection">
+      <table id="includeEstimateAssembliesForm" class="GridTable CostCodeSearch popupWindow" onclick="TableClick(event.target);">
+      <tbody>
+        <tr class="CostCodeSearchTop">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="CostCodeSearchText">
+          <td><span>Search:</span></td>
+          <td colspan="2"><span data-name="AssemblySearchText"></span></td>
+          <td></td>
+        </tr>
+        <tr class="CostCodeSearchBottom">
+          <td></td>
+          <td colspan="2"></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    <div class="OutputSection">
+      <table id="EstimateAssemblyList" class="ListTable" onclick="CheckboxTableClick(event.target, this,'#includeEstimateAssembliesMenu');">
+      <tbody>
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!--  Add Affected Vendors Window -->
+
+<div id="AddAffectedVendorsWindow">
+<div id="AddAffectedVendorsTitle">
+<table id="addAffectedVendorsMenu" class="ListFormTable NoSelections GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="WindowTitle"><span>Select Affected Vendor Cost Codes</span></td>
+    <td class="AddButtonCell"><span data-name="InsertAffectedVendors">Add</span></td>
+    <td class="CloseButtonCell"><span data-name="CloseAddAffectedVendors" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="AddAffectedVendorsContent" class="noSelectedAffectedVendors hasAffectedVendors foundAffectedVendors">
+
+<div class="InputSection">
+
+<div class="SpecialSection">
+<table id="SelectedAffectedVendorsList" class="VendorListTable ListTable GridTable popupWindow" onclick="CheckboxTableClick2(event.target, this.parentNode.parentNode,'#addAffectedVendorsMenu');">
+<tbody>
+  <tr class="VendorListTop">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2 VendorListEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<table id="addAffectedVendorsForm" class="popupWindow GridTable closedTrades closedQualifications closedCredentials closedDistance" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow SelectPhaseRow">
+    <td></td>
+    <td><span>Phase:</span></td>
+    <td><span data-name="AffectedVendorsPhase" data-value=""></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow AffectedVendorsSearchRow">
+    <td></td>
+    <td><span>Search:</span></td>
+    <td colspan="2"><span data-name="AffectedVendorsSearch"></span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow SpacerRow6 VendorFilterEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div class="OutputSection">
+<table id="AffectedVendorsList" class="VendorListTable ListTable GridTable popupWindow" onclick="CheckboxTableClick2(event.target, this.parentNode.parentNode,'#addAffectedVendorsMenu');">
+<tbody>
+  <tr class="VendorListTop">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow NoRecordsFound">
+    <td></td>
+    <td></td>
+    <td><span>No Affected Vendors Found</span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<table id="AffectedVendorsListTemplate">
+<tbody class="AffectedVendorTbody">
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorListRow">
+    <td></td>
+    <td colspan="2"><span data-name="VendorEntityName"></span></td>
+    <td></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="NoVendorListRow">
+    <td></td>
+    <td></td>
+    <td><span>No Vendors Found</span></td>
+    <td></td>
+  </tr>
+  <tr class="VendorAssemblyRow" data--is-checked="0">
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox">check_box_outline_blank</span></td>
+    <td><span data-name="AssemblyDesc"></span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<!--  Add Bidder Window -->
+
+<div id="AddBiddersWindow">
+<div id="AddBiddersTitle">
+<table id="addBiddersMenu" class="ListFormTable NoSelections GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="WindowTitle" id="AddBiddersDrag"><span>Select Potential Bidders</span></td>
+    <td class="AddButtonCell"><span data-name="InsertBidders">Add</span></td>
+    <td class="CloseButtonCell"><span data-name="CloseAddBidders" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="AddBiddersContent" class="noSelectedBidders hasVendorsOnFile foundVendors">
+
+<div class="InputSection">
+
+<div class="SpecialSection">
+<table id="SelectedBiddersList" class="VendorListTable ListTable GridTable popupWindow" onclick="CheckboxTableClick2(event.target, this.parentNode.parentNode,'#addBiddersMenu');">
+<tbody>
+  <tr class="VendorListTop">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2 VendorListEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<table id="addBiddersForm" class="popupWindow GridTable closedTrades closedQualifications closedCredentials closedDistance" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow BidderSearchTextRow">
+    <td></td>
+    <td colspan="2"><span>Search:</span></td>
+    <td><span data-name="BidderSearchText"></span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow SpacerRow2">
+    <td></td>
+    <td><span data-name="openVendorFilters" class="material-icons-outlined toggleIcon">filter_alt</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow NoVendorFiltersRow">
+    <td></td>
+    <td></td>
+    <td colspan="2"><span>No Requirements Specified.</span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow SpacerRow6 VendorFilterEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div class="OutputSection">
+<table id="BiddersList" class="VendorListTable ListTable GridTable popupWindow" onclick="CheckboxTableClick2(event.target, this.parentNode.parentNode,'#addBiddersMenu');">
+<tbody>
+  <tr class="VendorListTop">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorListSelectAll" id="SelectAllBiddersRow">
+    <td></td>
+    <td><span class="material-icons-outlined">check_box_outline_blank</span></td>
+    <td><span style="font-weight: bold;">Select All</span></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow VendorFilterRow NoVendorsOnFile">
+    <td></td>
+    <td></td>
+    <td><span>No Vendors On File</span></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow VendorFilterRow NoVendorsFound">
+    <td></td>
+    <td></td>
+    <td><span>No Vendors Meet Requirements</span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<table id="BidderFiltersTemplate">
+<tbody>
+  <tr class="FormRow VendorFilterRow">
+    <td></td>
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox"></span></td>
+    <td><span data-name="VendorFilterDesc"></span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="BidderListTemplate">
+<tbody class="CostCodeCategory">
+  <tr class="SpacerRow1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="NoVendorListRow">
+    <td></td>
+    <td></td>
+    <td><span>No Vendors Meet Requirements</span></td>
+    <td></td>
+  </tr>
+  <tr class="VendorListRow" data--is-checked="0">
+    <td></td>
+    <td><span class="material-icons-outlined checkbox">check_box_outline_blank</span></td>
+    <td><span></span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+
+<!-- Vendor Filters Window  -->
+
+<div id="VendorFiltersWindow">
+<div id="VendorFiltersTitle">
+<table id="VendorFiltersMenu" class="ListFormTable NoSelections GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="ListFormRow">
+    <td class="WindowTitle" id="VendorFiltersDrag">Specify Vendor Requirements</td>
+    <td class="CloseButtonCell"><span data-name="closeVendorFilters" class="material-icons-outlined">close</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="VendorFiltersContent">
+<table id="VendorFiltersList" class="ListTable GridTable popupWindow" onclick="TableClick(event.target);">
+<tbody>
+  <tr class="SpacerRow">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorFilterHeading VendorExperienceHeading">
+    <td></td>
+    <td colspan="2"><span>Experience</span></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow VendorFilterRow VendorExperienceRow">
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox"></span></td>
+    <td><span data-name="VendorFilterDesc"></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2 VendorExperienceEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorFilterHeading VendorTradesHeading">
+    <td></td>
+    <td colspan="2"><span>Trades</span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2 VendorTradesEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorFilterHeading VendorDistanceHeading">
+    <td></td>
+    <td colspan="2"><span>Distance from Job Site</span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2 VendorDistanceEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorFilterHeading VendorQualificationsHeading">
+    <td></td>
+    <td colspan="2"><span>Qualifications</span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow2 VendorQualificationsEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="VendorFilterHeading VendorCredentialsHeading">
+    <td></td>
+    <td colspan="2"><span>Credentials</span></td>
+    <td></td>
+  </tr>
+  <tr class="SpacerRow VendorCredentialsEnd">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<table id="VendorFiltersTemplate">
+<tbody>
+  <tr class="FormRow VendorFilterRow VendorTradesRow">
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox"></span></td>
+    <td><span data-name="VendorFilterDesc"></span></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow VendorFilterRow VendorQualificationsRow">
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox"></span></td>
+    <td><span data-name="VendorFilterDesc"></span></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow VendorFilterRow VendorCredentialsRow">
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox"></span></td>
+    <td><span data-name="VendorFilterDesc"></span></td>
+    <td></td>
+  </tr>
+  <tr class="FormRow VendorFilterRow VendorDistanceRow">
+    <td></td>
+    <td><span data-name="IsChecked" class="material-icons-outlined checkbox"></span></td>
+    <td><span data-name="VendorFilterDesc"></span></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+<!-- Set up select boxes  -->
+
+<div id="SelectionWork" style="display: none;">
+
+<input id="AttachmentLoader" type="file">
+
+<a id="BlobDownloader"></a>
+
+<select id="AttachmentMenu"></select>
+<select id="ProjectPhases"></select>
+
+<select id="TypeOfBidDescription">
+  <option value="T&amp;M">Time &amp; Material</option>
+  <option value="Fixed Price">Fixed Price</option>
+  <option value="Negotiated GMP">Construction Management</option>
+</select>
+
+<select id="AssemblyMenu">
+  <option value="0" disabled>No Action</option>
+  <option value="1" data-icon="gridIcon saveIcon">Save as Master Assembly</option>
+  <option value="6" data-icon="gridIcon deleteIcon">Delete Cost Code</option>
+  <option value="7" data-icon="gridIcon clearIcon">Remove From Bid Package</option>
+</select>
+
+<select id="SupplementalMenu">
+  <option value="0" disabled>No Action</option>
+  <option value="6" data-icon="gridIcon deleteIcon">Delete Cost Code</option>
+</select>
+
+<select id="WorkorderUnitsOfMeasure">
+  <option value="30">Percent of Total Cost</option>
+  <option value="31">Percent of Total Price</option>
+</select>
+
+<select id="InventoryItems" style="display: none;"></select>
+<select id="BidItems" style="display: none;"></select>
+<select id="UnitsOfMeasureSingular"></select>
+<select id="UnitsOfMeasurePlural"></select>
+<select id="ItemCategoryCode"></select>
+
+<select id="ItemizedFlag">
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+
+<select id="HeaderMenu"></select>
+
+<select id="AddMenu">
+  <option value="0" data-text="<div class='rectangle-new' id='dAdd' style='position: relative;'><div style='display:inline-block;'><a type='button'  class=' icon-new1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon'  ><div class='Center_Icon' alt='Add'><span class='material-symbols-outlined icon-new2 iconManageT' style='background-color: transparent !important;'>add</span></div></a></div></div>"></option>
+  <option value="11">Affected Vendors</option>
+  <option value="1">Add Alternate</option>
+  <option value="10">Assign Cost Codes</option>
+  <option value="7">Add Cost Codes</option>
+  <option value="6">Add Supplemental Markup</option>
+  <option value="8">Add Bid Package</option>
+  <option value="9">Add Bidders</option>
+  <option value="4">Import from Spreadsheet</option>
+  <option value="5">Import from Project</option>
+
+</select>
+<select id="MoreMenu">
+  <option value="0" data-text="<div class='rectangle-other' id='dOther' style='position: relative;'><div style='display:inline-block;'><a type='button'  class='icon-more1 btnSearch1 btn-m btnManage btn-xs p-0 hideIcon'  ><div class='Center_Icon' alt='Other'><span class='material-symbols-outlined icon-more2 iconManageT' style='background-color: transparent !important;'>more_horiz</span></div></a></div></div>"></option>
+  <option value="1">Delete Estimate</option>
+  <option value="5">Delete Bid Package</option>
+  <option value="6">Send All Unsent RFQs</option>
+  <option value="7">Send Message to Bidders</option>
+  <option value="3">Export Estimate</option>
+</select>
+<select id="BidStatusMenu">
+  <option value="10">RFQ Not Sent</option>
+  <option value="11">RFQ Sent</option>
+  <option value="20">Won't Bid</option>
+  <option value="21">May Bid</option>
+  <option value="22">Will Bid</option>
+  <option value="30">Draft</option>
+  <option value="31">Committed</option>
+  <option value="40">Best</option>
+  <option value="50">Cancelled</option>
+</select>
+<select id="BidActionMenu">
+  <option value="0" disabled>No Action</option>
+  <option value="10">Open Quote Card</option>
+  <option value="20">View Bid Form</option>
+  <option value="30">Send RFQ</option>
+  <option value="40">Send Message</option>
+  <option value="50">Delete Bidder</option>
+</select>
+
+<select id="ProjectRequestors"></select>
+
+<select id="ReportMenu">
+  <option value="0" disabled>No Action</option>
+  <option value="1">Inventory Items</option>
+  <option value="2">Unit Prices</option>
+  <option value="3">Cost Estimate</option>
+  <option value="4">Negotiated Pricing</option>
+</select>
+
+<input id="formReturn" value="true">
+
+</div>
+<script type="text/javascript">
+
+  var Database = "";
+  var UserID = "";
+
+  getBidPackage(WorkorderID,WorkorderMod,BidPackageID,io);
+
+  $("#EstimateBody")
+    .on("drag dragstart dragend dragover dragenter dragleave drop", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+  document
+    .querySelector("#AttachmentLoader")
+    .addEventListener("change", SelectFileHandler, false);
+
+</script>
+</BODY>
+</HTML>

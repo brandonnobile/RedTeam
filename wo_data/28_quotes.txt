@@ -1,0 +1,137 @@
+=== Quotes ===
+
+<svg xmlns="http://www.w3.org/2000/svg" class="metadataHistory" width="24" height="24" viewBox="0 0 24 24"><g id="history" transform="translate(1280 -282)"><path id="Path_824" data-name="Path 824" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="Path_825" data-name="Path 825" d="M0,0H24V24H0Z" transform="translate(-1280 282)" fill="none"/><path id="history-2" data-name="history" d="M13.5,8H12v5l4.28,2.54L17,14.33l-3.5-2.08V8M13,3a9,9,0,0,0-9,9H1l3.96,4.03L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A8.9,8.9,0,0,0,13,21,9,9,0,0,0,13,3" transform="translate(-1279 282)"/></g></svg> 
+
+ %DisplayTitle% 
+
+ %viewquote% 
+ %editquote% 
+
+ %attach% 
+ %MoreDetail% 
+
+ %quoteentity% 
+ %contacts% 
+ %typequote% 
+ %datequote% 
+ %FormatidxQuoteAmount% %FormatidxQuoteAmount% 
+
+ %quotevariance% 
+ %checkBest% 
+ %quotestatus% 
+ %bidding% 
+ %nsent% 
+ %nplanroom% 
+ %notesAux% 
+
+ %metadataicon% 
+
+ %sourcequote% 
+
+ %viewquote% 
+ %attach% 
+ %MoreDetail% 
+
+ %ProjectNum% 
+ %ProjectTitle% 
+ %CC% 
+ %DefaultCat% 
+ %typequote% 
+ %FormatidxQuoteAmount% 
+ %quotevariance% 
+ %checkBest% 
+ %quotestatus% 
+ %bidding% 
+ %notesAux% 
+
+ %metadataicon% 
+
+ %sourcequote% %HeaderText% 
+
+ Loading... 
+
+ menu 
+
+ search 
+ Search 
+
+ autorenew 
+ Reload 
+
+ add 
+ New 
+
+ preview 
+ View 
+
+ filter_alt 
+ Filter 
+
+ data_usage 
+ Analytics 
+
+ more_horiz 
+ Other 
+
+ help 
+ Help 
+
+ Maximize 
+
+ expand_more expand_less 
+
+ 	Page 	of 	Your request is being processed... please wait. {"Title":"Manage Vendor Quotes for Original Scope","Manage":"Estimate","Menu":{"Options":[],"Enabled":"true","Onclick":"true"},"Search":{"Options":[{"Name":"","Id":"imgGo","Onclick":"ShowButtonSubmit1();","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true"},"Reload":{"Options":[],"Enabled":"true","Onclick":"true","ShowInPage":"false"},"Add":{"Options":[],"Enabled":"false","Onclick":"true","ShowInPage":"true"},"View":{"Options":[{"Name":"Planroom","Id":"btnViewPlanroom","Onclick":"window.open('../../asp/PlanroomView.asp?p=V29ya29yZGVySUQ9MTk0MDA0NiZXb3Jrb3JkZXJNb2Q9MDAmV29ya29yZGVyU3RhdHVzPUluUHJvZ3Jlc3MmRmFjaWxpdHlJRD0wMDIyMSZDbGllbnQ9cmVtbmFudGNvbnN0cnVjdGlvbg')","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Filter":{"Options":[{"Name":"","Id":"lnkFilterBox","Onclick":"javascript:filterBoxActivation()","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"Analytics":{"Options":[{"Name":"","Id":"btnAnalyticsView","Onclick":"AnalyticsBoxActivation('show', 'WorkorderID=1940046&WorkorderMod=00')","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"false","ShowInPage":"true"},"More":{"Options":[{"Name":"Compare","Id":"MenuCompare","Onclick":"","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Help":{"Options":[{"Name":"","Id":"","Onclick":"javascript:openLigthBox('318');","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true","ShowInPage":"true"},"Expand":{"Options":[{"Name":"","Id":"","Onclick":"toggleEclipseScreen({ autoIcon: this })","IconName":"","Enabled":true,"Manage":"ManageVendorQuotes"}],"Enabled":"true","Onclick":"true"},"ExpandAll":{"Options":[],"Enabled":"false","Onclick":"true"},"ContractAll":{"Options":[],"Enabled":"false","Onclick":"true"},"btnSave":{"Options":[{"Name":"Un-Cancel","Id":"btnMassUnCancel","Onclick":"MultipleUnCancel('1940046','00')","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Update","Id":"btnMassUpdate","Onclick":"OpenMassUpdate('00','takeoff','false', '&WorkorderID=1940046&WorkorderStatus=InProgress&FacilityID=00221&console=');","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"},{"Name":"Email","Id":"btnMassEmail","Onclick":"OpenMassEmail('1940046','00','&WorkorderStatus=InProgress&FacilityID=00221')","IconName":"","Enabled":"true","Manage":"btn btn_primary_alt"}],"Enabled":"true","Onclick":"true"},"Pagination":{"Options":[],"Enabled":"true","Onclick":"true"},"SearchNew":{"Options":[],"Enabled":"false","Onclick":"false"}} 
+
+ Filters 
+
+ Project: 
+
+ Scope: 
+
+ Cost Division: 
+
+ Cost Code: 
+
+ Vendor: 
+
+ Credential: 
+
+ Workflow: 
+
+ Category: 
+
+ Status: 
+
+ Type: 
+
+ Email: 
+
+ Columns: 
+
+ Bidding: 
+
+ Tools 
+ File 
+ More 
+ Vendor/Contact 
+ Type 
+ Date 
+ Bid ($) 
+ Best 
+ Status 
+ Bidding 
+ Sent 
+ Planroom 
+ Notes 
+ Log 
+ Source 
+
+ There are no Quotes on File! 
+
+ Note : Use Compare to evaluate Quotes, then "Select as Best" to update Estimate. 
+
+ 	Select one... Yes No Maybe 
+
+ 	Select one... Accept Reject 	Add Quote Note: 
+
+ go to Previuos go to Next

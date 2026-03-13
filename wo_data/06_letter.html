@@ -1,0 +1,208 @@
+
+<form id="formRefresh" method="post" style="display:none"></form>
+
+<script type="text/javascript">
+
+    $('.SlectBox').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        selectAll: true,
+        csvDispCount: 1,
+        setEventClickSelAll: true,
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+    });
+
+    function onclickSelAll(el) {
+        var O = el;
+        O.selAll.toggleClass('selected');
+        O.optDiv.find('li.opt').each(function (ix, e) {
+            e = $(e);
+            if (O.selAll.hasClass('selected')) {
+                if (!e.hasClass('selected')) e.trigger('click');
+            }
+            else
+                if (e.hasClass('selected')) e.trigger('click');
+        });
+    }
+
+</script>
+
+</body>
+<script language="JavaScript" src="../../asp/js/calendar.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/calendar-en.js" type="text/javascript"></script>
+<script language="JavaScript" src="../../asp/js/pickList.js?be731a6" type="text/javascript"></script>
+</html>
+
+<div id="DivPerformance" style="display:none"></div>
+
+
+<script>
+    //alert('');
+    if ('' != "") {
+        parent.$("#DialogMessageValue").html('');
+        parent.$("#textDialog").show();
+    }
+    else {
+        parent.$("#textDialog").hide();
+    }
+
+
+function refreshFromRecord(){ 
+     var currentUrlString = new String(document.location.href);
+     currentUrlString = currentUrlString.replace("#", "");
+     var urlParamsPage;
+     var posInt = currentUrlString.indexOf("?");
+     var act,rep;
+
+     if (posInt < 0) {
+          urlParamsPage = currentUrlString + "?i=1";
+          currentUrlString = urlParamsPage;
+          document.getElementById("formRefresh").action = currentUrlString;
+          formRefresh.submit();
+     }
+     else {
+          var posPage = (currentUrlString.toLowerCase()).indexOf("documents.asp");
+          urlParamsPage = currentUrlString.substring(posPage, currentUrlString.length);
+          var posIParam = urlParamsPage.indexOf("i=");
+          posInt = urlParamsPage.indexOf("?");
+
+          if (posIParam < 0) {
+                var posFirstEquals = urlParamsPage.indexOf("=");
+                var firstParamBefore = urlParamsPage.substring(posInt+1, posFirstEquals);
+                var firstParamAfter = "i=1&" + firstParamBefore;  
+                currentUrlString = urlParamsPage.replace(firstParamBefore, firstParamAfter);            
+          }
+          else {
+                var posA = urlParamsPage.indexOf("&", posIParam);
+                if (posA < 0) {
+                     act = urlParamsPage.substring(posIParam, urlParamsPage.length);
+                }
+                else {
+                     act = urlParamsPage.substring(posIParam, posA);
+                }
+                currentUrlString = urlParamsPage.replace(act, "i=1");
+          }
+          
+          document.Form1.action = currentUrlString; 
+          document.Form1.submit();
+     }
+}    
+
+    //var lstType = new pickList();
+    // lstType.init("LstType",230,250);
+
+     addDocumentClickEvent(hideMenu);
+
+     document.onclick = hideMenu;
+</script>
+
+
+
+<script type="text/javascript">
+
+	  
+		$('#Lst_Issues').SumoSelect({
+        search: true,
+        searchText: 'Search...',
+        selectAll: true,
+        csvDispCount: 1,
+		setEventClickSelAll: false,		
+		nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+        captionFormatAllSelected: '{0} selected',
+        placeholder: '0 selected'
+		});
+		
+		$('#LstWorkflow').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 1,
+			setEventClickSelAll: false,
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+        });
+     
+        $('#Lst_Companies').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 1,
+			setEventClickSelAll: false,
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+		});
+		
+		$('#Lst_Contacts').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 1,
+			setEventClickSelAll: false,
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+		});
+
+        $('#LstStatus').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 1,
+			setEventClickSelAll: false,
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+        });
+        
+        $('#LstDates').SumoSelect({
+			search: true,
+			searchText: 'Search...',
+			selectAll: true,
+			csvDispCount: 1,
+			setEventClickSelAll: false,
+			nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
+			captionFormatAllSelected: '{0} selected',
+			placeholder: '0 selected'
+        });
+
+        document.getElementById("menuoptions").style.maxHeight = "350px";
+        document.getElementById("menuoptions").style.overflowY = "auto";
+        document.getElementById("menuoptions").style.overflowX = "hidden";
+
+        $("#dLabel").click(function () {
+            jsonShowMenu('menuoptions', 'dLabel', 'flag=CORRESPONDENCE_MANAGE&woId=&woMod=&woStatus=&ManageIssues=&ManageMeeting=&ManageSpreadsheets=', '', 'MVQ_MANAGE');
+        });
+
+    var nrecordsSpreadSheet = '';
+    if (parseInt(nrecordsSpreadSheet) > 0) {
+        for (i = 1; i <= nrecordsSpreadSheet; i++) {
+            var j = i + 2;
+            var nameMenu = document.getElementById("trItemMenuShow" + j).childNodes[0].innerHTML;
+            document.getElementById("trItemMenuShow" + j).childNodes[0].innerHTML = "<img src='/rts/app/asp/images/spreadsheet_icon.png' class='spreadsheetIcon'/></i>"+nameMenu;
+        }
+    }
+
+    $("#TextToSearch").on('keypress', function (e) {
+        if (e.which == 13) {
+            document.getElementById("searchCriteria").value = document.getElementById("TextToSearch").value;
+            $("#frmmenu").submit();
+        }
+    });
+
+    var txtSearch = document.getElementById("searchCriteria").value;
+    if (txtSearch != '' && txtSearch != 'Search') {
+        document.getElementById("TextToSearch").value = txtSearch;
+        $("#TextToSearch").removeClass("HideTextToSearch").addClass("ShowTextToSearch");
+        $("#textSearch").css("display", "none");
+    }
+
+    $(document).ready(function () {
+        $("#TextToSearch").attr('maxlength', '100');
+    });
+
+    document.getElementById("viewActivitiesLog").style.display = "none";
+    window.addEventListener("resize", divOverflowChangePaddingTop);
+	</script>

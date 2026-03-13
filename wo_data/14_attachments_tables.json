@@ -1,0 +1,997 @@
+[
+  {
+    "headers": [
+      ""
+    ],
+    "rows": [
+      {
+        "": ""
+      }
+    ]
+  },
+  {
+    "headers": [
+      "",
+      "",
+      "Name",
+      "Create on",
+      "File Size",
+      "Type"
+    ],
+    "rows": [
+      {
+        "": "",
+        "Name": "001 - 09 65 36 - Static-Control Resilient Flooring\n                                                Date: 01/30/2024 / Original Scope",
+        "Create on": "01/30/2024",
+        "File Size": "55 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "001 - 10 75 00 - Flagpoles\n                                                Date: 01/30/2024 / Original Scope",
+        "Create on": "01/30/2024",
+        "File Size": "54 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "001 - Specifications (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "45 KB",
+        "Type": ".PDF"
+      },
+      {
+        "": "",
+        "Name": "A-001 - SITE PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "309 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-002 - SITE DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "286 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-101 - FLOOR PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "433 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-102 - ROOF PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "307 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-110 - EOS PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "174 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-120 - PARTITION TYPES PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "187 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-130 - DIMENSION FLOOR PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "245 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-201 - REFLECTED CEILING PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "513 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-301 - EXTERIOR ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "386 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-302 - EXTERIOR ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "285 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-310 - BUILDING SECTIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "563 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-401 - ENLARGED WATER CLOSET PLANS AND ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "448 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-410 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "410 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-410 ELEVATIONS - ENLARGED FLOOR PLANS AND INTERIOR (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "376 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-411 - ENLARGED FLOOR PLANS AND INTERIOR ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "270 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-420 - MILLWORK SECTIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "185 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-501 - APPARATUS BAY INTERIOR ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "399 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-701 - WALL SECTIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "271 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-702 - WALL SECTIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "245 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-720 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "255 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-721 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "252 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-722 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "274 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-723 - ENCLOSURE DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "235 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-730 - CEILING DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "244 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-801 - PARTITION TYPES - METAL FRAMED WALLS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "215 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-802 - PARTITION TYPES - CMU WALLS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "261 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-803 - PARTITION TYPES - CMU WALLS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "234 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-804 - PARTITION DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "281 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-810 - DOOR SCHEDULE (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "158 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-811 - DOOR DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "320 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-812 - DOOR DETAILS - SPECIALTY (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "213 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-820 - STOREFRONT  LOUVER ELEVATIONS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "198 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "A-821 - STOREFRONT DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "261 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "B-101 - LIFE SAFETY PLAN (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "467 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "Civil Drawings and Specifications - Full Set (Permit)\n                                                Date: 05/06/2024 / Original Scope",
+        "Create on": "05/06/2024",
+        "File Size": "1 MB",
+        "Type": ".PDF"
+      },
+      {
+        "": "",
+        "Name": "Cover Sheet (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "12 MB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-001 - SYMBOLS LEGEND - GENERAL NOTES - ELECTRICAL (2) - Addm 12 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "226 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-002 - FIXTURE SCHEDULE - ELECTRICAL (2) - Addm 12 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "166 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-010 - SITE PLAN - ELECTRICAL (2) - Addm 12\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "445 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-010 - SITE PLAN - ELECTRICAL (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "390 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-011 - SITE PHOTOMETRIC PLAN - ELECTRICAL (2) - Addm 12 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "349 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING (2) - Addm 12\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "473 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-101 - LEVEL 1 - FLOOR PLAN - LIGHTING (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "411 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-201 - LEVEL 1 - FLOOR PLAN - POWER (2) - Addm 12\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "431 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-201 - LEVEL 1 - FLOOR PLAN - POWER (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "366 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM (2) - Addm 12\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "391 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-301 - LEVEL 1 - FLOOR PLAN - FIRE ALARM (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "328 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-401 - ROOF PLAN - ELECTRICAL (2) - Addm 12 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "228 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-501 - DETAILS - ELECTRICAL (2) - Addm 12\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "224 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-501 - DETAILS - ELECTRICAL (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "143 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-502 - DETAILS - ELECTRICAL (2) - Addm 12\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "234 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-502 - DETAILS - ELECTRICAL (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "162 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-601 - ONE-LINE DIAGRAMS - ELECTRICAL (2) - Addm 12 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "197 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "E-701 - PANEL SCHEDULES (2) - Addm 12 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "498 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "F-001 - GENERAL NOTES  DESIGN CRITERIA -FIRE PROTECTION (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "192 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "F-101 - LEVEL 1 - FLOOR PLAN - FIRE PROTECTION (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "1 MB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "F-501 - DETAILS - FIRE PROTECTION (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "194 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "F-502 - DETAILS - FIRE PROTECTION (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "176 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "F-503 - DETAILS - FIRE PROTECTION (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "432 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "G-101 - DRAWING LEGEND AND BUILDING DATA (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "674 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "G-102 - SHEET INDEX (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "78 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "G-103 - CODE ANALYSIS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "101 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "G-104 - MOUNTING HEIGHTS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "222 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "G-105 - UL LISTINGS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "3 MB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "G-106 - UL LISTINGS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "918 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "ID-101 - FINISH PLAN AND SCHEDULE (02) - Addm 09\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "421 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "ID-101 - FINISH PLAN AND SCHEDULE (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "358 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "ID-301 - EQUIPMENT PLAN AND SCHEDULE (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "256 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "ID-401 - INTERIOR DETAILS (02) - Addm 09 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "256 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "LS-1 - SCALE 1  30 15 30 60 (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "1 MB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-001 - LEGEND, ABREVIATIONS, AND NOTES - HVAC (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "193 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-101 - LEVEL 1 - FLOOR PLAN - HVAC (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "483 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-106 - ROOF PLAN - HVAC (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "234 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-201 - ENLARGED GENERATOR ROOM PLANS - HVAC (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "249 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-501 - DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "205 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-502 - DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "208 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-601 - SCHEDULES - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "818 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-701 - CONTROLS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "742 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-801 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "502 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-802 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "331 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-803 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "302 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-804 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "334 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-805 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "443 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-806 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "337 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-807 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "375 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-808 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "278 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-809 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "412 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-810 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "346 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-811 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "397 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-812 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "316 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-813 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "339 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-814 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "333 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "M-815 - KITCHEN HOOD DETAILS - H.V.A.C. (2) - Addm 11 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "244 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-001 - GENERAL NOTES AND LEGEND - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "190 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-100 - FOUNDATION PLAN - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "686 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-101 - LEVEL 1 - FLOOR PLAN - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "473 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-106 - ROOF PLAN - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "208 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-201 - ENLARGED PLANS - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "429 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-301 - WASTE RISERS - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "341 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-302 - WATER RISERS - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "302 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-501 - DETAILS - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "215 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-502 - DETAILS - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "304 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "P-601 - SCHEDULES - PLUMBING (3) - Addm 13 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "190 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "PG-001 - GENERAL NOTES, LEGEND. SCHEDULES AND TABLES - GAS (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "882 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "PG001 - Generator Specifications\n                                                Date: 08/09/2024 / Original Scope",
+        "Create on": "08/09/2024",
+        "File Size": "704 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "PG-100 - FOUNDATIONS PLAN - GAS (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "304 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "PG-101 - LEVEL 1 - FLOOR PLAN - GAS (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "272 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "PG-201 - OVERALL GAS RISER - GAS (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "144 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-101 - GENERAL STRUCTURAL NOTES (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "346 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-201 - FOUNDATION PLAN (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "803 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-202 - SLAB ON GRADE PLAN (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "517 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-203 - LOW ROOF FRAMING PLAN (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "444 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-204 - HIGH ROOF FRAMING PLAN (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "384 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-301 - TYPICAL DETAILS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "850 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-302 - TYPICAL DETAILS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "536 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-303 - TYPICAL DETAILS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "379 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-401 - WALL SECTIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "440 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-402 - WALL SECTIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "449 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-403 - WALL SECTIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "539 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-404 - WALL SECTIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "559 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-405 - WALL SECTIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "424 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-501 - WALL ELEVATIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "641 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-502 - WALL ELEVATIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "740 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-503 - WALL ELEVATIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "587 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-504 - WALL ELEVATIONS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "397 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "S-601 - ISOMETRIC VIEWS (2) - Addm 10 [superseded]\n                                                Date: 06/11/2024 / Original Scope",
+        "Create on": "06/11/2024",
+        "File Size": "2 MB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "SP-1 - Site Plan (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "2 MB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "SP-2 - Site Plan (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "572 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-001 TECHNOLOGY - GENERAL NOTES  SYMBOLS LEGEND- (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "132 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-010 - SITE PLAN - TECHNOLOGY (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "221 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-101 - LEVEL 1 - FLOOR PLAN - TECHNOLOGY (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "318 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-201 - LEVEL 1 - FLOOR PLAN - ALERTING SYSTEM (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "318 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-501 - DETAILS - TECHNOLOGY (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "166 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-502 - DETAILS - TECHNOLOGY (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "142 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-503 - DETAILS - TECHNOLOGY (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "263 KB",
+        "Type": ".pdf"
+      },
+      {
+        "": "",
+        "Name": "T-601 - RISER DIAGRAM - TECHNOLOGY (Permit Set)\n                                                Date: 12/11/2023 / Original Scope",
+        "Create on": "12/11/2023",
+        "File Size": "109 KB",
+        "Type": ".pdf"
+      }
+    ]
+  }
+]

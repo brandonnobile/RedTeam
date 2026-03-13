@@ -1,0 +1,57 @@
+  
+<script id="js">
+    $(function () {
+        $("#tblHeading:not(.bodytext)").tablesorter({
+            theme: 'blue',
+            dateFormat: "mmddyyyy",
+            headers: {
+                0: { sorter: false },
+                1: { sorter: false }
+            }
+        });
+    });
+</script> 
+<div bgcolor="#FFFFFF" valign="top" width="100%" class="divOne" style="width: calc(100% - 428px);">
+    <div class="divTwo">
+    
+        <span class="spanOne">RedTeam Project Folder</span>
+        <i class="zmdi zmdi-chevron-right spanIOne"></i>
+        <span class="spanOne">Change Management</span>
+        <i class="zmdi zmdi-chevron-right spanIOne"></i>
+        <span id="projectfolder" class="spanTwo">Customer Change Orders</span>        
+    
+    </div>
+    <input type="hidden" id="DocumentFolderID" name="DocumentFolderID" value="" />        
+    <input type="hidden" id="WBSFolderSelected" name="WBSFolderSelected" value="" />        
+    <input type="hidden" id="WorkorderID" name="WorkorderID" value="1940046" />            
+    <table width="100%" height="100%" cellpadding="0" cellspacing="0" id="tableOrder" style="height: calc(100vh - 346px);"><tr class="Workarea_Header" style="height:100%"><td height="20" class="customTableHeaderContainer paddingLeftCero"><table id="tblHeading" class="Workarea_Header tablesorter" width="100%" border="0" height="100%" cellspacing="0" cellpadding="0"><thead class="pright tblOne"><tr bgcolor="#f3f4f6" class="tblTwo"><th id="SelectAll" width="46px" height="34px" nowrap><input type="checkbox" class="chkbox-co-existence checkAll" style="position: relative !important; opacity: 1 !important; pointer-events: auto !important;" name="chkAll" id="chkAll" onclick="checkAll();"></th><th width="44px" class="paddingLeft10" nowrap></th><th width="100%" class="paddingLeft6">Name</th><th width="114px" nowrap>Create on</th><th width="75px" nowrap>File Size</th><th width="83px" nowrap>Type</th></tr></thead><tbody id="divOverflow" style="height: calc(100vh - 228px);" class="tblThree"><tr><td width="10" valign="middle" class="border0" nowrap></td><td colspan="5" width="100%" class="border0" valign="middle"><br><font class="orange b1">There are no files in this section!</font></td></tr><div id='divToolsFile'></div></tbody><input type="hidden" name="nItems" id="nItems" value="" /><input type="hidden" name="nSelections" id="nSelections" value="0" /><input type="hidden" name="doctype" id="doctype" value="RCO" /><input type="hidden" id="txt_folder" name="txt_folder" value="ChangeManagement"/><input type="hidden" id="txt_itemfolder" name="txt_itemfolder" value="CustomerChangeOrders"/><input type="hidden" id="WorkorderID" name="WorkorderID" value="1940046"/><input type="hidden" id="WorkorderMod" name="WorkorderMod" value="00"/><input type="hidden" id="vFiles" name="vFiles" value=""/><input type="hidden" id="OpenLink" name="OpenLink" value=""/><input type="hidden" name="UploadIDSelections" id="UploadIDSelections" value="" /></table></td></tr></table><div id="warningDelete" style="display:none; position: fixed;"><div id="warningDeleteInt" class="warningDeleteInt"></div></div></div>
+<script>
+    var WorkorderID = '1940046';
+    var WorkorderMod = '00';
+    var OpenLink = '';
+    if (OpenLink != "true") {
+        $(".RightClickFile").contextmenu(function (event) {
+            var id = $(this).attr("id");
+            var count = $(this).attr("counter");
+            var idItem = $(this).attr("idItem");
+            var check = document.getElementById("chkItem" + count).checked;
+            if (check == false) trclick(count);
+            var nSelections = document.getElementById("nSelections").value;
+            var itemsDelete = "";
+            if (nSelections > 1) {
+                for (i = 1; i <= nSelections; i++) {
+                    if (document.getElementById("chkItem" + i)) {
+                        if (document.getElementById("chkItem" + i).checked) {
+                            itemsDelete = itemsDelete + document.getElementById("UploadID" + i).value + ",";
+                        }
+                    }
+                }
+            }
+            var param = "WorkorderID=" + WorkorderID + "&WorkorderMod=" + WorkorderMod + "&IdItem=" + idItem + "&line=" + count + "&nSelections=" + nSelections + "&lstFilesID=" + itemsDelete;
+            var jsonParamsAux = "/ProjectDocuments/jsonEvalToolsFile.asp?p=" + Base64.encode(param);
+            if ($('#trToolsFile_' + count)) $('#trToolsFile_' + count).css("display", 'none');
+            showJsonOptions(id, count, jsonParamsAux, 'show', 'trToolsFile_' + count, 'tr_' + count, '', 'row');
+            event.preventDefault();
+        });
+    }
+</script>
