@@ -3,3 +3,4 @@ __pycache__/
 wo_data/
 wo_data_backup.*
 gdrive_service_account.json
+gdrive_user_token.json
