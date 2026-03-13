@@ -82,6 +82,33 @@ def find_or_create_folder(tokens, name, parent_id):
     return tokens, resp.json()['id']
 
 
+def list_existing_files(tokens, parent_id):
+    """List all file names already in a Drive folder."""
+    headers = get_headers(tokens)
+    existing = set()
+    page_token = None
+    while True:
+        params = {
+            'q': f"'{parent_id}' in parents and trashed=false",
+            'fields': 'nextPageToken,files(name)',
+            'pageSize': 1000
+        }
+        if page_token:
+            params['pageToken'] = page_token
+        resp = session.get(f'{API_BASE}/drive/v3/files', params=params, headers=headers)
+        if resp.status_code == 401:
+            tokens = refresh_access_token(tokens)
+            headers = get_headers(tokens)
+            continue
+        data = resp.json()
+        for f in data.get('files', []):
+            existing.add(f['name'])
+        page_token = data.get('nextPageToken')
+        if not page_token:
+            break
+    return tokens, existing
+
+
 def upload_file(tokens, filepath, parent_id, retries=3):
     """Upload a file using resumable upload for large files, multipart for small."""
     filename = os.path.basename(filepath)
@@ -162,26 +189,34 @@ def upload_file(tokens, filepath, parent_id, retries=3):
 
 
 def upload_directory(tokens, local_dir, parent_id):
-    """Recursively upload a directory to Google Drive."""
+    """Recursively upload a directory to Google Drive, skipping existing files."""
     ok_count = 0
     fail_count = 0
+    skip_count = 0
+
+    # Check what's already uploaded in this folder
+    tokens, existing = list_existing_files(tokens, parent_id)
 
     for item in sorted(os.listdir(local_dir)):
         item_path = os.path.join(local_dir, item)
         if os.path.isdir(item_path):
             print(f"\n[Folder] {item}/")
             tokens, folder_id = find_or_create_folder(tokens, item, parent_id)
-            sub_ok, sub_fail, tokens = upload_directory(tokens, item_path, folder_id)
+            sub_ok, sub_fail, sub_skip, tokens = upload_directory(tokens, item_path, folder_id)
             ok_count += sub_ok
             fail_count += sub_fail
+            skip_count += sub_skip
         elif os.path.isfile(item_path):
+            if item in existing:
+                skip_count += 1
+                continue
             tokens, success = upload_file(tokens, item_path, parent_id)
             if success:
                 ok_count += 1
             else:
                 fail_count += 1
 
-    return ok_count, fail_count, tokens
+    return ok_count, fail_count, skip_count, tokens
 
 
 def main():
@@ -200,9 +235,9 @@ def main():
     print(f"Uploading {total_files} files from {target_dir} to Google Drive...")
 
     tokens, wo_folder_id = find_or_create_folder(tokens, os.path.basename(target_dir), PARENT_FOLDER_ID)
-    ok_count, fail_count, tokens = upload_directory(tokens, target_dir, wo_folder_id)
+    ok_count, fail_count, skip_count, tokens = upload_directory(tokens, target_dir, wo_folder_id)
 
-    print(f"\nDone! {ok_count} uploaded, {fail_count} failed.")
+    print(f"\nDone! {ok_count} uploaded, {skip_count} skipped (already exist), {fail_count} failed.")
 
 
 if __name__ == '__main__':
